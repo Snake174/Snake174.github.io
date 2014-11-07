@@ -1,0 +1,30 @@
+body {
+  background-color: #EEEEEE;
+  background-image: url('../img/background-haloween.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+p {
+  text-indent: 30px;
+}
+
+a:link {
+  color: #0000DD;
+  text-decoration: none;
+}
+
+a:visited {
+  color: purple;
+  text-decoration: none;
+}
+
+a:active {
+  color: #0000FF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0000AA;
+  text-decoration: none;
+}
