@@ -40,5 +40,39 @@ $(document).ready( function() {
       autoSubmit: false
     }
   );
+  
+  $('#contact_form form').live( 'submit', function(e) {
+      e.preventDefault();
+
+      var email = $('input[name=email]').val();
+      var body = $('#contact_form form #body').val();
+
+      $.ajax( {
+        type: 'POST',
+        url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+        data: {
+          'key': 'atuMPWDK1OaYmmxeH_28Lg',
+          'message': {
+            'from_email': email,
+            'to': [
+              {
+                'email': 'burlachenkomaxim@gmail.com',
+                'type': 'to'
+              },
+              {
+                'email': 'jonnysereb@gmail.com',
+                'type': 'to'
+              }
+            ],
+            'autotext': 'true',
+            'subject': 'http://Snake174.github.io/ - обратная связь',
+            'html': body
+          }
+        }
+      } ).done( function( response ) {
+        $('#contact_form').html('Письмо успешно отправлено');
+      });
+    }
+  )
 
 } );
