@@ -52,6 +52,12 @@ $(document).ready( function() {
         $('.contacts_status').html('<b><font color=#AA0000>Введите данные</font></b>');
         return;
       }
+      
+      if (checkEmail( email ) == false)
+      {
+        $('.contacts_status').html('<b><font color=#AA0000>Некорректный email</font></b>');
+        return;
+      }
 
       $.ajax( {
         type: 'POST',
