@@ -62,16 +62,16 @@ jQuery.QapTcha = {
 							action : 'qaptcha',
 							qaptcha_key : inputQapTcha.attr('name')
 						},*/
-						function(data) {
+						/*function(data) {
 							if(!data.error)
-							{
+							{*/
 								Slider.draggable('disable').css('cursor','default');
 								inputQapTcha.val('');
 								TxtStatus.text(opts.txtUnlock).addClass('dropSuccess').removeClass('dropError');
 								form.find('input[type=\'submit\']').removeAttr('disabled');
 								if(opts.autoSubmit) form.find('input[type=\'submit\']').trigger('click');
-							}
-						},'json');
+							/*}
+						},'json');*/
 					}
 				}
 			});
