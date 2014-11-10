@@ -35,7 +35,7 @@ $(document).ready( function() {
   
   $('.QapTcha').QapTcha(
     {
-      disabledSubmit: false,
+      disabledSubmit: true,
       autoRevert: true,
       autoSubmit: false
     }
