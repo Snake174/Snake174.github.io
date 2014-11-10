@@ -12,8 +12,8 @@ jQuery.QapTcha = {
 	build : function(options)
 	{
         var defaults = {
-			txtLock : 'Заблокировано',
-			txtUnlock : 'Разблокировано',
+			txtLock : 'Переместите ползунок вправо',
+			txtUnlock : 'Теперь можно отправить письмо',
 			disabledSubmit : true,
 			autoRevert : true,
 			PHPfile : '',
