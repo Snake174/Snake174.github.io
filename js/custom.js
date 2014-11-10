@@ -32,10 +32,5 @@ $(document).ready( function() {
   }, 'text' );
   
   $('#[id ^= table_]').dataTable();
-  
-  if (checkEmail('test.adsd.mail.ru'))
-    alert('OK');
-  else
-    alert('NO');
-  
+
 } );
