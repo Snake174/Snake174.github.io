@@ -12,8 +12,8 @@ $(document).ready( function() {
     var sWord = '(' + sAtom + '|' + sQuotedString + ')';
     var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
     var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
-    var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
-    var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+    var sAddrSpec = sLocalPart + '\\x40' + sDomain;
+    var sValidEmail = '^' + sAddrSpec + '$';
 
     var reValidEmail = new RegExp( sValidEmail );
 
