@@ -35,10 +35,56 @@ $(document).ready( function() {
   
   $('.QapTcha').QapTcha(
     {
-      disabledSubmit: false,
+      disabledSubmit: true,
       autoRevert: true,
       autoSubmit: false
     }
   );
+  
+  $('#contact_form form').live( 'submit', function(e) {
+      e.preventDefault();
+
+      var email = $('input[name=email]').val();
+      var body = $('#contact_form form #body').val();
+      
+      if (email == '' || body == '')
+      {
+        $('.contacts_status').html('<b><font color=#AA0000>Введите данные</font></b>');
+        return;
+      }
+      
+      if (checkEmail( email ) == false)
+      {
+        $('.contacts_status').html('<b><font color=#AA0000>Некорректный email</font></b>');
+        return;
+      }
+
+      $.ajax( {
+        type: 'POST',
+        url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+        data: {
+          'key': 'atuMPWDK1OaYmmxeH_28Lg',
+          'message': {
+            'from_email': email,
+            'to': [
+              {
+                'email': 'burlachenkomaxim@gmail.com',
+                'type': 'to'
+              },
+              {
+                'email': 'jonnysereb@gmail.com',
+                'type': 'to'
+              }
+            ],
+            'autotext': 'true',
+            'subject': 'http://Snake174.github.io/ - обратная связь',
+            'html': body
+          }
+        }
+      } ).done( function( response ) {
+        $('#contact_form').html('<font color=#00AA00>Письмо успешно отправлено</font>');
+      });
+    }
+  )
 
 } );

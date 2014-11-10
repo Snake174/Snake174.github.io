@@ -12,11 +12,11 @@ jQuery.QapTcha = {
 	build : function(options)
 	{
         var defaults = {
-			txtLock : 'Locked : form can\'t be submited',
-			txtUnlock : 'Unlocked : form can be submited',
+			txtLock : 'Переместите ползунок вправо',
+			txtUnlock : 'Теперь можно отправить письмо',
 			disabledSubmit : true,
 			autoRevert : true,
-			PHPfile : 'php/Qaptcha.jquery.php',
+			PHPfile : '',
 			autoSubmit : false
         };
 
@@ -58,20 +58,20 @@ jQuery.QapTcha = {
 					if(ui.position.left > (bgSlider.width()-Slider.width()-10))
 					{
 						// set the SESSION iQaptcha in PHP file
-						$.post(opts.PHPfile,{
+						/*$.post(opts.PHPfile,{
 							action : 'qaptcha',
 							qaptcha_key : inputQapTcha.attr('name')
-						},
-						function(data) {
+						},*/
+						/*function(data) {
 							if(!data.error)
-							{
+							{*/
 								Slider.draggable('disable').css('cursor','default');
 								inputQapTcha.val('');
 								TxtStatus.text(opts.txtUnlock).addClass('dropSuccess').removeClass('dropError');
 								form.find('input[type=\'submit\']').removeAttr('disabled');
 								if(opts.autoSubmit) form.find('input[type=\'submit\']').trigger('click');
-							}
-						},'json');
+							/*}
+						},'json');*/
 					}
 				}
 			});
