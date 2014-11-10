@@ -58,10 +58,10 @@ jQuery.QapTcha = {
 					if(ui.position.left > (bgSlider.width()-Slider.width()-10))
 					{
 						// set the SESSION iQaptcha in PHP file
-						$.post(opts.PHPfile,{
+						/*$.post(opts.PHPfile,{
 							action : 'qaptcha',
 							qaptcha_key : inputQapTcha.attr('name')
-						},
+						},*/
 						function(data) {
 							if(!data.error)
 							{
