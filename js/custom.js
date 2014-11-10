@@ -33,7 +33,7 @@ $(document).ready( function() {
   
   $('#[id ^= table_]').dataTable();
   
-  if (checkEmail('test@mail.ru'))
+  if (checkEmail('test@.adsd.mail.ru'))
     alert('OK');
   else
     alert('NO');
