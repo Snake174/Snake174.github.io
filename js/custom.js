@@ -32,5 +32,13 @@ $(document).ready( function() {
   }, 'text' );
   
   $('#[id ^= table_]').dataTable();
+  
+  $('.QapTcha').QapTcha(
+    {
+      disabledSubmit: false,
+      autoRevert: true,
+      autoSubmit: false
+    }
+  );
 
 } );
