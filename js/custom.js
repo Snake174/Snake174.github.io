@@ -46,6 +46,12 @@ $(document).ready( function() {
 
       var email = $('input[name=email]').val();
       var body = $('#contact_form form #body').val();
+      
+      if (email == '' || body == '')
+      {
+        $('.contacts_status').html('<b><font color=#AA0000>Введите данные</font></b>');
+        return;
+      }
 
       $.ajax( {
         type: 'POST',
