@@ -12,8 +12,8 @@ jQuery.QapTcha = {
 	build : function(options)
 	{
         var defaults = {
-			txtLock : 'Locked : form can\'t be submited',
-			txtUnlock : 'Unlocked : form can be submited',
+			txtLock : 'Заблокировано',
+			txtUnlock : 'Разблокировано',
 			disabledSubmit : true,
 			autoRevert : true,
 			PHPfile : '',
