@@ -77,7 +77,7 @@ $(document).ready( function() {
               }
             ],
             'autotext': 'true',
-            'subject': 'http://Snake174.github.io/ - обратная связь',
+            'subject': 'http://snake174.github.io/ - Обратная связь',
             'html': body
           }
         }
