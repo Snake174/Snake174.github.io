@@ -159,7 +159,7 @@ ul#menu li ul li a:hover {
 .section {
   width: 100%;
   background: #EFEFEF;
-  margin: 0 0 30px;
+  margin: 0 0 3px;
 }
 
 ul.tabs {
@@ -174,7 +174,7 @@ ul.tabs {
   float: left;
   display: inline;
   margin: 0 1px -1px 0;
-  padding: 0 55px 1px;
+  padding: 0 13px 1px;
   color: #777;
   cursor: pointer;
   background: #F9F9F9;
