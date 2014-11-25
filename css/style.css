@@ -167,7 +167,7 @@ ul.tabs {
   line-height: 25px;
   list-style: none;
   border-bottom: 1px solid #DDD;
-  background: transparent;
+  background: #FFF;
 }
 
 .tabs li {
