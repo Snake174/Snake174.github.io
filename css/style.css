@@ -158,7 +158,7 @@ ul#menu li ul li a:hover {
 
 .section {
   width: 100%;
-  background: transparent;
+  background: #EFEFEF;
   margin: 0 0 30px;
 }
 
@@ -167,7 +167,7 @@ ul.tabs {
   line-height: 25px;
   list-style: none;
   border-bottom: 1px solid #DDD;
-  background: #FFF;
+  background: transparent;
 }
 
 .tabs li {
