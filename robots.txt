@@ -1,4 +1,5 @@
 User-agent: *
+Crawl-delay: 2
 Disallow: /js/
 Disallow: /css/
 Disallow: /img/
