@@ -158,8 +158,8 @@ ul#menu li ul li a:hover {
 
 .section {
   width: 100%;
-  background: #EFEFEF;
-  margin: 0 0 3px;
+  background: transparent;
+  margin: 0 0 30px;
 }
 
 ul.tabs {
