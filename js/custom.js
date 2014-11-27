@@ -72,7 +72,7 @@ $(document).ready( function() {
       
       if (checkEmail( email ) == false)
       {
-        $('.contacts_status').html('<b><font color=#AA0000>Некорректный email</font></b>');
+        $('.contacts_status').html('<b><font color=#AA0000>Некорректный E-mail</font></b>');
         return;
       }
 
