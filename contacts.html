@@ -1,97 +1,159 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="content-language" content="ru">
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="img/dog.ico" type="image/x-icon" />
-    <meta name="robots" content="index, follow">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="copyright" content="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="ru">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="ser" >
+  <meta name="copyright" content="">
+  <link rel="shortcut icon" href="img/dog.ico" type="image/x-icon" />
+  <title>Статьи, игры, программы</title>
+  <style> 
+    body, html {
+      margin: 0px;
+      padding: 0px;
+      height: 100%;
+      text-align: justify;
+      background-image: url('img/wood_background.png');
+      background-repeat: repeat;
+      background-attachment: fixed;
+    }
+    * html #main {
+      height: 100%;
+    }
+    div {
+      //height: 100%;
+    }
+    p {
+      text-indent: 30px;
+    }
+    a:link {
+      color: #0000DD;
+      text-decoration: none;
+    }
+    a:visited {
+      color: purple;
+      text-decoration: none;
+    }
+    a:active {
+      color: #0000FF;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #0000AA;
+      text-decoration: underline;
+    }
+    #main {
+      width: 100%;
+      margin: 0 auto;
+      text-align: justify;
+      min-width: 480px;
+      width:expression(
+        (document.compatMode && document.compatMode == 'CSS1Compat')
+        ?
+        (document.documentElement.clientWidth < 480 ? "480px" : "auto")
+        :
+        (document.body.clientWidth < 480 ? "480px" : "auto")
+      );
+      min-height: 100%;
+    }
+    #header {
+      width: 100%;
+      height: 100px;
+    }
+    #header #head_logo {
+      width: 300px;
+      height: 100px;
+      float: left;
+    }
+    #wrapper {
+      float: right;
+      width: 100%;
+      height: 100%;
+      margin-left: -300px;
+    }
+    #content {
+      margin-left: 300px;
+      padding: 10px;
+      border-style: solid;
+      border-width: 27px;
+      -moz-border-image: url(img/border.png) 27 round;
+      -webkit-border-image: url(img/border.png) 27 round;
+      -o-border-image: url(img/border.png) 27 round;
+      border-image: url(img/border.png) 27 fill round;
+      background-image: url('img/paper_background.png');
+      background-repeat: repeat;
+    }
+    #extra2 {
+      margin-left: 300px;
+      margin-right: 0;
+      height: 50px;
+      line-height: 50px;
+    }
+    #menu {
+      float: left;
+      width: 300px;
+    }
+    #extra1 {
+      float: left;
+      width: 300px;
+    }
+    #footer {
+      clear: both;
+      height: 30px;
+      line-height: 30px;
+      margin-top: -50px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      vertical-align: middle;
+      background-color:#FFC0FF;
+      font-size: 12px;
+      font-weight: bold;
+      color: #CCC;
+      border-style: solid;
+      border-width: 10px;
+      -moz-border-image: url(img/border-footer.png) 10 round;
+      -webkit-border-image: url(img/border-footer.png) 10 round;
+      -o-border-image: url(img/border-footer.png) 10 round;
+      border-image: url(img/border-footer.png) 10 fill round;
+      background-image: url('img/wood_background_2.png');
+      background-repeat: repeat;
+    }
+  </style>
+  
+  <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="css/QapTcha.jquery.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/twilight.css" />
+  
+  <script async type="text/javascript" src="js/jquery.min.js"></script>
+  <script async type="text/javascript" src="js/jquery-ui.js"></script>
+  <script async type="text/javascript" src="js/jquery.ui.touch.js"></script>
+  <script async type="text/javascript" src="js/QapTcha.jquery.js"></script>
+  <script async type="text/javascript" src="js/menu.js"></script>
+  <script async type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+  <script async type="text/javascript" src="js/rainbow-custom.min.js"></script>
+  <script async type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" language="javascript" class="init"></script>
+</head>
+<body>
+  <div id="main"> 
+  
+    <div id="header">
+      <div id="head_logo" title="" onclick="window.location='/';">
+        <img src="img/head.jpg" alt="Статьи, игры, программы">
+      </div>
+    </div>
     
-    <title>Sn@Ke - Контакты</title>
+    <div id="wrapper">
+      <div id="content">
 
-    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="css/QapTcha.jquery.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/twilight.css" />
-    
-    <script type="text/javascript">
-      var today = new Date();
-      var d = today.getDate();
-      var m = today.getMonth() + 1;
-
-      if (d == 31 && m == 10)
-        document.write('<link rel="stylesheet" type="text/css" href="css/haloween.css" />');
-      else if (d == 14 && m == 3)
-        document.write('<link rel="stylesheet" type="text/css" href="css/max.css" />');
-      else
-        document.write('<link rel="stylesheet" type="text/css" href="css/style.css" />');
-    </script>
-    
-    <style type="text/css" class="init"></style>
-
-    <script async type="text/javascript" src="js/jquery.min.js"></script>
-    <script async type="text/javascript" src="js/jquery-ui.js"></script>
-    <script async type="text/javascript" src="js/jquery.ui.touch.js"></script>
-    <script async type="text/javascript" src="js/QapTcha.jquery.js"></script>
-    <script async type="text/javascript" src="js/menu.js"></script>
-    <script async type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-    <script async type="text/javascript" src="js/rainbow-custom.min.js"></script>
-    <script async type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" language="javascript" class="init"></script>
-  </head>
-
-  <body>
-    <script data-type="slim" data-position="bottom" data-timer="60" data-appkeyid="1f8c95b3-9dcd-46a1-a8fb-99498a4199ff" src="//s.appintop.com/widget/appbnr.js" async="1"></script>
-    <table border="0" width="100%">
-      <tr>
-        <td style="height: 100px;">
-          <a href="index.html"><img src="img/head.jpg"></a>
-        </td>
-        <td>
-          <div class="header"></div>
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" style="width: 300px;">
-          <ul id="menu">
-            <li>
-              <a href="#">Программы</a>
-              <ul>
-                <li><a href="guitar_chords.html">Guitar Chords</a></li>
-                <li><a href="love_exporter.html">LÖVE Exporter</a></li>
-                <li><a href="pipmak_assistant.html">Pipmak Assistant</a></li>
-                <li><a href="tasm_ide.html">TASM IDE</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Статьи</a>
-              <ul>
-                <li><a href="tanks.html">Создание танка на движке LÖVE</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Игры</a>
-              <ul>
-                <li><a href="vernike.html">Не следует обманывать инспектора</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Обратная связь</a>
-              <ul>
-                <li><a href="contacts.html">Контакты</a></li>
-                <li><a href="payments.html">Поддержать разработчиков</a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-        <td valign="top" rowspan="2" style="padding: 5px;">
-
-<center><h3>Контакты</h3></center>
+<h3 align="center">Контакты</h3>
 
 <center>
 <div id="contact_form">
@@ -111,25 +173,50 @@
 </div>
 </center>
 
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" style="padding-top: 30px;">
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- snake174.github.io banner 300x600 -->
-          <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:600px"
-            data-ad-client="ca-pub-4693591635005759"
-            data-ad-slot="3744314425"></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" style="height: 100px;">
-          <div class="footer"></div>
-          
+      </div>
+      
+      <div id="extra2">
+        Extra 2
+      </div>
+    </div>
+
+    <div id="menu">
+
+<ul id="menu">
+  <li>
+    <a href="#">Программы</a>
+    <ul>
+      <li><a href="guitar_chords.html">Guitar Chords</a></li>
+      <li><a href="love_exporter.html">LÖVE Exporter</a></li>
+      <li><a href="pipmak_assistant.html">Pipmak Assistant</a></li>
+      <li><a href="tasm_ide.html">TASM IDE</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Статьи</a>
+    <ul>
+      <li><a href="tanks.html">Создание танка на движке LÖVE</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Игры</a>
+    <ul>
+      <li><a href="vernike.html">Не следует обманывать инспектора</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Обратная связь</a>
+    <ul>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="payments.html">Поддержать разработчиков</a></li>
+    </ul>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="extra1">
+
 <!-- Yandex.Metrika informer -->
 <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
 target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
@@ -163,9 +250,10 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-          
-        </td>
-      </tr>
-    </table>
-  </body>
+
+    </div>
+    
+  </div>
+  <div id="footer">&copy; Burlachenko Maxim & Serebryannikov Evgeny 2014</div>
+</body>
 </html>
