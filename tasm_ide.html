@@ -188,7 +188,7 @@
 </p>
 
 <p>
-<b>Скачать:</b> <a href="files/tasm_ide/TASM_IDE.zip" download="TASM_IDE.zip"><b>TASM</b></a> (1.7 Mb)
+<b>Скачать:</b> <a class="file-download" href="files/tasm_ide/TASM_IDE.zip" download="TASM_IDE.zip"><b>TASM</b></a> (1.7 Mb)
 </p>
 
 <p>
@@ -249,5 +249,15 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
         </td>
       </tr>
     </table>
+    
+    <script type="text/javascript">
+      (function() {
+        var anchorList = document.getElementsByClassName("file-download");
+        for (var i = 0, length = anchorList.length; i < length; i++) {
+          nodeList[i].setAttribute('href', "http://FileKit.org/outside/download?uid=82&url=" + nodeList[i].getAttribute('href') );
+        }
+      })();
+    </script>
+    
   </body>
 </html>
