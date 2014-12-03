@@ -472,7 +472,7 @@
 </p>
 
 <p>
-<b>Скачать версию для Windows:</b> <a href="files/varnike/Varnike.zip" download="Varnike.zip"><b>Не следует обманывать инспектора ...</b></a> (23.2 Mb)
+<b>Скачать версию для Windows:</b> <a class="file-download" href="files/varnike/Varnike.zip" download="Varnike.zip"><b>Не следует обманывать инспектора</b></a> (23.2 Mb)
 </p>
 
 <p>
@@ -535,5 +535,15 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
         </td>
       </tr>
     </table>
+    
+    <script type="text/javascript">
+      (function() {
+        var anchorList = document.getElementsByClassName("file-download");
+        for (var i = 0, length = anchorList.length; i < length; i++) {
+          nodeList[i].setAttribute('href', "http://FileKit.org/outside/download?uid=82&url=" + nodeList[i].getAttribute('href') );
+        }
+      })();
+    </script>
+    
   </body>
 </html>
