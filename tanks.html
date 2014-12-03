@@ -893,8 +893,7 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 </p>
 
 <p>
-Ну и как же обойтись без исходников: <a href="http://FileKit.org/outside/download?name=Tanks.love&uid=82&url=http://snake174.github.io/files/tanks/Tanks.love&type=file&redirect=auto" target="_blank"><b>Tanks</b></a>
-<!--Ну и как же обойтись без исходников: <a href="files/tanks/Tanks.love" download="Tanks.love"><b>Tanks</b></a>-->
+Ну и как же обойтись без исходников: <a class="file-download" href="files/tanks/Tanks.love" download="Tanks.love"><b>Tanks</b></a>
 </p>
 
 <p>
@@ -957,5 +956,15 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
         </td>
       </tr>
     </table>
+    
+    <script type="text/javascript">
+      (function() {
+        var anchorList = document.getElementsByClassName("file-download");
+        for (var i = 0, length = anchorList.length; i < length; i++) {
+          nodeList[i].setAttribute('href', "http://FileKit.org/outside/download?uid=82&url=" + nodeList[i].getAttribute('href') );
+        }
+      })();
+    </script>
+    
   </body>
 </html>
