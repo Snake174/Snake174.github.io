@@ -150,13 +150,11 @@
     }
     #anonse-item {
       width: 100%;
-      height: 150px;
-      padding-top: 11px;
-      padding-bottom: 11px;
     }
     #teaser {
       float: left;
       width: 171px;
+      vertical-align: middle;
     }
     #anonse {
       margin-left: 180px;
