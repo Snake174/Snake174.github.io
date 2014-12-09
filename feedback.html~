@@ -154,7 +154,6 @@
   <script type="text/javascript" src="http://snake174.github.io/js/jquery-ui.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.ui.touch.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/QapTcha.jquery.js"></script>
-  <script type="text/javascript" src="http://snake174.github.io/js/sendMail.js"></script>
 </head>
 <body>
   <!-- Main Container Begin -->
