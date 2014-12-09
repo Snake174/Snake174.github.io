@@ -157,14 +157,14 @@
       width: 171px;
     }
     #anonse {
-      margin-left: 171px;
+      //margin-left: 171px;
     }
     #anonse-title {
-      margin-left: 171px;
+      //margin-left: 171px;
       text-align: center;
     }
     #anonse-text {
-      margin-left: 171px;
+      //margin-left: 171px;
       text-align: justify;
     }
   </style>
@@ -187,7 +187,7 @@
 
 <div id="anonse-item">
   <div id="teaser">
-  image
+    <img src="http://snake174.github.io/img/tanks/result.png" width="171" height="128">
   </div>
   <div id="anonse">
     <div id="anonse-title">
