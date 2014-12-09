@@ -149,8 +149,6 @@
       clear: both;
     }
   </style>
-  <link rel="stylesheet" type="text/css" href="css/twilight.css" />
-  <script type="text/javascript" src="js/rainbow-custom.min.js"></script>
 </head>
 <body>
   <!-- Main Container Begin -->
@@ -167,6 +165,212 @@
     <!-- Content Begin -->
     <div id="content">
       <div id="content-text">
+
+      </div>
+      <div id="content-extra">
+        <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+        <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+      </div>
+    </div>
+    <!-- Content End -->
+    <!-- Left Column Begin -->
+    <div id="left">
+      <div id="left-menu">
+        <ul id="menu">
+          <li>
+            <ul>
+              <li><a href="programs.html">Программы</a></li>
+              <li><a href="games.html">Игры</a></li>
+              <li><a href="articles.html">Статьи</a></li>
+              <li><a href="feedback.html">Обратная связь</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="left-extra">
+        <!-- Yandex.Metrika informer -->
+        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
+          target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+        <!-- /Yandex.Metrika informer -->
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+          (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+              try {
+                w.yaCounter26840853 = new Ya.Metrika({id:26840853,
+                  webvisor:true,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true});
+              } catch(e) { }
+            });
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+            if (w.opera == "[object Opera]") {
+              d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+          })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+        <!--cy-pr.com-->
+        <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
+        <!--cy-pr.com-->
+      </div>
+    </div>
+    <!-- Left Column End -->
+  </div>
+  <!-- Main Container End -->
+  <div id="clear"></div>
+  <!-- Footer Begin -->
+  <div id="footer">
+    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+  </div>
+  <!-- Footer End -->
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="ru">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="img/dog.ico" type="image/x-icon" />
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Love2D,танк,поворот,перемещение,следы,выстрел,lua,2d,game,tank,игра,анимация,hump,anim8,particle system,particles,частицы,система частиц">
+    <meta name="description" content="Создание танка на Love2D, управление стрельбой, перемещением и поворотом.">
+    <meta name="author" content="ser" >
+    <meta name="copyright" content="">
+    
+    <title>Sn@Ke - Создание танка на движке LÖVE</title>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/QapTcha.jquery.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/twilight.css" />
+    
+    <script type="text/javascript">
+      var today = new Date();
+      var d = today.getDate();
+      var m = today.getMonth() + 1;
+
+      if (d == 31 && m == 10)
+        document.write('<link rel="stylesheet" type="text/css" href="css/haloween.css" />');
+      else if (d == 14 && m == 3)
+        document.write('<link rel="stylesheet" type="text/css" href="css/max.css" />');
+      else
+        document.write('<link rel="stylesheet" type="text/css" href="css/style.css" />');
+    </script>
+    
+    <style type="text/css" class="init"></style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.touch.js"></script>
+    <script type="text/javascript" src="js/QapTcha.jquery.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/rainbow-custom.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" language="javascript" class="init"></script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M394D3"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M394D3');</script>
+    <!-- End Google Tag Manager -->
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57173099-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script data-type="slim" data-position="bottom" data-timer="60" data-appkeyid="1f8c95b3-9dcd-46a1-a8fb-99498a4199ff" src="//s.appintop.com/widget/appbnr.js" async="1"></script>
+    <table border="0" width="100%">
+      <tr>
+        <td style="height: 100px;">
+          <a href="index.html"><img src="img/head.jpg"></a>
+        </td>
+        <td>
+          <div class="header"></div>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" style="width: 300px;">
+        
+          <form action="http://www.google.ru" id="cse-search-box" target="_blank">
+            <div>
+              <input type="hidden" name="cx" value="partner-pub-4693591635005759:6207939625" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="text" name="q" style="width: 295px;" />
+              <input type="submit" name="sa" value="&#x041f;&#x043e;&#x0438;&#x0441;&#x043a;" />
+            </div>
+          </form>
+          <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+          <script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+          <script type="text/javascript" src="http://www.google.com/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
+          <script type="text/javascript" src="http://www.google.ru/coop/cse/brand?form=cse-search-box&amp;lang=ru"></script>
+
+          
+          <script type="text/javascript" src="http://www.google.com/cse/query_renderer.js"></script>
+          <div id="queries"></div>
+          <script src="http://www.google.com/cse/api/partner-pub-4693591635005759/cse/6207939625/queries/js?oe=UTF-8&amp;callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render"></script>
+        
+          <ul id="menu">
+            <li>
+              <a href="#">Программы</a>
+              <ul>
+                <li><a href="guitar_chords.html">Guitar Chords</a></li>
+                <li><a href="love_exporter.html">LÖVE Exporter</a></li>
+                <li><a href="pipmak_assistant.html">Pipmak Assistant</a></li>
+                <li><a href="tasm_ide.html">TASM IDE</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Статьи</a>
+              <ul>
+                <li><a href="tanks.html">Создание танка на движке LÖVE</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Игры</a>
+              <ul>
+                <li><a href="vernike.html">Не следует обманывать инспектора</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Обратная связь</a>
+              <ul>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="payments.html">Поддержать разработчиков</a></li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+        <td valign="top" rowspan="2" style="padding: 5px;">
 
 <center><h1>Создание танка на движке LÖVE</h1></center>
 
@@ -195,45 +399,45 @@
 
 <p>
 <center><b>Корпус танка с анимацией гусениц:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_body.png" width="576" height="64"></center>
+<center><img src="img/tanks/tank_body.png" width="576" height="64"></center>
 </p>
 
 <p>
 <center><b>Башня танка:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_top.png"></center>
+<center><img src="img/tanks/tank_top.png"></center>
 </p>
 
 <p>
 <center><b>След, оставляемый танком при движении:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_trail.png"></center>
+<center><img src="img/tanks/tank_trail.png"></center>
 </p>
 
 <p>
 <center><b>Выхлопные газы:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/cloud.png"></center>
+<center><img src="img/tanks/cloud.png"></center>
 </p>
 
 <p>
 <center><b>Патрон:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_bullet.png"></center>
+<center><img src="img/tanks/tank_bullet.png"></center>
 </p>
 
 <p>
 <center><b>Ракета:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/rocket.png"></center>
+<center><img src="img/tanks/rocket.png"></center>
 </p>
 
 <p>
 <center><b>Частицы для ракеты:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/rocket_smoke.png" width="16" height="16"></center>
+<center><img src="img/tanks/rocket_smoke.png" width="16" height="16"></center>
 </p>
 
 <p>
 Далее нам нужны вспомогательные библиотеки: 
 <ul>
   <li><a href="http://www.love2d.org/wiki/HUMP" target="_blank"><b>HUMP</b></a> для работы с <b>классами</b>, <b>векторами</b> и <b>таймером</b>.</li>
-  <li><a href="http://www.love2d.org/wiki/anim8"><b>anim8</b></a> для работы с <b>анимацией</b>.</li>  
-  <li>модуль <a href="http://FileKit.org/outside/download?name=Input.lua&uid=82&url=http://snake174.github.io/files/tanks/Input.lua&type=file&redirect=auto" target="_blank"><b>Input</b></a>, который я написал для более удобного контроля над <b>вводом</b> (по крайней мере для меня). Это не финальная его версия, планируется ещё добавить поддержку <b>Android</b>.</li>
+  <li><a href="http://www.love2d.org/wiki/anim8"><b>anim8</b></a> для работы с <b>анимацией</b>.</li>
+  <li>модуль <a href="files/tanks/Input.lua" download="Input.lua"><b>Input</b></a>, который я написал для более удобного контроля над <b>вводом</b> (по крайней мере для меня). Это не финальная его версия, планируется ещё добавить поддержку <b>Android</b>.</li>
 </ul>
 
 Нужно их скачать и поместить в папку <b>classes</b>.
@@ -241,7 +445,7 @@
 
 <p>
 В итоге должна получиться такая структура проекта:
-<center><img src="http://snake174.github.io/img/tanks/project_structure.png"></center>
+<center><img src="img/tanks/project_structure.png"></center>
 </p>
 
 <p>
@@ -727,6 +931,19 @@ return Tank
 </pre>
 </p>
 
+<div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- AdSenseAdaptiveBanner -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4693591635005759"
+     data-ad-slot="3074833226"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
 <p>
 Попробую понятней объяснить, что в данном классе происходит. В основном нам интересна только функция обновления, поэтому рассмотрим её более подробней.
 </p>
@@ -886,7 +1103,7 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 
 <p>
 <center><b>Система координат:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_axes.png" width="640" height="480"></center>
+<center><img src="img/tanks/tank_axes.png" width="640" height="480"></center>
 </p>
 
 <p>
@@ -903,7 +1120,7 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 
 <p>
 <center><b>Результат:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/result.png" width="640" height="480"></center>
+<center><img src="img/tanks/result.png" width="640" height="480"></center>
 </p>
 
 <p>
@@ -922,72 +1139,65 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 Ну и как же обойтись без исходников: <a href="http://FileKit.org/outside/download?name=Tanks.love&uid=82&url=http://snake174.github.io/files/tanks/Tanks.love&type=file&redirect=auto" target="_blank"><b>Tanks</b></a>
 </p>
 
-      </div>
-      <div id="content-extra">
-        <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
-        <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
-      </div>
-    </div>
-    <!-- Content End -->
-    <!-- Left Column Begin -->
-    <div id="left">
-      <div id="left-menu">
-        <ul id="menu">
-          <li>
-            <ul>
-              <li><a href="programs.html">Программы</a></li>
-              <li><a href="games.html">Игры</a></li>
-              <li><a href="articles.html">Статьи</a></li>
-              <li><a href="feedback.html">Обратная связь</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div id="left-extra">
-        <!-- Yandex.Metrika informer -->
-        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
-          target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
-        <!-- /Yandex.Metrika informer -->
+<p>
+<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+</p>
 
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript">
-          (function (d, w, c) {
-            (w[c] = w[c] || []).push(function() {
-              try {
-                w.yaCounter26840853 = new Ya.Metrika({id:26840853,
-                  webvisor:true,
-                  clickmap:true,
-                  trackLinks:true,
-                  accurateTrackBounce:true});
-              } catch(e) { }
-            });
-            var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script"),
-                f = function () { n.parentNode.insertBefore(s, n); };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-            if (w.opera == "[object Opera]") {
-              d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
-          })(document, window, "yandex_metrika_callbacks");
-        </script>
-        <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-        <!--cy-pr.com-->
-        <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
-        <!--cy-pr.com-->
-      </div>
-    </div>
-    <!-- Left Column End -->
-  </div>
-  <!-- Main Container End -->
-  <div id="clear"></div>
-  <!-- Footer Begin -->
-  <div id="footer">
-    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
-  </div>
-  <!-- Footer End -->
-</body>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" style="padding-top: 30px;">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- snake174.github.io banner 300x600 -->
+          <ins class="adsbygoogle"
+            style="display:inline-block;width:300px;height:600px"
+            data-ad-client="ca-pub-4693591635005759"
+            data-ad-slot="3744314425"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="height: 100px;">
+          <div class="footer"></div>
+          
+<!-- Yandex.Metrika informer -->
+<a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
+target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+<!-- /Yandex.Metrika informer -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter26840853 = new Ya.Metrika({id:26840853,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+          
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
