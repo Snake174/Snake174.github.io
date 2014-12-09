@@ -151,6 +151,7 @@
   </style>
   <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/jquery.dataTables.min.css">
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="http://snake174.github.io/js/dataTables.js"></script>
 </head>
 <body>
   <!-- Main Container Begin -->
