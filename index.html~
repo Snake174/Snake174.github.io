@@ -143,7 +143,7 @@
       vertical-align: middle;
       font-size: 12px;
       font-weight: bold;
-      color: #CCC;
+      color: #AAA;
     }
     #clear {
       clear: both;
