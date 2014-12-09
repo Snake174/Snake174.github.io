@@ -157,14 +157,12 @@
       width: 171px;
     }
     #anonse {
-      //margin-left: 171px;
+      margin-left: 180px;
     }
     #anonse-title {
-      //margin-left: 171px;
       text-align: center;
     }
     #anonse-text {
-      //margin-left: 171px;
       text-align: justify;
     }
   </style>
@@ -187,11 +185,11 @@
 
 <div id="anonse-item">
   <div id="teaser">
-    <img src="http://snake174.github.io/img/tanks/result.png" width="171" height="128">
+    <a href="http://snake174.github.io/html/articles/tanks.html"><img src="http://snake174.github.io/img/tanks/result.png" width="171" height="128"></a>
   </div>
   <div id="anonse">
     <div id="anonse-title">
-      <a href="http://snake174.github.io/html/articles/tanks.html">Создание танка на движке LÖVE</a>
+      <h3>Создание танка на движке LÖVE</h3>
     </div>
     <div id="anonse-text">
 <p>
