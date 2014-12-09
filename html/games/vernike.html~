@@ -150,8 +150,10 @@
     }
   </style>
   <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/jquery.dataTables.min.css">
+  <style type="text/css" class="init"></style>
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/dataTables.js"></script>
+  <script type="text/javascript" language="javascript" class="init"></script>
 </head>
 <body>
   <!-- Main Container Begin -->
