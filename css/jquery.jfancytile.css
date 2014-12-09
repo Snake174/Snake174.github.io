@@ -10,7 +10,7 @@ header, nav, section, article, aside, footer {
 	display: block;
 }
 .jfancybg-mask {
-	background: url("../img/gui/mask.png") no-repeat scroll 0 0 transparent;
+	background: url("http://snake174.github.io/img/gui/mask.png") no-repeat scroll 0 0 transparent;
 	height: 520px;
 	left: 0;
 	position: absolute;
@@ -63,7 +63,7 @@ header, nav, section, article, aside, footer {
 }
 /* jFancyTile Forward Navigation */
 .jfancytileForward {
-	background:url("../img/gui/arrow-r.png") no-repeat right 0;
+	background:url("http://snake174.github.io/img/gui/arrow-r.png") no-repeat right 0;
 	float:right;
 	-o-transition: margin-right 0.3s;
 	-moz-transition: margin-right 0.3s;
@@ -72,7 +72,7 @@ header, nav, section, article, aside, footer {
 	margin:0 -22px 0 0;
 }/* jFancyTile Backward Navigation */
 .jfancytileBack {
-	background:url("../img/gui/arrow-l.png") no-repeat 0 0;
+	background:url("http://snake174.github.io/img/gui/arrow-l.png") no-repeat 0 0;
 	float:left;
 	margin-left:-20px;
 	-o-transition: margin-left 0.3s;
