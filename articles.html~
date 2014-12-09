@@ -143,14 +143,16 @@
       vertical-align: middle;
       font-size: 12px;
       font-weight: bold;
-      color: #CCC;
+      color: #AAA;
     }
     #clear {
       clear: both;
     }
     #anonse-item {
       width: 100%;
-      height: 128px;
+      height: 150px;
+      padding-top: 11px;
+      padding-bottom: 11px;
     }
     #teaser {
       float: left;
