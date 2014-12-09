@@ -149,9 +149,14 @@
       clear: both;
     }
   </style>
+
   <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/jquery.jfancytile.css">
   <style type="text/css" class="init"></style>
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/jquery.ui.touch.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/dataTables.js"></script>
   <script type="text/javascript" language="javascript" class="init"></script>
