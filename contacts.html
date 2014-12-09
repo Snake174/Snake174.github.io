@@ -19,15 +19,9 @@
       padding: 0px;
       height: 100%;
       text-align: justify;
-      background-image: url('img/wood_background.png');
-      background-repeat: repeat;
-      background-attachment: fixed;
     }
     * html #main {
       height: 100%;
-    }
-    div {
-      //height: 100%;
     }
     p {
       text-indent: 30px;
@@ -48,6 +42,10 @@
       color: #0000AA;
       text-decoration: underline;
     }
+    strong {
+      text-decoration: none;
+      font-weight: normal;
+    }
     #main {
       width: 100%;
       margin: 0 auto;
@@ -64,66 +62,53 @@
     }
     #header {
       width: 100%;
-      height: 100px;
+      height: 150px;
     }
-    #header #head_logo {
-      width: 300px;
-      height: 100px;
+    #header-logo {
       float: left;
-    }
-    #wrapper {
-      float: right;
-      width: 100%;
-      height: 100%;
-      margin-left: -300px;
+      width: 250px;
+      height: 150px;
     }
     #content {
-      margin-left: 300px;
-      padding: 10px;
-      border-style: solid;
-      border-width: 27px;
-      -moz-border-image: url(img/border.png) 27 round;
-      -webkit-border-image: url(img/border.png) 27 round;
-      -o-border-image: url(img/border.png) 27 round;
-      border-image: url(img/border.png) 27 fill round;
-      background-image: url('img/paper_background.png');
-      background-repeat: repeat;
+      float: right;
+      width: 100%;
+      margin-left: -250px;
     }
-    #extra2 {
-      margin-left: 300px;
-      margin-right: 0;
+    #content-text {
+      margin-left: 250px;
+      padding: 10px;
+      text-align: justify;
+    }
+    #content-extra {
+      margin-left: 250px;
       height: 50px;
       line-height: 50px;
     }
-    #menu {
+    #left {
       float: left;
-      width: 300px;
+      width: 250px;
     }
-    #extra1 {
-      float: left;
-      width: 300px;
+    #left-menu {
+      width: 250px;
+    }
+    #left-extra {
+      width: 250px;
     }
     #footer {
       clear: both;
       height: 30px;
       line-height: 30px;
-      margin-top: -50px;
+      margin-top: -30px;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
       vertical-align: middle;
-      background-color:#FFC0FF;
       font-size: 12px;
       font-weight: bold;
       color: #CCC;
-      border-style: solid;
-      border-width: 10px;
-      -moz-border-image: url(img/border-footer.png) 10 round;
-      -webkit-border-image: url(img/border-footer.png) 10 round;
-      -o-border-image: url(img/border-footer.png) 10 round;
-      border-image: url(img/border-footer.png) 10 fill round;
-      background-image: url('img/wood_background_2.png');
-      background-repeat: repeat;
+    }
+    #clear {
+      clear: both;
     }
   </style>
   
@@ -143,17 +128,29 @@
   <script type="text/javascript" language="javascript" class="init"></script>
 </head>
 <body>
-  <div id="main"> 
-  
+
+  <!-- Main Container Begin -->
+  <div id="main">
+
+    <!-- Header Begin -->
     <div id="header">
-      <div id="head_logo" title="" onclick="window.location='/';">
+
+      <div id="header-logo"  title="" onclick="window.location='/';">
         <img src="img/head.jpg" alt="Статьи, игры, программы">
       </div>
-    </div>
-    
-    <div id="wrapper">
-      <div id="content">
 
+      <div id="header-content">
+      </div>
+
+    </div>
+    <!-- Header End -->
+
+    <div id="clear"></div>
+
+    <!-- Content Begin -->
+    <div id="content">
+
+      <div id="content-text">
 <h3 align="center">Контакты</h3>
 
 <center>
@@ -173,12 +170,18 @@
 </form>
 </div>
 </center>
-
       </div>
+
+      <div id="content-extra">
+      </div>
+
     </div>
+    <!-- Content End -->
 
-    <!--<div id="menu">
+    <!-- Left Column Begin -->
+    <div id="left">
 
+      <div id="left-menu">
 <ul id="menu">
   <li>
     <a href="#">Программы</a>
@@ -209,49 +212,9 @@
     </ul>
   </li>
 </ul>
+      </div>
 
-    </div>-->
-    
-    <div id="menu">
-    <div class="container">
-  <h1 class="title">Меню</h1>
-  <ul>
-    <li class="dropdown">
-      <input type="checkbox" />
-      <a href="#" data-toggle="dropdown">First Menu</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <input type="checkbox" />
-      <a href="#" data-toggle="dropdown">Second Menu</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <input type="checkbox" />
-      <a href="#" data-toggle="dropdown">Third Menu</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </li>
-  </ul>
-</div
-</div>
-    
-    <div id="extra1">
-
+      <div id="left-extra">
 <!-- Yandex.Metrika informer -->
 <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
 target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
@@ -285,10 +248,21 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+      </div>
 
     </div>
-    
+    <!-- Left Column End -->
+
   </div>
-  <div id="footer">&copy; Burlachenko Maxim & Serebryannikov Evgeny 2014</div>
+  <!-- Main Container End -->
+
+  <div id="clear"></div>
+
+  <!-- Footer Begin -->
+  <div id="footer">
+    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+  </div>
+  <!-- Footer End -->
+  
 </body>
 </html>
