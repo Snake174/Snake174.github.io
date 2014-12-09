@@ -181,14 +181,9 @@
 image
 </div>
 <div id="anonse">
-<div id="anonse-title">
-<a href="http://snake174.github.io/html/articles/tanks.html">Создание танка на движке LÖVE</a>
-</div>
-<div id="anonse-text">
 <p>
 Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном <strong>код</strong>), как вы уже наверно догадались, пойдёт речь о <strong>создании танка</strong> на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
 </p>
-</div>
 </div>
 </div>
 
