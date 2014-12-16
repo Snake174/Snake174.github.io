@@ -72,7 +72,7 @@ $(document).ready( function() {
           }
         }
       } ).done( function( response ) {
-        $('#contact_form').html('<font color=#00AA00>Письмо успешно отправлено</font>');
+        $('#contact_form').html('<font color=#00AA00>Письмо успешно отправлено. Спасибо за посещение нашего ресурса.</font>');
       });
     }
   )
