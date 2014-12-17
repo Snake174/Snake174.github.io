@@ -192,6 +192,11 @@
     <div id="clear"></div>
     <!-- Content Begin -->
     <div id="content">
+      <div id="content-breadcrumbs">
+        <a href="snake174.github.io/index.html">Главная</a>&nbsp;-&nbsp; 
+        <a href="snake174.github.io/index.html">Игры</a>&nbsp;-&nbsp;
+        Не следует обманывать инспектора
+      </div>
       <div id="content-text">
 
 <h1 align="center">Не следует обманывать инспектора</h1>
