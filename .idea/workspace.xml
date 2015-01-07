@@ -23,40 +23,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.76923" vertical-offset="3045" max-vertical-offset="4471">
-              <caret line="217" column="18" selection-start-line="217" selection-start-column="18" selection-end-line="217" selection-end-column="18" />
+            <state vertical-scroll-proportion="-1.2346437" vertical-offset="2535" max-vertical-offset="4471">
+              <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
               <folding>
-                <marker date="1420626647820" expanded="true" signature="2389:2618" placeholder="{...}" />
+                <marker date="1420629504207" expanded="true" signature="2427:2656" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasm_ide.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tasm_ide.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/programs/tasm_ide.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.519656" vertical-offset="3266" max-vertical-offset="5270">
-              <caret line="217" column="26" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
+            <state vertical-scroll-proportion="-11.769231" vertical-offset="1224" max-vertical-offset="5270">
+              <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1420628971449" expanded="true" signature="2805:3034" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vernike.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/games/vernike.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.346153" vertical-offset="2863" max-vertical-offset="10353">
-              <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="33" />
-              <folding>
-                <marker date="1420626647818" expanded="true" signature="2360:2589" placeholder="{...}" />
+                <marker date="1420629489937" expanded="true" signature="2872:3101" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -76,6 +64,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/html/programs/tasm_ide.html" />
+        <option value="$PROJECT_DIR$/html/games/vernike.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -242,35 +232,35 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/html/programs/tasm_ide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.76923" vertical-offset="3045" max-vertical-offset="4471">
-          <caret line="217" column="18" selection-start-line="217" selection-start-column="18" selection-end-line="217" selection-end-column="18" />
+        <state vertical-scroll-proportion="-11.769231" vertical-offset="1224" max-vertical-offset="5270">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
           <folding>
-            <marker date="1420626647820" expanded="true" signature="2389:2618" placeholder="{...}" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1420629489937" expanded="true" signature="2872:3101" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/games/vernike.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-36.346153" vertical-offset="2863" max-vertical-offset="10353">
-          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="33" />
+        <state vertical-scroll-proportion="11.769231" vertical-offset="1836" max-vertical-offset="10132">
+          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
           <folding>
-            <marker date="1420626647818" expanded="true" signature="2360:2589" placeholder="{...}" />
+            <marker date="1420629496455" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/programs/tasm_ide.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.519656" vertical-offset="3266" max-vertical-offset="5270">
-          <caret line="217" column="26" selection-start-line="217" selection-start-column="26" selection-end-line="217" selection-end-column="26" />
+        <state vertical-scroll-proportion="-1.2346437" vertical-offset="2535" max-vertical-offset="4471">
+          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1420628971449" expanded="true" signature="2805:3034" placeholder="{...}" />
+            <marker date="1420629504207" expanded="true" signature="2427:2656" placeholder="{...}" />
           </folding>
         </state>
       </provider>
