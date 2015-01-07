@@ -1,253 +1,300 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Sn@Ke - TASM IDE</title>
-    
+<html>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="content-language" content="ru">
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="img/dog.ico" type="image/x-icon" />
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="asm,tasm,ide,assembler,ассемблер,среда разработки,exe,com">
-    <meta name="description" content="Среда разработки для TASM">
-    <meta name="author" content="">
+    <meta name="keywords" content="статьи,игры,программы,разработка игр,движки,программирование,lua">
+    <meta name="description" content="">
+    <meta name="author" content="ser" >
     <meta name="copyright" content="">
+    <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
+    <title>Статьи, игры, программы - TASM IDE</title>
+    <style>
+        body, html {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            text-align: justify;
+        }
+        body {
+            background-color: #EEEEEE;
+            background-image: url('http://snake174.github.io/img/background.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        * html #main {
+            height: 100%;
+        }
+        p {
+            text-indent: 30px;
+        }
+        a:link {
+            color: #0000DD;
+            text-decoration: none;
+        }
+        a:visited {
+            color: purple;
+            text-decoration: none;
+        }
+        a:active {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0000AA;
+            text-decoration: underline;
+        }
+        strong {
+            text-decoration: none;
+            font-weight: normal;
+        }
+        ul#menu, ul#menu ul {
+            list-style-type:none;
+            margin: 0;
+            padding: 0;
+            width: 250px;
+        }
+        ul#menu a {
+            display: block;
+            text-decoration: none;
+        }
+        ul#menu li {
+            margin-top: 1px;
+        }
+        ul#menu li a {
+            background: #333;
+            color: #fff;
+            padding: 0.5em;
+        }
+        ul#menu li a:hover {
+            background: #000;
+        }
+        ul#menu li ul li a {
+            background: #ccc;
+            color: #000;
+            padding-left: 20px;
+        }
+        ul#menu li ul li a:hover {
+            background: #aaa;
+            border-left: 5px #000 solid;
+            padding-left: 15px;
+        }
+        #main {
+            width: 100%;
+            margin: 0 auto;
+            text-align: justify;
+            min-width: 480px;
+            width:expression(
+        (document.compatMode && document.compatMode == 'CSS1Compat')
+        ?
+        (document.documentElement.clientWidth < 480 ? "480px" : "auto")
+        :
+        (document.body.clientWidth < 480 ? "480px" : "auto")
+      );
+            min-height: 100%;
+        }
+        #header {
+            width: 100%;
+            height: 150px;
+        }
+        #header-logo {
+            float: left;
+            width: 250px;
+            height: 150px;
+        }
+        #content {
+            float: right;
+            width: 100%;
+            margin-left: -250px;
+        }
+        #content-text {
+            margin-left: 250px;
+            padding: 10px;
+            text-align: justify;
+        }
+        #content-extra {
+            margin-left: 250px;
+            height: 50px;
+            line-height: 50px;
+        }
+        #left {
+            float: left;
+            width: 250px;
+        }
+        #left-menu {
+            width: 250px;
+        }
+        #left-extra {
+            width: 250px;
+            margin-top: 30px;
+        }
+        #footer {
+            clear: both;
+            height: 30px;
+            line-height: 30px;
+            margin-top: -30px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 12px;
+            font-weight: bold;
+            color: #AAA;
+        }
+        #clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<!-- Main Container Begin -->
+<div id="main">
+    <!-- Header Begin -->
+    <div id="header">
+        <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
+        </div>
+        <div id="header-content">
+        </div>
+    </div>
+    <!-- Header End -->
+    <div id="clear"></div>
+    <!-- Content Begin -->
+    <div id="content">
+        <div id="content-text">
+            <h1 align="center">TASM IDE</h1>
 
-    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="css/QapTcha.jquery.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/twilight.css" />
-    
-    <script type="text/javascript">
-      var today = new Date();
-      var d = today.getDate();
-      var m = today.getMonth() + 1;
+            <p>
+                На идею создания данной программы меня натолкнула обычная человеческая лень. Когда мы ещё учились в институте, вроде бы на третьем курсе (это был 2007 год), мы начали изучать <b>ассемблер</b>. Сначала всё казалось слишком замудрённо и непонятно, но по мере изучения постепенно стало кое-что проясняться. Дальше стало более интереснее на нём программировать и уже не возникало таких трудностей, какие были раньше.
+            </p>
 
-      if (d == 31 && m == 10)
-        document.write('<link rel="stylesheet" type="text/css" href="css/haloween.css" />');
-      else if (d == 14 && m == 3)
-        document.write('<link rel="stylesheet" type="text/css" href="css/max.css" />');
-      else
-        document.write('<link rel="stylesheet" type="text/css" href="css/style.css" />');
-    </script>
-    
-    <style type="text/css" class="init"></style>
+            <p>
+                Всё время на парах мы просиживали, вбивая строки кода в блокноте, потом открывали консоль, собирали программы, запускали, тестировали, исправляли ошибки, опять собирали и так пока не получится рабочая программа. И каждый раз мы делали одно и то же. По двадцать раз откроешь блокнот, залезешь в консоль, что-то пошаманишь там и начинаешь заново.
+            </p>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/jquery.ui.touch.js"></script>
-    <script type="text/javascript" src="js/QapTcha.jquery.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>
-    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/rainbow-custom.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" language="javascript" class="init"></script>
-  </head>
+            <p>
+                Мне очень быстро наскучил этот мартышкин труд и тогда-то пришла идея сделать этот нудный процесс немного автоматизированным.
+            </p>
 
-  <body>
-    <!-- Google Tag Manager -->
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M394D3"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-M394D3');</script>
-    <!-- End Google Tag Manager -->
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            <p>
+                Мы уже немного знали <b>Delphi</b>, поэтому сомнений в выборе средства для реализации данной затеи не было. Буквально за вечер уже была накатана первая версия данной программы, в которой помимо львиной доли говнокода уже был "стержень" той программы, которая здесь выложена. В плане интерфейса выглядела она, по правде говоря, ужасно. Все управляющие элементы были хаотично разбросаны по форме, ещё я был единственный в группе, который делал свои программы в тёмных тонах. Все кнопки, поля ввода и т.д. были чёрными. Правда местами это смотрелось симпотично.
+            </p>
 
-      ga('create', 'UA-57173099-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <script data-type="slim" data-position="bottom" data-timer="60" data-appkeyid="1f8c95b3-9dcd-46a1-a8fb-99498a4199ff" src="//s.appintop.com/widget/appbnr.js" async="1"></script>
-    <table border="0" width="100%">
-      <tr>
-        <td style="height: 100px;">
-          <a href="index.html"><img src="img/head.jpg"></a>
-        </td>
-        <td>
-          <div class="header"></div>
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" style="width: 300px;">
-        
-          <form action="http://www.google.ru" id="cse-search-box" target="_blank">
-            <div>
-              <input type="hidden" name="cx" value="partner-pub-4693591635005759:6207939625" />
-              <input type="hidden" name="ie" value="UTF-8" />
-              <input type="text" name="q" style="width: 295px;" />
-              <input type="submit" name="sa" value="&#x041f;&#x043e;&#x0438;&#x0441;&#x043a;" />
+            <p>
+                Программа тестировалась, исправлялись ошибки, но мне всё ещё приходилось делать очень много ручной работы. На следующий вечер уже подольше посидел над данной <b>IDE</b>, если можно так выразиться, и уже получилась вполне рабочая программа. Для того времени этого вполне хватало. Конечно, если бы я сейчас делал нечто похожее, то сделал бы всё по-другому.
+            </p>
+
+            <p>
+                В данной версии добавил шаблоны для <b>EXE</b> и <b>COM</b> файлов, соответственно сборку, даже выводились ошибки и при щелчке на строке с ошибкой курсор переходил непосредственно к ней. Также для удобства встроил перевод чисел из одной системы счисления в другую и возможность запускать созданный файл в отладчике.
+            </p>
+
+            <p>
+                Выполнение заданий уже не занимало много времени, сделал и сиди рубись во что-нибудь пока другие тычут по кнопкам. Исходники старой версии где-то потерялись, так бы выложил поржать хоть.
+            </p>
+
+            <p>
+            <h4 align="center">Шаблон для EXE файла</h4>
+            <center><img src="http://snake174.github.io/img/tasm_ide/tasm_ide_1.png"></center>
+            </p>
+
+            <p>
+            <h4 align="center">Шаблон для COM файла</h4>
+            <center><img src="http://snake174.github.io/img/tasm_ide/tasm_ide_2.png"></center>
+            </p>
+
+            <p>
+            <h4 align="center">Перевод чисел из одной системы счисления в другую</h4>
+            <center><img src="http://snake174.github.io/img/tasm_ide/tasm_ide_3.png"></center>
+            </p>
+
+            <p>
+                <b>Скачать:</b> <a href="http://snake174.github.io/files/tasm_ide/TASM_IDE.zip" download="TASM_IDE.zip"><b>TASM</b></a> (1.7 Mb)
+            </p>
+
+        </div>
+        <div id="content-extra">
+            <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+            <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+        </div>
+    </div>
+    <!-- Content End -->
+    <!-- Left Column Begin -->
+    <div id="left">
+        <div id="left-menu">
+            <ul id="menu">
+                <li>
+                    <ul>
+                        <li><a href="http://snake174.github.io/programs.html"><strong>Программы</strong></a></li>
+                        <li><a href="http://snake174.github.io/games.html"><strong>Игры</strong></a></li>
+                        <li><a href="http://snake174.github.io/articles.html"><strong>Статьи</strong></a></li>
+                        <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="left-extra">
+
+            <div class="ya-site-form ya-site-form_inited_no" style="margin-bottom: 30px;" onclick="return {'action':'http://yandex.ru/sitesearch','arrow':true,'bg':'#999999','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'Yandex Site Search #2187601','suggest':true,'target':'_blank','tld':'ru','type':2,'usebigdictionary':true,'searchid':2187601,'webopt':false,'websearch':false,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':null,'input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}">
+                <form action="http://yandex.ru/sitesearch" method="get" target="_blank">
+                    <input type="hidden" name="searchid" value="2187601"/>
+                    <input type="hidden" name="l10n" value="ru"/>
+                    <input type="hidden" name="reqenc" value=""/>
+                    <input type="search" name="text" value=""/>
+                    <input type="submit" value="Найти"/>
+                </form>
             </div>
-          </form>
-          <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-          <script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
-          <script type="text/javascript" src="http://www.google.com/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
-          <script type="text/javascript" src="http://www.google.ru/coop/cse/brand?form=cse-search-box&amp;lang=ru"></script>
+            <style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style>
+            <script type="text/javascript">
+                (function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');
+            </script>
 
-          
-          <script type="text/javascript" src="http://www.google.com/cse/query_renderer.js"></script>
-          <div id="queries"></div>
-          <script src="http://www.google.com/cse/api/partner-pub-4693591635005759/cse/6207939625/queries/js?oe=UTF-8&amp;callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render"></script>
-        
-          <ul id="menu">
-            <li>
-              <a href="#">Программы</a>
-              <ul>
-                <li><a href="guitar_chords.html">Guitar Chords</a></li>
-                <li><a href="love_exporter.html">LÖVE Exporter</a></li>
-                <li><a href="pipmak_assistant.html">Pipmak Assistant</a></li>
-                <li><a href="tasm_ide.html">TASM IDE</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Статьи</a>
-              <ul>
-                <li><a href="tanks.html">Создание танка на движке LÖVE</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Игры</a>
-              <ul>
-                <li><a href="vernike.html">Не следует обманывать инспектора</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Обратная связь</a>
-              <ul>
-                <li><a href="contacts.html">Контакты</a></li>
-                <li><a href="payments.html">Поддержать разработчиков</a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-        <td valign="top" rowspan="2" style="padding: 5px;">
+            <!-- Yandex.Metrika informer -->
+            <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
+               target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+                                                   style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+            <!-- /Yandex.Metrika informer -->
 
-<center><h1>TASM IDE</h1></center>
-
-<p>
-На идею создания данной программы меня натолкнула обычная человеческая лень. Когда мы ещё учились в институте, вроде бы на третьем курсе (это был 2007 год), мы начали изучать <b>ассемблер</b>. Сначала всё казалось слишком замудрённо и непонятно, но по мере изучения постепенно стало кое-что проясняться. Дальше стало более интереснее на нём программировать и уже не возникало таких трудностей, какие были раньше.
-</p>
-
-<p>
-Всё время на парах мы просиживали, вбивая строки кода в блокноте, потом открывали консоль, собирали программы, запускали, тестировали, исправляли ошибки, опять собирали и так пока не получится рабочая программа. И каждый раз мы делали одно и то же. По двадцать раз откроешь блокнот, залезешь в консоль, что-то пошаманишь там и начинаешь заново.
-</p>
-
-<p>
-Мне очень быстро наскучил этот мартышкин труд и тогда-то пришла идея сделать этот нудный процесс немного автоматизированным.
-</p>
-
-<p>
-Мы уже немного знали <b>Delphi</b>, поэтому сомнений в выборе средства для реализации данной затеи не было. Буквально за вечер уже была накатана первая версия данной программы, в которой помимо львиной доли говнокода уже был "стержень" той программы, которая здесь выложена. В плане интерфейса выглядела она, по правде говоря, ужасно. Все управляющие элементы были хаотично разбросаны по форме, ещё я был единственный в группе, который делал свои программы в тёмных тонах. Все кнопки, поля ввода и т.д. были чёрными. Правда местами это смотрелось симпотично.
-</p>
-
-<p>
-Программа тестировалась, исправлялись ошибки, но мне всё ещё приходилось делать очень много ручной работы. На следующий вечер уже подольше посидел над данной <b>IDE</b>, если можно так выразиться, и уже получилась вполне рабочая программа. Для того времени этого вполне хватало. Конечно, если бы я сейчас делал нечто похожее, то сделал бы всё по-другому.
-</p>
-
-<p>
-В данной версии добавил шаблоны для <b>EXE</b> и <b>COM</b> файлов, соответственно сборку, даже выводились ошибки и при щелчке на строке с ошибкой курсор переходил непосредственно к ней. Также для удобства встроил перевод чисел из одной системы счисления в другую и возможность запускать созданный файл в отладчике.
-</p>
-
-<p>
-Выполнение заданий уже не занимало много времени, сделал и сиди рубись во что-нибудь пока другие тычут по кнопкам. Исходники старой версии где-то потерялись, так бы выложил поржать хоть.
-</p>
-
-<div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- AdSenseAdaptiveBanner -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4693591635005759"
-     data-ad-slot="3074833226"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+            <!-- Yandex.Metrika counter -->
+            <script type="text/javascript">
+                (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function() {
+                        try {
+                            w.yaCounter26840853 = new Ya.Metrika({id:26840853,
+                                webvisor:true,
+                                clickmap:true,
+                                trackLinks:true,
+                                accurateTrackBounce:true});
+                        } catch(e) { }
+                    });
+                    var n = d.getElementsByTagName("script")[0],
+                            s = d.createElement("script"),
+                            f = function () { n.parentNode.insertBefore(s, n); };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else { f(); }
+                })(document, window, "yandex_metrika_callbacks");
+            </script>
+            <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+            <!-- /Yandex.Metrika counter -->
+            <!--cy-pr.com-->
+            <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
+            <!--cy-pr.com-->
+        </div>
+    </div>
+    <!-- Left Column End -->
 </div>
-
-<p>
-<center><b>Шаблон для EXE файла:</b></center>
-<center><img src="img/tasm_ide/tasm_ide_1.png"></center>
-</p>
-
-<p>
-<center><b>Шаблон для COM файла:</b></center>
-<center><img src="img/tasm_ide/tasm_ide_2.png"></center>
-</p>
-
-<p>
-<center><b>Перевод чисел из одной системы счисления в другую:</b></center>
-<center><img src="img/tasm_ide/tasm_ide_3.png"></center>
-</p>
-
-<p>
-<b>Скачать:</b> <a href="http://FileKit.org/outside/download?name=TASM_IDE.zip&uid=82&url=http://snake174.github.io/files/tasm_ide/TASM_IDE.zip&type=file&redirect=auto" target="_blank"><b>TASM</b></a> (1.7 Mb)
-</p>
-
-<p>
-<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
-</p>
-
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" style="padding-top: 30px;">
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- snake174.github.io banner 300x600 -->
-          <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:600px"
-            data-ad-client="ca-pub-4693591635005759"
-            data-ad-slot="3744314425"></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" style="height: 100px;">
-          <div class="footer"></div>
-          
-<!-- Yandex.Metrika informer -->
-<a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
-target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
-<!-- /Yandex.Metrika informer -->
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function (d, w, c) {
-    (w[c] = w[c] || []).push(function() {
-        try {
-            w.yaCounter26840853 = new Ya.Metrika({id:26840853,
-                    webvisor:true,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true});
-        } catch(e) { }
-    });
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
-    } else { f(); }
-})(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-          
-        </td>
-      </tr>
-    </table>
-  </body>
+<!-- Main Container End -->
+<div id="clear"></div>
+<!-- Footer Begin -->
+<div id="footer">
+    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+</div>
+<!-- Footer End -->
+</body>
 </html>
