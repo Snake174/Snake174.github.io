@@ -150,85 +150,30 @@
       clear: both;
     }
 
-    .section {
-      width: 100%;
-      background: #EFEFEF;
-      margin: 0 0 30px;
-    }
-    ul.tabs {
-      height: 28px;
-      line-height: 25px;
-      list-style: none;
-      border-bottom: 1px solid #DDD;
-      background: #FFF;
-    }
-    .tabs li {
-      float: left;
-      display: inline;
-      margin: 0 1px -1px 0;
-      padding: 0 13px 1px;
-      color: #777;
-      cursor: pointer;
-      background: #F9F9F9;
-      border: 1px solid #E4E4E4;
-      border-bottom: 1px solid #F9F9F9;
+    #tabs {
       position: relative;
     }
-    .tabs li:hover,
-    .vertical .tabs li:hover {
-      color: #F70;
-      padding: 0 13px;
-      background: #FFFFDF;
-      border: 1px solid #FFCA95;
+    #tabs label {
+      display: block;
+      padding: 10px;
     }
-    .tabs li.current {
-      color: #444;
-      background: #EFEFEF;
-      padding: 0 13px 2px;
-      border: 1px solid #D4D4D4;
-      border-bottom: 1px solid #EFEFEF;
+    #tabs label .title:hover {
+      cursor: pointer;
     }
-    .box {
+    #tabs input[type=radio] {
       display: none;
-      border: 1px solid #D4D4D4;
-      border-width: 0 1px 1px;
-      background: #EFEFEF;
-      padding: 0 12px;
     }
-    .box.visible {
+    #tabs input[type=radio]:checked + label div {
       display: block;
     }
-    .section.vertical {
-      width: 100%;
-      border-left: 160px solid #FFF;
+    #tabs input[type=radio]:checked + label {
+      background: #aaa;
     }
-    .vertical .tabs {
-      width: 160px;
-      float: left;
-      display: inline;
-      margin: 0 0 0 -160px;
+    #tabs input[type=radio]:checked + label .title {
+      color: #000;
     }
-    .vertical .tabs li {
-      padding: 0 13px;
-      margin: 0 0 1px;
-      border: 1px solid #E4E4E4;
-      border-right: 1px solid #F9F9F9;
-      width: 132px;
-      height: 25px;
-    }
-    .vertical .tabs li:hover {
-      width: 131px;
-    }
-    .vertical .tabs li.current {
-      width: 133px;
-      color: #444;
-      background: #EFEFEF;
-      border: 1px solid #D4D4D4;
-      border-right: 1px solid #EFEFEF;
-      margin-right: -1px;
-    }
-    .vertical .box {
-      border-width: 1px;
+    .tab_content {
+      display: none;
     }
   </style>
 </head>
@@ -299,40 +244,43 @@
         Проверка созданных <b>apk</b> файлов для <b>Android</b> проводилась на <a href="http://www.bluestacks.com/" target="_blank">BlueStacks</a>, <a href="http://www.genymotion.com/" target="_blank">Genymotion</a>, телефоне Samsung Duos (Android 2.6), Mediox Mid9742 DC (Android 4.0), Asus PhonePad (Android 4) и Asus MemoPad (Android 4.4.2).
       </p>
 
-      <div class="section">
-        <ul class="tabs">
-          <li class="current">Версия 0.1</li>
-          <li>Версия 0.2</li>
-        </ul>
+      <div id="tabs">
+        <input id="tab_1" type="radio" name="tab" value="" checked="checked">
+        <label for="tab_1">
+          <span class="title">Версия 0.1</span>
+          <div class="tab_content">
+            <p>
+              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_1-1.png"></center>
+              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_1-2.png"></center>
+              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_1-3.png"></center>
+            </p>
 
-        <div class="box visible">
-          <p>
-          <center><img src="img/love_exporter/love_exporter_1.png"></center>
-          <center><img src="img/love_exporter/love_exporter_2.png"></center>
-          <center><img src="img/love_exporter/love_exporter_3.png"></center>
-          </p>
+            <p>
+              <b>Windows:</b> <a href="http://snake174.github.io/files/love_exporter/LoveExporter01.zip" download="LoveExporter01.zip">Версия 0.1</a> (78.1 Mb)
+            </p>
+          </div>
+        </label>
 
-          <p>
-            <b>Windows:</b> <a href="http://snake174.github.io/files/love_exporter/LoveExporter01.zip" download="LoveExporter01.zip">Версия 0.1</a> (78.1 Mb)
-          </p>
-        </div>
+        <input id="tab_2" type="radio" name="tab" value="">
+        <label for="tab_2">
+          <span class="title">Версия 0.2</span>
+          <div class="tab_content">
+            <p>
+              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_2-1.png"></center>
+            </p>
 
-        <div class="box">
-          <p>
-          <center><img src="img/love_exporter/v2-0.png"></center>
-          </p>
+            <p>
+              <b>Изменения:</b>
+            <ul>
+              <li>добавлена настройка файла <b>conf.lua</b></li>
+            </ul>
+            </p>
 
-          <p>
-            <b>Изменения:</b>
-          <ul>
-            <li>добавлена настройка файла <b>conf.lua</b></li>
-          </ul>
-          </p>
-
-          <p>
-            <b>Windows:</b> <a href="http://snake174.github.io/files/love_exporter/LoveExporter02.zip" download="LoveExporter02.zip">Версия 0.2</a> (15.7 Mb)
-          </p>
-        </div>
+            <p>
+              <b>Windows:</b> <a href="http://snake174.github.io/files/love_exporter/LoveExporter02.zip" download="LoveExporter02.zip">Версия 0.2</a> (15.7 Mb)
+            </p>
+          </div>
+        </label>
       </div>
 
       <p>
