@@ -8,7 +8,7 @@
 .cycle-slideshow, .cycle-slideshow * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 
-.cycle-slideshow { width: 45%; min-width: 200px; max-width: 500px; margin: 10px auto; padding: 0; position: relative;
+.cycle-slideshow { margin: 10px auto; padding: 0; position: relative;
     background: url(http://malsup.github.com/images/spinner.gif) 50% 50% no-repeat;
 
  }
@@ -63,7 +63,7 @@
 
 /* display paused text on top of paused slideshow */
 .cycle-paused:after {
-    content: 'Paused'; color: white; background: black; padding: 10px;
+    content: 'Пауза'; color: white; background: black; padding: 10px;
     z-index: 500; position: absolute; top: 10px; right: 10px;
     border-radius: 10px;
     opacity: .5; filter: alpha(opacity=50);
