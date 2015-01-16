@@ -5,3 +5,4 @@ Disallow: /css/
 Disallow: /img/
 Disallow: /files/
 Disallow: /feedback.html
+Sitemap: http://snake174.github.io/sitemaps.xml
