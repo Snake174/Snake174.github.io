@@ -149,43 +149,17 @@
     #clear {
       clear: both;
     }
-    #tabs {
-    }
-    #tabs label {
-      display: block;
-      padding: 10px;
-      margin: 10px;
-    }
-    #tabs label .title:hover {
-      cursor: pointer;
-    }
-    #tabs input[type=radio] {
-      display: none;
-    }
-    #tabs input[type=radio]:checked + label div {
-      display: block;
-    }
-    #tabs input[type=radio]:checked + label {
-    }
-    #tabs input[type=radio]:checked + label .title {
-      color: #000;
-      background: #aaa;
-    }
-    #tabs input[type=radio] + label .title {
-      color: #000;
-      background: #ccc;
-    }
-    .tab_content {
-      display: none;
-    }
   </style>
 
   <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
+  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/tabs.css">
 
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
 
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
+
+  <script type="text/javascript" src="http://snake174.github.io/js/tabs.js"></script>
 </head>
 <body>
 <!-- Main Container Begin -->
@@ -245,12 +219,15 @@
         В данную версию в добавок присобачил простой <strong>генератор аккордов</strong>. Данная версия немного корявая - не выводятся изображения.
       </p>
 
-      <div id="tabs">
-        <input id="tab_1" type="radio" name="tab" value="" checked="checked">
-        <label for="tab_1">
-          <span class="title">Версия 1 (Delphi)</span>
-          <div class="tab_content">
-            <p>
+      <div class="tabs_container">
+        <ul class="tabs">
+          <li class="inl-bl active">Версия 1 (Delphi)</li>
+          <li class="inl-bl">Версия 2 (Delphi)</li>
+          <li class="inl-bl">Версия 3 (Delphi)</li>
+          <li class="inl-bl">Версия 4 (C++/Qt)</li>
+        </ul>
+        <div class="tab_container" style="display: block;">
+          <p>
               <h4 align="center">Скриншоты</h4>
 
               <div class="cycle-slideshow"
@@ -286,14 +263,9 @@
             <p>
               <b>Скачать:</b> <a href="http://snake174.github.io/files/programs/guitar_chords/chords1.zip" download="chords1.zip">Версия 1</a> (568 Kb)
             </p>
-          </div>
-        </label>
-
-        <input id="tab_2" type="radio" name="tab" value="">
-        <label for="tab_2">
-          <span class="title">Версия 2 (Delphi)</span>
-          <div class="tab_content">
-            <p>
+        </div>
+        <div class="tab_container">
+          <p>
             <h4 align="center">Скриншоты</h4>
 
             <div class="cycle-slideshow"
@@ -326,14 +298,9 @@
             <p>
               <b>Скачать:</b> <a href="http://snake174.github.io/files/programs/guitar_chords/chords2.zip" download="chords2.zip">Версия 2</a> (550 Kb)
             </p>
-          </div>
-        </label>
-
-        <input id="tab_3" type="radio" name="tab" value="">
-        <label for="tab_3">
-          <span class="title">Версия 3 (Delphi)</span>
-          <div class="tab_content">
-            <p>
+        </div>
+        <div class="tab_container">
+          <p>
             <h4 align="center">Скриншоты</h4>
 
             <div class="cycle-slideshow"
@@ -366,14 +333,9 @@
             <p>
               <b>Скачать:</b> <a href="http://snake174.github.io/files/programs/guitar_chords/chords3.zip" download="chords3.zip">Версия 3</a> (726 Kb)
             </p>
-          </div>
-        </label>
-
-        <input id="tab_4" type="radio" name="tab" value="">
-        <label for="tab_4">
-          <span class="title">Версия 4 (C++/Qt)</span>
-          <div class="tab_content">
-            <p>
+        </div>
+        <div class="tab_container">
+          <p>
             <h4 align="center">Скриншоты</h4>
 
             <div class="cycle-slideshow"
@@ -406,9 +368,9 @@
             <p>
               <b>Скачать:</b> <a href="http://snake174.github.io/files/programs/guitar_chords/chords4.zip" download="chords4.zip">Версия 4</a> (4.46 Mb)
             </p>
-          </div>
-        </label>
+        </div>
       </div>
+
     </div>
     <div id="content-extra">
       <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
