@@ -13,7 +13,7 @@
   <meta name="copyright" content="">
   <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
   <title>Статьи, игры, программы - Создание танка на движке LÖVE</title>
-  <style> 
+  <style>
     body, html {
       margin: 0px;
       padding: 0px;
@@ -60,14 +60,14 @@
     }
     ul#menu a {
       display: block;
-      text-decoration: none;  
+      text-decoration: none;
     }
     ul#menu li {
       margin-top: 1px;
     }
     ul#menu li a {
       background: #333;
-      color: #fff;  
+      color: #fff;
       padding: 0.5em;
     }
     ul#menu li a:hover {
@@ -172,14 +172,14 @@
 <center><h1>Создание танка на движке LÖVE</h1></center>
 
 <p>
-Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном <b>код</b>), как вы уже наверно догадались, пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
+Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном <strong>код</strong>), как вы уже наверно догадались, пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
 </p>
 
 <p>
-Прежде всего определим, что должен делать наш создаваемый <b>танк</b>:
+Прежде всего определим, что должен делать наш создаваемый <strong>танк</strong>:
 <ul>
-  <li>первое и самое главное на мой взгляд - это <b>перемещение</b>, которое соответствует "нормальному" танку. Т.е. при нажатии на клавиши <b>W</b> и <b>S</b> танк будет двигаться вперёд и назад, а при нажатии на клавиши <b>A</b> и <b>D</b> танк будет поворачиваться влево и вправо соответственно.</li>
-  <li>второе немаловажное действие - <b>стрельба</b>. Левой кнопкой мыши будет осуществляться стрельба обычными патронами, а на правую кнопку мыши мы "повесим" стрельбу ракетами.</li>
+  <li>первое и самое главное на мой взгляд - это <strong>перемещение</strong>, которое соответствует "нормальному" танку. Т.е. при нажатии на клавиши <b>W</b> и <b>S</b> танк будет двигаться вперёд и назад, а при нажатии на клавиши <b>A</b> и <b>D</b> танк будет поворачиваться влево и вправо соответственно.</li>
+  <li>второе немаловажное действие - <strong>стрельба</strong>. Левой кнопкой мыши будет осуществляться стрельба обычными патронами, а на правую кнопку мыши мы "повесим" стрельбу ракетами.</li>
   <li>при движении у танка должны двигаться гусеницы.</li>
   <li>у танка будут выходить выхлопные газы.</li>
   <li>ну и последнее - танк должен оставлять за собой следы, которые через определённый промежуток времени будут исчезать.</li>
@@ -195,46 +195,46 @@
 </p>
 
 <p>
-<center><b>Корпус танка с анимацией гусениц:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_body.png" width="576" height="64"></center>
+<center><b>Корпус танка с анимацией гусениц</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/tank_body.png" width="576" height="64"></center>
 </p>
 
 <p>
-<center><b>Башня танка:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_top.png"></center>
+<center><b>Башня танка</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/tank_top.png"></center>
 </p>
 
 <p>
-<center><b>След, оставляемый танком при движении:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_trail.png"></center>
+<center><b>След, оставляемый танком при движении</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/tank_trail.png"></center>
 </p>
 
 <p>
-<center><b>Выхлопные газы:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/cloud.png"></center>
+<center><b>Выхлопные газы</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/cloud.png"></center>
 </p>
 
 <p>
-<center><b>Патрон:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_bullet.png"></center>
+<center><b>Патрон</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/tank_bullet.png"></center>
 </p>
 
 <p>
-<center><b>Ракета:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/rocket.png"></center>
+<center><b>Ракета</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/rocket.png"></center>
 </p>
 
 <p>
-<center><b>Частицы для ракеты:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/rocket_smoke.png" width="16" height="16"></center>
+<center><b>Частицы для ракеты</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/rocket_smoke.png" width="16" height="16"></center>
 </p>
 
 <p>
-Далее нам нужны вспомогательные библиотеки: 
+Далее нам нужны вспомогательные библиотеки:
 <ul>
-  <li><a href="http://www.love2d.org/wiki/HUMP" target="_blank"><b>HUMP</b></a> для работы с <b>классами</b>, <b>векторами</b> и <b>таймером</b>.</li>
-  <li><a href="http://www.love2d.org/wiki/anim8"><b>anim8</b></a> для работы с <b>анимацией</b>.</li>  
-  <li>модуль <a href="http://snake174.github.io/files/tanks/Input.lua" download="Input.lua"><b>Input</b></a>, который я написал для более удобного контроля над <b>вводом</b> (по крайней мере для меня). Это не финальная его версия, планируется ещё добавить поддержку <b>Android</b>.</li>
+  <li><a href="http://www.love2d.org/wiki/HUMP" target="_blank"><b>HUMP</b></a> для работы с <strong>классами</strong>, <strong>векторами</strong> и <strong>таймером</strong>.</li>
+  <li><a href="http://www.love2d.org/wiki/anim8"><b>anim8</b></a> для работы с <strong>анимацией</strong>.</li>
+  <li>модуль <a href="http://snake174.github.io/files/articles/tanks/Input.lua" download="Input.lua"><b>Input</b></a>, который я написал для более удобного контроля над <strong>вводом</strong> (по крайней мере для меня). Это не финальная его версия, планируется ещё добавить поддержку <b>Android</b>.</li>
 </ul>
 
 Нужно их скачать и поместить в папку <b>classes</b>.
@@ -242,7 +242,7 @@
 
 <p>
 В итоге должна получиться такая структура проекта:
-<center><img src="http://snake174.github.io/img/tanks/project_structure.png"></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/project_structure.png"></center>
 </p>
 
 <p>
@@ -289,12 +289,12 @@ function love.run()
     local dt = love.timer.getDelta()
 
     Input.update()
-    
+
     -- Здесь будет функция обновления танка
 
     love.graphics.clear()
     love.graphics.origin()
-    
+
     -- Здесь будет функция отрисовки танка
 
     love.graphics.present()
@@ -309,11 +309,11 @@ end
 </p>
 
 <p>
-В самом начале файла подключаются все необходимые для работы <b>модули</b>, которые будут доступны из других <b>классов</b>. В <b>главном цикле</b> происходит проверка ввода и выполняются функции обновления и отрисовки <b>танка</b>.
+В самом начале файла подключаются все необходимые для работы <strong>модули</strong>, которые будут доступны из других <strong>классов</strong>. В <strong>главном цикле</strong> происходит проверка ввода и выполняются функции обновления и отрисовки <strong>танка</strong>.
 </p>
 
 <p>
-Ниже приведён код файла настроек приложения <b>conf.lua</b>. Здесь можно указать заголовок, ширину и высоту окна, включить или отключить какие-то модули, сделать окно на весь экран ну и прописать какие-нибудь <b>дополнительные настройки</b>. Более подробно о настройках проекта можно ознакомиться <a href="http://love2d.org/wiki/Config_Files" target="_blank">здесь</a>.
+Ниже приведён код файла настроек приложения <b>conf.lua</b>. Здесь можно указать заголовок, ширину и высоту окна, включить или отключить какие-то модули, сделать окно на весь экран ну и прописать какие-нибудь <strong>дополнительные настройки</strong>. Более подробно о настройках проекта можно ознакомиться <a href="http://love2d.org/wiki/Config_Files" target="_blank">здесь</a>.
 </p>
 
 <p>
@@ -359,20 +359,20 @@ local Tank = Class {
   init = function( self, pos )
     -- позиция танка
     self.pos = pos
-    
+
     -- направление корпуса танка
     self.body_dir = Vector( 0, 0 )
-    
+
     -- направление башни танка
     self.top_dir = Vector( 0, -1 )
-    
+
     -- изображения корпуса и башни танка
     self.body = love.graphics.newImage("data/images/tank_body.png")
     self.top = love.graphics.newImage("data/images/tank_top.png")
-	
+
     -- размер одного кадра корпуса танка
     self.size = Vector( 128, 128 )
-	
+
     -- сетка анимаций корпуса танка
     -- в функцию передаётся размер одного кадра анимации и размер изображения с анимациями
     local grid = Anim.newGrid( self.size.x, self.size.y, self.body:getWidth(), self.body:getHeight() )
@@ -412,7 +412,7 @@ local Tank = Class {
 
     -- скорость полёта пуль
     self.bullet_speed = 350
-    
+
     -- скорость полёта ракет
     self.rocket_speed = 250
 
@@ -442,14 +442,14 @@ local Tank = Class {
   update = function( self, dt )
     -- делаем текущую анимацию - анимация "покоя"
     self.animation = self.iddle
-    
+
     -- плавный поворот башни танка за курсором
     local mousePos = Input.mousePos()
     local dir = self.pos - mousePos
-	
+
     local targetAngle = -math.atan2( dir.x, dir.y ) / (math.pi / 180)
     local curAngle = self.top_angle
-	
+
     if curAngle < 0 then
       curAngle = curAngle + 360
     end
@@ -475,7 +475,7 @@ local Tank = Class {
     elseif a < -s - 0.5 then
       self.top_angle = self.top_angle + s
     end
-    
+
     -- направление башни танка
     self.top_dir.x = math.sin( math.rad( self.top_angle ) )
     self.top_dir.y = -math.cos( math.rad( self.top_angle ) )
@@ -493,7 +493,7 @@ local Tank = Class {
       -- функция "оставления" следов
       self:makeTrail()
     end
-	
+
     -- поворот корпуса танка против часовой стрелки
     if Input.keyHeld("a") then
       self.animation = self.run
@@ -505,7 +505,7 @@ local Tank = Class {
 
       self:makeTrail()
     end
-    
+
     -- движение вперёд
     if Input.keyHeld("w") then
       self.animation = self.run
@@ -515,7 +515,7 @@ local Tank = Class {
 
       self:makeTrail()
     end
-    
+
     -- движение назад
     if Input.keyHeld("s") then
       self.animation = self.run
@@ -525,7 +525,7 @@ local Tank = Class {
 
       self:makeTrail()
     end
-    
+
     -- стрельба пулями
     if Input.mouseDown("l") then
       local ind = #self.bullets + 1
@@ -566,7 +566,7 @@ local Tank = Class {
       self.rockets[ ind ].ps:setRadialAcceleration( 0, 0 )
       self.rockets[ ind ].ps:setSpeed( 30, 50 )
       self.rockets[ ind ].ps:setSpread( math.rad( 30 ) )
-      self.rockets[ ind ].ps:setPosition( 
+      self.rockets[ ind ].ps:setPosition(
         self.rockets[ ind ].pos.x
         - ((self.rockets[ ind ].pos.y + 16)
         - self.rockets[ ind ].pos.y)
@@ -589,8 +589,8 @@ local Tank = Class {
 
     for i = #self.rockets, 1, -1 do
       self.rockets[i].pos = self.rockets[i].pos + self.rockets[i].dir * self.rocket_speed * dt
-      self.rockets[i].ps:setPosition( 
-        self.rockets[i].pos.x 
+      self.rockets[i].ps:setPosition(
+        self.rockets[i].pos.x
         - ((self.rockets[i].pos.y + 16)
         - self.rockets[i].pos.y)
         * math.sin( math.rad( self.rockets[i].angle ) ),
@@ -619,7 +619,7 @@ local Tank = Class {
       Input.exit()
     end
   end,
-  
+
   -- функция отрисовки танка
   draw = function( self )
     -- сначала рисуем следы от танка
@@ -683,7 +683,7 @@ local Tank = Class {
       love.graphics.draw( self.rockets[i].ps, 0, 0 )
     end
   end,
-  
+
   -- функции, которые проверяют вылет пуль и ракет за пределы экрана
   checkBulletBounds = function( self, bul )
     if bul.pos.x <= 0 or bul.pos.x >= love.graphics.getWidth()
@@ -702,7 +702,7 @@ local Tank = Class {
 
     return false
   end,
-  
+
   -- функция создания и удаления следов
   makeTrail = function( self )
     self.trail_step = self.trail_step + love.timer.getDelta()
@@ -733,15 +733,15 @@ return Tank
 </p>
 
 <p>
-Первой строкой мы "сообщаем" танку, что должна проигрываться <b>анимация</b>, когда <b>танк</b> стоит.
+Первой строкой мы "сообщаем" танку, что должна проигрываться <strong>анимация</strong>, когда <strong>танк</strong> стоит.
 </p>
 
 <p>
-Далее по коду идёт <b>плавный поворот башни танка в сторону курсора</b>. В этом коде есть небольшой баг: когда <b>поворот</b> идёт по часовой стрелке и <b>дуло</b> находится во II четверти окружности, при переходе курсора в I четверть <b>башня танка</b> начинает вращаться в противоположную сторону. Как работает этот код? Да очень просто.
+Далее по коду идёт <strong>плавный поворот башни танка в сторону курсора</strong>. В этом коде есть небольшой баг: когда <strong>поворот</strong> идёт по часовой стрелке и <strong>дуло</strong> находится во II четверти окружности, при переходе курсора в I четверть <strong>башня танка</strong> начинает вращаться в противоположную сторону. Как работает этот код? Да очень просто.
 </p>
 
 <p>
-Сначала мы получаем позицию курсора мыши и высчитываем вектор от позиции расположения <b>танка</b> до курсора.
+Сначала мы получаем позицию курсора мыши и высчитываем вектор от позиции расположения <strong>танка</strong> до курсора.
 
 <pre>
 <code data-language="lua">
@@ -752,7 +752,7 @@ local dir = self.pos - mousePos
 </p>
 
 <p>
-Затем получаем угол, до которого нам нужно <b>повернуть башню</b>.
+Затем получаем угол, до которого нам нужно <strong>повернуть башню</strong>.
 
 <pre>
 <code data-language="lua">
@@ -762,7 +762,7 @@ local targetAngle = -math.atan2( dir.x, dir.y ) / (math.pi / 180)
 </p>
 
 <p>
-Но наша <b>башня</b> уже повёрнута на какой-то угол, поэтому мы берём разность текущего угла, на который повёрнута <b>башня</b> и угла, до которого необходимо её повернуть. В результате получаем угол, на который необходимо "довернуть" <b>башню</b> от текущего <b>угла поворота</b>. С каждым обновлением кадра этот <b>угол</b> будет уменьшаться.
+Но наша <strong>башня</strong> уже повёрнута на какой-то угол, поэтому мы берём разность текущего угла, на который повёрнута <strong>башня</strong> и угла, до которого необходимо её повернуть. В результате получаем угол, на который необходимо "довернуть" <strong>башню</strong> от текущего <strong>угла поворота</strong>. С каждым обновлением кадра этот <strong>угол</strong> будет уменьшаться.
 
 <pre>
 <code data-language="lua">
@@ -772,7 +772,7 @@ local a = curAngle - targetAngle
 </p>
 
 <p>
-Далее определяем некоторую переменную <b>s</b>, на которую будет изменяться текущий <b>угол поворота башни</b>. И уже в зависимости <b>a</b> от <b>s</b> определяется, в какую сторону будет осуществляться <b>поворот</b>.
+Далее определяем некоторую переменную <b>s</b>, на которую будет изменяться текущий <strong>угол поворота башни</strong>. И уже в зависимости <b>a</b> от <b>s</b> определяется, в какую сторону будет осуществляться <strong>поворот</strong>.
 
 <pre>
 <code data-language="lua">
@@ -790,7 +790,7 @@ end
 </p>
 
 <p>
-Далее определяем вектор <b>башни танка</b>. Он нам понадобится, когда будем реализовывать <b>стрельбу</b>.
+Далее определяем вектор <strong>башни танка</strong>. Он нам понадобится, когда будем реализовывать <strong>стрельбу</strong>.
 
 <pre>
 <code data-language="lua">
@@ -801,11 +801,11 @@ self.top_dir.y = -math.cos( math.rad( self.top_angle ) )
 </p>
 
 <p>
-С <b>движениями</b> вперёд и назад и <b>поворотами</b> думаю всё понятно.
+С <strong>движениями</strong> вперёд и назад и <strong>поворотами</strong> думаю всё понятно.
 </p>
 
 <p>
-Далее осуществляется <b>стрельба</b> снарядами. Рассмотрим стрельбу на примере ракет. Для обычных снарядов принцип тотже, только у ракет ещё создаётся <b>система частиц</b>.
+Далее осуществляется <strong>стрельба</strong> снарядами. Рассмотрим стрельбу на примере ракет. Для обычных снарядов принцип тотже, только у ракет ещё создаётся <strong>система частиц</strong>.
 
 <pre>
 <code data-language="lua">
@@ -822,20 +822,20 @@ if Input.mouseDown("r") then
 
   -- Сохраняем позицию ракеты
   self.rockets[ ind ].pos = Vector( x, y )
-  
+
   -- Направление, в котором ракета будет двигаться
   self.rockets[ ind ].dir = Vector( self.top_dir.x, self.top_dir.y ):normalized()
-  
+
   -- Спрайт ракеты
   self.rockets[ ind ].img = love.graphics.newImage("data/images/rocket.png")
   self.rockets[ ind ].size = Vector( self.rockets[ ind ].img:getWidth(), self.rockets[ ind ].img:getHeight() )
-  
+
   -- Угол поворота. Равен углу поворота башни танка
   self.rockets[ ind ].angle = self.top_angle
-  
+
   -- Указываем спрайт для системы частиц
   self.rockets[ ind ].smoke = love.graphics.newImage("data/images/rocket_smoke.png")
-  
+
   -- Создаём систему частиц
   self.rockets[ ind ].ps = love.graphics.newParticleSystem( self.rockets[ ind ].smoke, 256 )
   self.rockets[ ind ].ps:setAreaSpread( "uniform", 0, 0 )
@@ -848,7 +848,7 @@ if Input.mouseDown("r") then
   self.rockets[ ind ].ps:setRadialAcceleration( 0, 0 )
   self.rockets[ ind ].ps:setSpeed( 30, 50 )
   self.rockets[ ind ].ps:setSpread( math.rad( 30 ) )
-  self.rockets[ ind ].ps:setPosition( 
+  self.rockets[ ind ].ps:setPosition(
     self.rockets[ ind ].pos.x
     - ((self.rockets[ ind ].pos.y + 16)
     - self.rockets[ ind ].pos.y)
@@ -864,11 +864,11 @@ end
 </p>
 
 <p>
-Для того, чтобы снаряды вылетали из конца <b>дула танка</b>, необходимо воспользоваться формулой:
+Для того, чтобы снаряды вылетали из конца <strong>дула танка</strong>, необходимо воспользоваться формулой:
 
 <pre>
 <code data-language="lua">
-X = x0 + (x - x0) * cos(a) - (y - y0) * sin(a); 
+X = x0 + (x - x0) * cos(a) - (y - y0) * sin(a);
 Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 </code>
 </pre>
@@ -876,35 +876,35 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 <ul>
   <li>(x0; y0) - точка, вокруг которой вращаем</li>
   <li>(x; y) - точка, которую вращаем</li>
-  <li>X, Y - новые координаты точки (x; y)</li> 
+  <li>X, Y - новые координаты точки (x; y)</li>
   <li>a - угол, на который повёрнута башня (в радианах)</li>
 </ul>
 </p>
 
 <p>
-Просто подставим наши значения и получим точку (X; Y), из которой должны вылетать <b>снаряды</b>.
+Просто подставим наши значения и получим точку (X; Y), из которой должны вылетать <strong>снаряды</strong>.
 </p>
 
 <p>
 <center><b>Система координат:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/tank_axes.png" width="640" height="480"></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/tank_axes.png" width="640" height="480"></center>
 </p>
 
 <p>
-С <b>системой частиц</b> пока не разбирался, все параметры были подобраны эксперементальным путём. Более подробней о системе частиц можно посмотреть <a href="http://love2d.org/wiki/ParticleSystem" target="_blank">здесь</a>.
+С <strong>системой частиц</strong> пока не разбирался, все параметры были подобраны эксперементальным путём. Более подробней о системе частиц можно посмотреть <a href="http://love2d.org/wiki/ParticleSystem" target="_blank">здесь</a>.
 </p>
 
 <p>
-Далее идёт обновление снарядов, проигрывается текущая <b>анимация танка</b> и обновление выхлопных газов танка.
+Далее идёт обновление снарядов, проигрывается текущая <strong>анимация танка</strong> и обновление выхлопных газов танка.
 </p>
 
 <p>
-Класс "Танк" написан, осталось добавить его в файл <b>main.lua</b>. Сохраните его в папку <b>classes</b> с названием <b>Tank.lua</b> и в файле <b>main.lua</b> после объявления всех библиотек добавьте <b>Tank = require "classes.Tank"</b>. В функции <b>love.load()</b> нужно создать экземпляр класса: <b>tank = Tank( Vector( 100, 100 ) )</b>. И вместо комментариев "Здесь будет функция обновления танка" и "Здесь будет функция отрисовки танка" нужно прописать <b>tank:update( dt )</b> и <b>tank:draw()</b>.
+Класс <b>"Танк"</b> написан, осталось добавить его в файл <b>main.lua</b>. Сохраните его в папку <b>classes</b> с названием <b>Tank.lua</b> и в файле <b>main.lua</b> после объявления всех библиотек добавьте <b>Tank = require "classes.Tank"</b>. В функции <b>love.load()</b> нужно создать экземпляр класса: <b>tank = Tank( Vector( 100, 100 ) )</b>. И вместо комментариев "Здесь будет функция обновления танка" и "Здесь будет функция отрисовки танка" нужно прописать <b>tank:update( dt )</b> и <b>tank:draw()</b>.
 </p>
 
 <p>
-<center><b>Результат:</b></center>
-<center><img src="http://snake174.github.io/img/tanks/result.png" width="640" height="480"></center>
+<center><b>Результат</b></center>
+<center><img src="http://snake174.github.io/img/articles/tanks/result.png" width="640" height="480"></center>
 </p>
 
 <p>
@@ -920,7 +920,7 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 </p>
 
 <p>
-Ну и как же обойтись без исходников: <a href="http://snake174.github.io/files/tanks/Tanks.love" download="Tanks.love"><b>Tanks</b></a>
+Ну и как же обойтись без исходников: <a href="http://snake174.github.io/files/articles/tanks/Tanks.love" download="Tanks.love"><b>Tanks</b></a>
 </p>
 
       </div>
