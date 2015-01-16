@@ -11,13 +11,15 @@
   background: #ccc;
   padding: 5px 25px;
   margin: 0 !important;
-	font-size: 0;
+	color: transparent;
 	width: 30px;
 }
 .tabs_container .tabs li.active {
   background: #aaa;
   border-left: 5px #000 solid;
   border-right: 5px #000 solid;
+	width: auto;
+	color: #000;
 }
 .tab_container {
   display: none;
