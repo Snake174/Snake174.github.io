@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="ru">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="варнике,новогодняя ёлка,игры,логические задачи,детектив,сыщик,инспектор,новый год,ограбление">
+  <meta name="description" content="Новогодняя ёлка">
+  <meta name="author" content="Burlachenko Maxim" >
+  <meta name="copyright" content="">
+  <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
+  <title>Статьи, игры, программы - Новогодняя ёлка</title>
+  <style>
+    body, html {
+      margin: 0px;
+      padding: 0px;
+      height: 100%;
+      text-align: justify;
+    }
+    body {
+      background-color: #EEEEEE;
+      background-image: url('http://snake174.github.io/img/background.png');
+      background-repeat: repeat;
+      background-attachment: fixed;
+    }
+    * html #main {
+      height: 100%;
+    }
+    p {
+      text-indent: 30px;
+    }
+    a:link {
+      color: #0000DD;
+      text-decoration: none;
+    }
+    a:visited {
+      color: purple;
+      text-decoration: none;
+    }
+    a:active {
+      color: #0000FF;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #0000AA;
+      text-decoration: underline;
+    }
+    strong {
+      text-decoration: none;
+      font-weight: normal;
+    }
+    ul#menu, ul#menu ul {
+      list-style-type:none;
+      margin: 0;
+      padding: 0;
+      width: 250px;
+    }
+    ul#menu a {
+      display: block;
+      text-decoration: none;
+    }
+    ul#menu li {
+      margin-top: 1px;
+    }
+    ul#menu li a {
+      background: #333;
+      color: #fff;
+      padding: 0.5em;
+    }
+    ul#menu li a:hover {
+      background: #000;
+    }
+    ul#menu li ul li a {
+      background: #ccc;
+      color: #000;
+      padding-left: 20px;
+    }
+    ul#menu li ul li a:hover {
+      background: #aaa;
+      border-left: 5px #000 solid;
+      padding-left: 15px;
+    }
+    #main {
+      width: 100%;
+      margin: 0 auto;
+      text-align: justify;
+      min-width: 480px;
+      width: expression(
+        (document.compatMode && document.compatMode == 'CSS1Compat')
+        ?
+        (document.documentElement.clientWidth < 480 ? "480px" : "auto")
+        :
+        (document.body.clientWidth < 480 ? "480px" : "auto")
+      );
+      min-height: 100%;
+    }
+    #header {
+      width: 100%;
+      height: 150px;
+    }
+    #header-logo {
+      float: left;
+      width: 250px;
+      height: 150px;
+      background-image: url("http://snake174.github.io/img/logo.png");
+    }
+    #content {
+      float: right;
+      width: 100%;
+      margin-left: -250px;
+    }
+    #content-text {
+      margin-left: 250px;
+      padding: 10px;
+      text-align: justify;
+    }
+    #content-extra {
+      margin-left: 250px;
+      height: 50px;
+      line-height: 50px;
+    }
+    #left {
+      float: left;
+      width: 250px;
+    }
+    #left-menu {
+      width: 250px;
+    }
+    #left-extra {
+      width: 250px;
+      margin-top: 30px;
+    }
+    #footer {
+      clear: both;
+      height: 30px;
+      line-height: 30px;
+      margin-top: -30px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 12px;
+      font-weight: bold;
+      color: #AAA;
+    }
+    #clear {
+      clear: both;
+    }
+    .data_table {
+      background: rgba(160,160,160,.3);
+      border-radius: 10px;
+      -moz-border-radius: 10px;     /* для firefox */
+      -webkit-border-radius: 10px;  /* для Safari и Chrome */
+      padding-top: 5px;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+    }
+  </style>
+
+  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/jquery.jfancytile.css">
+  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
+  <style type="text/css" class="init"></style>
+
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.ui.touch.js"></script>
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.dataTables.min.js"></script>
+
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
+
+  <script type="text/javascript" language="javascript" class="init"></script>
+</head>
+<body>
+  <!-- Main Container Begin -->
+  <div id="main">
+    <!-- Header Begin -->
+    <div id="header">
+      <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
+      </div>
+      <div id="header-content">
+      </div>
+    </div>
+    <!-- Header End -->
+    <div id="clear"></div>
+    <!-- Content Begin -->
+    <div id="content">
+      <div id="content-text">
+
+<h1 align="center">Новогодняя ёлка</h1>
+
+
+
+      </div>
+      <div id="content-extra">
+        <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+        <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+      </div>
+    </div>
+    <!-- Content End -->
+    <!-- Left Column Begin -->
+    <div id="left">
+      <div id="left-menu">
+        <ul id="menu">
+          <li>
+            <ul>
+              <li><a href="http://snake174.github.io/programs.html">Программы</a></li>
+              <li><a href="http://snake174.github.io/games.html">Игры</a></li>
+              <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+              <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="left-extra">
+        <!-- Yandex.Metrika informer -->
+        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
+          target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+        <!-- /Yandex.Metrika informer -->
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+          (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+              try {
+                w.yaCounter26840853 = new Ya.Metrika({id:26840853,
+                  webvisor:true,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true});
+              } catch(e) { }
+            });
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+            if (w.opera == "[object Opera]") {
+              d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+          })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+        <!--cy-pr.com-->
+        <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
+        <!--cy-pr.com-->
+      </div>
+    </div>
+    <!-- Left Column End -->
+  </div>
+  <!-- Main Container End -->
+  <div id="clear"></div>
+  <!-- Footer Begin -->
+  <div id="footer">
+    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+  </div>
+  <!-- Footer End -->
+</body>
+</html>
