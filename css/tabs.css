@@ -13,13 +13,16 @@
   margin: 0 !important;
 	width: 20px;
 	font-size: 0;
+	list-style-type: none;
 }
 .tabs_container .tabs li.active {
   background: #aaa;
   border-left: 5px #000 solid;
   border-right: 5px #000 solid;
 	width: auto;
+	height: inherit;
 	font-size: inherit;
+	list-style-type: inherit;
 	color: #000;
 }
 .tab_container {
