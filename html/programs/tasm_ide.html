@@ -150,6 +150,13 @@
             clear: both;
         }
     </style>
+
+    <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
+
+    <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
+    <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
 </head>
 <body>
 <!-- Main Container Begin -->
@@ -197,18 +204,32 @@
             </p>
 
             <p>
-            <h4 align="center">Шаблон для EXE файла</h4>
-            <center><img src="http://snake174.github.io/img/tasm_ide/tasm_ide_1.png" alt="Шаблон для EXE файла"></center>
-            </p>
+            <h4 align="center">Скриншоты</h4>
 
-            <p>
-            <h4 align="center">Шаблон для COM файла</h4>
-            <center><img src="http://snake174.github.io/img/tasm_ide/tasm_ide_2.png" alt="Шаблон для COM файла"></center>
-            </p>
+              <div class="cycle-slideshow"
+                data-cycle-fx=scrollHorz
+                data-cycle-timeout=5000
+                data-cycle-caption-plugin=caption2
+                data-cycle-overlay-fx-out="slideUp"
+                data-cycle-overlay-fx-in="slideDown"
+                data-cycle-pause-on-hover="true"
+              >
 
-            <p>
-            <h4 align="center">Перевод чисел из одной системы счисления в другую</h4>
-            <center><img src="http://snake174.github.io/img/tasm_ide/tasm_ide_3.png" alt="Перевод чисел из одной системы счисления в другую"></center>
+              <!-- <div class="cycle-prev"></div>
+              <div class="cycle-next"></div> -->
+
+              <div class="cycle-overlay"></div>
+
+              <img src="http://snake174.github.io/img/tasm_ide/tasm_ide_1.png"
+                data-cycle-title=""
+                data-cycle-desc="Шаблон для EXE файла">
+              <img src="http://snake174.github.io/img/tasm_ide/tasm_ide_2.png"
+                data-cycle-title=""
+                data-cycle-desc="Шаблон для COM файла">
+              <img src="http://snake174.github.io/img/tasm_ide/tasm_ide_1.png"
+                data-cycle-title=""
+                data-cycle-desc="Перевод чисел из одной системы счисления в другую">
+              </div>
             </p>
 
             <p>

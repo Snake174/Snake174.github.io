@@ -179,6 +179,13 @@
       display: none;
     }
   </style>
+
+  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
+
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
+
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
+  <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
 </head>
 <body>
 <!-- Main Container Begin -->
@@ -253,9 +260,32 @@
           <span class="title">Версия 0.1</span>
           <div class="tab_content">
             <p>
-              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_1-1.png"></center>
-              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_1-2.png"></center>
-              <center><img src="http://snake174.github.io/img/love_exporter/love_exporter_1-3.png"></center>
+              <h4 align="center">Скриншоты</h4>
+
+              <div class="cycle-slideshow"
+                data-cycle-fx=scrollHorz
+                data-cycle-timeout=5000
+                data-cycle-caption-plugin=caption2
+                data-cycle-overlay-fx-out="slideUp"
+                data-cycle-overlay-fx-in="slideDown"
+                data-cycle-pause-on-hover="true"
+              >
+
+              <!-- <div class="cycle-prev"></div>
+              <div class="cycle-next"></div> -->
+
+              <div class="cycle-overlay"></div>
+
+              <img src="http://snake174.github.io/img/love_exporter/love_exporter_1-1.png"
+                data-cycle-title=""
+                data-cycle-desc="Окно при старте">
+              <img src="http://snake174.github.io/img/love_exporter/love_exporter_1-2.png"
+                data-cycle-title=""
+                data-cycle-desc="Параметры keystore">
+              <img src="http://snake174.github.io/img/love_exporter/love_exporter_1-3.png"
+                data-cycle-title=""
+                data-cycle-desc="Вкладка с настройками">
+              </div>
             </p>
 
             <p>

@@ -150,6 +150,13 @@
             clear: both;
         }
     </style>
+
+    <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
+
+    <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
+    <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
 </head>
 <body>
 <!-- Main Container Begin -->
@@ -189,9 +196,31 @@
           </p>
 
           <h4 align="center">Скриншоты</h4>
-          <center><img src="http://snake174.github.io/img/pipmak_assistant/pipmak_assistant_1.png"></center>
-          <center><img src="http://snake174.github.io/img/pipmak_assistant/pipmak_assistant_2.png"></center>
-          <center><img src="http://snake174.github.io/img/pipmak_assistant/pipmak_assistant_3.png"></center>
+
+              <div class="cycle-slideshow"
+                data-cycle-fx=scrollHorz
+                data-cycle-timeout=5000
+                data-cycle-caption-plugin=caption2
+                data-cycle-overlay-fx-out="slideUp"
+                data-cycle-overlay-fx-in="slideDown"
+                data-cycle-pause-on-hover="true"
+              >
+
+              <!-- <div class="cycle-prev"></div>
+              <div class="cycle-next"></div> -->
+
+              <div class="cycle-overlay"></div>
+
+              <img src="http://snake174.github.io/img/pipmak_assistant/pipmak_assistant_1.png"
+                data-cycle-title=""
+                data-cycle-desc="Окно просмотра ноды">
+              <img src="http://snake174.github.io/img/pipmak_assistant/pipmak_assistant_2.png"
+                data-cycle-title=""
+                data-cycle-desc="Окно просмотра хотспотов">
+              <img src="http://snake174.github.io/img/pipmak_assistant/pipmak_assistant_3.png"
+                data-cycle-title=""
+                data-cycle-desc="Окно настроек">
+              </div>
           </p>
 
           <p>
