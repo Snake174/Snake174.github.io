@@ -1,35 +1,30 @@
 .tabs_container {
 }
-
 .tabs {
   padding: 0;
 }
-
 .tabs_container .tabs {
   margin: 0 !important;
 }
-
 .tabs_container .tabs li {
   cursor: pointer;
   background: #ccc;
   padding: 5px 25px;
   margin: 0 !important;
+	font-size: 0;
+	width: 30px;
 }
-
 .tabs_container .tabs li.active {
   background: #aaa;
   border-left: 5px #000 solid;
   border-right: 5px #000 solid;
 }
-
 .tab_container {
   display: none;
 }
-
 .tab_container ul li {
   margin: 0 0 8px 0;
 }
-
 .inl-bl {
   display: inline-block;
 }
