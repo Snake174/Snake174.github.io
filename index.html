@@ -150,6 +150,11 @@
     #clear {
       clear: both;
     }
+    .circle {
+      stroke-width: 5;
+      fill: black;
+      stroke: cornflowerblue;
+    }
   </style>
 </head>
 <body>
@@ -160,6 +165,7 @@
       <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
       </div>
       <div id="header-content">
+        <div class="circle"></div>
       </div>
     </div>
     <!-- Header End -->
@@ -262,5 +268,58 @@
     &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
   </div>
   <!-- Footer End -->
+  
+  <script type="text/javascript">
+    var height = 150;
+    var width = window.innerWidth;
+    var counter = 1;
+    var direction = true;
+    var distance = 50;
+    var speed = 4;
+    var radius = 400;
+
+    var svg = d3.select("circle")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    function makeCircle(cx) {
+      svg.append("circle")
+          .attr("cx", cx)
+          .attr("cy", height/2)
+          .attr("r", 0)
+          .style("stroke-width", 2 )
+          .transition()
+              .duration(2000)
+              .ease('quad-in')
+          .attr("r", radius)
+          .style("stroke-opacity", 0)
+          .each("end", function () {
+              d3.select(this).remove();
+          });
+}
+
+function render() {
+  requestAnimationFrame(render);
+  
+  var center = width/2;
+
+  if ( direction ) {
+    counter += speed;
+  } else {
+    counter -= speed;
+  }
+  
+  if ( counter >= distance || counter <= -distance ) {
+    direction = !direction;
+  }
+  
+  center += counter;
+  
+  makeCircle(center);
+}
+
+render();
+  </script>
 </body>
 </html>
