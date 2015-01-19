@@ -5,4 +5,5 @@ Disallow: /css/
 Disallow: /img/
 Disallow: /files/
 Disallow: /feedback.html
+Disallow: /404.html
 Sitemap: http://snake174.github.io/sitemaps.xml
