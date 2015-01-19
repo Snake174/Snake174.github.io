@@ -1,7 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<style>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'">
+<style type="text/css" media="screen">
 .me404 {
   .size(1000,480);
   position: absolute;
@@ -139,10 +141,6 @@
 
 .keyframes(~'triforce-float, 0% { transform: translate(0px, 0px) scale(0.90)  } 65% { transform: translate(0px, 30px) scale(1.0); } 100% { transform: translate(0px, 0px) scale(0.90); } ');
 </style>
-<script>
-var path = document.getElementById('tail');
-path.setAttribute('d','M89,315c2.2-15.2-23-13.2-21.6,4.8c1.7,22.3,24.4,22.1,42.5,9.1c10.8-7.8,15.3-1.8,19.1,1.1 c2.3,1.7,6.7,3.3,11-3');
-</script>
 </head>
 <body>
 <svg class="me404" viewBox="0 0 1000 480">
@@ -276,6 +274,12 @@ path.setAttribute('d','M89,315c2.2-15.2-23-13.2-21.6,4.8c1.7,22.3,24.4,22.1,42.5
   </g>
 </g>
 </svg>
+
+<script type="text/javascript">
+var path = document.getElementById('tail');
+path.setAttribute('d','M89,315c2.2-15.2-23-13.2-21.6,4.8c1.7,22.3,24.4,22.1,42.5,9.1c10.8-7.8,15.3-1.8,19.1,1.1 c2.3,1.7,6.7,3.3,11-3');
+</script>
+
 </body>
 </html>
 
