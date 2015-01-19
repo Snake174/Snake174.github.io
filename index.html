@@ -150,11 +150,47 @@
     #clear {
       clear: both;
     }
-    .circle {
-      stroke-width: 5;
-      fill: black;
-      stroke: cornflowerblue;
-    }
+    
+    
+    
+    @import url(http://fonts.googleapis.com/css?family=VT323);
+
+$highlight: rgb(0,255,128);
+$quoteText: darken($highlight, 40%);
+$font: "M+ 1mn", "VT323", monospace;
+.quote {
+  cursor: default;
+  color: $quoteText;
+  margin: 0 auto 0;
+  max-width: 82vw;
+  perspective: 1000vmin;
+  width: 33rem;
+}
+.quote span {
+  border-radius: 0.3em;
+  display: inline-block;
+  padding: 0 0.25em;
+  margin: 0.1em 0.1em;
+  transform: translateZ(-500vmin) rotateX(90deg);
+  transition:
+    background 2s ease-in,
+    color 5s ease-out,
+    text-shadow 0.5s ease-out,
+    transform 15s ease-in;
+}
+.quote .highlight, .quote span:hover {
+  background: rgba($highlight,0.1);
+  color: lighten($highlight,25%);
+  text-shadow: 0 0 0.6em rgba($highlight,1);
+  transform: translateZ(0) rotateX(0deg);
+  transform-origin: 50% 100%;
+  transition: all 0.3s ease-out;
+  z-index: 9001;
+}
+    
+    
+    
+    
   </style>
 </head>
 <body>
@@ -165,7 +201,7 @@
       <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
       </div>
       <div id="header-content">
-        <div class="circle"></div>
+        <div class="quote" id="neat">A year here and he still dreamed of cyberspace, hope fading nightly. All the speed he took, all the turns he'd taken and the corners he cut in Night City, and he'd still see the matrix in his dreams, bright lattices of logic unfolding across that colourless void... The Sprawl was a long, strange way home now over the Pacific, and he was no Console Man, no cyberspace cowboy. Just another hustler, trying to make it through. But the dreams came on in the Japanese night like livewire voodoo, and he'd cry for it, cry in his sleep, and wake alone in the dark, curled in his capsule in some coffin hotel, hands clawed into the bedslab, temper foam bunched between his fingers, trying to reach the console that wasn't there.</div>
       </div>
     </div>
     <!-- Header End -->
@@ -270,56 +306,41 @@
   <!-- Footer End -->
   
   <script type="text/javascript">
-    var height = 150;
-    var width = window.innerWidth;
-    var counter = 1;
-    var direction = true;
-    var distance = 50;
-    var speed = 4;
-    var radius = 400;
+    var eQuote = document.querySelector("#neat");
 
-    var svg = d3.select("circle")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+var regex = /\ /;
+// save the original paragraph as array of words
+// regex = /[,.?!;:]/; /* Uncomment for sentences */
+var aQuote = eQuote.innerHTML.split(regex);
 
-    function makeCircle(cx) {
-      svg.append("circle")
-          .attr("cx", cx)
-          .attr("cy", height/2)
-          .attr("r", 0)
-          .style("stroke-width", 2 )
-          .transition()
-              .duration(2000)
-              .ease('quad-in')
-          .attr("r", radius)
-          .style("stroke-opacity", 0)
-          .each("end", function () {
-              d3.select(this).remove();
-          });
+// wrap each word with a span
+eQuote.innerHTML = "";
+for(var word in aQuote){
+  eQuote.innerHTML += "<span>" + aQuote[word] + "</span>";
+}
+// ...and save them for later
+var eWords = document.querySelectorAll("span");
+
+
+var repeat = setInterval(function() {
+  if(Math.random() > 0.85) fClearAllHighlights(eQuote);
+  fHighlightRandomWord(eWords);
+}, 275);
+
+function fHighlightRandomWord (e) {
+  var iRandom = Math.floor(Math.random() * e.length);
+  e[iRandom].classList.add("highlight");
 }
 
-function render() {
-  requestAnimationFrame(render);
-  
-  var center = width/2;
-
-  if ( direction ) {
-    counter += speed;
-  } else {
-    counter -= speed;
-  }
-  
-  if ( counter >= distance || counter <= -distance ) {
-    direction = !direction;
-  }
-  
-  center += counter;
-  
-  makeCircle(center);
+function fClearAllHighlights (e) {
+  var nlHighlights = e.querySelectorAll(".highlight");
+  // convert the nodeList into an array
+  var aHighlights = Array.prototype.slice.call(nlHighlights);
+  // remove .highlight from the spans which have it
+  Array.prototype.map.call(aHighlights, function(){
+    arguments[0].classList.remove("highlight");
+  });
 }
-
-render();
   </script>
 </body>
 </html>
