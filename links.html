@@ -202,6 +202,69 @@
       padding: 0 0 10px 40px;
       text-align: left;
     }
+
+    .buttons
+    {
+      display: inline-block;
+      white-space: nowrap;
+      background: #eeeeee; /* Old browsers */
+      background: -moz-linear-gradient(top, #eeeeee 0%, #eeeeee 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* Opera11.10+ */
+      background: -ms-linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* IE10+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+      background: linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* W3C */
+      border: 1px solid #a1a1a1;
+      padding: 0 2em;
+      margin: 0.5em;
+      font: bold 1em/2em Arial, Helvetica;
+      text-decoration: none;
+      color: #333;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      -moz-border-radius: .2em;
+      -webkit-border-radius: .2em;
+      border-radius: .2em;
+      -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+      -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+      box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    }
+    .buttons:hover
+    {
+      background: #ffffff; /* Old browsers */
+      background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera11.10+ */
+      background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+      background: linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* W3C */
+    }
+    .buttons:active
+    {
+      -moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+      -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+      box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+      position: relative;
+      top: 1px;
+    }
+    .buttons:focus
+    {
+      outline: 0;
+      background: #fafafa;
+    }
+    .buttons:before
+    {
+      float: left;
+      width: 1em;
+      text-align: center;
+      font-size: 1.7em;
+      margin: 0 0.5em 0 -1em;
+      padding: 0 .2em;
+      pointer-events: none;
+    }
+    .biohazard:before { content: "\2623"; }
+
   </style>
 </head>
 <body>
@@ -248,7 +311,7 @@
             этого инструменты (конструкторы игр, движки), изучить необходимую литературу (статьи, журналы, книги) и т.д.
             Здесь также имеется форум, где Вы всегда сможете спросить совет или поделиться своими наработками.
           </p>
-          <div class="panel-link"><a href="http://gcup.ru/" target="_blank">Перейти</a></div>
+          <div class="panel-link"><a class="buttons biohazard" href="http://gcup.ru/" target="_blank">Перейти</a></div>
         </div>
 
         <div class="clear"></div>
@@ -259,7 +322,7 @@
             Сайт с бесплатной музыкой и разного рода звуками. Присутствует возможность предварительного прослушивания композиций.
             Для скачивания файлов необходима регистрация.
           </p>
-          <div class="panel-link"><a href="https://www.freesound.org/" target="_blank">Перейти</a></div>
+          <div class="panel-link"><a class="buttons biohazard" href="https://www.freesound.org/" target="_blank">Перейти</a></div>
         </div>
 
         <div class="clear"></div>
@@ -269,7 +332,7 @@
           <p>
             Сайт с бесплатными моделями.
           </p>
-          <div class="panel-link"><a href="http://sketchup.google.com/3dwarehouse/" target="_blank">Перейти</a></div>
+          <div class="panel-link"><a class="buttons biohazard" href="http://sketchup.google.com/3dwarehouse/" target="_blank">Перейти</a></div>
         </div>
 
         <div class="clear"></div>
