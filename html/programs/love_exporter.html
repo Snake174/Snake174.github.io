@@ -158,17 +158,84 @@
     .clear {
       clear: both;
     }
+
+    /* Базовый контейнер табов */
+    .tabs {
+      min-width: 320px;
+      padding: 0px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    /* Стили секций с содержанием */
+    section {
+      display: none;
+    }
+    .tabs input {
+      display: none;
+    }
+    /* Стили вкладок (табов) */
+    .tabs label {
+      display: inline-block;
+      margin: 0 0 -1px;
+      padding: 5px 25px;
+      font-weight: 200;
+      text-align: center;
+      color: #aaa;
+      border: 1px solid #ddd;
+      background: #f1f1f1;
+      border-radius: 3px 3px 0 0;
+    }
+    /* Шрифт-иконки от Font Awesome в формате Unicode */
+    .tabs label:before {
+      font-weight: normal;
+      margin-right: 10px;
+    }
+    .tabs label:before {
+      content: "\2737";
+    }
+    /* изменения стиля заголовков вкладок при наведении */
+    .tabs label:hover {
+      color: #888;
+      cursor: pointer;
+    }
+    /* стили для активной вкладки */
+    .tabs input:checked + label {
+      color: #555;
+      border: 1px solid #ddd;
+      border-left: 5px solid #000;
+      border-right: 5px solid #000;
+      background: #fff;
+    }
+    /* активация секций с помощью переключателя :checked */
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2 {
+      display: block;
+    }
+    /* медиа запросы для различных типов носителей */
+    @media screen and (max-width: 890px) {
+      .tabs label {
+        font-size: 0;
+      }
+      .tabs label:before {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+    @media screen and (max-width: 640px) {
+      .tabs label {
+        padding: 15px;
+      }
+    }
+
   </style>
 
   <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
-  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/tabs.css">
 
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
 
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
 
-  <script type="text/javascript" src="http://snake174.github.io/js/tabs.js"></script>
 </head>
 <body>
 <!-- Main Container Begin -->
@@ -237,76 +304,74 @@
         Проверка созданных <strong>apk</strong> файлов для <b>Android</b> проводилась на <a href="http://www.bluestacks.com/" target="_blank">BlueStacks</a>, <a href="http://www.genymotion.com/" target="_blank">Genymotion</a>, телефоне Samsung Duos (Android 2.6), Mediox Mid9742 DC (Android 4.0), Asus PhonePad (Android 4) и Asus MemoPad (Android 4.4.2).
       </p>
 
-      <div class="tabs_container">
-        <ul class="tabs">
-          <li class="inl-bl active">Версия 0.1</li>
-          <li class="inl-bl">Версия 0.2</li>
-        </ul>
-        <div class="tab_container" style="display: block;">
+      <div class="tabs">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1" title="Версия 1">Версия 0.1</label>
+
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2" title="Версия 2">Версия 0.2</label>
+
+        <section id="content1">
           <p>
-              <h4 align="center">Скриншоты</h4>
+          <h4 align="center">Скриншоты</h4>
 
-              <div class="cycle-slideshow"
-                data-cycle-fx=scrollHorz
-                data-cycle-timeout=5000
-                data-cycle-caption-plugin=caption2
-                data-cycle-overlay-fx-out="slideUp"
-                data-cycle-overlay-fx-in="slideDown"
-                data-cycle-pause-on-hover="true"
-                style="width: 640px; height: auto;"
-              >
+          <div class="cycle-slideshow"
+               data-cycle-fx=scrollHorz
+               data-cycle-timeout=5000
+               data-cycle-caption-plugin=caption2
+               data-cycle-overlay-fx-out="slideUp"
+               data-cycle-overlay-fx-in="slideDown"
+               data-cycle-pause-on-hover="true"
+               style="width: 640px; height: auto;"
+                  >
 
-              <!-- <div class="cycle-prev"></div>
-              <div class="cycle-next"></div> -->
+            <!-- <div class="cycle-prev"></div>
+            <div class="cycle-next"></div> -->
 
-              <div class="cycle-overlay"></div>
+            <div class="cycle-overlay"></div>
 
-              <img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_1-1.png" width="640" height="auto"
-                data-cycle-title=""
-                data-cycle-desc="Окно при старте">
-              <img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_1-2.png" width="640" height="auto"
-                data-cycle-title=""
-                data-cycle-desc="Параметры keystore">
-              <img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_1-3.png" width="640" height="auto"
-                data-cycle-title=""
-                data-cycle-desc="Вкладка с настройками">
-              </div>
-            </p>
+            <img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_1-1.png" width="640" height="auto"
+                 data-cycle-title=""
+                 data-cycle-desc="Окно при старте">
+            <img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_1-2.png" width="640" height="auto"
+                 data-cycle-title=""
+                 data-cycle-desc="Параметры keystore">
+            <img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_1-3.png" width="640" height="auto"
+                 data-cycle-title=""
+                 data-cycle-desc="Вкладка с настройками">
+          </div>
+          </p>
 
-            <p>
-              <b>Windows:</b>
-
-<script type='text/javascript' src='http://dstats.net/js/dstracker.js'></script>
-<a href='http://snake174.github.io/files/programs/love_exporter/LoveExporter01.zip' download="LoveExporter01.zip" onclick='return dstatstracker(this);'><b>Версия 0.1</b> (78.1 Mb)</a>
-<script type='text/javascript' src='http://dstats.net/dstatsjs.php?file=http://snake174.github.io/files/programs/love_exporter/LoveExporter01.zip'></script>
-<script type='text/javascript'>document.write( 'Загрузок: ' + dsCounter );</script>
-
-              <!-- <a href="http://snake174.github.io/files/programs/love_exporter/LoveExporter01.zip" download="LoveExporter01.zip">Версия 0.1</a> (78.1 Mb) -->
-            </p>
-        </div>
-        <div class="tab_container">
           <p>
-              <center><img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_2-1.png"></center>
-            </p>
+            <b>Windows:</b>
 
-            <p>
-              <b>Изменения:</b>
-            <ul>
-              <li>добавлена настройка файла <b>conf.lua</b></li>
-            </ul>
-            </p>
+            <script type='text/javascript' src='http://dstats.net/js/dstracker.js'></script>
+            <a href='http://snake174.github.io/files/programs/love_exporter/LoveExporter01.zip' download="LoveExporter01.zip" onclick='return dstatstracker(this);'><b>Версия 0.1</b> (78.1 Mb)</a>
+            <script type='text/javascript' src='http://dstats.net/dstatsjs.php?file=http://snake174.github.io/files/programs/love_exporter/LoveExporter01.zip'></script>
+            <script type='text/javascript'>document.write( 'Загрузок: ' + dsCounter );</script>
+          </p>
+        </section>
+        <section id="content2">
+          <p>
+          <center><img src="http://snake174.github.io/img/programs/love_exporter/love_exporter_2-1.png"></center>
+          </p>
 
-            <p>
-              <b>Windows:</b>
+          <p>
+            <b>Изменения:</b>
+          <ul>
+            <li>добавлена настройка файла <b>conf.lua</b></li>
+          </ul>
+          </p>
 
-<script type='text/javascript' src='http://dstats.net/js/dstracker.js'></script>
-<a href='http://snake174.github.io/files/programs/love_exporter/LoveExporter02.zip' download="LoveExporter02.zip" onclick='return dstatstracker(this);'><b>Версия 0.2</b> (15.7 Mb)</a>
-<script type='text/javascript' src='http://dstats.net/dstatsjs.php?file=http://snake174.github.io/files/programs/love_exporter/LoveExporter02.zip'></script>
-<script type='text/javascript'>document.write( 'Загрузок: ' + dsCounter );</script>
+          <p>
+            <b>Windows:</b>
 
-              <!-- <a href="http://snake174.github.io/files/programs/love_exporter/LoveExporter02.zip" download="LoveExporter02.zip">Версия 0.2</a> (15.7 Mb) -->
-            </p>
-        </div>
+            <script type='text/javascript' src='http://dstats.net/js/dstracker.js'></script>
+            <a href='http://snake174.github.io/files/programs/love_exporter/LoveExporter02.zip' download="LoveExporter02.zip" onclick='return dstatstracker(this);'><b>Версия 0.2</b> (15.7 Mb)</a>
+            <script type='text/javascript' src='http://dstats.net/dstatsjs.php?file=http://snake174.github.io/files/programs/love_exporter/LoveExporter02.zip'></script>
+            <script type='text/javascript'>document.write( 'Загрузок: ' + dsCounter );</script>
+          </p>
+        </section>
       </div>
 
       <p>
