@@ -158,22 +158,51 @@
     .clear {
       clear: both;
     }
-    #anonse-item {
+    .anonse-item {
       width: 100%;
+      border-top: 1px solid #c9c9c9;
+      border-left: 1px solid #b4b4b4;
+      border-right: 1px solid #b4b4b4;
+      border-bottom: 1px solid #8d8d8d;
+      background: #fbfbfb;
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZiZmJmYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlN2U3ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+      background: -moz-linear-gradient(top,  #fbfbfb 0%, #e7e7e7 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#e7e7e7));
+      background: -webkit-linear-gradient(top,  #fbfbfb 0%,#e7e7e7 100%);
+      background: -o-linear-gradient(top,  #fbfbfb 0%,#e7e7e7 100%);
+      background: -ms-linear-gradient(top,  #fbfbfb 0%,#e7e7e7 100%);
+      background: linear-gradient(top,  #fbfbfb 0%,#e7e7e7 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#e7e7e7',GradientType=0 );
+      box-shadow: 0 2px 0px 0 rgba(0,0,0,0.1), 0 1px 0px 0 rgba(0,0,0,0.2);
+      -moz-box-shadow: 0 2px 0px 0 rgba(0,0,0,0.1), 0 1px 0px 0 rgba(0,0,0,0.2);
+      -webkit-box-shadow: 0 2px 0px 0 rgba(0,0,0,0.1), 0 1px 0px 0 rgba(0,0,0,0.2);
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      margin: 10px 0 10px 0;
     }
-    #anonse-item #teaser {
+    .anonse-item .teaser {
       float: left;
-      width: 171px;
-      vertical-align: middle;
+      width: 180px;
+      vertical-align: top;
+      margin: 20px 0 20px 20px;
     }
-    #anonse-item #anonse {
-      margin-left: 180px;
+    .anonse-item .anonse {
+      margin-left: 200px;
     }
-    #anonse-item #anonse #anonse-title {
+    .anonse-item .anonse .anonse-title {
       text-align: center;
+      color      : #3c3c3c;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
     }
-    #anonse-item #anonse #anonse-text {
+    .anonse-item .anonse .anonse-text p {
       text-align: justify;
+      font-size  : 14px;
+      color      : #666;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
+      margin     : 0;
+      padding    : 0 20px 10px;
+      line-height: 20px;
     }
   </style>
 </head>
@@ -193,21 +222,22 @@
     <div id="content">
       <div id="content-text">
 
-<div id="anonse-item">
-  <div id="teaser">
+<div class="anonse-item">
+  <div class="teaser">
     <a href="http://snake174.github.io/html/articles/tanks.html"><img src="http://snake174.github.io/img/articles/tanks/teaser.png" width="171" height="auto" alt="Создание танка на движке LÖVE" title="Создание танка на движке LÖVE"></a>
   </div>
-  <div id="anonse">
-    <div id="anonse-title">
+  <div class="anonse">
+    <div class="anonse-title">
       <h3>Создание танка на движке LÖVE</h3>
     </div>
-    <div id="anonse-text">
+    <div class="anonse-text">
 <p>
 Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном код), как вы уже наверно догадались,
 пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
 </p>
     </div>
   </div>
+  <div class="clear"></div>
 </div>
 
       </div>
