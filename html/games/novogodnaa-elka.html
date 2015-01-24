@@ -184,25 +184,8 @@
   <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
 
   <script type="text/javascript" language="javascript" class="init"></script>
-
-  <script language="JavaScript" runat="server">
-    function WriteToFile() {
-      try {
-        var fso = new ActiveXObject("Scripting.FileSystemObject");
-        var a = fso.CreateTextFile("http://snake174.github.io/files/games/varnike/comments.json", true);
-        a.WriteLine("This is a test.");
-        a.Close();
-      }
-      catch(err){
-        var strErr = 'Error:';
-        strErr += '\nNumber:' + err.number;
-        strErr += '\nDescription:' + err.description;
-        document.write(strErr);
-      }
-    }
-  </script>
 </head>
-<body onload='WriteToFile();'>
+<body>
   <!-- Main Container Begin -->
   <div id="main">
     <!-- Header Begin -->
