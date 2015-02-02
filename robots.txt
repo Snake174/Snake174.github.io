@@ -3,8 +3,9 @@ Crawl-delay: 2
 Disallow: /js/
 Disallow: /css/
 Disallow: /img/
-Disallow: /files/
 Disallow: /feedback.html
 Disallow: /404.html
 Disallow: /payments.html
+Disallow: /googlecfbfbd8b2d81308b.html
+Disallow: /yandex_4de0fe01bb96e6da.html
 Sitemap: http://snake174.github.io/sitemaps.xml
