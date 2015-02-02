@@ -74,8 +74,8 @@ $(document).ready( function() {
               }
             ],
             'autotext': 'true',
-            'subject': 'http://snake174.github.io/ - Обратная связь',
-            'html': body
+            'subject': 'Статьи, игры, программы - Обратная связь',
+            'html': body + '<br><br><a href="snake174.github.io" target="_blank">Статьи, игры, программы</a>'
           }
         }
       } ).done( function( response ) {
