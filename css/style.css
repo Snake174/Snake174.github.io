@@ -212,6 +212,14 @@ ul.sidebarmenu li>a {
   text-decoration: none;
   padding-left: 20px;
 }
+ul.sidebarmenu li>a:hover {
+  color: #111;
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  padding-left: 30px;
+  font-weight: bold;
+}
 
 /*
  * SLIDER
