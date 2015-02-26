@@ -171,6 +171,46 @@ ul#menu li ul li a.active {
   color: #AAA;
 }
 
+
+.sidebarmenu ul {
+  border: 1px solid #aaa;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 0 #fff;
+  -moz-box-shadow: 0 1px 0 #fff;
+  box-shadow: 0 1px 0 #fff;
+  margin: 5px 0 20px;
+  padding: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e5e5e5));
+  background-image: -webkit-linear-gradient(#ffffff 0%,#e5e5e5 100%);
+  background-image: -moz-linear-gradient(#ffffff 0%,#e5e5e5 100%);
+  background-image: -o-linear-gradient(#ffffff 0%,#e5e5e5 100%);
+  background-image: linear-gradient(#ffffff 0%,#e5e5e5 100%);
+}
+.sidebarmenu li:first-child {
+  border-top: medium none !important;
+}
+.sidebarmenu li {
+  list-style: none;
+  position: relative;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #aaa;
+}
+.sidebarmenu li>a:last-child {
+  border-bottom: none !important;
+}
+.sidebarmenu li>a:first-child {
+  border-top: none !important;
+}
+.sidebarmenu li>a {
+  color: #555;
+  display: block;
+  padding: 5px 10px;
+}
+
 /*
  * SLIDER
  */
