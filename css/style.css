@@ -182,7 +182,7 @@ ul.sidebarmenu {
   -webkit-box-shadow: 0 1px 0 #fff;
   -moz-box-shadow: 0 1px 0 #fff;
   box-shadow: 0 1px 0 #fff;
-  margin: 5px;
+  margin: 0;
   padding: 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e5e5e5));
   background-image: -webkit-linear-gradient(#ffffff 0%,#e5e5e5 100%);
