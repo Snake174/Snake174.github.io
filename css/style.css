@@ -209,6 +209,7 @@ ul.sidebarmenu li>a {
   color: #555;
   display: block;
   padding: 5px 10px;
+  text-decoration: none;
 }
 
 /*
