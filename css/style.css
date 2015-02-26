@@ -220,6 +220,14 @@ ul.sidebarmenu li>a:hover {
   padding-left: 30px;
   font-weight: bold;
 }
+ul.sidebarmenu li>a.active {
+  color: #111;
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  padding-left: 30px;
+  font-weight: bold;
+}
 
 /*
  * SLIDER
