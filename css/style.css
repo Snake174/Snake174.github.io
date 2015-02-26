@@ -172,7 +172,7 @@ ul#menu li ul li a.active {
 }
 
 
-.sidebarmenu ul {
+ul.sidebarmenu {
   border: 1px solid #aaa;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -190,22 +190,22 @@ ul#menu li ul li a.active {
   background-image: -o-linear-gradient(#ffffff 0%,#e5e5e5 100%);
   background-image: linear-gradient(#ffffff 0%,#e5e5e5 100%);
 }
-.sidebarmenu li:first-child {
+ul.sidebarmenu li:first-child {
   border-top: medium none !important;
 }
-.sidebarmenu li {
+ul.sidebarmenu li {
   list-style: none;
   position: relative;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #aaa;
 }
-.sidebarmenu li>a:last-child {
+ul.sidebarmenu li>a:last-child {
   border-bottom: none !important;
 }
-.sidebarmenu li>a:first-child {
+ul.sidebarmenu li>a:first-child {
   border-top: none !important;
 }
-.sidebarmenu li>a {
+ul.sidebarmenu li>a {
   color: #555;
   display: block;
   padding: 5px 10px;
