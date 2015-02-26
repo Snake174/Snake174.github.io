@@ -219,6 +219,11 @@ ul.sidebarmenu li>a:hover {
   text-decoration: none;
   padding-left: 30px;
   font-weight: bold;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e5e5e5), color-stop(100%, #a5a5a5));
+  background-image: -webkit-linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
+  background-image: -moz-linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
+  background-image: -o-linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
+  background-image: linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
 }
 ul.sidebarmenu a.active {
   color: #111;
@@ -227,6 +232,11 @@ ul.sidebarmenu a.active {
   text-decoration: none;
   padding-left: 30px;
   font-weight: bold;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e5e5e5), color-stop(100%, #a5a5a5));
+  background-image: -webkit-linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
+  background-image: -moz-linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
+  background-image: -o-linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
+  background-image: linear-gradient(#e5e5e5 0%,#a5a5a5 100%);
 }
 
 /*
