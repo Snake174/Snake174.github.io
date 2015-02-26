@@ -220,7 +220,7 @@ ul.sidebarmenu li>a:hover {
   padding-left: 30px;
   font-weight: bold;
 }
-ul.sidebarmenu li>a.active {
+ul.sidebarmenu a.active {
   color: #111;
   display: block;
   padding: 5px 10px;
