@@ -47,7 +47,7 @@ text-decoration: underline;
 strong {
 text-decoration: none;
 font-weight: normal;
-color: #000010;
+color: #111;
 }
 .style-panel {
 background: none repeat 0 0 #ffffff;
@@ -70,15 +70,15 @@ text-indent: 30px;
 padding: 5px;
 }
 .style-panel a:link {
-color: #0000DD;
+color: #000000;
 text-decoration: none;
 }
 .style-panel a:visited {
-color: purple;
+color: #000000;
 text-decoration: none;
 }
 .style-panel a:active {
-color: #0000FF;
+color: #000000;
 text-decoration: none;
 }
 .style-panel a:hover {
