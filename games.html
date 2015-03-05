@@ -1,351 +1,206 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
+  <title>Игры | Статьи, игры, программы</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="content-language" content="ru" />
   <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="x-rim-auto-match" content="none">
   <meta name="viewport" content="initial-scale=1, width=device-width" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="robots" content="index, follow" />
   <meta name="revisit-after" content="1 days" />
-  <meta name="keywords" content="статьи,игры,программы" />
-  <meta name="description" content="" />
+  <meta name="keywords" content="список игр,статьи,игры,программы" />
+  <meta name="description" content="Список игр" />
   <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
   <meta name="copyright" content="" />
   <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
-  <title>Статьи, игры, программы - Игры</title>
-  <style>
-    @font-face {
-      font-family: 'Play';
-      src: url('http://snake174.github.io/css/fonts/Play-Regular.eot');
-      src: local('☺'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');
-      font-weight: normal;
-      font-style: normal;
-    }
-    body, html {
-      margin: 0px;
-      padding: 0px;
-      height: 100%;
-      text-align: justify;
-      font-family: 'Play', Verdana, Arial, Helvetica, sans-serif;
-    }
-    body {
-      background-color: #EEEEEE;
-      background-image: url('http://snake174.github.io/img/background.png');
-      background-repeat: repeat;
-      background-attachment: fixed;
-    }
-    * html #main {
-      height: 100%;
-    }
-    p {
-      text-indent: 30px;
-    }
-    a:link {
-      color: #0000DD;
-      text-decoration: none;
-    }
-    a:visited {
-      color: #000000;
-      text-decoration: none;
-    }
-    a:active {
-      color: #000000;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #0000AA;
-      text-decoration: underline;
-    }
-    strong {
-      text-decoration: none;
-      font-weight: normal;
-    }
-    ul#menu, ul#menu ul {
-      list-style-type:none;
-      margin: 0;
-      padding: 0;
-      width: 250px;
-    }
-    ul#menu a {
-      display: block;
-      text-decoration: none;
-    }
-    ul#menu li {
-      margin-top: 1px;
-    }
-    ul#menu li a {
-      background: #333;
-      color: #fff;
-      padding: 0.5em;
-    }
-    ul#menu li a:hover {
-      background: #000;
-    }
-    ul#menu li ul li a {
-      background: #ccc;
-      color: #000;
-      padding-left: 20px;
-    }
-    ul#menu li ul li a:hover {
-      background: #aaa;
-      border-left: 5px #000 solid;
-      padding-left: 15px;
-    }
-    #main {
-      width: 100%;
-      margin: 0 auto;
-      text-align: justify;
-      min-width: 890px;
-      width:expression(
-        (document.compatMode && document.compatMode == 'CSS1Compat')
-        ?
-        (document.documentElement.clientWidth < 890 ? "890px" : "auto")
-        :
-        (document.body.clientWidth < 890 ? "890px" : "auto")
-      );
-      min-height: 100%;
-    }
-    #header {
-      width: 100%;
-      height: 150px;
-    }
-    #header-logo {
-      float: left;
-      width: 250px;
-      height: 150px;
-      background-image: url("http://snake174.github.io/img/logo.png");
-    }
-    #content {
-      float: right;
-      width: 100%;
-      margin-left: -250px;
-    }
-    #content-text {
-      margin-left: 250px;
-      padding: 10px;
-      text-align: justify;
-    }
-    #content-extra {
-      margin-left: 250px;
-      height: 50px;
-      line-height: 50px;
-    }
-    #left {
-      float: left;
-      width: 250px;
-    }
-    #left-menu {
-      width: 250px;
-    }
-    #left-extra {
-      width: 250px;
-      margin-top: 30px;
-    }
-    #footer {
-      clear: both;
-      height: 30px;
-      line-height: 30px;
-      margin-top: -30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 12px;
-      font-weight: bold;
-      color: #AAA;
-    }
-    .clear {
-      clear: both;
-    }
-    .anonse-item {
-      width: 100%;
-      background: none repeat 0 0 #efefef;
-      border: 1px solid #c9c9c9;
-      border-radius: 5px;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);
-      -moz-box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);
-      -webkit-box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);
-      margin: 10px 0 10px 0;
-    }
-    .anonse-item .teaser {
-      float: left;
-      width: 180px;
-      vertical-align: top;
-      margin: 20px 0 20px 20px;
-      box-shadow: 0px 0px 1px #2c2c2c;
-      transition: box-shadow ease 0.5s;
-      -webkit-transition: box-shadow ease 0.5s;
-      -moz-transition: box-shadow ease 0.5s;
-      -o-transition: box-shadow ease 0.5s;
-    }
-    .anonse-item .teaser:hover {
-      box-shadow: 0px 0px 10px #2c2c2c;
-    }
-    .anonse-item .anonse {
-      margin-left: 200px;
-    }
-    .anonse-item .anonse .anonse-title {
-      text-align: center;
-      color      : #3c3c3c;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
-    }
-    .anonse-item .anonse .anonse-text p {
-      text-align: justify;
-      font-size  : 14px;
-      color      : #666;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
-      margin     : 0;
-      padding    : 0 20px 10px;
-      line-height: 20px;
-    }
-  </style>
+  <link rel="icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/style.css" />
+  <style type="text/css" class="init"></style>
+  <script src="http://my.mobfox.com/ad.js"></script>
 </head>
 <body>
-  <!-- Main Container Begin -->
-  <div id="main">
-    <!-- Header Begin -->
-    <div id="header">
-      <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
-      </div>
-      <div id="header-content">
-      </div>
-    </div>
-    <!-- Header End -->
-    <div class="clear"></div>
-    <!-- Content Begin -->
-    <div id="content">
-      <div id="content-text">
-
-<!-- Не следует обманывать инспектора -->
-<div class="anonse-item">
-  <div class="teaser">
-    <a href="http://snake174.github.io/html/games/vernike.html"><img src="http://snake174.github.io/img/games/varnike/teaser.jpg" width="180" height="auto" alt="Не следует обманывать инспектора" title="Не следует обманывать инспектора"></a>
+<div class="main">
+<div class="header">
+  <div class="header__logo" title="Статьи, игры, программы" onclick="window.location='/';"></div>
+  <div class="header__body">
   </div>
-  <div class="anonse">
-    <div class="anonse-title">
-      <h3><a href="http://snake174.github.io/html/games/vernike.html">Не следует обманывать инспектора</a></h3>
-    </div>
-    <div class="anonse-text">
-<p>
-Вы выступаете в роли знаменитого инспектора <b>Варнике</b>. Вам предстоит побывать в доме, в котором было совершено жестокое убийство.
-Исследуйте разного рода локации, разгадывайте тайны, применяйте дедукцию, взаимодействуйте с окружением, собирайте подсказки, внимательно исследуйте
-каждый угол, ведь разгадки могут крыться в самых неожиданных и потайных местах.
-</p>
-    </div>
-  </div>
-  <div class="clear"></div>
 </div>
-
-<div class="clear"></div>
-
-<!-- Новогодняя ёлка -->
-<div class="anonse-item">
-  <div class="teaser">
-    <a href="http://snake174.github.io/html/games/novogodnaa-elka.html"><img src="http://snake174.github.io/img/games/novogodnaa-elka/teaser.jpg" width="180" height="auto" alt="Новогодняя ёлка" title="Новогодняя ёлка"></a>
+<div class="content">
+<!-- LEFT CONTENT -->
+<div class="content__left">
+  <!-- MENU -->
+  <div>
+    <ul class="sidebarmenu">
+      <li><a href="http://snake174.github.io/programs.html">Программы</a></li>
+      <li><a class="active" href="http://snake174.github.io/games.html">Игры</a></li>
+      <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+      <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
+      <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+    </ul>
   </div>
-  <div class="anonse">
-    <div class="anonse-title">
-      <h3><a href="http://snake174.github.io/html/games/novogodnaa-elka.html">Новогодняя ёлка</a></h3>
-    </div>
-    <div class="anonse-text">
-<p>
-Вы, как обычно, выступаете в роли <strong>инспектора Варнике</strong>, которому предстоит выяснить обстоятельства ограбления квартиры. Для этого Вам придётся осмотреть место преступления, побеседовать с соседями и выяснить, кто же совершил этот противоправный поступок, омрачив своим злодеянием столь веселый и радостный праздник.
-</p>
-    </div>
+  <!-- FIRST ADS -->
+  <div class="content__left__ads style-panel">
+    <div class="wapstart-plus1-ad"></div>
   </div>
-  <div class="clear"></div>
-</div>
-
-<div class="clear"></div>
-
-<!-- Birds -->
-<div class="anonse-item">
-  <div class="teaser">
-    <a href="http://snake174.github.io/html/games/birds.html"><img src="http://snake174.github.io/img/games/birds/teaser.jpg" width="180" height="auto" alt="Birds" title="Birds"></a>
+  <!-- SECOND ADS -->
+  <div class="content__left__ads2 style-panel">
+    <script>
+      RequestAd_({
+        s:'f46a1a7cf597a0b4207b6a2e321d93b7',
+        m:'live', <!-- Change to 'test' to show a test ad -->
+        adspace_width:'250', <!-- Maximum Width of your Banner -->
+        adspace_height:'50', <!-- Maximum Height of your Banner -->
+        adspace_strict:'0', <!-- If you change this parameter to 1, the ad size set above will be strict and no smaller ads will be shown. -->
+        backfillhtml:'', <!-- Insert HTML Code here that should be shown when no ad is available -->
+        prependclickcontent:'', <!-- Prepend something before Click URLs. It is recommended to leave this parameter empty.  -->
+        trackingpixelurl:'' <!-- Ping a Tracking Pixel everytime an ad is shown. -->
+      });
+    </script>
   </div>
-  <div class="anonse">
-    <div class="anonse-title">
-      <h3><a href="http://snake174.github.io/html/games/birds.html">Birds</a></h3>
-    </div>
-    <div class="anonse-text">
-<p>
-<b>Birds</b> - это аналог знаменитой <strong>Flappy Bird</strong> на андроиде, только для PC.
-</p>
-    </div>
-  </div>
-  <div class="clear"></div>
-</div>
-
-<div class="clear"></div>
-
-      </div>
-      <div id="content-extra">
-      </div>
-    </div>
-    <!-- Content End -->
-    <!-- Left Column Begin -->
-    <div id="left">
-      <div id="left-menu">
-        <ul id="menu">
-          <li>
-            <ul>
-              <li><a href="http://snake174.github.io/programs.html"><strong>Программы</strong></a></li>
-              <li><a href="http://snake174.github.io/games.html"><strong>Игры</strong></a></li>
-              <li><a href="http://snake174.github.io/articles.html"><strong>Статьи</strong></a></li>
-              <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
-              <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div id="left-extra">
-        <!-- Yandex.Metrika informer -->
-        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
-          target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
-        <!-- /Yandex.Metrika informer -->
-
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript">
-          (function (d, w, c) {
-            (w[c] = w[c] || []).push(function() {
-              try {
-                w.yaCounter26840853 = new Ya.Metrika({id:26840853,
-                  webvisor:true,
-                  clickmap:true,
-                  trackLinks:true,
-                  accurateTrackBounce:true});
-              } catch(e) { }
-            });
-            var n = d.getElementsByTagName("script")[0],
+  <div class="content__left__extra style-panel">
+    <!-- Yandex.Metrika informer -->
+    <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
+       target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+                                           style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+    <!-- /Yandex.Metrika informer -->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+          try {
+            w.yaCounter26840853 = new Ya.Metrika({id:26840853,
+              webvisor:true,
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true});
+          } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
                 s = d.createElement("script"),
                 f = function () { n.parentNode.insertBefore(s, n); };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-            if (w.opera == "[object Opera]") {
-              d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
-          })(document, window, "yandex_metrika_callbacks");
-        </script>
-        <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-        <!--cy-pr.com-->
-        <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
-        <!--cy-pr.com-->
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!--cy-pr.com-->
+    <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
+    <!--cy-pr.com-->
+  </div>
+</div>
+<!-- /LEFT CONTENT -->
+<!-- RIGHT CONTENT -->
+<div class="content__right">
+<!-- CONTENT BODY -->
+<div class="content__right__body style-panel">
+
+  <!-- Не следует обманывать инспектора -->
+  <div class="anonse-item">
+    <div class="teaser">
+      <a href="http://snake174.github.io/html/games/vernike.html"><img src="http://snake174.github.io/img/games/varnike/teaser.jpg" width="180" height="auto" alt="Не следует обманывать инспектора" title="Не следует обманывать инспектора"></a>
+    </div>
+    <div class="anonse">
+      <div class="anonse-title">
+        <h3><a href="http://snake174.github.io/html/games/vernike.html">Не следует обманывать инспектора</a></h3>
+      </div>
+      <div class="anonse-text">
+        <p>
+          Вы выступаете в роли знаменитого инспектора <b>Варнике</b>. Вам предстоит побывать в доме, в котором было совершено жестокое убийство.
+          Исследуйте разного рода локации, разгадывайте тайны, применяйте дедукцию, взаимодействуйте с окружением, собирайте подсказки, внимательно исследуйте
+          каждый угол, ведь разгадки могут крыться в самых неожиданных и потайных местах.
+        </p>
       </div>
     </div>
-    <!-- Left Column End -->
+    <div class="clear"></div>
   </div>
-  <!-- Main Container End -->
+
   <div class="clear"></div>
-  <!-- Footer Begin -->
-  <div id="footer">
-    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+
+  <!-- Новогодняя ёлка -->
+  <div class="anonse-item">
+    <div class="teaser">
+      <a href="http://snake174.github.io/html/games/novogodnaa-elka.html"><img src="http://snake174.github.io/img/games/novogodnaa-elka/teaser.jpg" width="180" height="auto" alt="Новогодняя ёлка" title="Новогодняя ёлка"></a>
+    </div>
+    <div class="anonse">
+      <div class="anonse-title">
+        <h3><a href="http://snake174.github.io/html/games/novogodnaa-elka.html">Новогодняя ёлка</a></h3>
+      </div>
+      <div class="anonse-text">
+        <p>
+          Вы, как обычно, выступаете в роли <strong>инспектора Варнике</strong>, которому предстоит выяснить обстоятельства ограбления квартиры. Для этого Вам придётся осмотреть место преступления, побеседовать с соседями и выяснить, кто же совершил этот противоправный поступок, омрачив своим злодеянием столь веселый и радостный праздник.
+        </p>
+      </div>
+    </div>
+    <div class="clear"></div>
   </div>
-  <!-- Footer End -->
+
+  <div class="clear"></div>
+
+  <!-- Birds -->
+  <div class="anonse-item">
+    <div class="teaser">
+      <a href="http://snake174.github.io/html/games/birds.html"><img src="http://snake174.github.io/img/games/birds/teaser.jpg" width="180" height="auto" alt="Birds" title="Birds"></a>
+    </div>
+    <div class="anonse">
+      <div class="anonse-title">
+        <h3><a href="http://snake174.github.io/html/games/birds.html">Birds</a></h3>
+      </div>
+      <div class="anonse-text">
+        <p>
+          <b>Birds</b> - это аналог знаменитой <strong>Flappy Bird</strong> на андроиде, только для PC.
+        </p>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+</div>
+<!-- /CONTENT BODY -->
+</div>
+<!-- /RIGHT CONTENT -->
+</div>
+<div class="clear"></div>
+<div class="empty"></div>
+</div>
+<!-- FOOTER -->
+<div class="footer style-panel">
+  &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
+</div>
+<!-- /FOOTER -->
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://snake174.github.io/js/jquery-ui.js"></script>
+<script type="text/javascript" src="http://snake174.github.io/js/jquery.ui.touch.js"></script>
+<script type="text/javascript" src="http://snake174.github.io/js/jquery.dataTables.min.js"></script>
+<script src="http://snake174.github.io/js/responsiveslides.min.js"></script>
+<script type="text/javascript" language="javascript" class="init"></script>
+<script type="text/javascript">
+  $(function() {
+    $("#slider1").responsiveSlides({
+      auto: false,
+      pager: true,
+      nav: true,
+      speed: 200,
+      maxwidth: 1024,
+      namespace: "centered-btns"
+    });
+  });
+</script>
+<script>
+  (function() {
+    var plus1SiteId = 12387;
+    var c = document.createElement('script'); c.type = 'text/javascript'; c.async = true;
+    c.src = '//api.plus1.wapstart.ru/v1/ads/sc/' + plus1SiteId + '.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(c, s);
+  } )();
+</script>
+<!-- /SCRIPTS -->
 </body>
 </html>
