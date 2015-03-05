@@ -349,7 +349,7 @@ float: left;
 width: 180px;
 vertical-align: top;
 margin: 20px 0 20px 20px;
-box-shadow: 0px 0px 0px #2c2c2c;
+//box-shadow: 0px 0px 0px #2c2c2c;
 transition: box-shadow ease 0.5s;
 -webkit-transition: box-shadow ease 0.5s;
 -moz-transition: box-shadow ease 0.5s;
