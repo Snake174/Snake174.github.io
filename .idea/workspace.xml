@@ -76,10 +76,10 @@
       <file leaf-file-name="games.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/games.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5012285" vertical-offset="3859" max-vertical-offset="5933">
-              <caret line="251" column="6" selection-start-line="251" selection-start-column="6" selection-end-line="251" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.54299754" vertical-offset="3298" max-vertical-offset="5933">
+              <caret line="220" column="111" selection-start-line="220" selection-start-column="111" selection-end-line="220" selection-end-column="111" />
               <folding>
-                <marker date="1425577749830" expanded="true" signature="2893:3122" placeholder="{...}" />
+                <marker date="1425577851101" expanded="true" signature="2893:3122" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -315,10 +315,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/games.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5012285" vertical-offset="3859" max-vertical-offset="5933">
-          <caret line="251" column="6" selection-start-line="251" selection-start-column="6" selection-end-line="251" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.54299754" vertical-offset="3298" max-vertical-offset="5933">
+          <caret line="220" column="111" selection-start-line="220" selection-start-column="111" selection-end-line="220" selection-end-column="111" />
           <folding>
-            <marker date="1425577749830" expanded="true" signature="2893:3122" placeholder="{...}" />
+            <marker date="1425577851101" expanded="true" signature="2893:3122" placeholder="{...}" />
           </folding>
         </state>
       </provider>
