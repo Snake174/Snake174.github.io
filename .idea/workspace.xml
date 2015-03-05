@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b0d8917-d25e-44fd-86dc-bc4bd81990b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/games.html" afterPath="$PROJECT_DIR$/games.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
     </list>
     <ignored path="Snake174.github.io.iws" />
@@ -66,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="5100" max-vertical-offset="9928">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="12" />
               <folding>
                 <element signature="e#4578#5241#2" expanded="true" />
               </folding>
@@ -88,6 +87,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="games.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Snake174.github.io_2/games.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="98.07692" vertical-offset="2550" max-vertical-offset="5423">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1422119459513" expanded="true" signature="2893:3122" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -103,8 +114,8 @@
       <list>
         <option value="$PROJECT_DIR$/links.html" />
         <option value="$PROJECT_DIR$/html/games/vernike.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/games.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -311,15 +322,15 @@
         <state vertical-scroll-proportion="98.07692" vertical-offset="2550" max-vertical-offset="5423">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1422119459513" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1422119459513" expanded="true" signature="2893:3122" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9928">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5100" max-vertical-offset="9928">
+          <caret line="316" column="12" selection-start-line="316" selection-start-column="12" selection-end-line="316" selection-end-column="12" />
           <folding>
             <element signature="e#4578#5241#2" expanded="true" />
           </folding>
