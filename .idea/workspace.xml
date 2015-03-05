@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1b0d8917-d25e-44fd-86dc-bc4bd81990b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/games.html" afterPath="$PROJECT_DIR$/games.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
     </list>
     <ignored path="Snake174.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,10 +76,10 @@
       <file leaf-file-name="games.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/games.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7850123" vertical-offset="3815" max-vertical-offset="5933">
-              <caret line="262" column="82" selection-start-line="262" selection-start-column="82" selection-end-line="262" selection-end-column="82" />
+            <state vertical-scroll-proportion="0.22113022" vertical-offset="2846" max-vertical-offset="5967">
+              <caret line="178" column="42" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
               <folding>
-                <marker date="1425578108753" expanded="true" signature="2894:3123" placeholder="{...}" />
+                <marker date="1425578255944" expanded="true" signature="2894:3123" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -316,10 +315,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/games.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7850123" vertical-offset="3815" max-vertical-offset="5933">
-          <caret line="262" column="82" selection-start-line="262" selection-start-column="82" selection-end-line="262" selection-end-column="82" />
+        <state vertical-scroll-proportion="0.22113022" vertical-offset="2846" max-vertical-offset="5967">
+          <caret line="178" column="42" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
           <folding>
-            <marker date="1425578108753" expanded="true" signature="2894:3123" placeholder="{...}" />
+            <marker date="1425578255944" expanded="true" signature="2894:3123" placeholder="{...}" />
           </folding>
         </state>
       </provider>
