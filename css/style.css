@@ -349,14 +349,6 @@ float: left;
 width: 180px;
 vertical-align: top;
 margin: 20px 0 20px 20px;
-//box-shadow: 0px 0px 0px #2c2c2c;
-transition: box-shadow ease 0.5s;
--webkit-transition: box-shadow ease 0.5s;
--moz-transition: box-shadow ease 0.5s;
--o-transition: box-shadow ease 0.5s;
-}
-.anonse-item .teaser:hover {
-box-shadow: 0px 0px 10px #2c2c2c;
 }
 .anonse-item .anonse {
 margin-left: 200px;
@@ -376,6 +368,15 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
 margin     : 0;
 padding    : 0 20px 10px;
 line-height: 20px;
+}
+.shadow-20 {
+  transition: box-shadow ease 0.2s;
+  -webkit-transition: box-shadow ease 0.2s;
+  -moz-transition: box-shadow ease 0.2s;
+  -o-transition: box-shadow ease 0.2s;
+}
+.shadow-20:hover {
+  box-shadow: 0px 0px 20px #2c2c2c;
 }
 /*
  * SLIDER
