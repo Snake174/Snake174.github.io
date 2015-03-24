@@ -108,8 +108,8 @@
   <div class="anonse-item">
     <div class="teaser">
       <a class="grouped_elements" rel="group1" href="http://snake174.github.io/img/games/varnike/varnike_1.jpg"><img class="shadow-20" src="http://snake174.github.io/img/games/varnike/teaser.jpg" width="180" height="auto" alt="Не следует обманывать инспектора" title="Не следует обманывать инспектора"></a>
-      <a class="grouped_elements"  style="display: none;" rel="group1" href="http://snake174.github.io/img/games/varnike/varnike_2.jpg"></a>
-      <a class="grouped_elements"  style="display: none;" rel="group1" href="http://snake174.github.io/img/games/varnike/varnike_3.jpg"></a>
+      <a class="grouped_elements" style="display: none;" rel="group1" href="http://snake174.github.io/img/games/varnike/varnike_2.jpg"></a>
+      <a class="grouped_elements" style="display: none;" rel="group1" href="http://snake174.github.io/img/games/varnike/varnike_3.jpg"></a>
     </div>
     <div class="anonse">
       <div class="anonse-title">
@@ -190,7 +190,11 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(c, s);
   } )();
 </script>
-<script type="text/javascript">$("a.grouped_elements").fancybox();</script>
+<script type="text/javascript">
+  (function() {
+    $("a.grouped_elements").fancybox();
+  } )();
+</script>
 <!-- /SCRIPTS -->
 </body>
 </html>
