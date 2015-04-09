@@ -4,7 +4,7 @@
 @font-face {
 font-family: 'Play';
 src: url('http://snake174.github.io/css/fonts/Play-Regular.eot');
-src: local('вє'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');
+src: local('O'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');
 font-weight: normal;
 font-style: normal;
 }
@@ -94,8 +94,8 @@ color: #111;
 background: rgba(160,160,160,.3);
 border: 1px solid #bcd0d5;
 border-radius: 10px;
--moz-border-radius: 10px;     /* РґР»СЏ firefox */
--webkit-border-radius: 10px;  /* РґР»СЏ Safari Рё Chrome */
+-moz-border-radius: 10px;     /* для firefox */
+-webkit-border-radius: 10px;  /* для Safari и Chrome */
 padding-top: 5px;
 padding-right: 5px;
 padding-bottom: 5px;
