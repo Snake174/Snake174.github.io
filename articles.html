@@ -1,299 +1,109 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="content-language" content="ru" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="viewport" content="initial-scale=1, width=device-width" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="robots" content="index, follow" />
-  <meta name="revisit-after" content="1 days" />
-  <meta name="keywords" content="статьи,игры,программы" />
-  <meta name="description" content="" />
-  <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
-  <meta name="copyright" content="" />
-  <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
-  <title>Статьи, игры, программы - Статьи</title>
-  <style>
-    @font-face {
-      font-family: 'Play';
-      src: url('http://snake174.github.io/css/fonts/Play-Regular.eot');
-      src: local('☺'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');
-      font-weight: normal;
-      font-style: normal;
-    }
-    body, html {
-      margin: 0px;
-      padding: 0px;
-      height: 100%;
-      text-align: justify;
-      font-family: 'Play', Verdana, Arial, Helvetica, sans-serif;
-    }
-    body {
-      background-color: #EEEEEE;
-      background-image: url('http://snake174.github.io/img/background.png');
-      background-repeat: repeat;
-      background-attachment: fixed;
-    }
-    * html #main {
-      height: 100%;
-    }
-    p {
-      text-indent: 30px;
-    }
-    a:link {
-      color: #0000DD;
-      text-decoration: none;
-    }
-    a:visited {
-      color: purple;
-      text-decoration: none;
-    }
-    a:active {
-      color: #0000FF;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #0000AA;
-      text-decoration: underline;
-    }
-    strong {
-      text-decoration: none;
-      font-weight: normal;
-    }
-    ul#menu, ul#menu ul {
-      list-style-type:none;
-      margin: 0;
-      padding: 0;
-      width: 250px;
-    }
-    ul#menu a {
-      display: block;
-      text-decoration: none;
-    }
-    ul#menu li {
-      margin-top: 1px;
-    }
-    ul#menu li a {
-      background: #333;
-      color: #fff;
-      padding: 0.5em;
-    }
-    ul#menu li a:hover {
-      background: #000;
-    }
-    ul#menu li ul li a {
-      background: #ccc;
-      color: #000;
-      padding-left: 20px;
-    }
-    ul#menu li ul li a:hover {
-      background: #aaa;
-      border-left: 5px #000 solid;
-      padding-left: 15px;
-    }
-    #main {
-      width: 100%;
-      margin: 0 auto;
-      text-align: justify;
-      min-width: 890px;
-      width:expression(
-        (document.compatMode && document.compatMode == 'CSS1Compat')
-        ?
-        (document.documentElement.clientWidth < 890 ? "890px" : "auto")
-        :
-        (document.body.clientWidth < 890 ? "890px" : "auto")
-      );
-      min-height: 100%;
-    }
-    #header {
-      width: 100%;
-      height: 150px;
-    }
-    #header-logo {
-      float: left;
-      width: 250px;
-      height: 150px;
-      background-image: url("http://snake174.github.io/img/logo.png");
-    }
-    #content {
-      float: right;
-      width: 100%;
-      margin-left: -250px;
-    }
-    #content-text {
-      margin-left: 250px;
-      padding: 10px;
-      text-align: justify;
-    }
-    #content-extra {
-      margin-left: 250px;
-      height: 50px;
-      line-height: 50px;
-    }
-    #left {
-      float: left;
-      width: 250px;
-    }
-    #left-menu {
-      width: 250px;
-    }
-    #left-extra {
-      width: 250px;
-      margin-top: 30px;
-    }
-    #footer {
-      clear: both;
-      height: 30px;
-      line-height: 30px;
-      margin-top: -30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 12px;
-      font-weight: bold;
-      color: #AAA;
-    }
-    .clear {
-      clear: both;
-    }
-    .anonse-item {
-      width: 100%;
-      background: none repeat 0 0 #efefef;
-      border: 1px solid #c9c9c9;
-      border-radius: 5px;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);
-      -moz-box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);
-      -webkit-box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);
-      margin: 10px 0 10px 0;
-    }
-    .anonse-item .teaser {
-      float: left;
-      width: 180px;
-      vertical-align: top;
-      margin: 20px 0 20px 20px;
-    }
-    .anonse-item .anonse {
-      margin-left: 200px;
-    }
-    .anonse-item .anonse .anonse-title {
-      text-align: center;
-      color      : #3c3c3c;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
-    }
-    .anonse-item .anonse .anonse-text p {
-      text-align: justify;
-      font-size  : 14px;
-      color      : #666;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.68);
-      margin     : 0;
-      padding    : 0 20px 10px;
-      line-height: 20px;
-    }
-  </style>
+  <title>Статьи | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="ru" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="robots" content="index, follow" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="keywords" content="статьи,игры,программы" />
+    <meta name="description" content="Статьи" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <link rel="shortcut icon" href=http://snake174.github.io/favicon.ico type=image/x-icon />
+    <link rel=icon href=http://snake174.github.io/favicon.ico type=image/x-icon />
+
+    <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://snake174.github.io/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
+
+    <script src="http://snake174.github.io/js/pace.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
+      <script src="http://snake174.github.io/js/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-  <!-- Main Container Begin -->
-  <div id="main">
-    <!-- Header Begin -->
-    <div id="header">
-      <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
-      </div>
-      <div id="header-content">
-      </div>
-    </div>
-    <!-- Header End -->
-    <div class="clear"></div>
-    <!-- Content Begin -->
-    <div id="content">
-      <div id="content-text">
+    <div id="wrap">
+      <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">Статьи, игры, программы</a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://snake174.github.io/programs.html">Программы</a></li>
+            <li><a href="http://snake174.github.io/games.html">Игры</a></li>
+            <li class="active"><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+            <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
+            <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+          </ul>
+        </div>
+      </nav>
 
-<div class="anonse-item">
-  <div class="teaser">
-    <a href="http://snake174.github.io/html/articles/tanks.html"><img src="http://snake174.github.io/img/articles/tanks/teaser.png" width="171" height="auto" alt="Создание танка на движке LÖVE" title="Создание танка на движке LÖVE"></a>
-  </div>
-  <div class="anonse">
-    <div class="anonse-title">
-      <h3>Создание танка на движке LÖVE</h3>
-    </div>
-    <div class="anonse-text">
-<p>
-Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном код), как вы уже наверно догадались,
-пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
-</p>
-    </div>
-  </div>
-  <div class="clear"></div>
-</div>
+      <div class="container-fluid" id="top">
 
-      </div>
-      <div id="content-extra">
-      </div>
-    </div>
-    <!-- Content End -->
-    <!-- Left Column Begin -->
-    <div id="left">
-      <div id="left-menu">
-        <ul id="menu">
-          <li>
-            <ul>
-              <li><a href="http://snake174.github.io/programs.html"><strong>Программы</strong></a></li>
-              <li><a href="http://snake174.github.io/games.html"><strong>Игры</strong></a></li>
-              <li><a href="http://snake174.github.io/articles.html"><strong>Статьи</strong></a></li>
-              <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
-              <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div id="left-extra">
-        <!-- Yandex.Metrika informer -->
-        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
-          target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
-        <!-- /Yandex.Metrika informer -->
+        <div class="page-header">
+          <h1 class="text-center">Статьи</h1>
+        </div>
 
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript">
-          (function (d, w, c) {
-            (w[c] = w[c] || []).push(function() {
-              try {
-                w.yaCounter26840853 = new Ya.Metrika({id:26840853,
-                  webvisor:true,
-                  clickmap:true,
-                  trackLinks:true,
-                  accurateTrackBounce:true});
-              } catch(e) { }
-            });
-            var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script"),
-                f = function () { n.parentNode.insertBefore(s, n); };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-            if (w.opera == "[object Opera]") {
-              d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
-          })(document, window, "yandex_metrika_callbacks");
-        </script>
-        <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-        <!--cy-pr.com-->
-        <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
-        <!--cy-pr.com-->
+        <div class="jumbotron">
+        </div>
+
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div style="padding: 10px 10px 0 10px;">
+                <a class="fb" rel="group1" href="http://snake174.github.io/img/articles/tanks/result.png"><img class="img-responsive shadow-20" style="margin: 0 auto;" src="http://snake174.github.io/img/articles/tanks/result.png" alt="Создание танка на движке Love2D" title="Создание танка на движке Love2D" /></a>
+                <a class="fb" style="display: none;" rel="group1" href="http://snake174.github.io/img/articles/tanks/tank_axes.png"></a>
+              </div>
+              <div class="caption">
+                <h3 class="text-center">Создание танка на движке Love2D</h3>
+                <p class="text-justify">
+                  Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном код), как вы уже наверно догадались, пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
+                </p>
+                <a href="http://snake174.github.io/html/articles/tanks.html" class="btn btn-default" role="button">Подробнее</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+        <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+        <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+
+        &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
       </div>
     </div>
-    <!-- Left Column End -->
-  </div>
-  <!-- Main Container End -->
-  <div class="clear"></div>
-  <!-- Footer Begin -->
-  <div id="footer">
-    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
-  </div>
-  <!-- Footer End -->
-</body>
+
+    <div id="top-link-block">
+      <a href="#top" class="well well-md" onclick="$('html,body').animate({scrollTop:0},300);return false;">
+        <i class="glyphicon glyphicon-chevron-up"></i>
+      </a>
+    </div>
+
+    <script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
+    <script src="http://snake174.github.io/js/bootstrap.min.js"></script>
+    <script src="http://snake174.github.io/js/jquery.fancybox.js?v=2.1.5"></script>
+    <script src="http://snake174.github.io/js/fb.js"></script>
+    <script src="http://snake174.github.io/js/scroll-to-top.js"></script>
+  </body>
 </html>
