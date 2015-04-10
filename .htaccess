@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTP_HOST} ^www\.snake174.github\.io$ [NC]
+  RewriteCond %{REQUEST_URI} !^/robots.*
+  RewriteRule ^(.*)$ http://snake174.github.io/$1 [R=301,L]
+</IfModule>
+
