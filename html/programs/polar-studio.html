@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="robots" content="index, follow" />
 <meta name="revisit-after" content="1 days" />
-<meta name="keywords" content="Polar Studio,2D,Unity3D,игровой движок,C#,windows,OpenGL,редактор,шейдеры,анимация,скриптовый язык,система компонентов,камера" />
+<meta name="keywords" content="Polar Studio,2D,Unity3D,игровой движок,Box2D,C#,windows,OpenGL,редактор,шейдеры,анимация,скриптовый язык,система компонентов,камера" />
 <meta name="description" content="Polar Studio - среда разработки для 2D игр" />
 <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
 <meta name="copyright" content="" />
@@ -115,8 +115,18 @@ d.addEventListener("DOMContentLoaded", f, false);
 </p>
 
 <p>
-  Благодаря данному <strong>редактору</strong> вы с лёгкостью можете создавать игры в <strong>2D</strong> пространстве с использованием <strong>шейдеров</strong> и <strong>анимации</strong> на языке программирования <strong>C#</strong>. <b>Polar Studio</b> имеет некоторое сходство с популярным <strong>игровым движком</strong> <b>Unity3D</b> за счёт похожей реализации скриптинга, <strong>системы компонентов</strong> и prefab'ов. Также имеется отладчик, который можно подключить в режиме Debug, с помощью которого контроль за разработкой игр становится ещё проще.
+  Благодаря данному <strong>редактору</strong> вы с лёгкостью можете создавать игры в <strong>2D</strong> пространстве с использованием
+  <strong>шейдеров</strong> и <strong>анимации</strong> на языке программирования <strong>C#</strong>. <b>Polar Studio</b> имеет некоторое сходство
+  с популярным <strong>игровым движком</strong> <b>Unity3D</b> за счёт похожей реализации скриптинга, <strong>системы компонентов</strong> и prefab'ов.
+  Также имеется отладчик, который можно подключить в режиме Debug, с помощью которого контроль за разработкой игр становится ещё проще.
 </p>
+
+  <p>
+    В новых версиях в <strong>редактор</strong> был встроен физический движок <b>Box2D</b> и улучшен механизм подачи данных в шейдер (glsl).
+    Также были введены материалы и усовершенствована работа с камерами. Теперь всё стало намного проще и эффективнее, чем было раньше.
+    Все ресурсы игры хранятся в специальных файлах со своим форматом, что делает попытку обычного их копирования весьма затруднительной.
+    Для корректной работы программы необходимо установить <b>.Net Framework 4</b>.
+  </p>
 
 <p>
   Данная программа находится в стадии разработки. Разрабатывается пользователем форума <a href="http://gcup.ru/" target="_blank"><b>GcUp</b></a> <a href="http://gcup.ru/index/8-11085" target="_blank"><b>tracer07</b></a>. Пожалуйста, тестируйте движок и пишите результаты. <a href="http://gcup.ru/index/8-11085" target="_blank">Автор</a> будет благодарен за конструктивную критику и пожелания.
