@@ -1,7 +1,3 @@
 $(document).ready( function() {
-  if ( ($(window).height() + 100) < $(document).height() ) {
-    $('#top-link-block').removeClass('hidden').affix( {
-      offset: { top: 100 }
-    } );
-  }
+  $(this).scrollTop() >= 100 ? $('#top-link-block').show() : $('#top-link-block').hide();
 } );
