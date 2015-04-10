@@ -28,8 +28,8 @@
       <file leaf-file-name="links.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/links.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7702703" vertical-offset="1906" max-vertical-offset="3128">
-              <caret line="149" column="88" selection-start-line="149" selection-start-column="88" selection-end-line="149" selection-end-column="88" />
+            <state vertical-scroll-proportion="0.7493858" vertical-offset="2161" max-vertical-offset="3366">
+              <caret line="163" column="14" selection-start-line="163" selection-start-column="14" selection-end-line="163" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -42,8 +42,8 @@
       <file leaf-file-name="games.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/games.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.192308" vertical-offset="1770" max-vertical-offset="3043">
-              <caret line="135" column="18" selection-start-line="135" selection-start-column="18" selection-end-line="135" selection-end-column="39" />
+            <state vertical-scroll-proportion="-11.692307" vertical-offset="1770" max-vertical-offset="3043">
+              <caret line="122" column="35" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -224,16 +224,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/games.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.192308" vertical-offset="1770" max-vertical-offset="3043">
-          <caret line="135" column="18" selection-start-line="135" selection-start-column="18" selection-end-line="135" selection-end-column="39" />
+        <state vertical-scroll-proportion="-11.692307" vertical-offset="1770" max-vertical-offset="3043">
+          <caret line="122" column="35" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/links.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7702703" vertical-offset="1906" max-vertical-offset="3128">
-          <caret line="149" column="88" selection-start-line="149" selection-start-column="88" selection-end-line="149" selection-end-column="88" />
+        <state vertical-scroll-proportion="0.7493858" vertical-offset="2161" max-vertical-offset="3366">
+          <caret line="163" column="14" selection-start-line="163" selection-start-column="14" selection-end-line="163" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
