@@ -34,7 +34,7 @@ jQuery.QapTcha = {
 				inputQapTcha = jQuery('<input>',{name:generatePass(32),value:generatePass(7),type:'hidden'});
 
 			/** Disabled submit button **/
-			if(opts.disabledSubmit) form.find('input[type=\'submit\']').attr('disabled','disabled');
+			if(opts.disabledSubmit) form.find('button[type=\'submit\']').attr('disabled','disabled');
 
 			/** Construct DOM **/
 			bgSlider.appendTo($this);
