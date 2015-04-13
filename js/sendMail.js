@@ -46,7 +46,10 @@ $(document).ready( function() {
 
     var name = $('input[name=first_name]').val();
     var email = $('input[name=email]').val();
-    var body = $('#contact_form #comment').val();
+    var body = $('#contact_form form #comment').val();
+
+    alert( name + '<br/>' + email + '<br/>' + body );
+    return;
 
     $.ajax( {
       type: 'POST',
