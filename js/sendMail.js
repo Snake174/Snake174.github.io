@@ -1,13 +1,5 @@
 $(document).ready( function() {
 
-  $('.QapTcha').QapTcha(
-    {
-      disabledSubmit: true,
-      autoRevert: true,
-      autoSubmit: false
-    }
-  );
-
   $('#contact_form').bootstrapValidator( {
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',
