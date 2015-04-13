@@ -127,3 +127,6 @@ p {
 #top-link-block a {
   background: rgba(64, 64, 64, 0.5);
 }
+#top-link-block a:hover {
+  background: rgba(70, 70, 70, 0.2);
+}
