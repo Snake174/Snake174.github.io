@@ -20,6 +20,7 @@ $(document).ready( function() {
         validators: {
           stringLength: {
             min: 2,
+            message: 'Имя должно быть более 2 символов'
           },
           notEmpty: {
             message: 'Введите имя'
