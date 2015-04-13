@@ -48,9 +48,6 @@ $(document).ready( function() {
     var email = $('input[name=email]').val();
     var body = $('textarea#comment').val();
 
-    alert( name + '\n' + email + '\n' + body );
-    return;
-
     $.ajax( {
       type: 'POST',
       url: 'https://mandrillapp.com/api/1.0/messages/send.json',
