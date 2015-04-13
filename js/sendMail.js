@@ -46,6 +46,7 @@ $(document).ready( function() {
 
     var name = $('input[name=first_name]').val();
     var email = $('input[name=email]').val();
+    var textToBot = $('input[name=text-to-bot]').val();
     var body = $('textarea#comment').val();
     var bodyStyle =
       'background: none repeat 0 0 #ffffff;' +
@@ -58,6 +59,9 @@ $(document).ready( function() {
       '-webkit-box-shadow: 0 1px 2px 0 rgba(88, 112, 118, 0.3);' +
       'margin: 0 0 5px 0;' +
       'padding: 5px;';
+
+    if (textToBot.length > 0)
+      return;
 
     $.ajax( {
       type: 'POST',
@@ -78,7 +82,7 @@ $(document).ready( function() {
           ],
           'autotext': 'true',
           'subject': 'Статьи, игры, программы - Обратная связь',
-          'html': 'Письмо от <b>' + name + '</b><br/><br/><div style="' + bodyStyle + '">' + body + '</div><br/><br/><a href="http://snake174.github.io/" target="_blank">Статьи, игры, программы</a>'
+          'html': 'Письмо от <b>' + name + '</b><br/><br/><div style="' + bodyStyle + '">' + body + '</div><br/><a href="http://snake174.github.io/" target="_blank">Статьи, игры, программы</a>'
         }
       }
     } ).done( function( response ) {
