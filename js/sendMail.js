@@ -46,9 +46,9 @@ $(document).ready( function() {
 
     var name = $('input[name=first_name]').val();
     var email = $('input[name=email]').val();
-    var body = $('#contact_form form #comment').val();
+    var body = $('textarea#comment').val();
 
-    alert( name + '<br/>' + email + '<br/>' + body );
+    alert( name + '\n' + email + '\n' + body );
     return;
 
     $.ajax( {
