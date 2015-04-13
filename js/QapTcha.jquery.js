@@ -68,8 +68,8 @@ jQuery.QapTcha = {
 								Slider.draggable('disable').css('cursor','default');
 								inputQapTcha.val('');
 								TxtStatus.text(opts.txtUnlock).addClass('dropSuccess').removeClass('dropError');
-								form.find('input[type=\'submit\']').removeAttr('disabled');
-								if(opts.autoSubmit) form.find('input[type=\'submit\']').trigger('click');
+								form.find('button[type=\'submit\']').removeAttr('disabled');
+								if(opts.autoSubmit) form.find('button[type=\'submit\']').trigger('click');
 							/*}
 						},'json');*/
 					}
