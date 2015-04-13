@@ -89,7 +89,7 @@ $(document).ready( function() {
       $('#contact-form-wrap').html('<font color=#00AA00>Письмо успешно отправлено. Спасибо за посещение нашего ресурса.</font>');
     } ).fail( function( jqXHR, textStatusresponse, q, t ) {
       var r = jQuery.parseJSON( response.responseText );
-      $('#contact-form-wrap').html('Ошибка: ' + r.Message);
+      $('#contact-form-wrap').html('<font color=#AA0000><b>Ошибка:</b></font> ' + r.Message);
     } );
   } );
 
