@@ -1,5 +1,9 @@
 $(document).ready( function() {
-  $('pre code').each( function( i, block ) {
+  hljs.configure( {
+    tabReplace: '  ',
+    classPrefix: ''
+  } );
+  $('pre div.code').each( function( i, block ) {
     hljs.highlightBlock( block );
   } );
 } );
