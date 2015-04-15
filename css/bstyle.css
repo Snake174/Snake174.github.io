@@ -29,8 +29,8 @@ p{text-indent:30px;padding:5px;}
 .shadow-20{transition:box-shadow ease 0.2s;-webkit-transition:box-shadow ease 0.2s;-moz-transition:box-shadow ease 0.2s;-o-transition:box-shadow ease 0.2s;}
 .shadow-20:hover{box-shadow:0px 0px 20px #2c2c2c;}
 #top-link-block{position:fixed;right:15px;bottom:20px;z-index:999;display:none;}
-#top-link-block a{background:rgba(64, 64, 64, 0.5);}
-#top-link-block a:hover{background:rgba(70, 70, 70, 0.2);}
+#top-link-block a{background:rgba(70, 70, 70, 0.2);}
+#top-link-block a:hover{background:rgba(64, 64, 64, 0.5);}
 .carousel .item{-webkit-transition:0.7s ease-in-out opacity;-moz-transition:0.7s ease-in-out opacity;-o-transition:0.7s ease-in-out opacity;transition:0.7s ease-in-out opacity;left:0 !important;}
 .carousel .next.left,
 .carousel .prev.right{opacity:1;z-index:1;}
