@@ -41,7 +41,7 @@ p{text-indent:30px;padding:5px;}
 
 
 /* dfgdfg */
-.hljs {
+pre code, .hljs {
     display: block;
     overflow-x: auto;
     padding: 0.5em;
