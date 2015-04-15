@@ -134,8 +134,8 @@
 Для начала разберёмся с файлом <b>main.lua</b>:
 </p>
 
-<p>
-<div class="code lua">
+<pre>
+<code class="lua">
 -- Подключаем необходимые библиотеки
 Class = require "classes.hump.class"
 Vector = require "classes.hump.vector"
@@ -188,8 +188,8 @@ function love.run()
     love.timer.sleep( 0.001 )
   end
 end
-</div>
-</p>
+</code>
+</pre>
 
 <p>
 В самом начале файла подключаются все необходимые для работы <strong>модули</strong>, которые будут доступны из других <strong>классов</strong>. В <strong>главном цикле</strong> происходит проверка ввода и выполняются функции обновления и отрисовки <strong>танка</strong>.
@@ -821,10 +821,10 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
 </script>
 </div>
 <!-- /VK COMMENTS -->
-<!--<div style="padding: 0 20px 20px 20px; margin: 0 auto;">
+<div style="padding: 0 20px 20px 20px; margin: 0 auto;">
 <script>(window.ca_gbn_ready=window.ca_gbn_ready||[]).push(function(){window.ca_gbn.init("http://ads.gamesbannernet.com/servlet/ajrotator/0/0/vh?z\x3dgbn\x26b\x3d1948981\x26test\x3dtrue\x26nocache\x3d"+Math.floor(1E6*Math.random())+"\x26referer\x3d"+encodeURIComponent(document.location.href),function(){window.ca_gbn.widget({t:4,r:1948980,u:0,d:119,id:"ca1948981",b:1948981,z:!0,w:100,h:100})})});window.ca_gbn||document.write('\x3cscript src\x3d"http://cdn.gamesbannernet.com/banners/cagbn-1.10.min.js"\x3e\x3c/script\x3e');
 document.write('\x3cdiv id\x3d"ca1948981"\x3e\x3c/div\x3e');</script>
-</div>-->
+</div>
 </div>
 <div id="push"></div>
 </div>
