@@ -1,321 +1,187 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="content-language" content="ru" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="robots" content="index, follow" />
-    <meta name="revisit-after" content="1 days" />
-    <meta name="keywords" content="статьи,игры,программы,разработка игр,движки,программирование,pipmak,ide,панорама,квест" />
-    <meta name="description" content="IDE для игрового движка Pipmak" />
-    <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
-    <meta name="copyright" content="">
-    <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
-    <title>Статьи, игры, программы - Pipmak Assistant</title>
-    <style>
-        @font-face {
-          font-family: 'Play';
-          src: url('http://snake174.github.io/css/fonts/Play-Regular.eot');
-          src: local('☺'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');
-          font-weight: normal;
-          font-style: normal;
-        }
-        body, html {
-          margin: 0px;
-          padding: 0px;
-          height: 100%;
-          text-align: justify;
-          font-family: 'Play', Verdana, Arial, Helvetica, sans-serif;
-        }
-        body {
-            background-color: #EEEEEE;
-            background-image: url('http://snake174.github.io/img/background.png');
-            background-repeat: repeat;
-            background-attachment: fixed;
-        }
-        * html #main {
-            height: 100%;
-        }
-        p {
-            text-indent: 30px;
-        }
-        a:link {
-            color: #0000DD;
-            text-decoration: none;
-        }
-        a:visited {
-            color: purple;
-            text-decoration: none;
-        }
-        a:active {
-            color: #0000FF;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #0000AA;
-            text-decoration: underline;
-        }
-        strong {
-            text-decoration: none;
-            font-weight: normal;
-        }
-        ul#menu, ul#menu ul {
-            list-style-type:none;
-            margin: 0;
-            padding: 0;
-            width: 250px;
-        }
-        ul#menu a {
-            display: block;
-            text-decoration: none;
-        }
-        ul#menu li {
-            margin-top: 1px;
-        }
-        ul#menu li a {
-            background: #333;
-            color: #fff;
-            padding: 0.5em;
-        }
-        ul#menu li a:hover {
-            background: #000;
-        }
-        ul#menu li ul li a {
-            background: #ccc;
-            color: #000;
-            padding-left: 20px;
-        }
-        ul#menu li ul li a:hover {
-            background: #aaa;
-            border-left: 5px #000 solid;
-            padding-left: 15px;
-        }
-        #main {
-            width: 100%;
-            margin: 0 auto;
-            text-align: justify;
-            min-width: 890px;
-            width: expression(
-        (document.compatMode && document.compatMode == 'CSS1Compat')
-        ?
-        (document.documentElement.clientWidth < 890 ? "890px" : "auto")
-        :
-        (document.body.clientWidth < 890 ? "890px" : "auto")
-      );
-            min-height: 100%;
-        }
-        #header {
-            width: 100%;
-            height: 150px;
-        }
-        #header-logo {
-            float: left;
-            width: 250px;
-            height: 150px;
-          background-image: url("http://snake174.github.io/img/logo.png");
-        }
-        #content {
-            float: right;
-            width: 100%;
-            margin-left: -250px;
-        }
-        #content-text {
-            margin-left: 250px;
-            padding: 10px;
-            text-align: justify;
-        }
-        #content-extra {
-            margin-left: 250px;
-            height: 50px;
-            line-height: 50px;
-        }
-        #left {
-            float: left;
-            width: 250px;
-        }
-        #left-menu {
-            width: 250px;
-        }
-        #left-extra {
-            width: 250px;
-            margin-top: 30px;
-        }
-        #footer {
-            clear: both;
-            height: 30px;
-            line-height: 30px;
-            margin-top: -30px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 12px;
-            font-weight: bold;
-            color: #AAA;
-        }
-        .clear {
-            clear: both;
-        }
-    </style>
-
-    <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
-
-    <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
-
-    <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
-    <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
+  <title>Pipmak Assistant | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="ru" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="x-rim-auto-match" content="none">
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="1 days" />
+  <meta name="keywords" content="Pipmak Assistant,разработка игр,движки,программирование,pipmak,ide,панорама,квест,среда разработки,lua,скрипт" />
+  <meta name="description" content="Pipmak Assistant - среда разработки для игрового движка Pipmak" />
+  <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <meta name="copyright" content="" />
+  <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <script async src="http://snake174.github.io/js/pace.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
+  <script src="http://snake174.github.io/js/respond.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+  <script type="text/javascript">VK.init({apiId:4765978,onlyWidgets:true});</script>
 </head>
 <body>
-<!-- Main Container Begin -->
-<div id="main">
-    <!-- Header Begin -->
-    <div id="header">
-        <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
-        </div>
-        <div id="header-content">
-        </div>
+<div id="wrap">
+  <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Статьи, игры, программы</a>
     </div>
-    <!-- Header End -->
-    <div class="clear"></div>
-    <!-- Content Begin -->
-    <div id="content">
-        <div id="content-text">
-          <h1 align="center">Pipmak Assistant</h1>
-
-          <p>
-            Описание готовится...
-          </p>
-
-          <p>
-            <b>Возможности программы:</b>
-          <ul>
-            <li>загрузка проектов и построение структуры проекта в виде дерева</li>
-            <li>просмотр кубической панорамы</li>
-            <li>просмотр связей между нодами</li>
-            <li>просмотр и изменение ресурсов движка <b>Pipmak</b></li>
-            <li>запуск проекта при помощи плеера <b>Pipmak</b></li>
-            <li>просмотр слайдов</li>
-            <li>печать связей нодов и сохранение в файл</li>
-            <li>проигрывание ogg файлов</li>
-            <li>обновление программы</li>
-            <li>просмотр хотспотов</li>
-          </ul>
-          </p>
-
-          <h4 align="center">Скриншоты</h4>
-
-              <div class="cycle-slideshow"
-                data-cycle-fx=scrollHorz
-                data-cycle-timeout=5000
-                data-cycle-caption-plugin=caption2
-                data-cycle-overlay-fx-out="slideUp"
-                data-cycle-overlay-fx-in="slideDown"
-                data-cycle-pause-on-hover="true"
-                style="width: 640px; height: auto;"
-              >
-
-              <!-- <div class="cycle-prev"></div>
-              <div class="cycle-next"></div> -->
-
-              <div class="cycle-overlay"></div>
-
-              <img src="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_1.png" width="640" height="auto"
-                data-cycle-title=""
-                data-cycle-desc="Окно просмотра ноды">
-              <img src="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_2.png" width="640" height="auto"
-                data-cycle-title=""
-                data-cycle-desc="Окно просмотра хотспотов">
-              <img src="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_3.png" width="640" height="auto"
-                data-cycle-title=""
-                data-cycle-desc="Окно настроек">
-              </div>
-          </p>
-
-          <p>
-            <b>Скачать:</b>
-            <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_zip-32.png"/> <a class="dw-l" target="_blank" title="PipmakAssistantWin32Bin.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://7BmkkyUL0hTq1t39tUQCZuItQIRR91frADfGcPh1xiU%3D&name=PipmakAssistantWin32Bin.zip">Версия 0.7</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="7BmkkyUL0hTq1t39tUQCZuItQIRR91frADfGcPh1xiU=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/XZ3vcucSeDCBP"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
-          </p>
-
-          <p>
-            <b>GitHub:</b> <a href="https://github.com/Snake174/PipmakAssistant" target="_blank"><b>Исходники</b></a>
-          </p>
-
-          <p>
-            <b>Ссылка на форум с обсуждением:</b> <a href="http://gcup.ru/forum/74-38678-1" target="_blank">Форум на GcUp</a>
-          </p>
-
-          <p>
-            <b>С чего всё началось:</b> <a href="http://gcup.ru/forum/63-32367-1" target="_blank">Форум на GcUp</a>
-          </p>
-        </div>
-        <div id="content-extra">
-            <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
-            <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
-        </div>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://snake174.github.io/programs.html">Программы</a></li>
+        <li><a href="http://snake174.github.io/games.html">Игры</a></li>
+        <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+        <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
+        <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+      </ul>
     </div>
-    <!-- Content End -->
-    <!-- Left Column Begin -->
-    <div id="left">
-        <div id="left-menu">
-            <ul id="menu">
-                <li>
-                    <ul>
-                        <li><a href="http://snake174.github.io/programs.html">Программы</a></li>
-                        <li><a href="http://snake174.github.io/games.html">Игры</a></li>
-                        <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
-                      <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
-                        <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div id="left-extra">
-            <!-- Yandex.Metrika informer -->
-            <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
-               target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                                   style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
-            <!-- /Yandex.Metrika informer -->
-
-            <!-- Yandex.Metrika counter -->
-            <script type="text/javascript">
-                (function (d, w, c) {
-                    (w[c] = w[c] || []).push(function() {
-                        try {
-                            w.yaCounter26840853 = new Ya.Metrika({id:26840853,
-                                webvisor:true,
-                                clickmap:true,
-                                trackLinks:true,
-                                accurateTrackBounce:true});
-                        } catch(e) { }
-                    });
-                    var n = d.getElementsByTagName("script")[0],
-                            s = d.createElement("script"),
-                            f = function () { n.parentNode.insertBefore(s, n); };
-                    s.type = "text/javascript";
-                    s.async = true;
-                    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-                    if (w.opera == "[object Opera]") {
-                        d.addEventListener("DOMContentLoaded", f, false);
-                    } else { f(); }
-                })(document, window, "yandex_metrika_callbacks");
-            </script>
-            <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-            <!-- /Yandex.Metrika counter -->
-            <!--cy-pr.com-->
-            <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
-            <!--cy-pr.com-->
-        </div>
+  </nav>
+  <div class="container-fluid" id="top">
+    <div class="page-header">
+      <h1 class="text-center">Pipmak Assistant</h1>
     </div>
-    <!-- Left Column End -->
+    <p>
+      <b>Pipmak Assistant</b> - среда разработки для <strong>игрового движка</strong> <a href="http://pipmak.sourceforge.net/index.php" target="_blank">Pipmak</a>.
+      Данный игровой движок идеально подходит предназначенный для создания <strong>point-and-click</strong> квестов.
+      Также можно создавать игры с <strong>панорамным обзором</strong> по типу игры <a href="https://ru.wikipedia.org/wiki/Myst_III:_Exile" target="_blank">Myst III: Exile</a>.
+      Игры, созданные при помощи Pipmak работают на платформах <b>Windows</b>, <b>Linux</b> и <b>Mac OS</b>.
+      Используется скриптовый язык программирования <b>Lua</b>.
+    </p>
+    <p>
+      Для <strong>разработки игр</strong> на данном движке всё приходится делать вручную. Иначе говоря, для каждой локации
+      необходимо создать папку, в которой будут размещены ресурсы игры. Также в этой папке должен присутствовать Lua файл,
+      в котором задаётся логика игрового процесса. Для локаций нужно подготовить файл хотспотов, определяющий порядок
+      перехода между ними и шесть изображений <strong>кубической панорамы</strong>, не считая звуковых эффектов и другой
+      необходимой информации.
+    </p>
+    <p>
+      Для пары-тройки локаций весь процесс подготовки кажется вполне нормальным, но представьте, если их будет гораздо больше.
+      После 5 - 10 таких манипуляций возникает желание разбить вдребезги клаву о монитор. Естесственно, что данное занятие
+      быстро надоедает и отвлекает от непосредственного создания самой игры.
+    </p>
+    <p>
+      Данная <strong>IDE</strong> как раз и разрабатывалась для более удобного управления проектами на движке <b>Pipmak</b>.
+      Программа берёт всю рутинную работу на себя, что меньше отвлекает вас от разработки и воплощения интересных идей.
+    </p>
+    <p>
+      <b>Возможности программы:</b>
+    <ul>
+      <li>загрузка проектов и построение структуры проекта в виде дерева</li>
+      <li>просмотр кубической панорамы</li>
+      <li>просмотр связей между нодами</li>
+      <li>просмотр и изменение ресурсов движка</li>
+      <li>запуск проекта при помощи плеера <strong>Pipmak</strong></li>
+      <li>просмотр слайдов</li>
+      <li>печать связей нодов и сохранение в файл</li>
+      <li>проигрывание ogg файлов</li>
+      <li>просмотр хотспотов</li>
+      <li>обновление программы</li>
+    </ul>
+    </p>
+    <p>
+    <h4 class="text-center">Скриншоты</h4>
+    </p>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_1.png">
+          <img class="img-responsive" src="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_1.png" alt="Pipmak Assistant" />
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_2.png">
+          <img class="img-responsive" src="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_2.png" alt="Pipmak Assistant" />
+        </a>
+      </div>
+      <div class="clearfix visible-xs-block visible-sm-block"></div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_3.png">
+          <img class="img-responsive" src="http://snake174.github.io/img/programs/pipmak_assistant/pipmak_assistant_3.png" alt="Pipmak Assistant" />
+        </a>
+      </div>
+      <div class="clearfix visible-md-block"></div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/pipmak_assistant/4.png">
+          <img class="img-responsive" src="http://snake174.github.io/img/programs/pipmak_assistant/4.png" alt="Pipmak Assistant" />
+        </a>
+      </div>
+      <div class="clearfix visible-xs-block visible-sm-block"></div>
+      <div class="clearfix visible-lg-block"></div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/pipmak_assistant/5.png">
+          <img class="img-responsive" src="http://snake174.github.io/img/programs/pipmak_assistant/5.png" alt="Pipmak Assistant" />
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/pipmak_assistant/6.png">
+          <img class="img-responsive" src="http://snake174.github.io/img/programs/pipmak_assistant/6.png" alt="Pipmak Assistant" />
+        </a>
+      </div>
+    </div>
+    <p>
+      <b>Скачать:</b>
+      <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_zip-32.png"/> <a class="dw-l" target="_blank" title="PipmakAssistantWin32Bin.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://7BmkkyUL0hTq1t39tUQCZuItQIRR91frADfGcPh1xiU%3D&name=PipmakAssistantWin32Bin.zip">Версия 0.7</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="7BmkkyUL0hTq1t39tUQCZuItQIRR91frADfGcPh1xiU=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/XZ3vcucSeDCBP"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
+    </p>
+    <p>
+      <b>GitHub:</b> <a href="https://github.com/Snake174/PipmakAssistant" target="_blank"><b>Исходники</b></a>
+    </p>
+    <p>
+      <b>Ссылка на форум с обсуждением:</b> <a href="http://gcup.ru/forum/74-38678-1" target="_blank">Форум на GcUp</a>
+    </p>
+    <p>
+      <b>С чего всё началось:</b> <a href="http://gcup.ru/forum/63-32367-1" target="_blank">Форум на GcUp</a>
+    </p>
+    <!-- SHARE BUTTONS -->
+    <div style="padding: 20px;">
+      <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+      <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+    </div>
+    <!-- /SHARE BUTTONS -->
+    <!-- VK COMMENTS -->
+    <div style="padding: 0 20px 20px 20px;">
+      <div id="vk_comments"></div>
+      <script type="text/javascript">
+        VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
+      </script>
+    </div>
+    <!-- /VK COMMENTS -->
+    <div style="padding: 0 20px 20px 20px; margin: 0 auto;">
+      <!-- GBN Code Start --><script>(window.ca_gbn_ready=window.ca_gbn_ready||[]).push(function(){window.ca_gbn.init("http://ads.gamesbannernet.com/servlet/ajrotator/0/0/vh?z\x3dgbn\x26b\x3d1948981\x26test\x3dtrue\x26nocache\x3d"+Math.floor(1E6*Math.random())+"\x26referer\x3d"+encodeURIComponent(document.location.href),function(){window.ca_gbn.widget({t:4,r:1948980,u:0,d:119,id:"ca1948981",b:1948981,z:!0,w:100,h:100})})});window.ca_gbn||document.write('\x3cscript src\x3d"http://cdn.gamesbannernet.com/banners/cagbn-1.10.min.js"\x3e\x3c/script\x3e');
+    document.write('\x3cdiv id\x3d"ca1948981"\x3e\x3c/div\x3e');</script><!-- GBN Code End -->
+    </div>
+  </div>
+  <div id="push"></div>
 </div>
-<!-- Main Container End -->
-<div class="clear"></div>
-<!-- Footer Begin -->
 <div id="footer">
-    &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+  <div class="container">
+    <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+    <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+    <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+    &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
+  </div>
 </div>
-<!-- Footer End -->
+<div id="top-link-block">
+  <a href="#top" class="well well-md" onclick="$('html,body').animate({scrollTop:0},300);return false;">
+    <i class="glyphicon glyphicon-chevron-up"></i>
+  </a>
+</div>
+<script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
+<script src="http://snake174.github.io/js/bootstrap.min.js"></script>
+<script src="http://snake174.github.io/js/jquery.fancybox.js?v=2.1.5"></script>
+<script src="http://snake174.github.io/js/fb.js"></script>
+<script src="http://snake174.github.io/js/scroll-to-top.js"></script>
 </body>
 </html>
