@@ -19,7 +19,7 @@
   <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
   <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
   <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
-  <link href="http://snake174.github.io/plugins/highlight/styles/vs.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/plugins/google-code-prettify/prettify.css" rel="stylesheet" />
   <script async src="http://snake174.github.io/js/pace.min.js"></script>
   <!--[if lt IE 9]>
   <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
@@ -134,8 +134,7 @@
 Для начала разберёмся с файлом <b>main.lua</b>:
 </p>
 
-<pre>
-<code class="lua">
+<pre class="prettyprint ">
 -- Подключаем необходимые библиотеки
 Class = require "classes.hump.class"
 Vector = require "classes.hump.vector"
@@ -188,7 +187,6 @@ function love.run()
     love.timer.sleep( 0.001 )
   end
 end
-</code>
 </pre>
 
 <p>
@@ -843,8 +841,14 @@ document.write('\x3cdiv id\x3d"ca1948981"\x3e\x3c/div\x3e');</script>
 </div>
 <script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
 <script src="http://snake174.github.io/js/bootstrap.min.js"></script>
-<script src="http://snake174.github.io/plugins/highlight/highlight.js"></script>
-<script src="http://snake174.github.io/js/hl.js"></script>
+<script src="http://snake174.github.io/plugins/google-code-prettify/prettify.js"></script>
 <script src="http://snake174.github.io/js/scroll-to-top.js"></script>
 </body>
+<script>
+  !function ($) {
+    $(function(){
+      window.prettyPrint && prettyPrint()
+    })
+  }(window.jQuery)
+</script>
 </html>
