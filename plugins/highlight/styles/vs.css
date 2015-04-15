@@ -3,6 +3,9 @@
 Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
 
 */
+code {
+  !important;
+}
 pre code, .hljs {
   display: block;
   overflow-x: auto;
@@ -11,7 +14,6 @@ pre code, .hljs {
   color: black;
   -webkit-text-size-adjust: none;
 }
-
 .hljs-comment,
 .hljs-annotation,
 .diff .hljs-header,
@@ -19,7 +21,6 @@ pre code, .hljs {
 .apache .hljs-cbracket {
   color: #008000;
 }
-
 .hljs-keyword,
 .hljs-id,
 .hljs-built_in,.css
@@ -34,7 +35,6 @@ pre code, .hljs {
 .xml .hljs-tag .hljs-value {
   color: #00f;
 }
-
 .hljs-string,
 .hljs-title,
 .hljs-parent,
@@ -54,7 +54,6 @@ pre code, .hljs {
 .hljs-name {
   color: #a31515;
 }
-
 .ruby .hljs-string,
 .hljs-decorator,
 .hljs-filter .hljs-argument,
@@ -76,19 +75,15 @@ pre code, .hljs {
 .hljs-prompt {
   color: #2b91af;
 }
-
 .hljs-phpdoc,
 .hljs-dartdoc,
 .hljs-javadoc,
 .hljs-xmlDocTag {
   color: #808080;
 }
-
 .hljs-type,
 .hljs-typename { font-weight: bold; }
-
 .vhdl .hljs-string { color: #666666; }
 .vhdl .hljs-literal { color: #a31515; }
 .vhdl .hljs-attribute { color: #00b0e8; }
-
 .xml .hljs-attribute { color: #f00; }
