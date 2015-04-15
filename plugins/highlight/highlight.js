@@ -614,7 +614,7 @@ https://highlightjs.org/
       return;
     initHighlighting.called = true;
 
-    var blocks = document.querySelectorAll('pre code');
+    var blocks = document.querySelectorAll('pre code-hl');
     Array.prototype.forEach.call(blocks, highlightBlock);
   }
 
