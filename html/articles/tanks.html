@@ -136,7 +136,7 @@
 
 <p>
 <pre>
-<codehl class="lua">
+<code class="lua">
 -- Подключаем необходимые библиотеки
 Class = require "classes.hump.class"
 Vector = require "classes.hump.vector"
@@ -189,7 +189,7 @@ function love.run()
     love.timer.sleep( 0.001 )
   end
 end
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -203,7 +203,7 @@ end
 
 <p>
 <pre>
-<codehl class="lua">
+<code class="lua">
 function love.conf(c)
   c.version = "0.9.1"
   c.title = "Tanks"
@@ -228,7 +228,7 @@ function love.conf(c)
   c.modules.timer = true
   c.modules.window = true
 end
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -238,7 +238,7 @@ end
 
 <p>
 <pre>
-<codehl class="lua">
+<code class="lua">
 local Tank = Class {
   -- конструктор класса
   init = function( self, pos )
@@ -609,7 +609,7 @@ local Tank = Class {
 }
 
 return Tank
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -629,10 +629,10 @@ return Tank
 Сначала мы получаем позицию курсора мыши и высчитываем вектор от позиции расположения <strong>танка</strong> до курсора.
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 local mousePos = Input.mousePos()
 local dir = self.pos - mousePos
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -640,9 +640,9 @@ local dir = self.pos - mousePos
 Затем получаем угол, до которого нам нужно <strong>повернуть башню</strong>.
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 local targetAngle = -math.atan2( dir.x, dir.y ) / (math.pi / 180)
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -650,9 +650,9 @@ local targetAngle = -math.atan2( dir.x, dir.y ) / (math.pi / 180)
 Но наша <strong>башня</strong> уже повёрнута на какой-то угол, поэтому мы берём разность текущего угла, на который повёрнута <strong>башня</strong> и угла, до которого необходимо её повернуть. В результате получаем угол, на который необходимо "довернуть" <strong>башню</strong> от текущего <strong>угла поворота</strong>. С каждым обновлением кадра этот <strong>угол</strong> будет уменьшаться.
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 local a = curAngle - targetAngle
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -660,7 +660,7 @@ local a = curAngle - targetAngle
 Далее определяем некоторую переменную <b>s</b>, на которую будет изменяться текущий <strong>угол поворота башни</strong>. И уже в зависимости <b>a</b> от <b>s</b> определяется, в какую сторону будет осуществляться <strong>поворот</strong>.
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 local s = dt * self.max_rot_speed
 
 if a >= -s - 0.5 and a <= s + 0.5 then
@@ -670,7 +670,7 @@ elseif a > s + 0.5 then
 elseif a < -s - 0.5 then
   self.top_angle = self.top_angle + s
 end
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -678,10 +678,10 @@ end
 Далее определяем вектор <strong>башни танка</strong>. Он нам понадобится, когда будем реализовывать <strong>стрельбу</strong>.
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 self.top_dir.x = math.sin( math.rad( self.top_angle ) )
 self.top_dir.y = -math.cos( math.rad( self.top_angle ) )
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -693,7 +693,7 @@ self.top_dir.y = -math.cos( math.rad( self.top_angle ) )
 Далее осуществляется <strong>стрельба</strong> снарядами. Рассмотрим стрельбу на примере ракет. Для обычных снарядов принцип тотже, только у ракет ещё создаётся <strong>система частиц</strong>.
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 -- Проверяем однократное нажатие правой кнопки мыши
 if Input.mouseDown("r") then
   -- Создаём новый объект, это и будет наша ракета
@@ -744,7 +744,7 @@ if Input.mouseDown("r") then
     * math.cos( math.rad( self.rockets[ ind ].angle ) ) )
   self.rockets[ ind ].ps:start()
 end
-</codehl>
+</code>
 </pre>
 </p>
 
@@ -752,10 +752,10 @@ end
 Для того, чтобы снаряды вылетали из конца <strong>дула танка</strong>, необходимо воспользоваться формулой:
 
 <pre>
-<codehl class="lua">
+<code class="lua">
 X = x0 + (x - x0) * cos(a) - (y - y0) * sin(a);
 Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
-</codehl>
+</code>
 </pre>
 
 <ul>
