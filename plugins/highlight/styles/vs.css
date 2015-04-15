@@ -3,9 +3,6 @@
 Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
 
 */
-code {
-  !important;
-}
 pre code, .hljs {
   display: block;
   overflow-x: auto;
