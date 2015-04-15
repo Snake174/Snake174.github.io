@@ -3,7 +3,7 @@ $(document).ready( function() {
     tabReplace: '  ',
     classPrefix: ''
   } );
-  $('pre code').each( function( i, block ) {
+  $('pre code-hl').each( function( i, block ) {
     hljs.highlightBlock( block );
   } );
 } );
