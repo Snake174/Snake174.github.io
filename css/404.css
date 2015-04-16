@@ -1,5 +1,8 @@
+html, body, section {
+  height: 100% !important;
+}
 .back404 {
-  background: url(http://snake174.github.io/img/404.png) no-repeat center center fixed !important; 
+  background: url(http://snake174.github.io/img/404.png) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
