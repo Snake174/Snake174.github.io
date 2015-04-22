@@ -13,7 +13,7 @@ html, body{/*height:100%;*//*added*/margin:0;padding:0;/*/added*/-webkit-font-sm
 body{
   display: flex;
   flex-direction: column;
-  /*min-height: 100vh;*/
+  min-height: 100vh;
 }
 /**/
 #wrap{/*min-height:100%;height:auto !important;height:100%;*//*added*/flex:1;-ms-flex-preferred-size:auto;/*/added*/margin:0 auto -60px;}
