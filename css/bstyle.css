@@ -8,8 +8,15 @@
   font-style: normal;
   font-weight: normal;
 }
-html, body{height:100%;-webkit-font-smoothing:antialiased;text-align:justify;font-family:'Play', Verdana, Arial, Helvetica, sans-serif;}
-#wrap{min-height:100%;height:auto !important;height:100%;margin:0 auto -60px;}
+html, body{/*height:100%;*//*added*/margin:0;padding:0;/*/added*/-webkit-font-smoothing:antialiased;text-align:justify;font-family:'Play', Verdana, Arial, Helvetica, sans-serif;}
+/**/
+body{
+  display: flex;
+  flex-direction: column;
+  /*min-height: 100vh;*/
+}
+/**/
+#wrap{/*min-height:100%;height:auto !important;height:100%;*//*added*/flex:1;-ms-flex-preferred-size:auto;/*/added*/margin:0 auto -60px;}
 #push, #footer{height:60px;line-height:60px;}
 #footer{background-color:#222;color:#fff;}
 #wrap > .container-fluid{padding-top:60px;}
