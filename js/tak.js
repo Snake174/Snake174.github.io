@@ -1,9 +1,10 @@
 $(document).ready( function() {
-  $('a.takru').each( function( i, e ) {
-    if ($(e).href == 'http://www.tak.ru')
+  $('a.takru').each( function() {
+    if ($(this).href == 'http://www.tak.ru')
     {
-      alert( $(e).href );
-      $(e).attr( 'href', 'http://tak.ru/partner.php?id=934977' );
+      alert( '$(this).href: ' + $(this).href );
+      alert( '$(this).attr("href"): ' + $(this).attr('href') );
+      $(this).attr( 'href', 'http://tak.ru/partner.php?id=934977' );
     }
   } );
 } )
