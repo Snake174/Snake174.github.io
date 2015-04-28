@@ -1,8 +1,8 @@
 $(document).ready( function() {
   $('a.takru').each( function( i, e ) {
-    if ($(this).href == 'http://www.tak.ru')
+    if ($(e).href == 'http://www.tak.ru')
     {
-      $(this).attr( 'href', 'http://tak.ru/partner.php?id=934977' );
+      $(e).attr( 'href', 'http://tak.ru/partner.php?id=934977' );
     }
   } );
 } )
