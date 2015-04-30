@@ -7,8 +7,10 @@ $(document).ready( function() {
   $('a.takru').each( function() {
     if ($(this).attr('href') != 'http://tak.ru') {
       //arr.push( $(this).attr('href') );
-      $(this).onmouseover();
-      $(this).onclick();
+      //$(this).onmouseover();
+      //$(this).onclick();
+      console.log(event);
+      return;
     }
   } );
   /*url = arr[ Math.floor( Math.random() * arr.length ) ];
