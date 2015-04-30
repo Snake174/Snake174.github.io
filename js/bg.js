@@ -14,8 +14,8 @@ $(document).ready( function() {
     $('a.takru').each( function() {
       if ($(this).attr('href') != 'http://www.tak.ru') {
         var evnt;
-        $(this).mouseover( function(e) {
-          evnt = e;
+        $(this).mouseover( function() {
+          evnt = jQuery.event;
         } );
         console.log( 'Event: ' + evnt );
         $('div#wrap').css( { 'display': 'none' } );
