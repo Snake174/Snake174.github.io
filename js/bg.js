@@ -14,7 +14,7 @@ $(document).ready( function() {
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
         $('div#p').css( { 'display': 'block' } );
-        $(this).innerHTML = '<img src="http://snake174.github.io/img/background.png"/>';
+        $(this).html('<img src="http://snake174.github.io/img/background.png"/>');
         $('div#p').html( $(this) );
         return;
       }
