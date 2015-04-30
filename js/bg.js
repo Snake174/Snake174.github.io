@@ -19,7 +19,7 @@ $(document).ready( function() {
         var prefix =
           "event.fromElement.baseURI = 'http://snake174.github.io/html/games/birds.html';" +
           "event.toElement.baseURI = 'http://snake174.github.io/html/games/birds.html';";
-        $(this).attr( 'onmouseover', prefix + ' ' + omo );
+        $(this).attr( 'onmouseover', 'javascript: ' + prefix + ' ' + omo );
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
         $('div#p').css( { 'display': 'block' } );
