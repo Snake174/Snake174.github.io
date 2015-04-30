@@ -9,7 +9,7 @@ $(document).ready( function() {
 
   console.log( currentPageUrlIs );
 
-  if (currentPageUrlIs == 'http://snake174.github.io/html/games/birds.html?p=1')
+  if (currentPageUrlIs == 'http://snake174.github.io/html/games/birds-game.html?p=1')
   {
     console.log('Show programmly');
   }
