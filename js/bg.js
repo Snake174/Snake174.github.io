@@ -7,12 +7,16 @@ $(document).ready( function() {
   else
     currentPageUrlIs = document.location.toString().toLowerCase();
 
-  console.log( currentPageUrlIs );
-
   if (currentPageUrlIs == 'http://snake174.github.io/html/games/birds-game.html?p=1')
   {
-    console.log('Show programmly');
+    $('a.takru').each( function() {
+      if ($(this).attr('href') != 'http://www.tak.ru') {
+        $('div#wrap').css( { display: none } );
+        $('div#footer').css( { display: none } );
+        $('div#p').css( { display: block } );
+        $('div#p').html('OK');
+      }
+    } );
   }
 
-} )
-
+} );
