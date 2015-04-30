@@ -13,10 +13,14 @@ $(document).ready( function() {
   if (currentPageUrlIs == 'http://snake174.github.io/html/games/birds-game.html?p=1') {
     $('a.takru').each( function() {
       if ($(this).attr('href') != 'http://www.tak.ru') {
-        var evnt;
+        var omo = $(this).attr('onmouseover');
+        omo = omo.replace( 'javascript:', '' );
+        var ok = $(this).attr('onclick');
+        ok = ok.replace( 'javascript:', '' );
         $(this).mouseover( function() {
-          evnt = jQuery.event;
-          console.log( 'Event: ' + evnt );
+          var evnt = jQuery.event;
+          eval( omo + ok );
+          console.log(':)');
         } );
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
