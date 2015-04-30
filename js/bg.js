@@ -17,7 +17,7 @@ $(document).ready( function() {
         $(this).mouseover( function(e) {
           evnt = e;
         } );
-        console.log( evnt );
+        console.log( 'Event: ' + evnt );
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
         $(this).html( '<img src="' + img.src + '"/>' );
