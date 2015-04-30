@@ -14,7 +14,9 @@ $(document).ready( function() {
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
         $('div#p').css( { 'display': 'block' } );
-        $('div#p').html('OK');
+        $(this).innerHTML = '<img src="http://snake174.github.io/img/background.png"/>';
+        $('div#p').html( $(this) );
+        return;
       }
     } );
   }
