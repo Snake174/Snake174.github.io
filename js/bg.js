@@ -11,9 +11,9 @@ $(document).ready( function() {
   {
     $('a.takru').each( function() {
       if ($(this).attr('href') != 'http://www.tak.ru') {
-        $('div#wrap').css( { display: none } );
-        $('div#footer').css( { display: none } );
-        $('div#p').css( { display: block } );
+        $('div#wrap').css( { 'display': 'none' } );
+        $('div#footer').css( { 'display': 'none' } );
+        $('div#p').css( { 'display': 'block' } );
         $('div#p').html('OK');
       }
     } );
