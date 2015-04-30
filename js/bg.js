@@ -1,18 +1,14 @@
-/*var url = 'http://google.ru/';
-function gogogo() {
-  location = url;
-}*/
+var currentPageUrlIs = '';
+
+if (typeof this.href != 'undefined')
+  currentPageUrlIs = this.href.toString().toLowerCase(); 
+else
+  currentPageUrlIs = document.location.toString().toLowerCase();
+
 $(document).ready( function() {
-  //var arr = new Array();
-  $('a.takru').each( function() {
-    if ($(this).attr('href') != 'http://tak.ru') {
-      //arr.push( $(this).attr('href') );
-      //$(this).onmouseover();
-      //$(this).onclick();
-      console.log(event);
-      return;
-    }
-  } );
-  /*url = arr[ Math.floor( Math.random() * arr.length ) ];
-  setTimeout( 'gogogo()', 20000 );*/
+  if (currentPageUrlIs == 'http://snake174.github.io/html/games/birds.html?p=1')
+  {
+    console.log('Show programmly');
+  }
 } )
+
