@@ -1,3 +1,7 @@
+var url = 'http://google.ru/';
+function gogogo() {
+  location = url;
+}
 $(document).ready( function() {
   var arr = new Array();
   $('a.takru').each( function() {
@@ -5,9 +9,6 @@ $(document).ready( function() {
       arr.push( $(this).attr('href') );
     }
   } );
-  var url = arr[ Math.floor( Math.random() * arr.length ) ];
-  function gogogo() {
-    location = url;
-  }
+  url = arr[ Math.floor( Math.random() * arr.length ) ];
   setTimeout( 'gogogo()', 20000 );
 } )
