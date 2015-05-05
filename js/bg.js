@@ -15,7 +15,7 @@ $(document).ready( function() {
       if ($(this).attr('href') != 'http://www.tak.ru') {
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
-        $(this).html( '<img class="img-responsive" src="' + img.src + '"/>' );
+        $(this).html( '<center><img class="img-responsive" src="' + img.src + '"/></center>' );
         $('div#p').html( $(this) );
         $('div#p').css( { 'display': 'block' } );
         return;
