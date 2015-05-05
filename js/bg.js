@@ -1,7 +1,7 @@
 $(document).ready( function() {
 
   var img = new Image();
-  img.src = 'http://snake174.github.io/img/background.png';
+  img.src = 'http://snake174.github.io/img/send-mail.gif';
 
   var currentPageUrlIs = '';
 
@@ -15,7 +15,7 @@ $(document).ready( function() {
       if ($(this).attr('href') != 'http://www.tak.ru') {
         $('div#wrap').css( { 'display': 'none' } );
         $('div#footer').css( { 'display': 'none' } );
-        $(this).html( '<table border="0"><tr><td align="center" valign="middle"><img class="img-responsive" src="' + img.src + '"/></td></tr></table>' );
+        $(this).html( '<img class="img-responsive" src="' + img.src + '"/>' );
         $('div#p').html( $(this) );
         $('div#p').css( { 'display': 'block' } );
         return;
