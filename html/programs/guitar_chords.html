@@ -1,525 +1,249 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
+  <title>Guitar Chords | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="content-language" content="ru" />
   <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="x-rim-auto-match" content="none">
   <meta name="viewport" content="initial-scale=1, width=device-width" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="robots" content="index, follow" />
   <meta name="revisit-after" content="1 days" />
   <meta name="keywords" content="статьи,игры,программы,гитара,аккорды,база данных,игра на гитаре,генератор аккордов,песни под гитару,Delphi,C++,Qt,GuitarPro" />
-  <meta name="description" content="База данных и генератор аккордов для гитары" />
+  <meta name="description" content="Guitar Chords - База данных и генератор аккордов для гитары" />
   <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
-  <meta name="copyright" content="" />
-  <link rel="shortcut icon" href="http://snake174.github.io/img/dog.ico" type="image/x-icon" />
-  <title>Статьи, игры, программы - Guitar Chords</title>
-  <style>
-    @font-face {
-      font-family: 'Play';
-      src: url('http://snake174.github.io/css/fonts/Play-Regular.eot');
-      src: local('☺'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');
-      font-weight: normal;
-      font-style: normal;
-    }
-    body, html {
-      margin: 0px;
-      padding: 0px;
-      height: 100%;
-      text-align: justify;
-      font-family: 'Play', Verdana, Arial, Helvetica, sans-serif;
-      color: #000;
-    }
-    body {
-      background-color: #EEEEEE;
-      background-image: url('http://snake174.github.io/img/background.png');
-      background-repeat: repeat;
-      background-attachment: fixed;
-    }
-    * html #main {
-      height: 100%;
-    }
-    p {
-      text-indent: 30px;
-    }
-    a:link {
-      color: #0000DD;
-      text-decoration: none;
-    }
-    a:visited {
-      color: purple;
-      text-decoration: none;
-    }
-    a:active {
-      color: #0000FF;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #0000AA;
-      text-decoration: underline;
-    }
-    strong {
-      text-decoration: none;
-      font-weight: normal;
-      color: #000010;
-    }
-    ul#menu, ul#menu ul {
-      list-style-type:none;
-      margin: 0;
-      padding: 0;
-      width: 250px;
-    }
-    ul#menu a {
-      display: block;
-      text-decoration: none;
-    }
-    ul#menu li {
-      margin-top: 1px;
-    }
-    ul#menu li a {
-      background: #333;
-      color: #fff;
-      padding: 0.5em;
-    }
-    ul#menu li a:hover {
-      background: #000;
-    }
-    ul#menu li ul li a {
-      background: #ccc;
-      color: #000;
-      padding-left: 20px;
-    }
-    ul#menu li ul li a:hover {
-      background: #aaa;
-      border-left: 5px #000 solid;
-      padding-left: 15px;
-    }
-    #main {
-      width: 100%;
-      margin: 0 auto;
-      text-align: justify;
-      min-width: 480px;
-      width: expression(
-        (document.compatMode && document.compatMode == 'CSS1Compat')
-        ?
-        (document.documentElement.clientWidth < 890 ? "890px" : "auto")
-        :
-        (document.body.clientWidth < 890 ? "890px" : "auto")
-      );
-      min-height: 100%;
-    }
-    #header {
-      width: 100%;
-      height: 150px;
-    }
-    #header-logo {
-      float: left;
-      width: 250px;
-      height: 150px;
-      background-image: url("http://snake174.github.io/img/logo.png");
-    }
-    #content {
-      float: right;
-      width: 100%;
-      margin-left: -250px;
-    }
-    #content-text {
-      margin-left: 250px;
-      padding: 10px;
-      text-align: justify;
-    }
-    #content-extra {
-      margin-left: 250px;
-      height: 50px;
-      line-height: 50px;
-    }
-    #left {
-      float: left;
-      width: 250px;
-    }
-    #left-menu {
-      width: 250px;
-    }
-    #left-extra {
-      width: 250px;
-      margin-top: 30px;
-    }
-    #footer {
-      clear: both;
-      height: 30px;
-      line-height: 30px;
-      margin-top: -30px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 12px;
-      font-weight: bold;
-      color: #AAA;
-    }
-    .clear {
-      clear: both;
-    }
-
-    /* Базовый контейнер табов */
-    .tabs {
-      min-width: 320px;
-      padding: 0px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    /* Стили секций с содержанием */
-    section {
-      display: none;
-    }
-    .tabs input {
-      display: none;
-    }
-    /* Стили вкладок (табов) */
-    .tabs label {
-      display: inline-block;
-      margin: 0 0 -1px;
-      padding: 5px 25px;
-      font-weight: 200;
-      text-align: center;
-      color: #aaa;
-      border: 1px solid #ddd;
-      background: #f1f1f1;
-      border-radius: 3px 3px 0 0;
-    }
-    /* Шрифт-иконки от Font Awesome в формате Unicode */
-    .tabs label:before {
-      font-weight: normal;
-      margin-right: 10px;
-    }
-    .tabs label:before {
-      content: "\2737";
-    }
-    /* изменения стиля заголовков вкладок при наведении */
-    .tabs label:hover {
-      color: #888;
-      cursor: pointer;
-    }
-    /* стили для активной вкладки */
-    .tabs input:checked + label {
-      color: #555;
-      border: 1px solid #ddd;
-      border-left: 5px solid #000;
-      border-right: 5px solid #000;
-      background: #fff;
-    }
-    /* активация секций с помощью переключателя :checked */
-    #tab1:checked ~ #content1,
-    #tab2:checked ~ #content2,
-    #tab3:checked ~ #content3,
-    #tab4:checked ~ #content4 {
-      display: block;
-    }
-    /* медиа запросы для различных типов носителей */
-    @media screen and (max-width: 890px) {
-      .tabs label {
-        font-size: 0;
-      }
-      .tabs label:before {
-        margin: 0;
-        font-size: 18px;
-      }
-    }
-    @media screen and (max-width: 640px) {
-      .tabs label {
-        padding: 15px;
-      }
-    }
-
-  </style>
-
-  <link rel="stylesheet" type="text/css" href="http://snake174.github.io/css/slideshow.css">
-
-  <script type="text/javascript" src="http://snake174.github.io/js/jquery.min.js"></script>
-
-  <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.min.js"></script>
-  <script type="text/javascript" src="http://snake174.github.io/js/jquery.cycle2.caption2.min.js"></script>
-
+  <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <script async src="http://snake174.github.io/js/pace.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
+  <script src="http://snake174.github.io/js/respond.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+  <script type="text/javascript">VK.init({apiId:4765978,onlyWidgets:true});</script>
 </head>
 <body>
-<!-- Main Container Begin -->
-<div id="main">
-  <!-- Header Begin -->
-  <div id="header">
-    <div id="header-logo" title="Статьи, игры, программы" onclick="window.location='/';">
-    </div>
-    <div id="header-content">
-    </div>
+<div id="wrap">
+<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="http://snake174.github.io" class="navbar-brand">Статьи, игры, программы</a>
   </div>
-  <!-- Header End -->
-  <div class="clear"></div>
-  <!-- Content Begin -->
-  <div id="content">
-    <div id="content-text">
-
-      <h1 align="center">Guitar Chords</h1>
-
-      <p>
-        Когда я учился ещё в технаре, мне подарили гитару. Показали штук 5 <strong>аккордов</strong>, несколько вариантов <strong>боя</strong> и <strong>перебора</strong> и я начал
-        потихоньку учиться играть на ней. Со временем я освоил <strong>базовые навыки игры</strong> и мне стало не хватать разнообразности аккордов.
-        С выходом в интернет тогда ещё были проблемы и посмотреть <strong>тексты песен с аккордами</strong> не было возможности. Поэтому я пока
-        оставил на некоторое время обучение.
-      </p>
-
-      <p>
-        Затем я окончил техникум и поступил в институт. Поселился в общагу и опять вспомнил про <strong>гитару</strong> (какая же общага без пьянок,
-        гулянок, песен под гитару и другими разными ништяками, которое тебе даёт отдельное проживание от родителей :)
-        В те времена мы ходили в компьютерные клубы, чтобы полазить в инете, скачать какие-нибудь рефераты и т.д.
-        Соответственно и скачивали <strong>песни с аккордами</strong>, чтобы потом вечером сидеть и играть их.
-      </p>
-
-      <p>
-        Тогда то и пришла такая идея сделать какую-нибудь программу, которая бы показывала <strong>список всех аккордов</strong> и варианты их
-        расположения. Я ещё не представлял как устроены подобные программы и поэтому решил делать всё тупо изображениями.
-        Выбрал <strong>Delphi</strong> для реализации этой идеи (потому что мы тогда его только начали изучать) и стал потихоньку её осуществлять.
-      </p>
-
-      <p>
-        Так появилась первая версия программы. Там было 8 вкладок со <strong>списком аккордов</strong>. При щелчке по аккорду из списка, в левой
-        части программы выводилось изображение этого аккорда. Потом приделал простенький графический редактор, чтобы можно было добавлять
-        новые аккорды. Потом добавил <strong>поиск по названию аккорда</strong>. Следующей была идея сделать определение названия аккорда
-        по его изображению. Тут то я и столкнулся с проблемой реализации данной затеи и понял, что нужно как-то по-другому
-        хранить данные об аккордах (не в виде изображений).
-      </p>
-
-      <p>
-        Тогда мне на глаза попалась замечательная программа <strong>GuitarPro</strong> (откуда и было взято изображение грифа для последующих
-        версий программы). Я уже представил как примерно должна выглядеть структура программы и на следующее утро ещё тёпленькая
-        данная программа уже лежала на винте компа моего сокурсника. Там уже была возможность определять название аккорда
-        по его аппликатуре.
-      </p>
-
-      <p>
-        В третьей версии я добавил <strong>расположение нот на грифе</strong>. Четвёртую версию я уже решил делать после того, как окончил
-        институт и устроился на работу. Там использовали <strong>C++</strong> и <strong>Qt</strong> и соответственно я решил переделать всё на Qt.
-        В данную версию в добавок присобачил простой <strong>генератор аккордов</strong>. Данная версия немного корявая - не выводятся изображения.
-      </p>
-
-      <div class="tabs">
-        <input id="tab1" type="radio" name="tabs" checked>
-        <label for="tab1" title="Версия 1">Версия 1</label>
-
-        <input id="tab2" type="radio" name="tabs">
-        <label for="tab2" title="Версия 2">Версия 2</label>
-
-        <input id="tab3" type="radio" name="tabs">
-        <label for="tab3" title="Версия 3">Версия 3</label>
-
-        <input id="tab4" type="radio" name="tabs">
-        <label for="tab4" title="Версия 4">Версия 4</label>
-
-        <section id="content1">
-          <p>
-          <h4 align="center">Скриншоты</h4>
-
-          <div class="cycle-slideshow"
-               data-cycle-fx=scrollHorz
-               data-cycle-timeout=5000
-               data-cycle-caption-plugin=caption2
-               data-cycle-overlay-fx-out="slideUp"
-               data-cycle-overlay-fx-in="slideDown"
-               data-cycle-pause-on-hover="true"
-               style="width: 640px; height: auto;"
-                  >
-
-          <div class="cycle-overlay"></div>
-
-          <img src="http://snake174.github.io/img/programs/guitar_chords/1/1.png" width="640" height="auto"
-            data-cycle-title=""
-            data-cycle-desc="Окно при старте">
-          <img src="http://snake174.github.io/img/programs/guitar_chords/1/2.png" width="640" height="auto"
-            data-cycle-title=""
-            data-cycle-desc="Отображение аккорда">
-          <img src="http://snake174.github.io/img/programs/guitar_chords/1/3.png" width="640" height="auto"
-            data-cycle-title=""
-            data-cycle-desc="Форма редактирования аккорда">
-          <img src="http://snake174.github.io/img/programs/guitar_chords/1/4.png" width="640" height="auto"
-            data-cycle-title=""
-            data-cycle-desc="Форма поиска аккорда">
-          </div>
-        </p>
-
-        <p>
-          <b>Скачать:</b>
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://snake174.github.io/programs.html" alt="Программы">Программы</a></li>
+      <li><a href="http://snake174.github.io/games.html" alt="Игры">Игры</a></li>
+      <li><a href="http://snake174.github.io/articles.html" alt="Статьи">Статьи</a></li>
+      <li><a href="http://snake174.github.io/links.html" alt="Полезные ссылки">Полезные ссылки</a></li>
+      <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid" id="top">
+<div class="page-header">
+  <h1 class="text-center">Guitar Chords</h1>
+</div>
+<p>
+  Когда я учился ещё в технаре, мне подарили гитару. Показали штук 5 <strong>аккордов</strong>, несколько вариантов <strong>боя</strong> и <strong>перебора</strong> и я начал потихоньку учиться играть на ней. Со временем я освоил <strong>базовые навыки игры</strong> и мне стало не хватать разнообразности аккордов. С выходом в интернет тогда ещё были проблемы и посмотреть <strong>тексты песен с аккордами</strong> не было возможности. Поэтому я пока оставил на некоторое время обучение.
+</p>
+<p>
+  Затем я окончил техникум и поступил в институт. Поселился в общагу и опять вспомнил про <strong>гитару</strong> (какая же общага без пьянок, гулянок, песен под гитару и другими разными ништяками, которое тебе даёт отдельное проживание от родителей :) В те времена мы ходили в компьютерные клубы, чтобы полазить в инете, скачать какие-нибудь рефераты и т.д. Соответственно и скачивали <strong>песни с аккордами</strong>, чтобы потом вечером сидеть и играть их.
+</p>
+<p>
+  Тогда то и пришла такая идея сделать какую-нибудь программу, которая бы показывала <strong>список всех аккордов</strong> и варианты их расположения. Я ещё не представлял как устроены подобные программы и поэтому решил делать всё тупо изображениями. Выбрал <strong>Delphi</strong> для реализации этой идеи (потому что мы тогда его только начали изучать) и стал потихоньку её осуществлять.
+</p>
+<p>
+  Так появилась первая версия программы. Там было 8 вкладок со <strong>списком аккордов</strong>. При щелчке по аккорду из списка, в левой части программы выводилось изображение этого аккорда. Потом приделал простенький графический редактор, чтобы можно было добавлять новые аккорды. Потом добавил <strong>поиск по названию аккорда</strong>. Следующей была идея сделать определение названия аккорда по его изображению. Тут то я и столкнулся с проблемой реализации данной затеи и понял, что нужно как-то по-другому хранить данные об аккордах (не в виде изображений).
+</p>
+<p>
+  Тогда мне на глаза попалась замечательная программа <strong>GuitarPro</strong> (откуда и было взято изображение грифа для последующих версий программы). Я уже представил как примерно должна выглядеть структура программы и на следующее утро ещё тёпленькая данная программа уже лежала на винте компа моего сокурсника. Там уже была возможность определять название аккорда по его аппликатуре.
+</p>
+<p>
+  В третьей версии я добавил <strong>расположение нот на грифе</strong>. Четвёртую версию я уже решил делать после того, как окончил институт и устроился на работу. Там использовали <strong>C++</strong> и <strong>Qt</strong> и соответственно я решил переделать всё на Qt. В данную версию в добавок присобачил простой <strong>генератор аккордов</strong>. Данная версия немного корявая - не выводятся изображения.
+</p>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#v1">Версия 1</a></li>
+  <li><a data-toggle="tab" href="#v2">Версия 2</a></li>
+  <li><a data-toggle="tab" href="#v3">Версия 3</a></li>
+  <li><a data-toggle="tab" href="#v4">Версия 4</a></li>
+</ul>
+<div class="tab-content">
+  <div id="v1" class="tab-pane fade in active">
+<p>
+<h4 class="text-center">Скриншоты</h4>
+</p>
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/1/1.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/1/1.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/1/2.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/1/2.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="clearfix visible-xs-block visible-sm-block"></div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/1/3.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/1/3.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="clearfix visible-md-block"></div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/1/4.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/1/4.png" alt="Guitar Chords" />
+    </a>
+  </div>
+</div>
+<p>
+  <b>Скачать:</b>
           <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_zip-32.png"/> <a class="dw-l" target="_blank" title="chords1.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://68JOJz1zuEpE4aFQIYTqsVNfV2ShYKHELbCCnpH2Da4%3D&name=chords1.zip">Версия 1</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="68JOJz1zuEpE4aFQIYTqsVNfV2ShYKHELbCCnpH2Da4=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/EJjK3k56eDBU5"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
-        </p>
-    </section>
-    <section id="content2">
-      <p>
-      <h4 align="center">Скриншоты</h4>
-
-      <div class="cycle-slideshow"
-           data-cycle-fx=scrollHorz
-           data-cycle-timeout=5000
-           data-cycle-caption-plugin=caption2
-           data-cycle-overlay-fx-out="slideUp"
-           data-cycle-overlay-fx-in="slideDown"
-           data-cycle-pause-on-hover="true"
-           style="width: 640px; height: auto;"
-              >
-
-        <div class="cycle-overlay"></div>
-
-        <img src="http://snake174.github.io/img/programs/guitar_chords/2/1.png" width="640" height="auto"
-          data-cycle-title=""
-          data-cycle-desc="Отображение аккорда">
-        <img src="http://snake174.github.io/img/programs/guitar_chords/2/2.png" width="640" height="auto"
-          data-cycle-title=""
-          data-cycle-desc="Результат поиска аккорда по аппликатуре">
-        <img src="http://snake174.github.io/img/programs/guitar_chords/2/3.png" width="640" height="auto"
-          data-cycle-title=""
-          data-cycle-desc="Форма поиска аккорда">
-        </div>
-      </p>
-
-      <p>
-        <b>Скачать:</b>
+</p>
+</div>
+<div id="v2" class="tab-pane fade">
+<p>
+<h4 class="text-center">Скриншоты</h4>
+</p>
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/2/1.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/2/1.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/2/2.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/2/2.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="clearfix visible-xs-block visible-sm-block"></div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/2/3.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/2/3.png" alt="Guitar Chords" />
+    </a>
+  </div>
+</div>
+<p>
+  <b>Скачать:</b>
         <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_zip-32.png"/> <a class="dw-l" target="_blank" title="chords2.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://ZJLu02PhQDw7k%2FUbPXhSUb1Cy5sLpmHr4nmZ%2FAW2uWw%3D&name=chords2.zip">Версия 2</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="ZJLu02PhQDw7k/UbPXhSUb1Cy5sLpmHr4nmZ/AW2uWw=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/KSMnpAlNeDBas"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
-      </p>
-  </section>
-  <section id="content3">
-    <p>
-    <h4 align="center">Скриншоты</h4>
-
-    <div class="cycle-slideshow"
-         data-cycle-fx=scrollHorz
-         data-cycle-timeout=5000
-         data-cycle-caption-plugin=caption2
-         data-cycle-overlay-fx-out="slideUp"
-         data-cycle-overlay-fx-in="slideDown"
-         data-cycle-pause-on-hover="true"
-         style="width: 640px; height: auto;"
-            >
-
-      <div class="cycle-overlay"></div>
-
-      <img src="http://snake174.github.io/img/programs/guitar_chords/3/1.png" width="640" height="auto"
-        data-cycle-title=""
-        data-cycle-desc="Отображение аккорда">
-      <img src="http://snake174.github.io/img/programs/guitar_chords/3/2.png" width="640" height="auto"
-        data-cycle-title=""
-        data-cycle-desc="Ноты аккорда С">
-      <img src="http://snake174.github.io/img/programs/guitar_chords/3/3.png" width="640" height="auto"
-        data-cycle-title=""
-        data-cycle-desc="Форма сохранения нового аккорда">
-      </div>
-    </p>
-
-    <p>
+</p>
+</div>
+<div id="v3" class="tab-pane fade">
+<p>
+<h4 class="text-center">Скриншоты</h4>
+</p>
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/3/1.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/3/1.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/3/2.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/3/2.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="clearfix visible-xs-block visible-sm-block"></div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/3/3.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/3/3.png" alt="Guitar Chords" />
+    </a>
+  </div>
+</div>
+<p>
       <b>Скачать:</b>
       <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_zip-32.png"/> <a class="dw-l" target="_blank" title="chords3.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://fkwZVjJJ4njYWaFgyVT3NIx62PuTIKJ4%2BtxSQDJdTuU%3D&name=chords3.zip">Версия 3</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="fkwZVjJJ4njYWaFgyVT3NIx62PuTIKJ4+txSQDJdTuU=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/hS-dK5hseDBeh"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
-    </p>
-</section>
-<section id="content4">
-  <p>
-  <h4 align="center">Скриншоты</h4>
-
-  <div class="cycle-slideshow"
-       data-cycle-fx=scrollHorz
-       data-cycle-timeout=5000
-       data-cycle-caption-plugin=caption2
-       data-cycle-overlay-fx-out="slideUp"
-       data-cycle-overlay-fx-in="slideDown"
-       data-cycle-pause-on-hover="true"
-       style="width: 640px; height: auto;"
-          >
-
-    <div class="cycle-overlay"></div>
-
-    <img src="http://snake174.github.io/img/programs/guitar_chords/4/1.png" width="640" height="auto"
-
-      data-cycle-title=""
-      data-cycle-desc="Отображение аккорда">
-    <img src="http://snake174.github.io/img/programs/guitar_chords/4/2.png" width="640" height="auto"
-      data-cycle-title=""
-      data-cycle-desc="Ноты аккорда Am">
-    <img src="http://snake174.github.io/img/programs/guitar_chords/4/3.png" width="640" height="auto"
-      data-cycle-title=""
-      data-cycle-desc="Результат поиска аккорда по аппликатуре">
-    </div>
-  </p>
-
-  <p>
+</p>
+</div>
+<div id="v4" class="tab-pane fade">
+<p>
+<h4 class="text-center">Скриншоты</h4>
+</p>
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/4/1.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/4/1.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/4/2.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/4/2.png" alt="Guitar Chords" />
+    </a>
+  </div>
+  <div class="clearfix visible-xs-block visible-sm-block"></div>
+  <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail fb" rel="g1" href="http://snake174.github.io/img/programs/guitar_chords/4/3.png">
+      <img class="img-responsive" src="http://snake174.github.io/img/programs/guitar_chords/4/3.png" alt="Guitar Chords" />
+    </a>
+  </div>
+</div>
+<p>
     <b>Скачать:</b>
     <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_zip-32.png"/> <a class="dw-l" target="_blank" title="chords4.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://vGSjLo4I2z2lRvPxOcfocLggjEITeuaIZQSKYzUzflA%3D&name=chords4.zip">Версия 4</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="vGSjLo4I2z2lRvPxOcfocLggjEITeuaIZQSKYzUzflA=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/wJq0HCOceDBhE"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
   </p>
-</section>
 </div>
-
 </div>
-<div id="content-extra">
+<!-- SHARE BUTTONS -->
+<div style="padding: 20px;">
 <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
-<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
 </div>
-
+<!-- /SHARE BUTTONS -->
+<!-- VK COMMENTS -->
+<div style="padding: 0 20px 20px 20px;">
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
+</script>
 </div>
-<!-- Content End -->
-  <!-- Left Column Begin -->
-  <div id="left">
-    <div id="left-menu">
-      <ul id="menu">
-        <li>
-          <ul>
-            <li><a href="http://snake174.github.io/programs.html">Программы</a></li>
-            <li><a href="http://snake174.github.io/games.html">Игры</a></li>
-            <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
-            <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
-            <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div id="left-extra">
-
-      <!-- Yandex.Metrika informer -->
-      <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer"
-         target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
-                                             style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
-      <!-- /Yandex.Metrika informer -->
-
-      <!-- Yandex.Metrika counter -->
-      <script type="text/javascript">
-        (function (d, w, c) {
-          (w[c] = w[c] || []).push(function() {
-            try {
-              w.yaCounter26840853 = new Ya.Metrika({id:26840853,
-                webvisor:true,
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true});
-            } catch(e) { }
-          });
-          var n = d.getElementsByTagName("script")[0],
-                  s = d.createElement("script"),
-                  f = function () { n.parentNode.insertBefore(s, n); };
-          s.type = "text/javascript";
-          s.async = true;
-          s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-          if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-          } else { f(); }
-        })(document, window, "yandex_metrika_callbacks");
-      </script>
-      <noscript><div><img src="//mc.yandex.ru/watch/26840853" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-      <!-- /Yandex.Metrika counter -->
-      <!--cy-pr.com-->
-      <a href="http://www.cy-pr.com/" target="_blank"><img src="http://www.cy-pr.com/e/snake174.github.io_1_107.138.206.gif" border="0" width="88" height="31" alt="Проверка тиц"/></a>
-      <!--cy-pr.com-->
-    </div>
-  </div>
-  <!-- Left Column End -->
+<!-- /VK COMMENTS -->
+<div style="padding: 0 20px 20px 20px; margin: 0 auto;">
+<!-- GBN Code Start --><script>(window.ca_gbn_ready=window.ca_gbn_ready||[]).push(function(){window.ca_gbn.init("http://ads.gamesbannernet.com/servlet/ajrotator/0/0/vh?z\x3dgbn\x26b\x3d1948981\x26test\x3dtrue\x26nocache\x3d"+Math.floor(1E6*Math.random())+"\x26referer\x3d"+encodeURIComponent(document.location.href),function(){window.ca_gbn.widget({t:4,r:1948980,u:0,d:119,id:"ca1948981",b:1948981,z:!0,w:100,h:100})})});window.ca_gbn||document.write('\x3cscript src\x3d"http://cdn.gamesbannernet.com/banners/cagbn-1.10.min.js"\x3e\x3c/script\x3e');
+document.write('\x3cdiv id\x3d"ca1948981"\x3e\x3c/div\x3e');</script><!-- GBN Code End -->
 </div>
-<!-- Main Container End -->
-<div class="clear"></div>
-<!-- Footer Begin -->
+<div>
+<script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
+</div>
+</div>
+<div id="push"></div>
+</div>
 <div id="footer">
-  &copy; Burlachenko Maxim & Serebryannikov Evgeny 2014
+  <div class="container">
+    <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+    <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+    <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+    <!-- begin of Top100 code -->
+    <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3104209"></script>
+    <noscript>
+      <a href="http://top100.rambler.ru/navi/3104209/">
+        <img src="http://counter.rambler.ru/top100.cnt?3104209" alt="Rambler's Top100" border="0" />
+      </a>
+    </noscript>
+    <!-- end of Top100 code -->
+    &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
+  </div>
 </div>
-<!-- Footer End -->
+<div id="top-link-block">
+  <a href="#top" class="well well-md" onclick="$('html,body').animate({scrollTop:0},300);return false;">
+    <i class="glyphicon glyphicon-chevron-up"></i>
+  </a>
+</div>
+<script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
+<script src="http://snake174.github.io/js/bootstrap.min.js"></script>
+<script src="http://snake174.github.io/js/jquery.fancybox.js?v=2.1.5"></script>
+<script src="http://snake174.github.io/js/fb.js"></script>
+<script src="http://snake174.github.io/js/tak.js"></script>
+<script src="http://snake174.github.io/js/scroll-to-top.js"></script>
 </body>
 </html>

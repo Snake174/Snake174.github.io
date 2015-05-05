@@ -14,7 +14,7 @@
   <meta name="keywords" content="Love2D,Love2D tank,Love2D танк,танк,поворот,перемещение,следы,выстрел,lua,2d,game,tank,игра,анимация,hump,anim8,particle system,particles,частицы,система частиц" />
   <meta name="description" content="Создание танка на Love2D, управление стрельбой, перемещением и поворотом." />
   <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
-  <meta name="copyright" content="" />
+  <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
   <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
   <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
   <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
@@ -54,11 +54,9 @@
 <div class="page-header">
   <h1 class="text-center">Создание танка на движке Love2D</h1>
 </div>
-
 <p>
 Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном <strong>код</strong>), как вы уже наверно догадались, пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.
 </p>
-
 <p>
 Прежде всего определим, что должен делать наш создаваемый <strong>танк</strong>:
 <ul>
@@ -69,51 +67,40 @@
   <li>ну и последнее - танк должен оставлять за собой следы, которые через определённый промежуток времени будут исчезать.</li>
 </ul>
 </p>
-
 <p>
 Для начала нам нужно создать все изображения и поместить их в какую-нибудь папку, например <b>data/images</b>.
 </p>
-
 <p>
 Художник из меня плохой, поэтому всю графику мне предоставил пользователь форума <a href="http://gcup.ru/" target="_blank"><b>GcUp</b></a> <a href="http://gcup.ru/index/8-47390" target="_blank">silver52rus</a>, за что ему <b>ОГРОМНОЕ СПАСИБО</b>.
 </p>
-
 <p>
 <center><b>Корпус танка с анимацией гусениц</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/tank_body.png"></center>
 </p>
-
 <p>
 <center><b>Башня танка</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/tank_top.png"></center>
 </p>
-
 <p>
 <center><b>След, оставляемый танком при движении</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/tank_trail.png"></center>
 </p>
-
 <p>
 <center><b>Выхлопные газы</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/cloud.png"></center>
 </p>
-
 <p>
 <center><b>Патрон</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/tank_bullet.png"></center>
 </p>
-
-
 <p>
 <center><b>Ракета</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/rocket.png"></center>
 </p>
-
 <p>
 <center><b>Частицы для ракеты</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/rocket_smoke.png" width="16" height="16"></center>
 </p>
-
 <p>
 Далее нам нужны вспомогательные библиотеки:
 <ul>
@@ -121,19 +108,15 @@
   <li><a href="http://www.love2d.org/wiki/anim8"><b>anim8</b></a> для работы с <strong>анимацией</strong>.</li>
   <li>модуль <b>Input</b> (в архиве), который я написал для более удобного контроля над <strong>вводом</strong> (по крайней мере для меня). Это не финальная его версия, планируется ещё добавить поддержку <b>Android</b>.</li>
 </ul>
-
 Нужно их скачать и поместить в папку <b>classes</b>.
 </p>
-
 <p>
 В итоге должна получиться такая структура проекта:
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/project_structure.png"></center>
 </p>
-
 <p>
 Для начала разберёмся с файлом <b>main.lua</b>:
 </p>
-
 <pre class="prettyprint linenums">
 -- Подключаем необходимые библиотеки
 Class = require "classes.hump.class"
@@ -188,15 +171,12 @@ function love.run()
   end
 end
 </pre>
-
 <p>
 В самом начале файла подключаются все необходимые для работы <strong>модули</strong>, которые будут доступны из других <strong>классов</strong>. В <strong>главном цикле</strong> происходит проверка ввода и выполняются функции обновления и отрисовки <strong>танка</strong>.
 </p>
-
 <p>
 Ниже приведён код файла настроек приложения <b>conf.lua</b>. Здесь можно указать заголовок, ширину и высоту окна, включить или отключить какие-то модули, сделать окно на весь экран ну и прописать какие-нибудь <strong>дополнительные настройки</strong>. Более подробно о настройках проекта можно ознакомиться <a href="http://love2d.org/wiki/Config_Files" target="_blank">здесь</a>.
 </p>
-
 <p>
 <pre class="prettyprint linenums">
 function love.conf(c)
@@ -225,11 +205,9 @@ function love.conf(c)
 end
 </pre>
 </p>
-
 <p>
 Наконец-то дошли до самого интересного момента - создание класса <b>"Танк"</b>.
 </p>
-
 <p>
 <pre class="prettyprint linenums">
 local Tank = Class {
@@ -604,47 +582,36 @@ local Tank = Class {
 return Tank
 </pre>
 </p>
-
 <p>
 Попробую понятней объяснить, что в данном классе происходит. В основном нам интересна только функция обновления, поэтому рассмотрим её более подробней.
 </p>
-
 <p>
 Первой строкой мы "сообщаем" танку, что должна проигрываться <strong>анимация</strong>, когда <strong>танк</strong> стоит.
 </p>
-
 <p>
 Далее по коду идёт <strong>плавный поворот башни танка в сторону курсора</strong>. В этом коде есть небольшой баг: когда <strong>поворот</strong> идёт по часовой стрелке и <strong>дуло</strong> находится во II четверти окружности, при переходе курсора в I четверть <strong>башня танка</strong> начинает вращаться в противоположную сторону. Как работает этот код? Да очень просто.
 </p>
-
 <p>
 Сначала мы получаем позицию курсора мыши и высчитываем вектор от позиции расположения <strong>танка</strong> до курсора.
-
 <pre class="prettyprint linenums">
 local mousePos = Input.mousePos()
 local dir = self.pos - mousePos
 </pre>
 </p>
-
 <p>
 Затем получаем угол, до которого нам нужно <strong>повернуть башню</strong>.
-
 <pre class="prettyprint linenums">
 local targetAngle = -math.atan2( dir.x, dir.y ) / (math.pi / 180)
 </pre>
 </p>
-
 <p>
 Но наша <strong>башня</strong> уже повёрнута на какой-то угол, поэтому мы берём разность текущего угла, на который повёрнута <strong>башня</strong> и угла, до которого необходимо её повернуть. В результате получаем угол, на который необходимо "довернуть" <strong>башню</strong> от текущего <strong>угла поворота</strong>. С каждым обновлением кадра этот <strong>угол</strong> будет уменьшаться.
-
 <pre class="prettyprint linenums">
 local a = curAngle - targetAngle
 </pre>
 </p>
-
 <p>
 Далее определяем некоторую переменную <b>s</b>, на которую будет изменяться текущий <strong>угол поворота башни</strong>. И уже в зависимости <b>a</b> от <b>s</b> определяется, в какую сторону будет осуществляться <strong>поворот</strong>.
-
 <pre class="prettyprint linenums">
 local s = dt * self.max_rot_speed
 
@@ -657,23 +624,18 @@ elseif a < -s - 0.5 then
 end
 </pre>
 </p>
-
 <p>
 Далее определяем вектор <strong>башни танка</strong>. Он нам понадобится, когда будем реализовывать <strong>стрельбу</strong>.
-
 <pre class="prettyprint linenums">
 self.top_dir.x = math.sin( math.rad( self.top_angle ) )
 self.top_dir.y = -math.cos( math.rad( self.top_angle ) )
 </pre>
 </p>
-
 <p>
 С <strong>движениями</strong> вперёд и назад и <strong>поворотами</strong> думаю всё понятно.
 </p>
-
 <p>
 Далее осуществляется <strong>стрельба</strong> снарядами. Рассмотрим стрельбу на примере ракет. Для обычных снарядов принцип тотже, только у ракет ещё создаётся <strong>система частиц</strong>.
-
 <pre class="prettyprint linenums">
 -- Проверяем однократное нажатие правой кнопки мыши
 if Input.mouseDown("r") then
@@ -727,15 +689,12 @@ if Input.mouseDown("r") then
 end
 </pre>
 </p>
-
 <p>
 Для того, чтобы снаряды вылетали из конца <strong>дула танка</strong>, необходимо воспользоваться формулой:
-
 <pre class="prettyprint linenums">
 X = x0 + (x - x0) * cos(a) - (y - y0) * sin(a);
 Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
 </pre>
-
 <ul>
   <li>(x0; y0) - точка, вокруг которой вращаем</li>
   <li>(x; y) - точка, которую вращаем</li>
@@ -743,50 +702,39 @@ Y = y0 + (y - y0) * cos(a) + (x - x0) * sin(a);
   <li>a - угол, на который повёрнута башня (в радианах)</li>
 </ul>
 </p>
-
 <p>
 Просто подставим наши значения и получим точку (X; Y), из которой должны вылетать <strong>снаряды</strong>.
 </p>
-
 <p>
 <center><b>Система координат:</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/tank_axes.png"></center>
 </p>
-
 <p>
 С <strong>системой частиц</strong> пока не разбирался, все параметры были подобраны эксперементальным путём. Более подробней о системе частиц можно посмотреть <a href="http://love2d.org/wiki/ParticleSystem" target="_blank">здесь</a>.
 </p>
-
 <p>
 Далее идёт обновление снарядов, проигрывается текущая <strong>анимация танка</strong> и обновление выхлопных газов танка.
 </p>
-
 <p>
 Класс <b>"Танк"</b> написан, осталось добавить его в файл <b>main.lua</b>. Сохраните его в папку <b>classes</b> с названием <b>Tank.lua</b> и в файле <b>main.lua</b> после объявления всех библиотек добавьте <b>Tank = require "classes.Tank"</b>. В функции <b>love.load()</b> нужно создать экземпляр класса: <b>tank = Tank( Vector( 100, 100 ) )</b>. И вместо комментариев "Здесь будет функция обновления танка" и "Здесь будет функция отрисовки танка" нужно прописать <b>tank:update( dt )</b> и <b>tank:draw()</b>.
 </p>
-
 <p>
 <center><b>Результат</b></center>
 <center><img class="img-responsive" src="http://snake174.github.io/img/articles/tanks/result.png"></center>
 </p>
-
 <p>
 Осталось добавить звуки, задержку между выстрелами, счётчик снарядов, вменяемый менеджер сцен, разных плюшек и можно делать свою игру.
 </p>
-
 <p>
 Основной код был вырезан из одного старого проекта, так что возможно наличие ошибок.
 </p>
-
 <p>
 <b>P.S.:</b> в lua новичок, так что многое в коде может показаться полным бредом, который навеяла больная фантазия автора данной статьи :)
 </p>
-
 <p>
 Ну и как же обойтись без исходников:
   <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_archive-32.png"/> <a class="dw-l" target="_blank" title="Tanks.love" href="https://docviewer.yandex.ru?url=ya-disk-public://pS%2Bv9gspdZ1STMwjrjK1jLrEQbQX5OkPeAL1lV0l4gk%3D&name=Tanks.love">TANKS</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="pS+v9gspdZ1STMwjrjK1jLrEQbQX5OkPeAL1lV0l4gk=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/jziYzjdjePBma"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
 </p>
-
 <!-- SHARE BUTTONS -->
 <div style="padding: 20px;">
 <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
