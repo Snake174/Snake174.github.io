@@ -1,0 +1,45 @@
+html, body
+{
+  height: 100%;
+}
+body
+{
+  color: #CCC;
+  background: #333;
+  margin: 0px;
+  padding: 0px;
+}
+div#game-container
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+div#game
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#game-canvas
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: #000;
+	z-index: -1;
+}
