@@ -2,8 +2,6 @@ Intro = Backbone.View.extend( {
   initialize: function() {
     var view = this;
     this.doc = document;
-    //this.canvas = this.doc.getElementById('game-canvas');
-    //this.ctx = this.canvas.getContext('2d');
     this.canvas = this.$el.get(0); 
     this.ctx = this.$el.get(0).getContext('2d');
     this.doc.getElementById('loading').style.display = 'none';
@@ -14,10 +12,7 @@ Intro = Backbone.View.extend( {
   },
   render: function() {
     this.ctx.drawImage( this.logo, 100, 100 );
-    this.ctx.fillStyle = "#FF9000";
-    this.ctx.globalAlpha = 1;
-    this.ctx.fillRect(10, 10, 100, 100);
-    console.log('000');
+    this.render();
   },
   onResize: function() {
     var rc = this.doc.getElementById('game-container').getBoundingClientRect();
