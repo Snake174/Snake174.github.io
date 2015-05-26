@@ -9,7 +9,7 @@ Intro = Backbone.View.extend( {
     this.doc.getElementById('loading').style.display = 'none';
     this.logo = new Image();
     this.logo.onload = function() { view.onResize(); view.render(); };
-    this.logo.src = '../img/logo.png';
+    this.logo.src = 'img/logo.png';
 	  $(window).on( 'resize', function() { view.onResize(); } );
   },
   render: function() {
