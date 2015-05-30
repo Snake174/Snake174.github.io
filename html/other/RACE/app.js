@@ -1,8 +1,17 @@
-require( [ 'app/Car', 'app/Intro' ], function( Car, Intro ) {
+requirejs.config( {
+  baseUrl: 'libs',
+  paths: {
+    app: '../app'
+  }
+} );
+
+requirejs( ['app/main'] );
+
+/*require( [ 'app/Car', 'app/Intro' ], function( Car, Intro ) {
   var IntroView = new Intro( {
 	 el: $('#game-canvas')
   } );
-} );
+} );*/
 
 
 /*$(document).ready( function() {
