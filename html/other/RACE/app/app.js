@@ -15,7 +15,8 @@ $(document).ready( function() {
 
   App.prototype.init = function() {
     this.canvas = document.getElementById('game-canvas');
-	  window.onresize = function() { this.resize(); };
+    var that = this;
+	  window.onresize = function() { that.resize(); };
 	  this.resize();
 
     var IntroView = new Intro( {
@@ -24,7 +25,7 @@ $(document).ready( function() {
 
     this.prevT = Date.now();
 
-  	requestAnimationFrame( function() { this.doFrame(); } );
+  	requestAnimationFrame( function() { that.doFrame(); } );
   };
   
   App.prototype.doFrame = function()
@@ -46,7 +47,8 @@ $(document).ready( function() {
 		  this.prevT = curT;
 	  }
 
-	  requestAnimationFrame( function() { this.doFrame(); } );
+	  var that = this;
+	  requestAnimationFrame( function() { that.doFrame(); } );
   };
 
   App.prototype.resize = function() {
