@@ -8,10 +8,10 @@ Intro = Backbone.View.extend( {
     this.logo = new Image();
     this.logo.onload = function () { view.onResize(); view.render(); };
     this.logo.src = 'img/logo.png';
-    //$(window).on( 'resize', function() { view.onResize(); } );
+    $(window).on( 'resize', function() { view.onResize(); } );
   },
   render: function () {
-    this.ctx.drawImage( this.logo, 0, 0, 300, 420 );
+    this.ctx.drawImage( this.logo, this.canvas.width / 2 - 150, this.canvas.height / 2 - 210, 300, 420 );
   },
   onResize: function () {
     var rc = this.doc.getElementById('game-container').getBoundingClientRect();
@@ -22,5 +22,6 @@ Intro = Backbone.View.extend( {
     this.doc.getElementById('game').style.height = ch + 'px';
     this.canvas.width = cw;
     this.canvas.height = ch;
+    render();
   }
 } );
