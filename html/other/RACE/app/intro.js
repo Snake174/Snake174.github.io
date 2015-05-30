@@ -1,5 +1,6 @@
 Intro = Backbone.View.extend( {
   initialize: function() {
+    _.bindAll( this, 'change', 'render' );
     var view = this;
     this.doc = document;
     this.canvas = this.$el.get(0);
@@ -22,6 +23,5 @@ Intro = Backbone.View.extend( {
     this.doc.getElementById('game').style.height = ch + 'px';
     this.canvas.width = cw;
     this.canvas.height = ch;
-    render();
   }
 } );
