@@ -26,6 +26,6 @@ $(document).ready( function() {
 
   App.run();
 
-  $(window).on( 'resize', function() { App.resize(); } );
+  $(window).on( 'resize', function() { App._instance.resize(); } );
 
 } );
