@@ -15,8 +15,7 @@ $(document).ready( function() {
 
   App.prototype.init = function() {
     this.canvas = document.getElementById('game-canvas');
-    var that = this;
-	  window.onresize = function() { that.resize(); };
+	  window.onresize = function() { this.resize(); };
 	  this.resize();
 
     var IntroView = new Intro( {
@@ -25,11 +24,12 @@ $(document).ready( function() {
 
     this.prevT = Date.now();
 
-  	requestAnimationFrame( function() { that.doFrame(); } );
+  	requestAnimationFrame( function() { this.doFrame(); } );
   };
   
   App.prototype.doFrame = function()
   {
+    console.log('test');
 	  var curT = Date.now();
 	  var dt = curT - this.prevT;
 
@@ -40,15 +40,14 @@ $(document).ready( function() {
 			  this.prevT += dt - 100;
 			  dt = 100;
 		  }
-      
+
       // logic here
 
 		  this.prevT = curT;
 	  }
 
-	  var that = this;
-	  requestAnimationFrame( function() { that.doFrame(); } );
-};
+	  requestAnimationFrame( function() { this.doFrame(); } );
+  };
 
   App.prototype.resize = function() {
     var rc = document.getElementById('game-container').getBoundingClientRect();
