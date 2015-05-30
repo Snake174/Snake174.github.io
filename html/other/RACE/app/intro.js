@@ -8,15 +8,15 @@ Intro = Backbone.View.extend( {
     this.logo = new Image();
     this.logo.onload = function () { view.onResize(); view.render(); };
     this.logo.src = 'img/logo.png';
-    //$(window).on( 'resize', function() { view.onResize(); } );
+    $(window).on( 'resize', function() { view.onResize(); } );
   },
   render: function () {
-    this.ctx.drawImage( this.logo, 0, 0, 100, 100 );
+    this.ctx.drawImage( this.logo, this.cw / 2 - 150, this.ch / 2 - 210, 300, 420 );
   },
   onResize: function () {
     var rc = this.doc.getElementById('game-container').getBoundingClientRect();
-    var cw = Math.floor( rc.right - rc.left );
-    var ch = Math.floor( rc.bottom - rc.top );
+    this.cw = Math.floor( rc.right - rc.left );
+    this.ch = Math.floor( rc.bottom - rc.top );
 
     this.doc.getElementById('game').style.width = cw + 'px';
     this.doc.getElementById('game').style.height = ch + 'px';
