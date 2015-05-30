@@ -11,12 +11,12 @@ Intro = Backbone.View.extend( {
     $(window).on( 'resize', function() { view.onResize(); } );
   },
   render: function () {
-    this.ctx.drawImage( this.logo, this.cw / 2 - 150, this.ch / 2 - 210, 300, 420 );
+    this.ctx.drawImage( this.logo, this.canvas.width / 2 - 150, this.canvas.height / 2 - 210, 300, 420 );
   },
   onResize: function () {
     var rc = this.doc.getElementById('game-container').getBoundingClientRect();
-    this.cw = Math.floor( rc.right - rc.left );
-    this.ch = Math.floor( rc.bottom - rc.top );
+    var cw = Math.floor( rc.right - rc.left );
+    var ch = Math.floor( rc.bottom - rc.top );
 
     this.doc.getElementById('game').style.width = cw + 'px';
     this.doc.getElementById('game').style.height = ch + 'px';
