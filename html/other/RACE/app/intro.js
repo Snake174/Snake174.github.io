@@ -8,7 +8,7 @@ Intro = Backbone.View.extend( {
     this.logo = new Image();
     this.logo.onload = function () { view.onResize(); view.render(); };
     this.logo.src = 'img/logo.png';
-    $(window).on( 'resize', function() { view.onResize(); } );
+    //$(window).on( 'resize', function() { view.onResize(); } );
   },
   render: function () {
     this.ctx.drawImage( this.logo, 0, 0, 300, 420 );
