@@ -30,7 +30,6 @@ $(document).ready( function() {
   
   App.prototype.doFrame = function()
   {
-    console.log('test');
 	  var curT = Date.now();
 	  var dt = curT - this.prevT;
 
