@@ -1,5 +1,5 @@
 define( function( require ) {
-  var Intro = require('intro');
+  var Intro = require('Intro');
   Intro.onResize();
   Intro.render();
 } );
