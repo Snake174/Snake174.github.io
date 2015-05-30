@@ -1,20 +1,4 @@
-requirejs.config( {
-  baseUrl: 'libs',
-  paths: {
-    app: '../app'
-  }
-} );
-
-requirejs( ['app/main'] );
-
-/*require( [ 'app/Car', 'app/Intro' ], function( Car, Intro ) {
-  var IntroView = new Intro( {
-	 el: $('#game-canvas')
-  } );
-} );*/
-
-
-/*$(document).ready( function() {
+$(document).ready( function() {
 
   var App = function() {
   };
@@ -44,4 +28,4 @@ requirejs( ['app/main'] );
 
   $(window).on( 'resize', function() { App.resize(); } );
 
-} );*/
+} );
