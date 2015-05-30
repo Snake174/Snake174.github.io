@@ -14,15 +14,14 @@ $(document).ready( function() {
   };
 
   App.prototype.init = function() {
+    var IntroView = new Intro( {
+	    el: $('#game-canvas')
+    } );
   };
 
   App.prototype.resize = function() {
     console.log('tyufutf');
   };
-
-  var IntroView = new Intro( {
-	 el: $('#game-canvas')
-  } );
 
   App.run();
 
