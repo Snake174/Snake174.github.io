@@ -1,6 +1,6 @@
 Intro = Backbone.View.extend( {
   initialize: function() {
-    _.bindAll( this, 'change', 'render' );
+    this.model.on( 'change', this.render, this );
     var view = this;
     this.doc = document;
     this.canvas = this.$el.get(0);
