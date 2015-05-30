@@ -11,7 +11,7 @@ Intro = Backbone.View.extend( {
     //$(window).on( 'resize', function() { view.onResize(); } );
   },
   render: function () {
-    this.ctx.drawImage( this.logo, 100, 100 );
+    this.ctx.drawImage( this.logo, 0, 0, 100, 100 );
   },
   onResize: function () {
     var rc = this.doc.getElementById('game-container').getBoundingClientRect();
