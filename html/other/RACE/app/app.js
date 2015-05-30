@@ -27,7 +27,7 @@ $(document).ready( function() {
 
   	requestAnimationFrame( function() { that.doFrame(); } );
   };
-  
+
   App.prototype.doFrame = function()
   {
 	  var curT = Date.now();
