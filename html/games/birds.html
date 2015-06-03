@@ -83,6 +83,9 @@
 <p>
 <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_xs"><div class="dw-h dw-h_xs"><img class="dw-f dw-f_xs" src="//yandex.st/disk/api/0.1.1/icons/file_rar-32.png"/> <a class="dw-l" target="_blank" title="Birds.rar" href="https://docviewer.yandex.ru?url=ya-disk-public://j1Gz9bnDdbPLHmu0nsFR9zRApssGodr1HFy%2FymHAfqQ%3D&name=Birds.rar">Birds</a></div><a class="dw-b dw-b_yellow dw-b_xs" title="Сохранить на Яндекс.Диск" data-disk-hash="j1Gz9bnDdbPLHmu0nsFR9zRApssGodr1HFy/ymHAfqQ=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/3MHfq6RHeQUZv"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div>
 </p>
+
+<div class="rw-ui-container"></div>
+
 <!-- SHARE BUTTONS -->
 <div style="padding: 20px;">
 <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
@@ -145,5 +148,35 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
 <script src="http://snake174.github.io/js/fb.js"></script>
 <script src="http://snake174.github.io/js/tak.js"></script>
 <script src="http://snake174.github.io/js/scroll-to-top.js"></script>
+<script type="text/javascript">(function(d, t, e, m){
+
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+
+        RW.init({
+            huid: "239451",
+            uid: "ef2ab826dc0c743eff3bf21d85218055",
+            source: "website",
+            options: {
+                "size": "medium",
+                "lng": "ru",
+                "style": "oxygen"
+            }
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() +
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
 </body>
 </html>
