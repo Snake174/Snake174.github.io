@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>[Love2D] Шаблон игры: Ядро приложения | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="ru" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="x-rim-auto-match" content="none">
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="1 days" />
+  <meta name="keywords" content="love2d,шаблон игры" />
+  <meta name="description" content="Разработка шаблона игры для движка Love2D. Ядро приложения." />
+  <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <link href="http://snake174.github.io/plugins/google-code-prettify/prettify.css" rel="stylesheet" />
+  <script async src="http://snake174.github.io/js/pace.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
+  <script src="http://snake174.github.io/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="wrap">
+<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="http://snake174.github.io" class="navbar-brand">Статьи, игры, программы</a>
+  </div>
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="http://snake174.github.io/programs.html" alt="Программы">Программы</a></li>
+      <li><a href="http://snake174.github.io/games.html" alt="Игры">Игры</a></li>
+      <li class="active"><a href="http://snake174.github.io/articles.html" alt="Статьи">Статьи</a></li>
+      <li><a href="http://snake174.github.io/links.html" alt="Полезные ссылки">Полезные ссылки</a></li>
+      <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid" id="top">
+<ol class="breadcrumb">
+  <li><a href="http://snake174.github.io">Главная</a></li>
+  <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+  <li class="active">[Love2D] Шаблон игры: Ядро приложения</li>
+</ol>
+<div class="page-header">
+  <h1 class="text-center">[Love2D] Шаблон игры: Ядро приложения</h1>
+</div>
+
+<p>
+<center><img class="img-responsive" src="img/game-core.png" alt="Love2D | Шаблон игры" /></center>
+</p>
+
+<p>
+В предыдущей статье  мы рассмотрели из чего должен состоять шаблон игры и описали некоторые его части. В данной статье речь пойдёт о ядре приложения.
+</p>
+
+<p>
+<strong>Ядро приложения</strong> играет очень важную роль, так как от того, как оно спроектировано будет зависеть насколько просто и удобно мы будем использовать его для создания своих игр. Необходимо чётко и понятно определить как различные подсистемы, входящие в приложение, будут взаимодействовать между собой. Необходимо ядро отделить от “игровых данных”, иначе получится путаница в коде и разрабатывать новый проект станет весьма проблематично.
+</p>
+
+<p>
+Разумеется, мы будем использовать <strong>дополнительные библиотеки</strong> для разработки, чтобы не писать свой велосипед. В итоге должно получиться что-то типа сборника библиотек, взаимодействие между которыми мы будем настраивать под собственные нужды. Список дополнительных библиотек для игрового движка <strong>Love2D</strong> можно посмотреть <a href="http://love2d.org/wiki/Category:Libraries" target="_blank">здесь</a>.
+</p>
+
+<p>
+Для начала нужно создать папку для будущего проекта примерно со следующей структурой:
+</p>
+
+<p>
+<center><img class="img-responsive" src="img/project-structure.png" alt="Love2D | Шаблон игры" /></center>
+</p>
+
+<p>
+Также нам понадобятся библиотеки <a href="http://love2d.org/wiki/anim8" target="_blank">anim8</a> для работы с <strong>анимацией</strong> и <a href="http://love2d.org/wiki/HUMP" target="_blank">HUMP</a> для работы с <strong>классами</strong>, <strong>таймером</strong> и другими необходимыми вещами.
+</p>
+
+<p>
+Для начала откроем файл <b><i>conf.lua</i></b> и вставим туда следующий код:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+function love.conf(c)
+  c.version               = "0.9.1"
+  c.title                 = "App"
+  c.window.width          = 800
+  c.window.height         = 600
+  c.window.resizable      = false
+  c.window.fullscreen     = false
+  c.window.fullscreentype = "normal"
+  c.window.vsync          = true
+  c.window.fsaa           = 4
+  c.modules.audio         = true
+  c.modules.event         = true
+  c.modules.graphics      = true
+  c.modules.image         = true
+  c.modules.joystick      = true
+  c.modules.keyboard      = true
+  c.modules.math          = true
+  c.modules.mouse         = true
+  c.modules.physics       = true
+  c.modules.sound         = true
+  c.modules.system        = true
+  c.modules.timer         = true
+  c.modules.window        = true
+end
+</pre>
+</p>
+
+<p>
+О всех настройках данного файла можно прочитать <a href="http://love2d.org/wiki/Config_Files" target="_blank">здесь</a>.
+</p>
+
+<p>
+Файл <b><i>init.lua</i></b> служит для подключения всех необходимых <strong>библиотек</strong>. Ниже приводится его содержание.
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+Class  = require "app.core.hump.class"
+Vector = require "app.core.hump.vector"
+Signal = require "app.core.hump.signal"
+Timer  = require "app.core.hump.timer"
+Camera = require "app.core.hump.camera"
+Anim   = require "app.core.anim8.anim8"
+App    = require "app.core.App"
+</pre>
+</p>
+
+<p>
+Заготовка файла <b><i>App.lua</i></b> будет выглядеть следующим образом:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+App = {}
+
+App.OS      = love.system.getOS()
+App.WIDTH   = love.graphics.getWidth()
+App.HEIGHT  = love.graphics.getHeight()
+App.RUNNING = true
+
+function App.run()
+  if love.event then
+    love.event.pump()
+
+    for e, a, b, c, d in love.event.poll() do
+      if e == "quit" then
+        App.RUNNING = false
+      elseif e == "keypressed" then
+        --
+      elseif e == "keyreleased" then
+        --
+      elseif e == "mousepressed" then
+        --
+
+        if c == "wu" then
+          --
+        elseif c == "wd" then
+          --
+        end
+      elseif e == "mousereleased" then
+        --
+      end
+
+      love.handlers[e]( a, b, c, d )
+    end
+  end
+
+  return App.RUNNING
+end
+
+function App.close()
+  App.RUNNING = false
+end
+
+return App
+</pre>
+</p>
+
+<p>
+В файле <b><i>App.lua</i></b> мы создали объект нашего приложения <b>App</b> и добавили к нему несколько глобальных переменных (<b>OS</b>, <b>WIDTH</b> и <b>HEIGHT</b>), доступ к которым можно будет получить из любого <strong>модуля</strong>.
+</p>
+
+<p>
+Осталось дополнить файл <b><i>main.lua</i></b> следующим кодом, чтобы приложение уже могло запуститься:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+require "app"
+
+function love.load()
+end
+
+function love.run()
+  if love.math then
+    love.math.setRandomSeed( os.time() )
+  end
+
+  if love.event then
+    love.event.pump()
+  end
+
+  if love.load then
+    love.load( arg )
+  end
+
+  if not (love.window and love.graphics and love.window.isCreated() and love.timer) then
+    return
+  end
+
+  while App.run() do
+    love.timer.step()
+    local dt = love.timer.getDelta()
+
+    -- update
+
+    love.graphics.clear()
+    love.graphics.origin()
+    love.graphics.present()
+
+    -- draw
+
+    love.timer.sleep( 0.001 )
+  end
+end
+</pre>
+</p>
+
+<p>
+Вот в принципе и всё. Уже можно пробовать запускать нашу заготовку. Разумеется наше приложение ещё ничего не может делать и вы увидите только чёрный экран.
+</p>
+
+<p>
+В следующей статье мы “научим” наше приложение реагировать на <strong>ввод с клавиатуры и мыши</strong>.
+</p>
+
+<p>
+<b>Исходный код статьи:</b>
+</p>
+
+<p><script src="//yandex.st/disk/api/0.1.1/widgets.min.js"></script></p>
+<div class="dw dw-s dw-s_i_m">
+<p><img class="dw-f" src="//yandex.st/disk/api/0.1.1/icons/file_zip-96.png" alt="" /></p>
+<div class="dw-a">
+<div class="dw-h"><a class="dw-l" title="App.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://d9VXHEZ05uomeHDyijQbtaevjHn2DrKHGlOUoXtLYMI%3D&amp;name=App.zip" target="_blank">App.zip</a></div>
+<p><a class="dw-b dw-b_blue" title="Сохранить на Яндекс.Диск" href="https://yadi.sk/d/coM3LVeMgj2vp" data-disk-hash="d9VXHEZ05uomeHDyijQbtaevjHn2DrKHGlOUoXtLYMI=" data-disk-widget="saveToDisk"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></p>
+
+<div class="rw-ui-container"></div>
+
+<!-- SHARE BUTTONS -->
+<div style="padding: 20px;">
+<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+</div>
+<!-- /SHARE BUTTONS -->
+
+<!-- -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'snake174';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- -->
+
+<div>
+<script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
+</div>
+</div>
+<div id="push"></div>
+</div>
+<div id="footer">
+  <div class="container">
+    <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+    <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+    <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+    <!-- begin of Top100 code -->
+    <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3104209"></script>
+    <noscript>
+      <a href="http://top100.rambler.ru/navi/3104209/">
+        <img src="http://counter.rambler.ru/top100.cnt?3104209" alt="Rambler's Top100" border="0" />
+      </a>
+    </noscript>
+    <!-- end of Top100 code -->
+    &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
+  </div>
+</div>
+<div id="top-link-block">
+  <a href="#top" class="well well-md" onclick="$('html,body').animate({scrollTop:0},300);return false;">
+    <i class="glyphicon glyphicon-chevron-up"></i>
+  </a>
+</div>
+<script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
+<script src="http://snake174.github.io/js/bootstrap.min.js"></script>
+<script src="http://snake174.github.io/plugins/google-code-prettify/prettify.js"></script>
+<script src="http://snake174.github.io/js/jquery.fancybox.js?v=2.1.5"></script>
+<script src="http://snake174.github.io/js/fb.js"></script>
+<script src="http://snake174.github.io/js/tak.js"></script>
+<script src="http://snake174.github.io/js/scroll-to-top.js"></script>
+<script type="text/javascript">(function(d, t, e, m){
+
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+
+        RW.init({
+            huid: "239451",
+            uid: "ef2ab826dc0c743eff3bf21d85218055",
+            source: "website",
+            options: {
+                "size": "medium",
+                "lng": "ru",
+                "style": "oxygen"
+            }
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() +
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+</body>
+</html>
