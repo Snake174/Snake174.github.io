@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>[Love2D] Шаблон игры: Вступление | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="ru" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="x-rim-auto-match" content="none">
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="1 days" />
+  <meta name="keywords" content="love2d,шаблон игры" />
+  <meta name="description" content="Разработка шаблона игры для движка Love2D" />
+  <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <script async src="http://snake174.github.io/js/pace.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
+  <script src="http://snake174.github.io/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="wrap">
+<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="http://snake174.github.io" class="navbar-brand">Статьи, игры, программы</a>
+  </div>
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="http://snake174.github.io/programs.html" alt="Программы">Программы</a></li>
+      <li class="active"><a href="http://snake174.github.io/games.html" alt="Игры">Игры</a></li>
+      <li><a href="http://snake174.github.io/articles.html" alt="Статьи">Статьи</a></li>
+      <li><a href="http://snake174.github.io/links.html" alt="Полезные ссылки">Полезные ссылки</a></li>
+      <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid" id="top">
+<ol class="breadcrumb">
+  <li><a href="http://snake174.github.io">Главная</a></li>
+  <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+  <li class="active">[Love2D] Шаблон игры: Вступление</li>
+</ol>
+<div class="page-header">
+  <h1 class="text-center">[Love2D] Шаблон игры: Вступление</h1>
+</div>
+
+<p>
+<center><b>Корпус танка с анимацией гусениц</b></center>
+<center><img class="img-responsive" src="img/GamesLogo.png" alt="Love2D | Шаблон игры" /></center>
+</p>
+
+<p>
+Всем привет.
+</p>
+
+<p>
+В этой серии статей будет обсуждаться создание своего шаблона для игры на игровом движке <strong>Love2D</strong>.
+</p>
+
+<p>
+Почему мы выбрали именно Love2D? Да потому что данный движок прост в освоении, имеет открытый исходный код, работает на всех популярных платформах (<strong>Windows</strong>, <strong>Linux</strong> и <strong>Mac OS</strong>), также разрабатываются порты данного движка под <strong>Android</strong>, <strong>Web</strong> и другие платформы, имеется огромное комьюнити, также можно найти огромное количество информации в сети.
+</p>
+
+<p>
+Для работы с данным движком необходимы хотя бы самые начальные знания языка программирования <strong>Lua</strong>. Язык программирования Lua имеет низкий порог вхождения и его освоение занимает очень короткий период.
+</p>
+
+<p>
+Если же вы вдруг решите перейти на более серьёзные и мощные движки, <strong>Love2D</strong> идеально подойдёт для создания прототипа игры.
+</p>
+
+<p>
+В данной статье мы рассмотрим из каких частей должен состоять наш будущий <strong>шаблон игры</strong> и опишем некоторые важные части.
+</p>
+
+<p>
+Итак, приступим ...
+</p>
+
+<p>
+Ниже будет приведён список частей, из которых будет состоять шаблон (возможно будет дополняться по ходу разработки):
+<ul>
+  <li><a href="#">ядро приложения</a> - основной костяк приложения, который управляет всеми модулями, входящими в него;</li>
+  <li><a href="#">система ввода</a> - обработка ввода с клавиатуры и мыши, также добавим сюда обработку управления под мобильными устройствами;</li>
+  <li><a href="#">менеджер ресурсов</a><strong> -</strong> будет осуществлять загрузку игровых ресурсов и управлять ими;</li>
+  <li><a href="#">менеджер сцен</a> - менеджер для управления сценами в игре с возможностью перехода от одной сцены к другой, используя различные визуальные эффекты;</li>
+  <li><a href="#">интерфейс пользователя<strong> </strong>(GUI)</a> - различные кнопки, списки, поля ввода и другие элементы для взаимодействия с пользователем</li>
+</ul>
+</p>
+
+<div class="rw-ui-container"></div>
+
+<!-- SHARE BUTTONS -->
+<div style="padding: 20px;">
+<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+</div>
+<!-- /SHARE BUTTONS -->
+
+<!-- -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'snake174';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- -->
+
+<div>
+<script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
+</div>
+</div>
+<div id="push"></div>
+</div>
+<div id="footer">
+  <div class="container">
+    <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+    <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+    <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+    <!-- begin of Top100 code -->
+    <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3104209"></script>
+    <noscript>
+      <a href="http://top100.rambler.ru/navi/3104209/">
+        <img src="http://counter.rambler.ru/top100.cnt?3104209" alt="Rambler's Top100" border="0" />
+      </a>
+    </noscript>
+    <!-- end of Top100 code -->
+    &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
+  </div>
+</div>
+<div id="top-link-block">
+  <a href="#top" class="well well-md" onclick="$('html,body').animate({scrollTop:0},300);return false;">
+    <i class="glyphicon glyphicon-chevron-up"></i>
+  </a>
+</div>
+<script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
+<script src="http://snake174.github.io/js/bootstrap.min.js"></script>
+<script src="http://snake174.github.io/js/jquery.fancybox.js?v=2.1.5"></script>
+<script src="http://snake174.github.io/js/fb.js"></script>
+<script src="http://snake174.github.io/js/tak.js"></script>
+<script src="http://snake174.github.io/js/scroll-to-top.js"></script>
+<script type="text/javascript">(function(d, t, e, m){
+
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+
+        RW.init({
+            huid: "239451",
+            uid: "ef2ab826dc0c743eff3bf21d85218055",
+            source: "website",
+            options: {
+                "size": "medium",
+                "lng": "ru",
+                "style": "oxygen"
+            }
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() +
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+</body>
+</html>
