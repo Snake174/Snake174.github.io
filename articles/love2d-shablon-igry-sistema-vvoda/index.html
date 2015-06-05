@@ -11,7 +11,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="robots" content="index, follow" />
   <meta name="revisit-after" content="1 days" />
-  <meta name="keywords" content="статьи,love2d,шаблон игры,система ввода" />
+  <meta name="keywords" content="статьи,love2d,шаблон игры,система ввода,исходный код,однократное нажатие,удерживание клавиши" />
   <meta name="description" content="Разработка шаблона игры для движка Love2D. Система ввода." />
   <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
   <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
@@ -68,7 +68,7 @@
 </p>
 
 <p>
-Для удобства было решено запихнуть обработчик ввода в отдельную систему, чтобы не использовать функции Love2D <b>love.keypressed</b>, <b>love.mousepressed</b> и другие.
+Для удобства было решено запихнуть обработчик ввода в отдельную систему, чтобы не использовать функции движка <b>love.keypressed</b>, <b>love.mousepressed</b> и другие.
 </p>
 
 <p>
@@ -133,7 +133,7 @@ end
 </p>
 
 <p>
-В месте обработки событий мы будем определять какие нажаты клавиши и заносить их в соответствующие массивы. Там же будем определять однократное нажатие или удерживание клавиш. Делается это следующим кодом:
+В месте обработки событий мы будем определять какие нажаты клавиши и заносить их в соответствующие массивы. Там же будем определять <strong>однократное нажатие</strong> или <strong>удерживание клавиш</strong>. Делается это следующим кодом:
 </p>
 
 <p>
