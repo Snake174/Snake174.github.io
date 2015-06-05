@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>[Love2D] Шаблон игры: Система ввода | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="ru" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="x-rim-auto-match" content="none">
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="1 days" />
+  <meta name="keywords" content="статьи,love2d,шаблон игры,система ввода" />
+  <meta name="description" content="Разработка шаблона игры для движка Love2D. Система ввода." />
+  <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
+  <link href="http://snake174.github.io/plugins/google-code-prettify/prettify.css" rel="stylesheet" />
+  <script async src="http://snake174.github.io/js/pace.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://snake174.github.io/js/html5shiv.min.js"></script>
+  <script src="http://snake174.github.io/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="wrap">
+<nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="http://snake174.github.io" class="navbar-brand">Статьи, игры, программы</a>
+  </div>
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="http://snake174.github.io/gcup-news/"><img src="http://snake174.github.io/gcup-news/gcup.ico" /></a></li>
+      <li><a href="http://snake174.github.io/programs.html" alt="Программы">Программы</a></li>
+      <li><a href="http://snake174.github.io/games.html" alt="Игры">Игры</a></li>
+      <li class="active"><a href="http://snake174.github.io/articles.html" alt="Статьи">Статьи</a></li>
+      <li><a href="http://snake174.github.io/links.html" alt="Полезные ссылки">Полезные ссылки</a></li>
+      <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid" id="top">
+<ol class="breadcrumb">
+  <li><a href="http://snake174.github.io">Главная</a></li>
+  <li><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+  <li class="active">[Love2D] Шаблон игры: Система ввода</li>
+</ol>
+<div class="page-header">
+  <h1 class="text-center">[Love2D] Шаблон игры: Система ввода</h1>
+</div>
+
+<p>
+<center><img class="img-responsive" src="img/input-system.jpg" alt="Love2D | Шаблон игры" /></center>
+</p>
+
+<p>
+В <a href="http://snake174.github.io/articles/love2d-shablon-igry-yadro-prilojeniya/">предыдущей статье</a> мы создали простую заготовку для нашего будущего приложения на движке <strong>Love2D</strong>. Никаких полезных действий она ещё не умеет делать, просто запускает бесконечный цыкл и ждёт закрытия окна. В этой статье мы рассмотрим обработку <strong>ввода с клавиатуры и мыши</strong>. Было принято решение повременить с мобильными устройствами, так что приложение будет работать пока только на Desktop платформах.
+</p>
+
+<p>
+Для удобства было решено запихнуть обработчик ввода в отдельную систему, чтобы не использовать функции Love2D <b>love.keypressed</b>, <b>love.mousepressed</b> и другие.
+</p>
+
+<p>
+Наша <strong>система ввода</strong> будет отслеживать следующие состояния:
+<ul>
+  <li>нажата любая клавиша на клавиатуре</li>
+  <li>однократное нажатие определённой клавиши на клавиатуре</li>
+  <li>определённая клавиша клавиатуры отпущена</li>
+  <li>определённая клавиша клавиатуры нажата и удерживается</li>
+  <li>нажата любая кнопка мыши</li>
+  <li>однократное нажатие определённой кнопки мыши</li>
+  <li>определённая кнопка мыши отпущена</li>
+  <li>определённая кнопка мыши нажата и удерживается</li>
+  <li>прокрутка колёсика мыши</li>
+  <li>координаты курсора мыши</li>
+</ul>
+</p>
+
+<p>
+Весь код мы будем добавлять в файл <b><i>App.lua</i></b> из <a href="http://snake174.github.io/articles/love2d-shablon-igry-yadro-prilojeniya/">предыдущей статьи</a>, так как в нём находится обработка всех событий. В конце статьи как всегда будут выложены <strong>исходные коды</strong> с доработками.
+</p>
+
+<p>
+Для начала нам нужно создать новый объект и добавить к нему несколько переменных. Назовём его <b>Input</b>.
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+...
+
+-- Система ввода
+Input               = {}
+App.Input           = {}
+App.Input._keys     = {}
+App.Input._buttons  = {}
+App.Input._wheel    = 0
+App.Input._mousePos = Vector( 0, 0 )
+
+...
+</pre>
+</p>
+
+<p>
+В массив <b>_keys</b> будут заноситься все нажатые клавиши клавиатуры, а в массив <b>_buttons</b> соответственно все нажатые кнопки мыши. Переменная <b>_wheel</b> будет принимать значение -1 или 1 в зависимости от того, в какую сторону была осуществлена прокрутка колёсиком мыши. В конце цикла мы будем выставлять ей значение 0. В векторе <b>_mousePos</b> будут находиться текущие координаты курсора мыши.
+</p>
+
+<p>
+Теперь нам нужно модифицировать функцию <b><i>App.run()</i></b>. Для начала определим текущие координаты курсора мыши и занесём их в вектор <b>_mousePos</b>:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+...
+
+function App.run()
+  local mouseX, mouseY  = love.mouse.getPosition()
+  App.Input._mousePos   = Vector( mouseX, mouseY )
+
+  ...
+end
+</pre>
+</p>
+
+<p>
+В месте обработки событий мы будем определять какие нажаты клавиши и заносить их в соответствующие массивы. Там же будем определять однократное нажатие или удерживание клавиш. Делается это следующим кодом:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+...
+
+function App.run()
+  ...
+
+  if love.event then
+    love.event.pump()
+
+    local _keys = {}
+    local _btns = {}
+
+    for e, a, b, c, d in love.event.poll() do
+      if e == "quit" then
+        App.RUNNING = false
+      elseif e == "keypressed" then
+        App.Input._keys[a] = 1
+        _keys[ #_keys + 1 ] = a
+      elseif e == "keyreleased" then
+        App.Input._keys[a] = 0
+        _keys[ #_keys + 1 ] = a
+      elseif e == "mousepressed" then
+        App.Input._buttons[c] = 1
+        _btns[ #_btns + 1 ] = c
+
+        if c == "wu" then
+          App.Input._wheel = 1
+        elseif c == "wd" then
+          App.Input._wheel = -1
+        end
+      elseif e == "mousereleased" then
+        App.Input._buttons[c] = 0
+        _btns[ #_btns + 1 ] = c
+      end
+
+      for key, value in pairs( App.Input._keys ) do
+        if value == 0 then
+          local keyFound = false
+
+          for i = 1, #_keys do
+            if _keys[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._keys[ key ] = -1
+          end
+        elseif value == 1 then
+          local keyFound = false
+
+          for i = 1, #_keys do
+            if _keys[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._keys[ key ] = 2
+          end
+        end
+      end
+
+      for key, value in pairs( App.Input._buttons ) do
+        if value == 0 then
+          local keyFound = false
+
+          for i = 1, #_btns do
+            if _btns[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._buttons[ key ] = -1
+          end
+        elseif value == 1 then
+          local keyFound = false
+
+          for i = 1, #_btns do
+            if _btns[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._buttons[ key ] = 2
+          end
+        end
+      end
+
+      love.handlers[e]( a, b, c, d )
+    end
+  end
+
+  ...
+end
+</pre>
+</p>
+
+<p>
+Здесь думаю всё понятно и подробно расписывать не имеет смысла. Осталось добавить понятные функции, к которым можно будет обращаться для получения наших значений. Вот они:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+...
+
+function Input.reset()
+  App.Input._wheel = 0
+end
+
+function Input.pressed()
+  for _, v in pairs( App.Input._keys ) do
+    if v > 0 then
+      return true
+    end
+  end
+
+  return false
+end
+
+function Input.clicked()
+  for _, v in pairs( App.Input._buttons ) do
+    if v > 0 then
+      return true
+    end
+  end
+
+  return false
+end
+
+function Input.keyDown( key )
+  return App.Input._keys[ key ] == 1
+end
+
+function Input.keyUp( key )
+  return App.Input._keys[ key ] == 0
+end
+
+function Input.keyHeld( key )
+  return App.Input._keys[ key ] == 2
+end
+
+function Input.mouseDown( button )
+  return App.Input._buttons[ button ] == 1
+end
+
+function Input.mouseUp( button )
+  return App.Input._buttons[ button ] == 0
+end
+
+function Input.mouseHeld( button )
+  return App.Input._buttons[ button ] == 2
+end
+
+function Input.wheelUp()
+  return App.Input._wheel == 1
+end
+
+function Input.wheelDown()
+  return App.Input._wheel == -1
+end
+
+function Input.mousePos()
+  return App.Input._mousePos
+end
+
+...
+</pre>
+</p>
+
+<p>
+В конечном итоге наш файл <b><i>App.lua</i></b> будет выглядеть следующим образом:
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+App = {}
+
+App.OS      = love.system.getOS()
+App.WIDTH   = love.graphics.getWidth()
+App.HEIGHT  = love.graphics.getHeight()
+App.RUNNING = true
+
+-- Система ввода
+Input               = {}
+App.Input           = {}
+App.Input._keys     = {}
+App.Input._buttons  = {}
+App.Input._wheel    = 0
+App.Input._mousePos = Vector( 0, 0 )
+
+function App.run()
+  local mouseX, mouseY  = love.mouse.getPosition()
+  App.Input._mousePos   = Vector( mouseX, mouseY )
+
+  if love.event then
+    love.event.pump()
+
+    local _keys = {}
+    local _btns = {}
+
+    for e, a, b, c, d in love.event.poll() do
+      if e == "quit" then
+        App.RUNNING = false
+      elseif e == "keypressed" then
+        App.Input._keys[a] = 1
+        _keys[ #_keys + 1 ] = a
+      elseif e == "keyreleased" then
+        App.Input._keys[a] = 0
+        _keys[ #_keys + 1 ] = a
+      elseif e == "mousepressed" then
+        App.Input._buttons[c] = 1
+        _btns[ #_btns + 1 ] = c
+
+        if c == "wu" then
+          App.Input._wheel = 1
+        elseif c == "wd" then
+          App.Input._wheel = -1
+        end
+      elseif e == "mousereleased" then
+        App.Input._buttons[c] = 0
+        _btns[ #_btns + 1 ] = c
+      end
+
+      for key, value in pairs( App.Input._keys ) do
+        if value == 0 then
+          local keyFound = false
+
+          for i = 1, #_keys do
+            if _keys[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._keys[ key ] = -1
+          end
+        elseif value == 1 then
+          local keyFound = false
+
+          for i = 1, #_keys do
+            if _keys[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._keys[ key ] = 2
+          end
+        end
+      end
+
+      for key, value in pairs( App.Input._buttons ) do
+        if value == 0 then
+          local keyFound = false
+
+          for i = 1, #_btns do
+            if _btns[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._buttons[ key ] = -1
+          end
+        elseif value == 1 then
+          local keyFound = false
+
+          for i = 1, #_btns do
+            if _btns[i] == key then
+              keyFound = true
+              break
+            end
+          end
+
+          if not keyFound then
+            App.Input._buttons[ key ] = 2
+          end
+        end
+      end
+
+      love.handlers[e]( a, b, c, d )
+    end
+  end
+
+  return App.RUNNING
+end
+
+function App.close()
+  App.RUNNING = false
+end
+
+-- >> INPUT
+function Input.reset()
+  App.Input._wheel = 0
+end
+
+function Input.pressed()
+  for _, v in pairs( App.Input._keys ) do
+    if v > 0 then
+      return true
+    end
+  end
+
+  return false
+end
+
+function Input.clicked()
+  for _, v in pairs( App.Input._buttons ) do
+    if v > 0 then
+      return true
+    end
+  end
+
+  return false
+end
+
+function Input.keyDown( key )
+  return App.Input._keys[ key ] == 1
+end
+
+function Input.keyUp( key )
+  return App.Input._keys[ key ] == 0
+end
+
+function Input.keyHeld( key )
+  return App.Input._keys[ key ] == 2
+end
+
+function Input.mouseDown( button )
+  return App.Input._buttons[ button ] == 1
+end
+
+function Input.mouseUp( button )
+  return App.Input._buttons[ button ] == 0
+end
+
+function Input.mouseHeld( button )
+  return App.Input._buttons[ button ] == 2
+end
+
+function Input.wheelUp()
+  return App.Input._wheel == 1
+end
+
+function Input.wheelDown()
+  return App.Input._wheel == -1
+end
+
+function Input.mousePos()
+  return App.Input._mousePos
+end
+-- << INPUT
+
+return App
+</pre>
+</p>
+
+<p>
+Теперь из любого места приложения мы можем обратиться к объекту <b>Input</b> и получить нужные нам данные.
+</p>
+
+<p>
+Для проверки работоспособности данной системы мы выведем на экран спрайт и заставим его поворачиваться в сторону курсора. По нажатию клавиши ESC приложение будет закрыто. Для этого в папке с проектом нужно создать дополнительную директорию <b>data</b>, в которую нужно будет положить нужный нам спрайт. Вывод спрайта будет осуществляться в файле <b><i>main.lua</i></b>, так что настало самое время его открыть и слегка модифицировать.
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+require "app"
+
+function love.load()
+  -- изображение
+  mac = love.graphics.newImage("data/mac.png")
+
+  -- размер изображения
+  size = Vector( mac:getWidth(), mac:getHeight() )
+
+  -- координаты
+  pos = Vector( 400, 300 )
+
+  -- текущий угол поворота
+  angle = 0
+end
+
+function love.run()
+  if love.math then
+    love.math.setRandomSeed( os.time() )
+  end
+
+  if love.event then
+    love.event.pump()
+  end
+
+  if love.load then
+    love.load( arg )
+  end
+
+  if not (love.window and love.graphics and love.window.isCreated() and love.timer) then
+    return
+  end
+
+  while App.run() do
+    love.timer.step()
+    local dt = love.timer.getDelta()
+
+    -- update
+    if Input.keyDown("escape") then
+      App.close()
+    end
+
+    local mousePos = Input.mousePos()
+    local dir = pos - mousePos
+
+    angle = -math.atan2( dir.x, dir.y ) / (math.pi / 180)
+
+    Input.reset()
+
+    love.graphics.clear()
+    love.graphics.origin()
+
+    -- draw
+    love.graphics.draw( mac,
+                        pos.x,
+                        pos.y,
+                        math.rad( angle ),
+                        1,
+                        1,
+                        size.x / 2,
+                        size.y / 2 )
+
+    love.graphics.present()
+
+    love.timer.sleep( 0.001 )
+  end
+end
+</pre>
+</p>
+
+<p>
+Скриншот результата:
+</p>
+
+<p>
+<center><img class="img-responsive" src="img/result.png" alt="Love2D | Шаблон игры" /></center>
+</p>
+
+<p>
+На этом создание нашей системы управления вводом окончено. Приветствуются любые комментарии и пожелания :)
+</p>
+
+<p>
+<b>Исходный код статьи:</b>
+</p>
+
+<p>
+<script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script><div class="dw dw-s dw-s_i_m"><img class="dw-f" src="//yandex.st/disk/api/0.1.1/icons/file_zip-96.png"/> <div class="dw-a"><div class="dw-h"><a class="dw-l" target="_blank" title="AppInputSystem.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://xHmj7oORgFeXQzSvZLwGjeMtiGZ%2FJiWwl5%2F%2F89Brovo%3D&name=AppInputSystem.zip">AppInputSystem.zip</a></div><a class="dw-b dw-b_blue" title="Сохранить на Яндекс.Диск" data-disk-hash="xHmj7oORgFeXQzSvZLwGjeMtiGZ/JiWwl5//89Brovo=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/_NdM57ksh6RNT"><span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span></a></div></div>
+</p>
+
+<div class="rw-ui-container"></div>
+
+<!-- SHARE BUTTONS -->
+<div style="padding: 20px;">
+<script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+</div>
+<!-- /SHARE BUTTONS -->
+
+<!-- -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'snake174';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<!-- -->
+
+<div>
+<script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
+</div>
+</div>
+<div id="push"></div>
+</div>
+<div id="footer">
+  <div class="container">
+    <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+    <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+    <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+    <!-- begin of Top100 code -->
+    <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3104209"></script>
+    <noscript>
+      <a href="http://top100.rambler.ru/navi/3104209/">
+        <img src="http://counter.rambler.ru/top100.cnt?3104209" alt="Rambler's Top100" border="0" />
+      </a>
+    </noscript>
+    <!-- end of Top100 code -->
+    &copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014
+  </div>
+</div>
+<div id="top-link-block">
+  <a href="#top" class="well well-md" onclick="$('html,body').animate({scrollTop:0},300);return false;">
+    <i class="glyphicon glyphicon-chevron-up"></i>
+  </a>
+</div>
+<script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
+<script src="http://snake174.github.io/js/bootstrap.min.js"></script>
+<script src="http://snake174.github.io/plugins/google-code-prettify/prettify.js"></script>
+<script src="http://snake174.github.io/js/hl.js"></script>
+<script src="http://snake174.github.io/js/tak.js"></script>
+<script src="http://snake174.github.io/js/scroll-to-top.js"></script>
+<script type="text/javascript">(function(d, t, e, m){
+
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+
+        RW.init({
+            huid: "239451",
+            uid: "ef2ab826dc0c743eff3bf21d85218055",
+            source: "website",
+            options: {
+                "size": "medium",
+                "lng": "ru",
+                "style": "oxygen"
+            }
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() +
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+</script>
+</body>
+</html>
