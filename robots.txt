@@ -4,6 +4,7 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /img/
 Disallow: /plugins/
+Disallow: /files/
 Disallow: /feedback.html
 Disallow: /404.html
 Disallow: /payments.html
