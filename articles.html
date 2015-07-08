@@ -185,6 +185,7 @@
     <script src="http://snake174.github.io/js/bootstrap.min.js"></script>
     <script src="http://snake174.github.io/js/jquery.fancybox.js?v=2.1.5"></script>
     <script src="http://snake174.github.io/js/fb.js"></script>
+    <script src="http://snake174.github.io/js/jquery.lazyload.js?v=1.9.1"></script>
     <script src="http://snake174.github.io/js/scroll-to-top.js"></script>
     <script>
       (function(){
@@ -194,5 +195,12 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(c, s);
       })();
     </script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("img").lazyload({
+          effect : "fadeIn"
+        });
+      });
+  </script>
   </body>
 </html>
