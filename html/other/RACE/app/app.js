@@ -68,6 +68,19 @@ $(document).ready( function() {
   };
   img.src = 'img/intro.png';
 
+  var carModel = new CarModel( {
+    name: 'car-1',
+    speed: 800,
+    handling: 30,
+  } );
+
+  var carView = new CarView( {
+    el: $('#gameArea'),
+    model: carModel
+  } );
+
+  console.log( carView.tpl() );
+
   window.addEventListener( 'resize', resizeGame, false );
   window.addEventListener( 'orientationchange', resizeGame, false );
 

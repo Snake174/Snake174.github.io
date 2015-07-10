@@ -45,3 +45,7 @@ image, canvas {
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
 }
+.car-image-large .car-info {
+  margin: 0 auto;
+  text-align: center;
+}

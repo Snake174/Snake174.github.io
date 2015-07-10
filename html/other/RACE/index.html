@@ -11,14 +11,30 @@
       @viewport { user-zoom: fixed; }
     </style>
     <link rel="stylesheet" href="css/style.css">
+    <!-- https://github.com/daneden/animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
   </head>
   <body>
     <div id="gameArea">
       <canvas id="gameCanvas" width="800" height="600"></canvas>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-  <script src="app/app.js"></script>
+    <script type="text/template" id="car-view-tpl">
+      <div>
+        <div class="car-image-large">
+          <center><img src="<%= imageLarge %>" /></center>
+        </div>
+        <div class="car-info">
+          Скорость
+          <%= speed %>
+          Управляемость
+          <%= handling %>
+        </div>
+      </div>
+    </script>
+    <script src="../libs/jquery.1.11.2.min.js"></script>
+    <script src="../libs/underscore-min.js"></script>
+    <script src="../libs/backbone-min.js"></script>
+    <script src="app/car.js"></script>
+    <script src="app/app.js"></script>
   </body>
 </html>
