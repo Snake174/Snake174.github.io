@@ -24,3 +24,7 @@ var CarView = Backbone.View.extend( {
     return this;
   }
 } );
+
+var CarCollection = Backbone.Collection.extend( {
+  model: CarModel
+} );

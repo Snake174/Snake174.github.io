@@ -9,7 +9,10 @@
       @viewport { width: 100vw; zoom: 100%; }
       @-ms-viewport { user-zoom: fixed; }
       @viewport { user-zoom: fixed; }
+      .shadow-20{transition:box-shadow ease 0.2s;-webkit-transition:box-shadow ease 0.2s;-moz-transition:box-shadow ease 0.2s;-o-transition:box-shadow ease 0.2s;}
+      .shadow-20:hover{box-shadow:0px 0px 20px #2c2c2c;}
     </style>
+    <link rel="stylesheet" href="http://snake174.github.io/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- https://github.com/daneden/animate.css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -24,12 +27,42 @@
           <center><img src="<%= imageLarge %>" /></center>
         </div>
         <div class="car-info">
-          Скорость
-          <%= speed %>
-          Управляемость
-          <%= handling %>
+          <center>
+            <table border="0" width="50%" style="margin: 40px;">
+              <tr>
+                <td width="30%">Скорость</td>
+                <td>
+                  <div class="progress" style="margin: auto;">
+                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<%= Math.floor( (speed * 100) / 1500 ) %>" aria-valuemin="500" aria-valuemax="1500" style="width: <%= Math.floor( (speed * 100) / 1500 ) %>%">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="30%">Управляемость</td>
+                <td>
+                  <div class="progress" style="margin: auto;">
+                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="<%= Math.floor( (handling * 100) / 35 ) %>" aria-valuemin="20" aria-valuemax="35" style="width: <%= Math.floor( (handling * 100) / 35 ) %>%">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </center>
+        </div>
+        <div class="car-nav">
+          <table border="0" width="100%">
+            <tr>
+              <td align="center"><div class="ui-prev shadow-20" style="width: 128px; height: 128px;"></div></td>
+              <td align="center"><div class="ui-play shadow-20" style="width: 128px; height: 128px;"></div></td>
+              <td align="center"><div class="ui-next shadow-20" style="width: 128px; height: 128px;"></div></td>
+            </tr>
+          </table>
         </div>
       </div>
+    </script>
+    <script type="text/template" id="canvas-view-tpl">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
     </script>
     <script src="../libs/jquery.1.11.2.min.js"></script>
     <script src="../libs/underscore-min.js"></script>

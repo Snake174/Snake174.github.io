@@ -49,3 +49,18 @@ image, canvas {
   margin: 0 auto;
   text-align: center;
 }
+.ui-prev {
+  background: url('../img/ui/prev.png') no-repeat;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.ui-play {
+  background: url('../img/ui/play.png') no-repeat;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.ui-next {
+  background: url('../img/ui/next.png') no-repeat;
+  cursor: pointer;
+  border-radius: 25px;
+}
