@@ -103,6 +103,7 @@ $(document).ready( function() {
   } );
 
   var track = new Image();
+  var trackMask = new Image();
   var car = new Image();
 
   $(document).on( 'click', '.ui-play', function() {   
@@ -123,18 +124,19 @@ $(document).ready( function() {
 
     initCanvas();
 
-    car.onload = function() {
-      loadRes();
-    }
-    car.src = carCollection.curModel().get('image');
-
     track.onload = function() {
       loadRes();
     };
     track.src = 'img/track/track.png';
+    
+    trackMask.onload = function() {
+      loadRes();
+    };
+    trackMask.src = 'img/track/track-mask.png';
   } );
 
   var totalRes = 2;
+  var keys = new Array();
 
   function loadRes() {
     --totalRes;
@@ -143,22 +145,38 @@ $(document).ready( function() {
       go();
   }
 
+  var prevT = Date.now();
+  var car = new Car( 390, 535, 83, carCollection.curModel() );
+
   function go() {
-    resizeGame();
-    context.drawImage( track, 0, 0 );
-    context.save();
-    context.translate( 400, 520 );
-    context.rotate( 83 * Math.PI / 180 );
-    context.drawImage( car, 0, 0 );
-    context.restore();
+    var curT = Date.now();
+	  var dt = curT - prevT;
+
+    if (dt > 0) {
+		  if (dt > 100) {
+			  prevT += dt - 100;
+			  dt = 100;
+		  }
+
+      car.update( dt, keys );
+
+      context.drawImage( trackMask, 0, 0 );
+      context.drawImage( track, 0, 0 );
+
+      car.draw( context );
+
+		  prevT = curT;
+	  }
+    
+    requestAnimationFrame( go );    
   }
 
   document.addEventListener( 'keydown', function(e) {
-    console.log( e.keyCode );
+    keys[ e.keyCode ] = 1;
   }, true );
 
 	document.addEventListener( 'keyup', function(e) {
-    console.log( e.keyCode );
+    keys[ e.keyCode ] = 0;
   }, true );
 
   window.addEventListener( 'resize', resizeGame, false );
