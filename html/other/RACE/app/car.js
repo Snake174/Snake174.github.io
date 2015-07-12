@@ -16,6 +16,7 @@ var CarView = Backbone.View.extend( {
   tpl: _.template( $('#car-view-tpl').html() ),
   initialize: function( options ) {
     this.options = options || {};
+    this.model = this.collection.curModel();
     this.model.bind( 'change', _.bind( this.render, this ) );
     this.render();
   },
@@ -26,5 +27,42 @@ var CarView = Backbone.View.extend( {
 } );
 
 var CarCollection = Backbone.Collection.extend( {
-  model: CarModel
+  model: CarModel,
+  initialize: function() {
+    this._meta = {};
+    this.meta( 'currentCar', 0 );
+  },
+  meta: function( prop, value ) {
+    if (value === undefined)
+      return this._meta[ prop ];
+    else {
+      this._meta[ prop ] = value;
+      this.trigger( 'change:' + prop, value );
+    }
+  },
+  next: function() {
+    var cc = this.meta('currentCar');
+    ++cc;
+
+    if (cc > this.length - 1)
+      cc = 0;
+
+    this.meta( 'currentCar', cc );
+
+    return this.at( cc );
+  },
+  prev: function() {
+    var cc = this.meta('currentCar');
+    --cc;
+
+    if (cc < 0)
+      cc = this.length - 1;
+
+    this.meta( 'currentCar', cc );
+
+    return this.at( cc );
+  },
+  curModel: function() {
+    return this.at( this.meta('currentCar') );
+  }
 } );
