@@ -146,8 +146,20 @@ $(document).ready( function() {
   function go() {
     resizeGame();
     context.drawImage( track, 0, 0 );
-    context.drawImage( car, 350, 500 );
+    context.save();
+    context.translate( 400, 520 );
+    context.rotate( 83 * Math.PI / 180 );
+    context.drawImage( car, 0, 0 );
+    context.restore();
   }
+
+  document.addEventListener( 'keydown', function(e) {
+    console.log( e.keyCode );
+  }, true );
+
+	document.addEventListener( 'keyup', function(e) {
+    console.log( e.keyCode );
+  }, true );
 
   window.addEventListener( 'resize', resizeGame, false );
   window.addEventListener( 'orientationchange', resizeGame, false );
