@@ -1,5 +1,5 @@
 $(document).ready( function() {
-  
+
   var gameArea = $('#gameArea');
   var gameCanvas = undefined;
   var context = undefined;
@@ -72,8 +72,8 @@ $(document).ready( function() {
   for (var i = 0; i < 5; ++i) {
     var carModel = new CarModel( {
       name: 'car-' + (i + 1),
-      speed: Math.floor( Math.random() * (1500 - 500 + 1) ) + 500,
-      handling: Math.floor( Math.random() * (35 - 20 + 1) ) + 20,
+      speed: Math.floor( Math.random() * (20 - 10 + 1) ) + 10,
+      handling: Math.floor( Math.random() * (20 - 10 + 1) ) + 10,
     } );
 
     carModels.push( carModel );
@@ -90,7 +90,7 @@ $(document).ready( function() {
     $('#gameArea').addClass('animated bounceOutRight');
     $('#gameArea').one( 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
       $('#gameArea').removeClass('animated bounceOutRight');
-      carView.model.set( carCollection.prev().toJSON() );
+      carView.prev();
     } );
   } );
 
@@ -98,15 +98,16 @@ $(document).ready( function() {
     $('#gameArea').addClass('animated bounceOutLeft');
     $('#gameArea').one( 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
       $('#gameArea').removeClass('animated bounceOutLeft');
-      carView.model.set( carCollection.next().toJSON() );
+      carView.next();
     } );
   } );
 
+  var keys = new Array();
   var track = new Image();
   var trackMask = new Image();
   var car = new Image();
 
-  $(document).on( 'click', '.ui-play', function() {   
+  $(document).on( 'click', '.ui-play', function() {
     var CanvasView = Backbone.View.extend( {
       tpl: _.template( $('#canvas-view-tpl').html() ),
       initialize: function() {
@@ -128,54 +129,53 @@ $(document).ready( function() {
       loadRes();
     };
     track.src = 'img/track/track.png';
-    
+
     trackMask.onload = function() {
       loadRes();
     };
     trackMask.src = 'img/track/track-mask.png';
+
+    var totalRes = 2;
+
+    function loadRes() {
+      --totalRes;
+
+      if (totalRes == 0)
+        go();
+    }
+
+    var prevT = Date.now();
+    var car = new Car( 390, 535, 83, carView.curModel() );
+
+    function go() {
+      var curT = Date.now();
+      var dt = curT - prevT;
+
+      if (dt > 0) {
+        if (dt > 100) {
+          prevT += dt - 100;
+          dt = 100;
+        }
+
+        car.update( dt / 100.0, keys );
+
+        context.drawImage( trackMask, 0, 0 );
+        context.drawImage( track, 0, 0 );
+
+        car.draw( context );
+
+        prevT = curT;
+      }
+
+      requestAnimationFrame( go );
+    }
   } );
-
-  var totalRes = 2;
-  var keys = new Array();
-
-  function loadRes() {
-    --totalRes;
-
-    if (totalRes == 0)
-      go();
-  }
-
-  var prevT = Date.now();
-  var car = new Car( 390, 535, 83, carCollection.curModel() );
-
-  function go() {
-    var curT = Date.now();
-	  var dt = curT - prevT;
-
-    if (dt > 0) {
-		  if (dt > 100) {
-			  prevT += dt - 100;
-			  dt = 100;
-		  }
-
-      car.update( dt, keys );
-
-      context.drawImage( trackMask, 0, 0 );
-      context.drawImage( track, 0, 0 );
-
-      car.draw( context );
-
-		  prevT = curT;
-	  }
-    
-    requestAnimationFrame( go );    
-  }
 
   document.addEventListener( 'keydown', function(e) {
     keys[ e.keyCode ] = 1;
   }, true );
 
-	document.addEventListener( 'keyup', function(e) {
+    document.addEventListener( 'keyup', function(e) {
     keys[ e.keyCode ] = 0;
   }, true );
 

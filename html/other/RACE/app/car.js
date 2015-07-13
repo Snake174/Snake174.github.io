@@ -16,21 +16,11 @@ var CarView = Backbone.View.extend( {
   tpl: _.template( $('#car-view-tpl').html() ),
   initialize: function( options ) {
     this.options = options || {};
-    this.model = this.collection.curModel();
-    this.model.bind( 'change', _.bind( this.render, this ) );
-    this.render();
-  },
-  render: function() {
-    this.$el.html( this.tpl( this.model.attributes ) );
-    return this;
-  }
-} );
-
-var CarCollection = Backbone.Collection.extend( {
-  model: CarModel,
-  initialize: function() {
     this._meta = {};
     this.meta( 'currentCar', 0 );
+    this.model = this.collection.at(0);
+    this.model.bind( 'change', _.bind( this.render, this ) );
+    this.render();
   },
   meta: function( prop, value ) {
     if (value === undefined)
@@ -40,31 +30,39 @@ var CarCollection = Backbone.Collection.extend( {
       this.trigger( 'change:' + prop, value );
     }
   },
+  render: function() {
+    this.$el.html( this.tpl( this.model.attributes ) );
+    return this;
+  },
   next: function() {
     var cc = this.meta('currentCar');
     ++cc;
 
-    if (cc > this.length - 1)
+    if (cc > this.collection.length - 1)
       cc = 0;
 
     this.meta( 'currentCar', cc );
 
-    return this.at( cc );
+    this.model.set( this.collection.at( cc ).toJSON() );
   },
   prev: function() {
     var cc = this.meta('currentCar');
     --cc;
 
     if (cc < 0)
-      cc = this.length - 1;
+      cc = this.collection.length - 1;
 
     this.meta( 'currentCar', cc );
 
-    return this.at( cc );
+    this.model.set( this.collection.at( cc ).toJSON() );
   },
   curModel: function() {
-    return this.at( this.meta('currentCar') );
+    return this.model;
   }
+} );
+
+var CarCollection = Backbone.Collection.extend( {
+  model: CarModel
 } );
 
 var Car = function( x, y, angle, model ) {
@@ -90,7 +88,7 @@ Car.prototype.draw = function( ctx ) {
 
 Car.prototype.update = function( dt, keys ) {
   if (keys[37] == 1) {
-    this.angle -= 0.05 * dt;
+    this.angle -= this.handling * dt;
     this.dir.set(
       Math.sin( this.angle * Math.PI / 180 ),
       -Math.cos( this.angle * Math.PI / 180 )
@@ -98,7 +96,7 @@ Car.prototype.update = function( dt, keys ) {
   }
 
   if (keys[39] == 1) {
-    this.angle += 0.05 * dt;
+    this.angle += this.handling * dt;
     this.dir.set(
       Math.sin( this.angle * Math.PI / 180 ),
       -Math.cos( this.angle * Math.PI / 180 )
@@ -108,9 +106,18 @@ Car.prototype.update = function( dt, keys ) {
   if (keys[38] == 1) {
     var len = Math.sqrt( this.dir.x * this.dir.x + this.dir.y * this.dir.y );
     var s = 1.0 / len;
-		this.dir.x *= s;
-		this.dir.y *= s;
-    this.pos.x += this.dir.x * dt * 0.05;
-    this.pos.y += this.dir.y * dt * 0.05;
+    this.dir.x *= s;
+    this.dir.y *= s;
+    this.pos.x += this.dir.x * dt * this.speed;
+    this.pos.y += this.dir.y * dt * this.speed;
+  }
+
+  if (keys[40] == 1) {
+    var len = Math.sqrt( this.dir.x * this.dir.x + this.dir.y * this.dir.y );
+    var s = 1.0 / len;
+    this.dir.x *= s;
+    this.dir.y *= s;
+    this.pos.x -= this.dir.x * dt * this.speed * 0.5;
+    this.pos.y -= this.dir.y * dt * this.speed * 0.5;
   }
 }
