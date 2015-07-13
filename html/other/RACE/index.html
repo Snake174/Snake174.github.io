@@ -33,7 +33,7 @@
                 <td width="30%">Скорость</td>
                 <td>
                   <div class="progress" style="margin: auto;">
-                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<%= Math.floor( (speed * 100) / 20 ) %>" aria-valuemin="10" aria-valuemax="20" style="width: <%= Math.floor( (speed * 100) / 20 ) %>%">
+                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<%= Math.floor( (speed * 100) / 4 ) %>" aria-valuemin="2" aria-valuemax="4" style="width: <%= Math.floor( (speed * 100) / 4 ) %>%">
                     </div>
                   </div>
                 </td>
@@ -68,6 +68,7 @@
     <script src="../libs/underscore-min.js"></script>
     <script src="../libs/backbone-min.js"></script>
     <script src="app/Vec2.js"></script>
+    <script src="app/block.js"></script>
     <script src="app/car.js"></script>
     <script src="app/app.js"></script>
   </body>

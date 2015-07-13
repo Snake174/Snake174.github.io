@@ -72,6 +72,8 @@ var Car = function( x, y, angle, model ) {
     Math.sin( this.angle * Math.PI / 180 ),
     -Math.cos( this.angle * Math.PI / 180 )
   );
+  this.maxAcc = 4.0;
+  this.curAcc = 0.0;
   this.img = new Image();
   this.img.src = model.get('image');
   this.speed = model.get('speed');
@@ -87,8 +89,15 @@ Car.prototype.draw = function( ctx ) {
 }
 
 Car.prototype.update = function( dt, keys ) {
+  this.pos.x += this.dir.x * dt * this.speed * this.curAcc;
+  this.pos.y += this.dir.y * dt * this.speed * this.curAcc;
+
   if (keys[37] == 1) {
-    this.angle -= this.handling * dt;
+    if (this.curAcc >= 0)
+      this.angle -= this.handling * dt;
+    else
+      this.angle += this.handling * dt;
+
     this.dir.set(
       Math.sin( this.angle * Math.PI / 180 ),
       -Math.cos( this.angle * Math.PI / 180 )
@@ -96,7 +105,11 @@ Car.prototype.update = function( dt, keys ) {
   }
 
   if (keys[39] == 1) {
-    this.angle += this.handling * dt;
+    if (this.curAcc >= 0)
+      this.angle += this.handling * dt;
+    else
+      this.angle -= this.handling * dt;
+
     this.dir.set(
       Math.sin( this.angle * Math.PI / 180 ),
       -Math.cos( this.angle * Math.PI / 180 )
@@ -108,8 +121,10 @@ Car.prototype.update = function( dt, keys ) {
     var s = 1.0 / len;
     this.dir.x *= s;
     this.dir.y *= s;
-    this.pos.x += this.dir.x * dt * this.speed;
-    this.pos.y += this.dir.y * dt * this.speed;
+    this.curAcc += 0.3 * dt;
+
+    if (this.curAcc > this.maxAcc)
+      this.curAcc = this.maxAcc;
   }
 
   if (keys[40] == 1) {
@@ -117,7 +132,13 @@ Car.prototype.update = function( dt, keys ) {
     var s = 1.0 / len;
     this.dir.x *= s;
     this.dir.y *= s;
-    this.pos.x -= this.dir.x * dt * this.speed * 0.5;
-    this.pos.y -= this.dir.y * dt * this.speed * 0.5;
+    this.curAcc -= 0.3 * dt;
+
+    if (this.curAcc < -this.maxAcc * 0.5)
+      this.curAcc = -this.maxAcc * 0.5;
   }
+}
+
+Car.prototype.pos = function() {
+  return this.pos;
 }

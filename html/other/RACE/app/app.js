@@ -3,7 +3,12 @@ $(document).ready( function() {
   var gameArea = $('#gameArea');
   var gameCanvas = undefined;
   var context = undefined;
+  var newWidth = window.innerWidth;
   var widthToHeight = 4 / 3;
+  var mouse = {
+    ex: 0,
+    ey: 0
+  }
 
   function initCanvas() {
     gameCanvas = $('#gameCanvas');
@@ -32,10 +37,41 @@ $(document).ready( function() {
       if (e && e.stopPropagation) e.stopPropagation();
       return false;
     }
+
+    gameCanvas.on( 'click', function(e) {
+      e.preventDefault();
+
+      var x = new Number();
+      var y = new Number();
+
+      if (e.x != undefined && e.y != undefined)
+      {
+        x = event.x;
+        y = event.y;
+      }
+      else
+      {
+        x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+      }
+
+      x -= $(this).offset().left;
+      y -= $(this).offset().top;
+
+      mouse = {
+        ex: Math.floor( x * (800 / newWidth) ),
+        ey: Math.floor( y * (800 / newWidth) )
+      }
+
+      //gameCanvas.trigger( 'handleClick', [mouse] );
+      console.log( mouse.ex + ' ' + mouse.ey );
+
+      return false;
+    } );
   }
 
   function resizeGame() {
-    var newWidth = window.innerWidth;
+    newWidth = window.innerWidth;
     var newHeight = window.innerHeight;
     var newWidthToHeight = newWidth / newHeight;
 
@@ -72,7 +108,7 @@ $(document).ready( function() {
   for (var i = 0; i < 5; ++i) {
     var carModel = new CarModel( {
       name: 'car-' + (i + 1),
-      speed: Math.floor( Math.random() * (20 - 10 + 1) ) + 10,
+      speed: Math.floor( Math.random() * (4 - 2 + 1) ) + 2,
       handling: Math.floor( Math.random() * (20 - 10 + 1) ) + 10,
     } );
 
@@ -146,6 +182,17 @@ $(document).ready( function() {
 
     var prevT = Date.now();
     var car = new Car( 390, 535, 83, carView.curModel() );
+    var blocks = new Array();
+    var blockPos = new Array(
+      [ 470, 480 ],
+      [ 655, 280 ],
+      [ 460, 100 ],
+      [ 125, 290 ],
+      [ 300, 540 ]
+    );
+
+    for (var i = 0; i < blockPos.length; ++i)
+      blocks.push( new Block( blockPos[i][0], blockPos[i][1] ) );
 
     function go() {
       var curT = Date.now();
@@ -163,6 +210,27 @@ $(document).ready( function() {
         context.drawImage( track, 0, 0 );
 
         car.draw( context );
+
+        for (var i = 0; i < blocks.length; ++i) {
+          blocks[i].draw( context );
+
+          var dx = blocks[i].pos.x - car.pos.x;
+          var dy = blocks[i].pos.y - car.pos.y;
+          var len = Math.sqrt( dx * dx + dy * dy );
+
+          if (len <= 24) {
+            if (car.curAcc > 0) {
+              car.pos.x -= car.dir.x + 2;
+              car.pos.y -= car.dir.y + 2;
+            }
+            else {
+              car.pos.x += car.dir.x + 2;
+              car.pos.y += car.dir.y + 2;
+            }
+
+            car.curAcc = 0;
+          }
+        }
 
         prevT = curT;
       }
