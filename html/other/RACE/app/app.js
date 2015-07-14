@@ -4,6 +4,7 @@ $(document).ready( function() {
   var gameCanvas = undefined;
   var trackMaskCanvas = undefined;
   var context = undefined;
+  var contextMask = undefined;
   var newWidth = window.innerWidth;
   var widthToHeight = 4 / 3;
   var mouse = {
@@ -16,12 +17,11 @@ $(document).ready( function() {
     context = gameCanvas[0].getContext('2d');
 
     trackMaskCanvas = $('#trackMask');
+    contextMask = trackMaskCanvas[0].getContext('2d');
 
     var trackMask = new Image();
     trackMask.onload = function() {
-      var ctx = trackMaskCanvas[0].getContext('2d');
-      ctx.drawImage( trackMask, 0, 0 );
-      console.log( ctx.getImageData( 10, 10, 1, 1 ) );
+      contextMask.drawImage( trackMask, 0, 0 );
     }
     trackMask.src = 'img/track/track-mask.png';
 
@@ -177,12 +177,7 @@ $(document).ready( function() {
     };
     track.src = 'img/track/track.png';
 
-    trackMask.onload = function() {
-      loadRes();
-    };
-    trackMask.src = 'img/track/track-mask.png';
-
-    var totalRes = 2;
+    var totalRes = 1;
 
     function loadRes() {
       --totalRes;
@@ -217,7 +212,13 @@ $(document).ready( function() {
 
         car.update( dt / 100.0, keys );
 
-        context.drawImage( trackMask, 0, 0 );
+        var maskData = contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data;
+
+        if (maskData == [ 0, 127, 14, 255 ])
+          car.speed = car.lowSpeed;
+        else
+          car.speed = car.maxSpeed;
+
         context.drawImage( track, 0, 0 );
 
         car.draw( context );

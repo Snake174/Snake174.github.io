@@ -78,6 +78,8 @@ var Car = function( x, y, angle, model ) {
   this.img.src = model.get('image');
   this.speed = model.get('speed');
   this.handling = model.get('handling');
+  this.maxSpeed = this.speed;
+  this.lowSpeed = Math.floor( this.speed / 2 );
 }
 
 Car.prototype.draw = function( ctx ) {
