@@ -28,7 +28,7 @@ TrackTriggers.prototype.update = function( car ) {
 
     if (len <= 45) {
       if (i == 0 && this.currentLap == 0)
-        break;
+        return;
 
       if (!t.isTriggered) {
         t.isTriggered = true;
@@ -49,6 +49,9 @@ TrackTriggers.prototype.update = function( car ) {
 }
 
 TrackTriggers.prototype.isLapComplete = function() {
+  console.log( this.triggers[0].isTriggered );
+  console.log( this.triggers[1].isTriggered );
+  console.log( this.triggers[2].isTriggered );
   return
     this.triggers[0].isTriggered == true
     && this.triggers[1].isTriggered == true
