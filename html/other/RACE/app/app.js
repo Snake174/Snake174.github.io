@@ -261,6 +261,10 @@ $(document).ready( function() {
 
         if (trackTriggers.done) {
           car.speed = 0;
+
+          context.fillStyle = 'white';
+          context.fillText( 'Программирование: Серебрянников Евгений  (serebryannikovev@gmail.com)', 50, 100 );
+          context.fillText( 'Графика: M@4ET@ (shsdfhwerdshesd@gmail.com)', 50, 150 );
         }
 
         prevT = curT;
