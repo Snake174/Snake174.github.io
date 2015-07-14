@@ -27,7 +27,7 @@ TrackTriggers.prototype.update = function( car ) {
     var len = Math.sqrt( dx * dx + dy * dy );
 
     if (len <= 45) {
-      if (i == 0 && this.currentLap == 0)
+      if (i == 0 && this.currentLap == 0 && this.triggers[1] == false && this.triggers[2] == false)
         return;
 
       if (!t.isTriggered) {
