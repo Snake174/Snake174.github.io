@@ -32,8 +32,6 @@ TrackTriggers.prototype.update = function( car ) {
 
       if (!t.isTriggered) {
         t.isTriggered = true;
-        console.log( this.currentLap );
-        console.log( this.isLapComplete() );
 
         if (this.isLapComplete()) {
           ++this.currentLap;
