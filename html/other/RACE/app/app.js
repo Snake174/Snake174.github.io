@@ -236,7 +236,7 @@ $(document).ready( function() {
           var dy = blocks[i].pos.y - car.pos.y;
           var len = Math.sqrt( dx * dx + dy * dy );
 
-          if (len <= 24) {
+          if (len <= 20) {
             if (car.curAcc > 0) {
               car.pos.x -= car.dir.x + 2;
               car.pos.y -= car.dir.y + 2;
@@ -249,6 +249,8 @@ $(document).ready( function() {
             car.curAcc = 0;
           }
         }
+
+        trackTriggers.update( car );
 
         prevT = curT;
       }
