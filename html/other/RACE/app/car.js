@@ -76,17 +76,28 @@ var Car = function( x, y, angle, model ) {
   this.curAcc = 0.0;
   this.img = new Image();
   this.img.src = model.get('image');
+  this.imgExplosion = new Image();
+  this.imgExplosion.src = 'img/car/explosion.gif';
   this.speed = model.get('speed');
   this.handling = model.get('handling');
   this.maxSpeed = this.speed;
   this.lowSpeed = Math.floor( this.speed / 2 );
+  this.health = 3;
+  this.explode = false;
 }
 
 Car.prototype.draw = function( ctx ) {
   ctx.save();
   ctx.translate( this.pos.x, this.pos.y );
-  ctx.rotate( this.angle * Math.PI / 180 );
-  ctx.drawImage( this.img, -16, -16 );
+
+  if (this.explode) {
+    this.speed = 0;
+    ctx.drawImage( this.imgExplosion, -16, -16, 32, 32 );
+  } else {
+    ctx.rotate( this.angle * Math.PI / 180 );
+    ctx.drawImage( this.img, -16, -16 );
+  }
+
   ctx.restore();
 }
 

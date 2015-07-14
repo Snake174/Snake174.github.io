@@ -247,6 +247,10 @@ $(document).ready( function() {
             }
 
             car.curAcc = 0;
+            --car.health;
+
+            if (car.health == 0)
+              car.explode = true;
           }
         }
 

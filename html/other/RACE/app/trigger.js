@@ -48,10 +48,6 @@ TrackTriggers.prototype.update = function( car ) {
 
       if (this.curTrigger > 2)
         this.curTrigger = 0;
-
-      console.log( 'Lap: ' + this.currentLap );
-      console.log( 'Trigger: ' + this.trigger );
-      console.log( 'CurTrigger: ' + this.curTrigger );
     }
   }
 }
