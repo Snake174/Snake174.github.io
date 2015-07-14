@@ -257,7 +257,7 @@ $(document).ready( function() {
 
         trackTriggers.update( car );
 
-        context.strokeText( 'Круг: ' + (trackTriggers.currentLap + 1) + ' / 3', 20, 20 );
+        context.strokeText( 'Круг: ' + (trackTriggers.currentLap + 1) + ' / 3', 20, 30 );
 
         if (trackTriggers.done) {
           car.speed = 0;
