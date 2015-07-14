@@ -28,10 +28,10 @@ TrackTriggers.prototype.update = function( car ) {
 
     if (len <= 45) {
       if (!t.isTriggered) {
-        console.log( this.currentLap );
-        console.log( this.isLapComplete() );
-        if (this.currentLap == 0 && i == 0 && this.triggers[2].isTriggered == false)
+        if (this.currentLap == 0 && i == 0 && this.triggers[2].isTriggered == false && this.triggers[2].isTriggered == false)
           return;
+
+        console.log( this.currentLap );
 
         t.isTriggered = true;
 
