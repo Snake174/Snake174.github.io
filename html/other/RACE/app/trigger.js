@@ -27,6 +27,9 @@ TrackTriggers.prototype.update = function( car ) {
     var len = Math.sqrt( dx * dx + dy * dy );
 
     if (len <= 45) {
+      if (i == 0 && this.currentLap == 0)
+        return;
+
       if (!t.isTriggered) {
         t.isTriggered = true;
         console.log( this.currentLap );
@@ -46,7 +49,10 @@ TrackTriggers.prototype.update = function( car ) {
 }
 
 TrackTriggers.prototype.isLapComplete = function() {
-  return this.triggers[0].isTriggered && this.triggers[1].isTriggered && this.triggers[2].isTriggered;
+  return
+    (this.triggers[0].isTriggered == false
+    && this.triggers[1].isTriggered == false
+    && this.triggers[2].isTriggered == false);
 }
 
 TrackTriggers.prototype.clear = function() {
