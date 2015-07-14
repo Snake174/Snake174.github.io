@@ -33,7 +33,7 @@ TrackTriggers.prototype.update = function( car ) {
         if (this.isLapComplete()) {
           ++this.currentLap;
 
-          if (this.currentLap == 3)
+          if (this.currentLap == 4)
             this.done = true;
 
           this.clear();
