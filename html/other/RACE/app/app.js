@@ -2,6 +2,7 @@ $(document).ready( function() {
 
   var gameArea = $('#gameArea');
   var gameCanvas = undefined;
+  var trackMaskCanvas = undefined;
   var context = undefined;
   var newWidth = window.innerWidth;
   var widthToHeight = 4 / 3;
@@ -13,6 +14,16 @@ $(document).ready( function() {
   function initCanvas() {
     gameCanvas = $('#gameCanvas');
     context = gameCanvas[0].getContext('2d');
+
+    trackMaskCanvas = $('#trackMask');
+
+    var trackMask = new Image();
+    trackMask.onload = function() {
+      var ctx = trackMaskCanvas[0].getContext('2d');
+      ctx.drawImage( trackMask, 0, 0 );
+      console.log( ctx.getImageData( 10, 10, 1, 1 ) );
+    }
+    trackMask.src = 'img/track/track-mask.png';
 
     gameCanvas.ondragstart = function(e) {
       if (e && e.preventDefault) e.preventDefault();
