@@ -25,7 +25,7 @@ TrackTriggers.prototype.update = function( car ) {
     var dy = t.pos.y - car.pos.y;
     var len = Math.sqrt( dx * dx + dy * dy );
 
-    if (len <= 40) {
+    if (len <= 45) {
       console.log('hit');
     }
   }
