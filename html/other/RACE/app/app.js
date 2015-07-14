@@ -201,6 +201,7 @@ $(document).ready( function() {
       blocks.push( new Block( blockPos[i][0], blockPos[i][1] ) );
 
     var collisionCnt = 0;
+    context.font = "48px serif";
 
     function go() {
       ++collisionCnt;
@@ -255,6 +256,8 @@ $(document).ready( function() {
         }
 
         trackTriggers.update( car );
+
+        context.strokeText( 'Круг: ' + trackTriggers.currentLap + ' / 3', 10, 50 );
 
         if (trackTriggers.done) {
           car.speed = 0;
