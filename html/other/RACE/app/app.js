@@ -218,9 +218,8 @@ $(document).ready( function() {
 
         if (collisionCnt == 10) {
           collisionCnt = 0;
-          var maskData = contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data;
-console.log(maskData);
-          if (maskData[0] == 0 && maskData[1] == 127 && maskData[2] == 14 && maskData[3] == 255)
+
+          if (contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data[3] == 255)
             car.speed = car.lowSpeed;
           else
             car.speed = car.maxSpeed;
