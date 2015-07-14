@@ -252,11 +252,6 @@ $(document).ready( function() {
 
             if (car.health == 0) {
               car.explode = true;
-              context.fillStyle = 'white';
-              context.fillText( 'Программирование:', 50, 100 );
-              context.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com)', 70, 140 );
-              context.fillText( 'Графика:', 50, 200 );
-              context.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 240 );
             }
           }
         }

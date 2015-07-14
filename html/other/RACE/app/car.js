@@ -93,6 +93,12 @@ Car.prototype.draw = function( ctx ) {
   if (this.explode) {
     this.speed = 0;
     ctx.drawImage( this.imgExplosion, -16, -16, 32, 32 );
+    ctx.font = "24px serif";
+    ctx.fillStyle = 'white';
+    ctx.fillText( 'Программирование:', 50, 100 );
+    ctx.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com)', 70, 140 );
+    ctx.fillText( 'Графика:', 50, 200 );
+    ctx.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 240 );
   } else {
     ctx.rotate( this.angle * Math.PI / 180 );
     ctx.drawImage( this.img, -16, -16 );
