@@ -250,8 +250,14 @@ $(document).ready( function() {
             car.curAcc = 0;
             --car.health;
 
-            if (car.health == 0)
+            if (car.health == 0) {
               car.explode = true;
+              context.fillStyle = 'white';
+              context.fillText( 'Программирование:', 50, 100 );
+              context.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com)', 70, 140 );
+              context.fillText( 'Графика:', 50, 200 );
+              context.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 240 );
+            }
           }
         }
 
@@ -263,8 +269,10 @@ $(document).ready( function() {
           car.speed = 0;
 
           context.fillStyle = 'white';
-          context.fillText( 'Программирование: Серебрянников Евгений  (serebryannikovev@gmail.com)', 50, 100 );
-          context.fillText( 'Графика: M@4ET@ (shsdfhwerdshesd@gmail.com)', 50, 150 );
+          context.fillText( 'Программирование:', 50, 100 );
+          context.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com)', 70, 140 );
+          context.fillText( 'Графика:', 50, 200 );
+          context.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 240 );
         }
 
         prevT = curT;
