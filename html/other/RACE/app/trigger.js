@@ -29,11 +29,13 @@ TrackTriggers.prototype.update = function( car ) {
     if (len <= 45) {
       if (!t.isTriggered) {
         t.isTriggered = true;
+        console.log( this.currentLap );
+        console.log( this.isLapComplete() );
 
         if (this.isLapComplete()) {
           ++this.currentLap;
 
-          if (this.currentLap == 4)
+          if (this.currentLap == 3)
             this.done = true;
 
           this.clear();
