@@ -12,6 +12,7 @@ var triggersPos = new Array(
 var TrackTriggers = function() {
   this.triggers = new Array();
   this.currentLap = 0;
+  this.done = false;
 }
 
 TrackTriggers.prototype.add = function( trigger ) {
@@ -19,20 +20,40 @@ TrackTriggers.prototype.add = function( trigger ) {
 }
 
 TrackTriggers.prototype.update = function( car ) {
-  for (var i = 0; i < this.triggers.length; ++i) {
+  for (var i = 0; i < 3; ++i) {
     var t = this.triggers[i];
     var dx = t.pos.x - car.pos.x;
     var dy = t.pos.y - car.pos.y;
     var len = Math.sqrt( dx * dx + dy * dy );
 
     if (len <= 45) {
-      console.log('hit');
+      if (!t.isTriggered) {
+        t.isTriggered = true;
+
+        if (this.isLapComplete()) {
+          ++this.currentLap;
+
+          if (this.currentLap == 3)
+            this.done = true;
+
+          this.clear();
+        }
+      }
     }
   }
 }
 
+TrackTriggers.prototype.isLapComplete = function() {
+  return this.triggers[0].isTriggered && this.triggers[1].isTriggered && this.triggers[2].isTriggered;
+}
+
+TrackTriggers.prototype.clear = function() {
+  for (var i = 0; i < 3; ++i)
+    this.triggers[i].isTriggered = false;
+}
+
 var trackTriggers = new TrackTriggers();
 
-for (var i = 0; i < triggersPos.length; ++i) {
+for (var i = 0; i < 3; ++i) {
   trackTriggers.add( new Trigger( triggersPos[i][0], triggersPos[i][1] ) );
 }

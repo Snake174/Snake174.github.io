@@ -252,6 +252,10 @@ $(document).ready( function() {
 
         trackTriggers.update( car );
 
+        if (trackTriggers.done) {
+          car.speed = 0;
+        }
+
         prevT = curT;
       }
 
