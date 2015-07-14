@@ -50,9 +50,9 @@ TrackTriggers.prototype.update = function( car ) {
 
 TrackTriggers.prototype.isLapComplete = function() {
   return
-    (this.triggers[0].isTriggered == false
-    && this.triggers[1].isTriggered == false
-    && this.triggers[2].isTriggered == false);
+    this.triggers[0].isTriggered == true
+    && this.triggers[1].isTriggered == true
+    && this.triggers[2].isTriggered == true;
 }
 
 TrackTriggers.prototype.clear = function() {
