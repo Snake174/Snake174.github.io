@@ -40,6 +40,11 @@ TrackTriggers.prototype.update = function( car ) {
       if (this.trigger % 3 == 0)
         ++this.currentLap;
 
+      ++this.curTrigger;
+
+      if (this.curTrigger > 2)
+        this.curTrigger = 0;
+
       console.log( this.currentLap );
       console.log( this.trigger );
     }
