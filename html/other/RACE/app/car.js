@@ -88,19 +88,21 @@ var Car = function( x, y, angle, model ) {
 
 Car.prototype.draw = function( ctx ) {
   ctx.save();
-  ctx.translate( this.pos.x, this.pos.y );
 
   if (this.explode) {
     this.speed = 0;
+    ctx.translate( this.pos.x, this.pos.y );
     ctx.drawImage( this.imgExplosion, -16, -16, 32, 32 );
     ctx.font = "24px serif";
     ctx.fillStyle = 'white';
+    ctx.translate( 0, 0 );
     ctx.fillText( 'Программирование:', 50, 100 );
     ctx.fillText( 'Серебрянников Евгений', 70, 140 );
     ctx.fillText( 'serebryannikovev@gmail.com 8-919-406-47-84', 70, 180 );
     ctx.fillText( 'Графика:', 50, 260 );
     ctx.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 300 );
   } else {
+    ctx.translate( this.pos.x, this.pos.y );
     ctx.rotate( this.angle * Math.PI / 180 );
     ctx.drawImage( this.img, -16, -16 );
   }

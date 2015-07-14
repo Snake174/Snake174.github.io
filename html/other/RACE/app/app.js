@@ -265,9 +265,10 @@ $(document).ready( function() {
 
           context.fillStyle = 'white';
           context.fillText( 'Программирование:', 50, 100 );
-          context.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com)', 70, 140 );
-          context.fillText( 'Графика:', 50, 200 );
-          context.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 240 );
+          context.fillText( 'Серебрянников Евгений', 70, 140 );
+          context.fillText( 'serebryannikovev@gmail.com 8-919-406-47-84', 70, 180 );
+          context.fillText( 'Графика:', 50, 260 );
+          context.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 300 );
         }
 
         prevT = curT;
