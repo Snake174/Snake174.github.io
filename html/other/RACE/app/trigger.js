@@ -28,7 +28,7 @@ TrackTriggers.prototype.update = function( car ) {
 
     if (len <= 45) {
       if (i == 0 && this.currentLap == 0)
-        return;
+        break;
 
       if (!t.isTriggered) {
         t.isTriggered = true;
