@@ -96,7 +96,7 @@ Car.prototype.draw = function( ctx ) {
     ctx.font = "24px serif";
     ctx.fillStyle = 'white';
     ctx.fillText( 'Программирование:', 50, 100 );
-    ctx.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com)', 70, 140 );
+    ctx.fillText( 'Серебрянников Евгений  (serebryannikovev@gmail.com 8-919-406-47-84)', 70, 140 );
     ctx.fillText( 'Графика:', 50, 200 );
     ctx.fillText( 'M@4ET@ (shsdfhwerdshesd@gmail.com)', 70, 240 );
   } else {
