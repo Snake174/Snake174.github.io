@@ -28,13 +28,17 @@ TrackTriggers.prototype.update = function( car ) {
 
     if (len <= 45) {
       if (!t.isTriggered) {
+        console.log( this.currentLap );
         console.log( this.isLapComplete() );
         if (this.currentLap == 0 && i == 0 && this.triggers[2].isTriggered == false)
           return;
 
         t.isTriggered = true;
 
-        if (this.isLapComplete()) {
+        if (this.triggers[0].isTriggered == true
+          && this.triggers[1].isTriggered == true
+          && this.triggers[2].isTriggered == true) {
+
           ++this.currentLap;
 
           if (this.currentLap == 3)
@@ -47,7 +51,7 @@ TrackTriggers.prototype.update = function( car ) {
   }
 }
 
-TrackTriggers.prototype.isLapComplete = function() {
+TrackTriggers.isLapComplete = function() {
   return
     this.triggers[0].isTriggered == true
     && this.triggers[1].isTriggered == true
