@@ -200,7 +200,11 @@ $(document).ready( function() {
     for (var i = 0; i < blockPos.length; ++i)
       blocks.push( new Block( blockPos[i][0], blockPos[i][1] ) );
 
+    var collisionCnt == 0;
+
     function go() {
+      ++collisionCnt;
+
       var curT = Date.now();
       var dt = curT - prevT;
 
@@ -212,12 +216,15 @@ $(document).ready( function() {
 
         car.update( dt / 100.0, keys );
 
-        var maskData = contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data;
+        if (collisionCnt == 10) {
+          collisionCnt = 0;
+          var maskData = contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data;
 
-        if (maskData[0] == 0 && maskData[1] == 127 && maskData[2] == 14 && maskData[3] == 255)
-          car.speed = car.lowSpeed;
-        else
-          car.speed = car.maxSpeed;
+          if (maskData[0] == 0 && maskData[1] == 127 && maskData[2] == 14 && maskData[3] == 255)
+            car.speed = car.lowSpeed;
+          else
+            car.speed = car.maxSpeed;
+        }
 
         context.drawImage( track, 0, 0 );
 
