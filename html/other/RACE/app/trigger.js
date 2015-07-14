@@ -51,7 +51,7 @@ TrackTriggers.prototype.update = function( car ) {
   }
 }
 
-TrackTriggers.isLapComplete = function() {
+TrackTriggers.prototype.isLapComplete = function() {
   return
     this.triggers[0].isTriggered == true
     && this.triggers[1].isTriggered == true
