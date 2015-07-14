@@ -200,7 +200,7 @@ $(document).ready( function() {
     for (var i = 0; i < blockPos.length; ++i)
       blocks.push( new Block( blockPos[i][0], blockPos[i][1] ) );
 
-    var collisionCnt == 0;
+    var collisionCnt = 0;
 
     function go() {
       ++collisionCnt;
