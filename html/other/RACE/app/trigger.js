@@ -47,6 +47,7 @@ TrackTriggers.prototype.update = function( car ) {
 
       console.log( 'Lap: ' + this.currentLap );
       console.log( 'Trigger: ' + this.trigger );
+      console.log( 'CurTrigger: ' + this.curTrigger );
     }
   }
 }
