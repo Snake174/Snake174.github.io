@@ -214,7 +214,7 @@ $(document).ready( function() {
 
         var maskData = contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data;
 
-        if (maskData == [ 0, 127, 14, 255 ])
+        if (maskData[0] == 0 && maskData[1] == 127 && maskData[2] == 14 && maskData[3] == 255 ])
           car.speed = car.lowSpeed;
         else
           car.speed = car.maxSpeed;
