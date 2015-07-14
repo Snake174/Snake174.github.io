@@ -95,7 +95,7 @@ Car.prototype.draw = function( ctx ) {
     ctx.drawImage( this.imgExplosion, -16, -16, 32, 32 );
     ctx.font = "24px serif";
     ctx.fillStyle = 'white';
-    ctx.translate( 0, 0 );
+    ctx.translate( -this.pos.x, -this.pos.y );
     ctx.fillText( 'Программирование:', 50, 100 );
     ctx.fillText( 'Серебрянников Евгений', 70, 140 );
     ctx.fillText( 'serebryannikovev@gmail.com 8-919-406-47-84', 70, 180 );
