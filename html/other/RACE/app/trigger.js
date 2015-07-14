@@ -34,7 +34,7 @@ TrackTriggers.prototype.update = function( car ) {
 
       ++this.trigger;
 
-      if (this.triggers == this.needTriggers)
+      if (this.trigger == this.needTriggers)
         this.done = true;
 
       if (this.trigger % 3 == 0)
@@ -45,8 +45,8 @@ TrackTriggers.prototype.update = function( car ) {
       if (this.curTrigger > 2)
         this.curTrigger = 0;
 
-      console.log( this.currentLap );
-      console.log( this.trigger );
+      console.log( 'Lap: ' + this.currentLap );
+      console.log( 'Trigger: ' + this.trigger );
     }
   }
 }
