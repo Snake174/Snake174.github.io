@@ -44,7 +44,8 @@ TrackTriggers.prototype.update = function( car ) {
           if (this.currentLap == 3)
             this.done = true;
 
-          this.clear();
+          for (var i = 0; i < 3; ++i)
+            this.triggers[i].isTriggered = false;
         }
       }
     }
