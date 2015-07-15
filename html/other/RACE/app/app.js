@@ -258,7 +258,7 @@ $(document).ready( function() {
 
         trackTriggers.update( car );
 
-        context.fillStyle = 'yellow';
+        context.strokeStyle = 'yellow';
         context.strokeText( 'Круг: ' + (trackTriggers.currentLap + 1) + ' / 3', 20, 30 );
 
         if (trackTriggers.done) {
