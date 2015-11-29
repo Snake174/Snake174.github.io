@@ -1,12 +1,12 @@
 $(document).ready( function() {
 
-  var gameArea = $('#gameArea');
+  const gameArea = $('#gameArea');
   var gameCanvas = undefined;
   var trackMaskCanvas = undefined;
   var context = undefined;
   var contextMask = undefined;
   var newWidth = window.innerWidth;
-  var widthToHeight = 4 / 3;
+  const widthToHeight = 4 / 3;
   var mouse = {
     ex: 0,
     ey: 0
@@ -217,14 +217,14 @@ $(document).ready( function() {
 
         car.update( dt / 100.0, keys );
 
-        if (collisionCnt == 10) {
+        /*if (collisionCnt == 10) {
           collisionCnt = 0;
 
           if (contextMask.getImageData( car.pos.x, car.pos.y, 1, 1 ).data[3] == 255)
             car.speed = car.lowSpeed;
           else
             car.speed = car.maxSpeed;
-        }
+        }*/
 
         context.drawImage( track, 0, 0 );
 
