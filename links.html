@@ -207,6 +207,7 @@
     <div id="tak" style="display: none;">
       <script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
     </div>
+    <iframe name="tak-frame"></iframe>
 
   </div>
   <div id="push"></div>
@@ -254,7 +255,7 @@
     $.fn.getAttributes = function() {
       var attributes = {};
 
-      if ( this.length )
+      if (this.length)
       {
         $.each( this[0].attributes, function( index, attr ) {
           attributes[ attr.name ] = attr.value;
@@ -266,6 +267,7 @@
 
     $(document).ready( function() {
       $('#tak').find('a').each( function() {
+        $(this).attr( 'target', 'tak-frame' );
         console.log( $(this).attr('href') );
         console.log( $(this).getAttributes() );
         console.log('*******************************');
