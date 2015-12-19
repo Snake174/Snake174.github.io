@@ -204,10 +204,9 @@
       </script>
     </div>
 
-    <div id="tak" style="display: block;">
+    <div id="tak" style="display: none;">
       <script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
     </div>
-    <iframe name="tak-frame"></iframe>
 
   </div>
   <div id="push"></div>
@@ -267,7 +266,6 @@
 
     $(document).ready( function() {
       $('#tak').find('a').each( function() {
-        $(this).attr( 'target', 'tak-frame' );
         console.log( $(this).attr('href') );
         console.log( $(this).getAttributes() );
         console.log('*******************************');
