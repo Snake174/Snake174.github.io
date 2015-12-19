@@ -251,9 +251,24 @@
 
 <script>
   ;(function($) {
+    $.fn.getAttributes = function() {
+      var attributes = {};
+
+      if ( this.length )
+      {
+        $.each( this[0].attributes, function( index, attr ) {
+          attributes[ attr.name ] = attr.value;
+        } );
+      }
+
+      return attributes;
+    };
+
     $(document).ready( function() {
       $('#tak').find('a').each( function() {
         console.log( $(this).attr('href') );
+        console.log( $(this).getAttributes() );
+        console.log('*******************************');
       } );
     } );
   } )(jQuery);
