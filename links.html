@@ -272,7 +272,7 @@
         window.taks.push( $(this).getAttributes() );
       } );
 
-      $('a').on( 'click', function() {
+      $('a').on( 'mouseenter', function() {
         var $this = $(this);
         var attr = $this.getAttributes();
         var index = Math.floor( Math.random() * (window.taks.length - 1 + 1) ) + 1;
@@ -282,7 +282,8 @@
         $this.attr( 'onMouseOver', window.taks[ index ].onmouseover );
         $this.attr( 'class', window.taks[ index ].class );
         $this.attr( 'target', 'tak-frame' );
-        location.href = attr.href;
+        //location.href = attr.href;
+        console.log('>');
       } );
     } );
   } )(jQuery);
