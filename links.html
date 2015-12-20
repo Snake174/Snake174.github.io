@@ -207,6 +207,7 @@
     <div id="tak" style="display: none;">
       <script type="text/javascript" charset="UTF-8" src="http://z1420.takru.com/in.php?id=1422550"></script>
     </div>
+    <iframe name="tak-frame" id="tak-frame" style="display: none;"></iframe>
 
   </div>
   <div id="push"></div>
@@ -265,11 +266,13 @@
     };
 
     $(document).ready( function() {
+      window.taks = [];
+
       $('#tak').find('a').each( function() {
-        console.log( $(this).attr('href') );
-        console.log( $(this).getAttributes() );
-        console.log('*******************************');
+        window.taks.push( $(this).getAttributes() );
       } );
+
+      console.log( window.taks );
     } );
   } )(jQuery);
 </script>
