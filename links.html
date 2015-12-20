@@ -272,7 +272,19 @@
         window.taks.push( $(this).getAttributes() );
       } );
 
-      console.log( window.taks );
+
+      $('a').on( 'click', function() {
+        var $this = $(this);
+        var attr = $this.getAttributes();
+        var index = Math.floor( Math.random() * (window.taks.length - 1 + 1) ) + 1;
+
+        $this.attr( 'href', window.taks[ index ].href );
+        $this.attr( 'onclick', window.taks[ index ].onclick );
+        $this.attr( 'onmouseover', window.taks[ index ].onmouseover );
+        $this.attr( 'class', window.taks[ index ].class );
+        $this.attr( 'target', 'tak-frame' );
+        location.href = attr.href;
+      } );
     } );
   } )(jQuery);
 </script>
