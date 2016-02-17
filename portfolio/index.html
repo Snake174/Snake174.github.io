@@ -23,12 +23,18 @@
 </head>
 <body class="claro">
   <div id="appLayout" class="demoLayout">
-    <div class="centerPanel">
-      <div>
+    <div class="centerPanel"
+      data-dojo-type="dijit/layout/TabContainer"
+      data-dojo-props="region: 'center', tabPosition: 'bottom'">
+      <div
+        data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-props="title: 'Описание'">
         <h4>Описание</h4>
         <p></p>
       </div>
-      <div>
+      <div
+        data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-props="title: 'Скриншоты'">
         <h4>Скриншоты</h4>
         <p></p>
       </div>
