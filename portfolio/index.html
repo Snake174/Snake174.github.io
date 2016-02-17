@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app>
 <head>
   <title>Портфолио</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 </head>
 <body>
+  <div>
+      <label>Имя:</label>
+      <input type="text" data-ng-model="yourName" placeholder="Введите свое имя">
+      <hr>
+      <h1>Привет {{yourName}}!</h1>
+    </div>
 </body>
 </html>
