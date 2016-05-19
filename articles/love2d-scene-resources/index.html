@@ -1,0 +1,482 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+  <title>[Love2D] Шаблон игры: Менеджер сцен и менеджер ресурсов | Статьи, игры, программы</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="keywords" content="статьи,love2d,lua,менеджер сцен,менеджер ресурсов,шаблон игры,исходный код" />
+  <meta name="description" content="Разработка шаблона игры для движка Love2D. Менеджер сцен и менеджер ресурсов." />
+  <meta name="author" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
+  <link rel="shortcut icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="http://snake174.github.io/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/foundation/foundation.min.css" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/foundation/foundation-icons.css" />
+  <link rel="stylesheet" href="http://snake174.github.io/css/foundation/app.css" />
+  <script async src="http://snake174.github.io/js/pace.min.js"></script>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="row">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text"><a href="http://snake174.github.io">Статьи, игры, программы</a></li>
+          <li><a href="http://snake174.github.io/gcup-news/"><img src="http://snake174.github.io/gcup-news/gcup.ico" /></a></li>
+          <li><a href="http://snake174.github.io/programs.html">Программы</a></li>
+          <li><a href="http://snake174.github.io/games.html">Игры</a></li>
+          <li class="active"><a href="http://snake174.github.io/articles.html">Статьи</a></li>
+          <li><a href="http://snake174.github.io/links.html">Полезные ссылки</a></li>
+          <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row columns">
+    <nav aria-label="You are here:" role="navigation">
+      <ul itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a itemprop="item" href="http://snake174.github.io"><span itemprop="name">Главная</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a itemprop="item" href="http://snake174.github.io/articles.html"><span itemprop="name">Статьи</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <span itemprop="name">[Love2D] Шаблон игры: Менеджер сцен и менеджер ресурсов</span>
+          <meta itemprop="position" content="3" />
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="column row">
+    <p>В предыдущих статьях затрагивались такие темы как <a href="http://snake174.github.io/articles/love2d-shablon-igry-yadro-prilojeniya/" target="_blank">ядро приложения</a> и <a href="http://snake174.github.io/articles/love2d-shablon-igry-sistema-vvoda/" target="_blank">система ввода</a>. С тех пор ядро и система ввода изменились в лучшую сторону (по мнению автора :)). Также был осуществлён переход на <em>Love2D</em> версии <em>0.10.1</em>. В данной статье речь пойдёт о <em>менеджере сцен</em> и <em>менеджере ресурсов</em>. Было решено объединить всё это в одну статью в силу выбранной архитектуры приложения. Менеджер ресурсов как таковым не является, это скорей всего один из способов хранения и получения изображений, звуков и других необходимых компонентов для конкретной сцены. А является ли это наиболее удобным и правильным способом - решать уже вам. Можете делиться своими мыслями по этому поводу в комментариях.</p>
+    <p>Итак, что нужно для менеджера сцен? В первую очередь нам нужен сам объект <em>Сцена</em>, на которой будут располагаться все игровые объекты на своих слоях. Должна быть возможность добавления и удаления данных игровых сущностей, создание слоёв и ряд других дополнительных функций. Ниже приведён базовый класс сцены, от которой будут наследоваться все созданные пользователем сцены.</p>
+    <p>
+    <pre class="prettyprint linenums">
+    local pairs = pairs
+
+    local Scene = Class {
+      init = function( self )
+        self.lastID = 0
+        self.layers = {}
+        self.layersInfo = {}
+        self.layerOrder = {}
+        self.world = nil
+      end,
+
+      enter = function( self )
+      end,
+
+      leave = function( self )
+      end,
+
+      draw = function( self )
+        for i = 1, #self.layerOrder do
+          local layName = self.layerOrder[i]
+
+          if self.layersInfo[ layName ].draw then
+            for i = 1, #self.layers[ layName ].components do
+              if self.layers[ layName ].components[i] then
+                self.layers[ layName ].components[i]:draw()
+              end
+            end
+          end
+        end
+      end,
+
+      update = function( self, e )
+        if self.world then
+          self.world:update( e.dt )
+        end
+
+        for i = 1, #self.layerOrder do
+          local layName = self.layerOrder[i]
+
+          if self.layersInfo[ layName ].update then
+            for i = 1, #self.layers[ layName ].components do
+              if self.layers[ layName ].components[i] then
+                self.layers[ layName ].components[i]:update(e)
+              end
+            end
+          end
+        end
+      end,
+
+      addLayer = function( self, layName )
+        self.layers[ layName ] = {}
+        self.layers[ layName ].components = {}
+        self:setLayerInfo( layName, true, true )
+      end,
+
+      setLayerInfo = function( self, layName, isDraw, isUpdate )
+        if self.layers[ layName ] then
+          self.layersInfo[ layName ] = {
+            draw = isDraw,
+            update = isUpdate
+          }
+        end
+      end,
+
+      add = function( self, go, layName )
+        local layerName = layName or "main"
+
+        if not self.layers[ layerName ] then
+          self:addLayer( layerName )
+        end
+
+        self.lastID = self.lastID + 1
+        go.ID = self.lastID
+        go.scene = self
+        table.insert( self.layers[ layerName ].components, go )
+
+        if go.callbacks["onadd"] then
+          (go.callbacks["onadd"])()
+        end
+      end,
+
+      remove = function( self, go )
+        for layName, _ in pairs( self.layers ) do
+          for i = #self.layers[ layName ].components, 1, -1 do
+            if self.layers[ layName ].components[i] and go then
+              if self.layers[ layName ].components[i].ID == go.ID then
+                table.remove( self.layers[ layName ].components, i )
+
+                if go.phisics then
+                  if go.phisics.b then
+                    go.phisics.b:destroy()
+                    go.phisics.b = nil
+                  end
+
+                  if go.phisics.s then
+                    go.phisics.s = nil
+                  end
+
+                  if go.phisics.f then
+                    go.phisics.f = nil
+                  end
+                end
+
+                if go.callbacks["onremove"] then
+                  (go.callbacks["onremove"])()
+                end
+
+                go = nil
+
+                break
+              end
+            end
+          end
+        end
+      end
+    }
+
+    return Scene
+    </pre>
+    </p>
+    <p>Пояснения по коду:</p>
+    <p>
+    Конструктор класса. Здесь задаются все необходимые переменные.
+    <br/>
+    <pre class="prettyprint linenums">
+    init = function( self )
+      self.lastID = 0       -- последний добавленный ID компонента
+      self.layers = {}      -- слои
+      self.layersInfo = {}  -- информация о слоях
+      self.layerOrder = {}  -- содержит названия слоёв в том порядке, в котором они будут обрабатываться
+      self.world = nil      -- если используется модуль <em>physics</em>
+    end
+    </pre>
+    <br/>
+    Переменная <em>self.layersInfo</em> содержит информацию о том, что нужно ли отрисовывать и обновлять слой или нет.
+    </p>
+    <p>Функции <em>enter</em> и <em>leave</em> выполняются при "входе" на сцену и при "выходе" соответственно.</p>
+    <p>Функции <em>draw</em> и <em>update</em> служат для отрисовки и обновления всех игровых сущностей в том порядке, в котором он задан в переменной <em>self.layerOrder</em>.</p>
+    <p>Функция <em>addLayer</em> добавляет на сцену новый слой. Функция <em>setLayerInfo</em> устанавливает параметры для слоя (нужно ли отрисовывать и обновлять).</p>
+    <p>Для добавления игровых сущностей на сцену служит функция <em>add</em>. Если не указано название слоя, то объект будет добавлен на слой с именем "main". Для удаления объектов со сцены предназначена функция <em>remove</em>.</p>
+    <br/>
+    <p>Теперь можно приступить к самому менеджеру сцен. По сути оттуда используется только одна функция, которая меняет текущую сцену.</p>
+    <p>
+    <pre class="prettyprint linenums">
+    local setmetatable, require, ipairs, pairs = setmetatable, require, ipairs, pairs
+
+    local function getRequireFile( fileName, basePath, validFormats )
+      local filePath
+
+      for _, ext in ipairs( validFormats ) do
+        filePath = basePath .. fileName .. ext
+
+        if love.filesystem.isFile( filePath ) then
+          return string.gsub( basePath .. fileName, "/", "." )
+        end
+      end
+
+      return nil
+    end
+
+    local baseMetatable = {
+      __index = function( self, k )
+        self[k] = require( getRequireFile( k, "game/scenes/", { ".lua" } ) )
+        self[k].name = k
+
+        local jd = require( getRequireFile( k .. "_res", "game/scenes/", { ".lua" } ) )
+
+        local rc = {}
+        rc.image = {}
+        rc.sound = {}
+        rc.font = {}
+        rc.string = {}
+
+        for s, t in pairs( jd ) do
+          if s == "image" then
+            for k, v in pairs(t) do
+              rc.image[k] = love.graphics.newImage(v)
+            end
+          elseif s == "sound" then
+            for k, v in pairs(t) do
+              rc.sound[k] = love.audio.newSource( v.name, v.stype or "stream" )
+            end
+          elseif s == "font" then
+            for k, v in pairs(t) do
+              rc.font[k] = love.graphics.newFont( v.name, v.size or 12 )
+            end
+          elseif s == "string" then
+            for k, v in pairs(t) do
+              rc.string[k] = v
+            end
+          end
+        end
+
+        self[k].RES = rc
+
+        return self[k]
+      end,
+      __call = function( self, k )
+        return self[k]
+      end
+    }
+
+    local SceneManager = Class {
+      init = function( self )
+        self.scenes = setmetatable( {}, baseMetatable )
+        self.curScene = nil
+      end,
+
+      draw = function( self )
+        if self.curScene then
+          self.curScene:draw()
+        end
+      end,
+
+      update = function( self, e )
+        if self.curScene then
+          self.curScene:update(e)
+        end
+      end,
+
+      change = function( self, to )
+        if self.curScene and self.curScene.name == to.name then
+          return
+        end
+
+        if self.curScene then
+          self.curScene:leave()
+        end
+
+        if to.init then
+          to:init()
+          to.init = nil
+        end
+
+        to:enter()
+
+        self.curScene = to
+      end
+    }
+
+    return SceneManager
+    </pre>
+    </p>
+    <p>При инициализации данного менеджера в переменную <em>self.scenes</em> заносятся все сцены, расположенные в папке "game/scenes". Далее для сцены создаётся дополнительный объект <em>RES</em>, в котором и будут находиться все ресурсы.</p>
+    <p>
+    В общем, принцип создания новой сцены такой:
+    <ul>
+      <li>создаётся класс, унаследованный от базового класса <em>Scene</em></li>
+      <li>создаётся файл с описанием ресурсов для сцены. Имя файла должно состоять из названия сцены и суффикса <em>_res</em></li>
+    </ul>
+    </p>
+    <p>
+    Рассмотрим на примере создания сцены с именем "example":<br/><br/>
+    <strong>example.lua</strong>
+    <pre class="prettyprint linenums">
+    local example = Class {
+      __includes = Scene,
+
+      init = function( self )
+        Scene.init( self )
+
+        self:addLayer("back")
+        self.layerOrder = { "back" }
+
+        self:add( Sprite( self.RES.image.back ), "back" )
+      end,
+
+      enter = function( self )
+        self.RES.sound.snd:play()
+      end,
+
+      draw = function( self )
+        Scene.draw( self )
+
+        love.graphics.setFont( self.RES.font.f )
+        love.graphics.print( self.RES.string.msg, 20, 20 )
+      end,
+
+      update = function( self, e )
+        Scene.update( self, e )
+
+        if e.key["escape"] == KeyState.DOWN then
+          App:exit()
+        end
+      end
+    }
+
+    return example
+    </pre>
+    <strong>example_res.lua</strong>
+    <pre class="prettyprint linenums">
+    local t = {
+      image = {
+        back = "game/scenes/example/back.jpg"
+      },
+
+      sound = {
+        snd = {
+          name = "game/scenes/example/snd.ogg",
+          stype = "static"
+        }
+      },
+
+      font = {
+        f = {
+          name = "game/scenes/example/f.ttf",
+          size = 24
+        }
+      },
+
+      string = {
+        msg = "Нажмите ESC для выхода"
+      }
+    }
+
+    return t
+    </pre>
+    </p>
+    <p>
+    Должно получиться следующее:<br/>
+    <center><img class="thumbnail img-responsive" src="img/result.png" /></center>
+    </p>
+    <p>
+    <strong>Исходники обновлённого ядра:</strong>
+    <script src='//yandex.st/disk/api/0.1.1/widgets.min.js'></script>
+    <div class="dw dw-s dw-s_i_m"><img class="dw-f" src="//yandex.st/disk/api/0.1.1/icons/file_zip-96.png"/>
+      <div class="dw-a">
+        <div class="dw-h">
+          <a class="dw-l" target="_blank" title="Example.zip" href="https://docviewer.yandex.ru?url=ya-disk-public://7CqjBNblVqPOD3P2ndPJ2oqFgsdAO%2BixbKZvFVp99hc%3D&name=Example.zip">Example.zip</a>
+        </div>
+        <a class="dw-b dw-b_blue" title="Сохранить на Яндекс.Диск" data-disk-hash="7CqjBNblVqPOD3P2ndPJ2oqFgsdAO+ixbKZvFVp99hc=" data-disk-widget="saveToDisk" href="https://yadi.sk/d/sg0Pv-iZrppdk">
+          <span class="dw-b__t dw-b__t_b"><i class="dw-i"></i>Сохранить на Яндекс.Диск</span>
+        </a>
+      </div>
+    </div>
+    </p>
+    <p>По всем интересующим вопросам пишите в комментариях или в форме <a href="http://snake174.github.io/feedback.html">обратной связи</a>.</p>
+    <!-- SHARE BUTTONS -->
+    <div style="padding: 20px;">
+      <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+      <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+    </div>
+    <!-- /SHARE BUTTONS -->
+  </div>
+  <div class="column row">
+    <hr />
+    <ul class="tabs" data-tabs id="example-tabs">
+      <li class="tabs-title is-active">
+        <a href="#panel1" aria-selected="true">Комментарии</a>
+      </li>
+      <li class="tabs-title">
+        <a href="#panel2">Другие статьи</a>
+      </li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="example-tabs">
+      <div class="tabs-panel is-active" id="panel1">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'snake174';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>
+          Включите JavaScript для просмотра <a href="https://disqus.com/?ref_noscript" rel="nofollow">комментариев Disqus.</a>
+        </noscript>
+      </div>
+      <div class="tabs-panel" id="panel2">
+        <div class="row large-up-3">
+          <div class="column">
+            <img class="thumbnail" src="http://snake174.github.io/articles/love2d-shablon-igry-vstuplenie/img/GamesLogo.png" />
+            <h5>[Love2D] Шаблон игры: Вступление</h5>
+            <p>В этой серии статей будет обсуждаться создание своего шаблона для игры на игровом движке <strong>Love2D</strong>.</p>
+            <a href="http://snake174.github.io/articles/love2d-shablon-igry-vstuplenie/" class="button hollow tiny expanded">Перейти</a>
+          </div>
+          <div class="column">
+            <img class="thumbnail" src="http://snake174.github.io/articles/love2d-shablon-igry-yadro-prilojeniya/img/game-core.png" />
+            <h5>[Love2D] Шаблон игры: Ядро приложения</h5>
+            <p><strong>Ядро приложения</strong> играет очень важную роль, так как от того, как оно спроектировано будет зависеть насколько просто и удобно мы будем использовать его для создания своих игр. Необходимо чётко и понятно определить как различные подсистемы, входящие в приложение, будут взаимодействовать между собой. Необходимо ядро отделить от “игровых данных”, иначе получится путаница в коде и разрабатывать новый проект станет весьма проблематично.</p>
+            <a href="http://snake174.github.io/articles/love2d-shablon-igry-yadro-prilojeniya/" class="button hollow tiny expanded">Перейти</a>
+          </div>
+          <div class="column">
+            <img class="thumbnail" src="http://snake174.github.io/articles/love2d-shablon-igry-sistema-vvoda/img/input-system.jpg" />
+            <h5>[Love2D] Шаблон игры: Система ввода</h5>
+            <p>В <a href="http://snake174.github.io/articles/love2d-shablon-igry-yadro-prilojeniya/">предыдущей статье</a> мы создали простую заготовку для нашего будущего приложения на движке <strong>Love2D</strong>. Никаких полезных действий она ещё не умеет делать, просто запускает бесконечный цыкл и ждёт закрытия окна. В этой статье мы рассмотрим обработку <strong>ввода с клавиатуры и мыши</strong>. Было принято решение повременить с мобильными устройствами, так что приложение будет работать пока только на Desktop платформах.</p>
+            <a href="http://snake174.github.io/articles/love2d-shablon-igry-sistema-vvoda/" class="button hollow tiny expanded">Перейти</a>
+          </div>
+          <div class="column">
+            <img class="thumbnail" src="http://snake174.github.io/img/articles/tanks/result.png" />
+            <h5>Создание танка на движке Love2D</h5>
+            <p>Всем доброго времени суток. В данной статье (если это можно назвать статьёй, в основном код), как вы уже наверно догадались, пойдёт речь о создании танка на игровом движке <a href="http://love2d.org/" target="_blank"><b>LÖVE</b></a>.</p>
+            <a href="http://snake174.github.io/html/articles/tanks.html" class="button hollow tiny expanded">Перейти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row column">
+    <hr />
+    <ul class="menu">
+      <li>
+        <a href="https://metrika.yandex.ru/stat/?id=26840853&amp;from=informer" target=_blank rel=nofollow><img src=//bs.yandex.ru/informer/26840853/3_0_FFFFFFFF_EFEFEFFF_0_pageviews style=width:88px;height:31px;border:0 alt=Яндекс.Метрика title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:26840853,lang:'ru'});return false}catch(e){}"/></a>
+        <script type=text/javascript>(function(g,a,i){(a[i]=a[i]||[]).push(function(){try{a.yaCounter26840853=new Ya.Metrika({id:26840853,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true})}catch(c){}});var h=g.getElementsByTagName("script")[0],b=g.createElement("script"),e=function(){h.parentNode.insertBefore(b,h)};b.type="text/javascript";b.async=true;b.src=(g.location.protocol=="https:"?"https:":"http:")+"//mc.yandex.ru/metrika/watch.js";if(a.opera=="[object Opera]"){g.addEventListener("DOMContentLoaded",e,false)}else{e()}})(document,window,"yandex_metrika_callbacks");</script>
+        <noscript><div><img src=//mc.yandex.ru/watch/26840853 style=position:absolute;left:-9999px alt /></div></noscript>
+      </li>
+      <li><a href="http://snake174.github.io">Статьи, игры, программы</a></li>
+      <li><a href="http://snake174.github.io/feedback.html">Обратная связь</a></li>
+      <li class="float-right">&copy; Burlachenko Maxim &amp; Serebryannikov Evgeny 2014</li>
+    </ul>
+  </div>
+  <script src="http://snake174.github.io/js/foundation/vendor/jquery.js"></script>
+  <script src="http://snake174.github.io/js/foundation/vendor/what-input.js"></script>
+  <script src="http://snake174.github.io/js/foundation/vendor/foundation.js"></script>
+  <script src="http://snake174.github.io/js/foundation/app.js"></script>
+  <script src="http://snake174.github.io/plugins/google-code-prettify/prettify.js"></script>
+  <script src="http://snake174.github.io/js/hl.js"></script>
+</body>
+</html>
