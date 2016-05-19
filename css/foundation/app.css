@@ -5,6 +5,12 @@ src: local('O'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') fo
 font-weight: normal;
 font-style: normal;
 }
+body {
+  background-color: #EEEEEE;
+  background-image: url('http://snake174.github.io/img/background.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
 p {
   text-indent: 30px;
   padding: 5px;
