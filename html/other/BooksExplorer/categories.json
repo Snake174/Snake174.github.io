@@ -1,4 +1,4 @@
-{
+[
   {
     'title': 'test1',
     'image': '',
@@ -11,4 +11,4 @@
     'page': 'http://www.proklondike.com/books/web.html',
     'attr': ''
   }
-}
+]
