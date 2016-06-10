@@ -1,44 +1,14 @@
-{ [
+{
   {
-    title: 'Программирование',
-    image: '',
-    page: 'http://www.proklondike.com/books/coding.html',
-    attr: 'coding'
+    'title': 'test1',
+    'image': '',
+    'page': 'http://www.proklondike.com/books/coding.html',
+    'attr': 'coding'
   },
   {
-    title: 'Веб технологии',
-    image: '',
-    page: 'http://www.proklondike.com/books/web.html',
-    attr: ''
-  },
-  {
-    title: 'Безопасность',
-    image: '',
-    page: 'http://www.proklondike.com/books/security.html',
-    attr: ''
-  },
-  {
-    title: 'Разработка',
-    image: '',
-    page: 'http://www.proklondike.com/books/development.html',
-    attr: ''
-  },
-  {
-    title: '',
-    image: '',
-    page: 'http://www.proklondike.com/books/.html',
-    attr: ''
-  },
-  {
-    title: '',
-    image: '',
-    page: 'http://www.proklondike.com/books/.html',
-    attr: ''
-  },
-  {
-    title: '',
-    image: '',
-    page: 'http://www.proklondike.com/books/.html',
-    attr: ''
+    'title': 'test2',
+    'image': '',
+    'page': 'http://www.proklondike.com/books/web.html',
+    'attr': ''
   }
-] }
+}
