@@ -1,14 +1,14 @@
 [
   {
-    'title': 'test1',
-    'image': '',
-    'page': 'http://www.proklondike.com/books/coding.html',
-    'attr': 'coding'
+    title: 'test1',
+    image: '',
+    page: 'http://www.proklondike.com/books/coding.html',
+    attr: 'coding'
   },
   {
-    'title': 'test2',
-    'image': '',
-    'page': 'http://www.proklondike.com/books/web.html',
-    'attr': ''
+    title: 'test2',
+    image: '',
+    page: 'http://www.proklondike.com/books/web.html',
+    attr: ''
   }
 ]
