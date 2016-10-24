@@ -17,8 +17,7 @@
 <meta name="copyright" content="Burlachenko Maxim, Serebryannikov Evgeny" />
 <link rel="shortcut icon" href=http://snake174.github.io/favicon.ico type=image/x-icon />
 <link rel=icon href=http://snake174.github.io/favicon.ico type=image/x-icon />
-<link href="http://snake174.github.io/css/bootstrap.min.css" rel="stylesheet" />
-<link href="http://snake174.github.io/css/bootstrapValidator.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 <link href="http://snake174.github.io/css/bstyle.css" rel="stylesheet" />
 <script async src="http://snake174.github.io/js/pace.min.js"></script>
 <!--[if lt IE 9]>
@@ -56,45 +55,19 @@
 <div class="jumbotron">
 Здесь вы можете задать интересующий вас вопрос и в ближайшее время мы обязательно свяжемся с вами.
 </div>
-<div id="contact-form-wrap">
-<form class="well form-horizontal" action=" " method="post" id="contact_form">
-<fieldset>
-<div class="form-group">
-<label class="col-md-4 control-label">Имя</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input name="first_name" placeholder="Ваше имя" class="form-control" type="text">
-</div>
-</div>
-</div>
-<div class="form-group">
-<label class="col-md-4 control-label">E-Mail</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-<input name="email" placeholder="Ваш E-Mail" class="form-control" type="text">
-</div>
-</div>
-</div>
-<div class="form-group">
-<label class="col-md-4 control-label">Сообщение</label>
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-<textarea rows="10" class="form-control" name="comment" id="comment" placeholder="Сообщение"></textarea>
-</div>
-</div>
-</div>
-<input name="text-to-bot" type="hidden">
-<div class="form-group">
-<label class="col-md-4 control-label"></label>
-<div class="col-md-4">
-<button type="submit" class="btn btn-success">Отправить <span class="glyphicon glyphicon-send"></span></button>
-</div>
-</div>
-</fieldset>
-</form>
+<div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'snake174';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>
+      Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </noscript>
 </div>
 </div>
 <div id="push"></div>
@@ -121,16 +94,8 @@
 </a>
 </div>
 <script src="http://snake174.github.io/js/jquery.1.11.2.min.js"></script>
-<script src="http://snake174.github.io/js/bootstrap.min.js"></script>
-<script src="http://snake174.github.io/js/bootstrapValidator.min.js"></script>
-<script src="http://snake174.github.io/js/sendMail.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="http://snake174.github.io/js/scroll-to-top.js"></script>
-
-<script type="text/javascript">
-var infolinks_pid = 2455542;
-var infolinks_wsid = 0;
-</script>
-<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 
 </body>
 </html>
