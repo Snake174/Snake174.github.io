@@ -136,7 +136,18 @@
           <div class="row-content">
             <h4 class="list-group-item-heading">Сборка для Android</h4>
             <p class="list-group-item-text">
-              sdfsd sfdsd fs df
+              <ul>
+                <li>сборка может осуществляться на компьютерах с ОС Windows, Linux или Mac</li>
+                <li>установить <a href="https://developer.android.com/studio/index.html" target="_blank">Android Studio</a></li>
+                <li>установить весь необходимый SDK и NDK</li>
+                <li>в файле <em><user directory>/.hxcpp_config.xml</em> в секции <em><set name="ANDROID_NDK_ROOT" value="/path/to/android-ndk-r10e"/></em> указать необходимый путь до Android NDK</li>
+                <li>предпочтительней использовать NDK версии r10~, хотя и последняя должна работать</li>
+                <li>в папке с проектом выполнить следующую команду:</li>
+<pre class="prettyprint linenums">
+  flow build android
+</pre>
+                <li>сгенерированный проект для Android Studio будет помещён в папку <em>android.project</em></li>
+              </ul>
             </p>
           </div>
         </div>
