@@ -16,16 +16,13 @@ html, body {
   font-family: "Play", Verdana, Arial, Helvetica, sans-serif;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-main {
-  flex: 1;
-  -ms-flex-preferred-size: auto;
-  margin:0 auto -60px;
+body {
+  margin-bottom: 75px;
 }
 
 p {
