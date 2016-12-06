@@ -62,14 +62,19 @@
       </div>
       <div class="well">
         Теперь можно устанавливать сам движок. Движок устанавливается специальной автоматической утилитой <strong>snowfall</strong>. Необходимо открыть консоль и прописать в ней следующие команды:
-        <pre class="prettyprint linenums">
-          haxelib install snowfall 
-          haxelib run snowfall update luxe
-        </pre>
+<pre class="prettyprint linenums">
+  haxelib install snowfall 
+  haxelib run snowfall update luxe
+</pre>
         После окончания можно протестировать установку командой
-        <pre class="prettyprint linenums">
-          haxelib run snowfall test luxe
-        </pre>
+<pre class="prettyprint linenums">
+  haxelib run snowfall test luxe
+</pre>
+        Также для удобства установим ярлыки для команд:
+<pre class="prettyprint linenums">
+  haxelib run snowfall shortcuts
+</pre>
+        Это позволит нам использовать команды <em>snowfall</em> и <em>flow</em> без дополнительного написания <em>haxelib run</em> спереди.
       </div>
       <div style="padding: 20px;">
         <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
