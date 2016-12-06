@@ -16,6 +16,12 @@ html, body {
   font-family: "Play", Verdana, Arial, Helvetica, sans-serif;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 p {
   text-indent: 30px;
   padding: 5px;
