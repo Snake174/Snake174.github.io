@@ -22,6 +22,12 @@ body {
   min-height: 100vh;
 }
 
+main {
+  flex: 1;
+  -ms-flex-preferred-size: auto;
+  margin:0 auto -60px;
+}
+
 p {
   text-indent: 30px;
   padding: 5px;
