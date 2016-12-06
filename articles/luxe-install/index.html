@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/bootstrap-material/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/libs/bootstrap-material/css/bootstrap-material-design.min.css" />
     <link rel="stylesheet" type="text/css" href="/libs/bootstrap-material/css/ripples.min.css" />
+    <link rel="stylesheet" href="/libs/google-code-prettify/prettify.css" />
     <link rel="stylesheet" type="text/css" href="/libs/bootstrap-material/css/style.css" />
     <script async src="/libs/pace/pace.min.js"></script>
   </head>
@@ -60,7 +61,15 @@
         Так как исходники движка расположены на GitHub, нужно установить <a href="https://git-scm.com/download/win" target="_blank">Git клиент</a>.
       </div>
       <div class="well">
-        Теперь можно устанавливать сам движок. Движок устанавливается специальной автоматической утилитой <strong>snowfall</strong>.
+        Теперь можно устанавливать сам движок. Движок устанавливается специальной автоматической утилитой <strong>snowfall</strong>. Необходимо открыть консоль и прописать в ней следующие команды:
+        <pre class="prettyprint linenums">
+          haxelib install snowfall 
+          haxelib run snowfall update luxe
+        </pre>
+        После окончания можно протестировать установку командой
+        <pre class="prettyprint linenums">
+          haxelib run snowfall test luxe
+        </pre>
       </div>
       <div style="padding: 20px;">
         <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
@@ -95,6 +104,7 @@
     <script type="text/javascript" src="/libs/bootstrap-material/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/libs/bootstrap-material/js/material.min.js"></script>
     <script type="text/javascript" src="/libs/bootstrap-material/js/ripples.min.js"></script>
+    <script type="text/javascript" src="/libs/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="/libs/bootstrap-material/js/app.js"></script>
   </body>
 </html>
