@@ -111,7 +111,7 @@
             <p class="list-group-item-text">
               <ul>
                 <li>сборка осуществляется только на компьютерах с ОС Linux</li>
-                <li>установить библиотеки: <em>libgl1-mesa-dev</em>, <em>libglu1-mesa-dev</em> и <em>libopenal-dev</em></li>
+                <li>установить библиотеки: <em>libgl1-mesa-dev</em>, <em>libglu1-mesa-dev</em>, <em>libopenal-dev</em>, <em>libx11-dev</em>, <em>libxinerama-dev</em> и <em>libxrandr-dev</em></li>
                 <li>в папке с проектом выполнить следующую команду:</li>
 <pre class="prettyprint linenums">
   flow build linux
@@ -198,6 +198,24 @@
             </p>
           </div>
         </div>
+      </div>
+      <h3>Настройка Sublime Text 3</h3>
+      <div class="well">
+        Ctrl + Shift + P Package Control : Add repository
+<pre class="prettyprint linenums">
+  https://github.com/snowkit/sublime_haxe
+  https://github.com/snowkit/sublime_flow
+</pre>
+      </div>
+      <div class="well">
+        Ctrl + Shift + P Package Control : Install Package
+<pre class="prettyprint linenums">
+  sublime_flow
+  sublime_haxe
+</pre>
+      </div>
+      <div class="well">
+        Перезагрузите Sublime Text
       </div>
       <div style="padding: 20px;">
         <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
