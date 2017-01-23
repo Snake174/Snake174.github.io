@@ -1,0 +1,12 @@
+[
+  {
+    "data": "http://snake174.github.io/programs/consoles-games/data/NES.json",
+	"icon": "http://snake174.github.io/programs/consoles-games/data/img/nes.png",
+	"tag": "NES"
+  },
+  {
+    "data": "http://snake174.github.io/programs/consoles-games/data/SNES.json",
+	"icon": "http://snake174.github.io/programs/consoles-games/data/img/snes.png",
+	"tag": "SNES"
+  }
+]
