@@ -1,7 +1,8 @@
 {
   "ext": {
     "NES": ".nes",
-    "SNES": ".sfc"
+    "SNES": ".sfc",
+	"Genesis": ".md"
   },
   "consoles": [
     {
@@ -13,6 +14,11 @@
       "data": "http://snake174.github.io/programs/consoles-games/data/SNES.json",
 	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/snes.png",
 	  "tag": "SNES"
+    },
+	{
+      "data": "http://snake174.github.io/programs/consoles-games/data/Genesis.json",
+	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/genesis.png",
+	  "tag": "Genesis"
     }
   ]
 }
