@@ -1,12 +1,18 @@
 [
-  {
-    "data": "http://snake174.github.io/programs/consoles-games/data/NES.json",
-	"icon": "http://snake174.github.io/programs/consoles-games/data/img/nes.png",
-	"tag": "NES"
+  "ext": {
+    "NES": ".nes",
+	"SNES": ".sfc"
   },
-  {
-    "data": "http://snake174.github.io/programs/consoles-games/data/SNES.json",
-	"icon": "http://snake174.github.io/programs/consoles-games/data/img/snes.png",
-	"tag": "SNES"
-  }
+  "consoles": [
+    {
+      "data": "http://snake174.github.io/programs/consoles-games/data/NES.json",
+	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/nes.png",
+	  "tag": "NES"
+    },
+    {
+      "data": "http://snake174.github.io/programs/consoles-games/data/SNES.json",
+	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/snes.png",
+	  "tag": "SNES"
+    }
+  ]
 ]
