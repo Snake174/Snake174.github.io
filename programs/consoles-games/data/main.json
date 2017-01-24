@@ -1,7 +1,7 @@
 {
   "ext": {
     "NES": ".nes",
-	"SNES": ".sfc"
+    "SNES": ".sfc"
   },
   "consoles": [
     {
