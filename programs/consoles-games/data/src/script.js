@@ -1,6 +1,6 @@
 $(function() {
   const OS = require('os').type()
-  const VERSION = 2
+  const VERSION = 1
   var fs = require('fs')
   var path = require('path')
   var http = require('http')
