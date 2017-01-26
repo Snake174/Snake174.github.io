@@ -1,9 +1,10 @@
 {
-  "version": 1,
+  "version": 2,
   "ext": {
     "NES": ".nes",
     "SNES": ".sfc",
-	"Genesis": ".md"
+	"Genesis": ".md",
+	"Nintendo64": ".n64"
   },
   "consoles": [
     {
@@ -20,6 +21,11 @@
       "data": "http://snake174.github.io/programs/consoles-games/data/Genesis.json",
 	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/genesis.png",
 	  "tag": "Genesis"
+    },
+	{
+      "data": "http://snake174.github.io/programs/consoles-games/data/Nintendo64.json",
+	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/nintendo64.png",
+	  "tag": "Nintendo64"
     }
   ]
 }

@@ -1,6 +1,6 @@
 $(function() {
   const OS = require('os').type()
-  const VERSION = 1
+  const VERSION = 2
   var fs = require('fs')
   var path = require('path')
   var http = require('http')
@@ -76,63 +76,63 @@ $(function() {
   }, 5 )
 
   var playGame = (game) => {
-	let emul = $('#emulators-menu > .item.active').text().trim()
+	  let emul = $('#emulators-menu > .item.active').text().trim()
 
-	execFile( path.join( __dirname, 'data', 'emulators', OS, curConsole, emul, emul ), [game], (err, data) => {
+	  execFile( path.join( __dirname, 'data', 'emulators', OS, curConsole, emul, emul ), [game], (err, data) => {
       if (err) {
         console.log( err )
       } else {
-		console.log( data.toString() )
-	  }
+		    console.log( data.toString() )
+	    }
     } )
   }
 
   var showGame = (gameData) => {
-	let images = ''
+	  let images = ''
 
-	if (gameData.images.length > 0) {
-	  images += '<p><div class="ui link cards">'
+	  if (gameData.images.length > 0) {
+	    images += '<p><div class="ui link cards">'
 
-	  for (let ind = 0, c = gameData.images.length; ind < c; ++ind) {
-	    images += '<div class="card"><div class="image"><img src="' + gameData.images[ ind ] + '" /></div></div>'
+	    for (let ind = 0, c = gameData.images.length; ind < c; ++ind) {
+	      images += '<div class="card"><div class="image"><img src="' + gameData.images[ ind ] + '" /></div></div>'
+	    }
+
+	    images += '</div></p>'
 	  }
 
-	  images += '</div></p>'
-	}
+  	let html = '<h3>' + gameData.title + '</h3>'
+	    + '<p>' + gameData.description + '</p>'
+	    + images
 
-	let html = '<h3>' + gameData.title + '</h3>'
-	  + '<p>' + gameData.description + '</p>'
-	  + images
-
-	gameDetail.html( html )
-	gameCountInfo.html( (curIndex + 1) + ' / ' + curCount )
+	  gameDetail.html( html )
+	  gameCountInfo.html( (curIndex + 1) + ' / ' + curCount )
   }
 
   $('#prev').click( () => {
-	if (curData === null) return
-	--curIndex
-	if (curIndex < 0) {
-	  curIndex = curCount - 1
-	}
-	showGame( curData[ curIndex ] )
+  	if (curData === null) return
+	  --curIndex
+	  if (curIndex < 0) {
+	    curIndex = curCount - 1
+	  }
+	  showGame( curData[ curIndex ] )
   } )
 
   $('#next').click( () => {
-	if (curData === null) return
-	++curIndex
-	if (curIndex > curCount - 1) {
-	  curIndex = 0
-	}
-	showGame( curData[ curIndex ] )
+	  if (curData === null) return
+	  ++curIndex
+	  if (curIndex > curCount - 1) {
+	    curIndex = 0
+	  }
+	  showGame( curData[ curIndex ] )
   } )
 
   $('#play-game').click( () => {
-	if (curData === null) return
+	  if (curData === null) return
 
-	if (fs.existsSync( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )) {
-	  playGame( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )
+	  if (fs.existsSync( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )) {
+	    playGame( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )
     } else {
-	  let fileName = path.join( __dirname, 'data', 'games', curData[ curIndex ].title + '.zip' )
+	    let fileName = path.join( __dirname, 'data', 'games', curData[ curIndex ].title + '.zip' )
 
       download( curData[ curIndex ].download, fileName ).then( () => {
         fs.createReadStream( fileName ).pipe( unzip.Extract( { path: path.join( __dirname, 'data', 'games' ) } ) ).on( 'close', () => {
@@ -140,8 +140,11 @@ $(function() {
           playGame( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )
         } )
       } )
-	}
-  })
+	  }
+  } )
+
+  $('#add-to-favourites').click( () => {
+  } )
 
   $.get( 'http://snake174.github.io/programs/consoles-games/data/main.json', (data) => {
     if (data.version > VERSION) {
@@ -150,12 +153,12 @@ $(function() {
 
       download( 'http://snake174.github.io/programs/consoles-games/data/src/index.html', path.join( __dirname, 'index.html' ) ).then( () => {
         download( 'http://snake174.github.io/programs/consoles-games/data/src/script.js', path.join( __dirname, 'js', 'script.js' ) ).then( () => {
-          alert('Program updated. Please restart.')
+          $('.ui.basic.modal').modal('show')
         } )
       } )
     }
 
-	ext = data.ext
+	  ext = data.ext
     curDownloads = data.consoles.length
 
     for (let i = 0; i < data.consoles.length; ++i) {
@@ -175,61 +178,61 @@ $(function() {
     }
 
     $.each( data.consoles, (i, e) => {
-	  let btn = $('<button/>', { 'class': 'ui button', 'data-tooltip': e.tag, 'data-position': 'bottom left' } )
+	    let btn = $('<button/>', { 'class': 'ui button', 'data-tooltip': e.tag, 'data-position': 'bottom left' } )
         .click( () => {
-		  mainSegment.addClass('loading')
-		  curConsole = e.tag
-		  let emulators = getDirectories( path.join( __dirname, 'data', 'emulators', OS, curConsole ) )
-		  emulatorsMenu.empty()
+		      mainSegment.addClass('loading')
+		      curConsole = e.tag
+		      let emulators = getDirectories( path.join( __dirname, 'data', 'emulators', OS, curConsole ) )
+		      emulatorsMenu.empty()
 
-		  $.each( emulators, (emulIndex, emulName) => {
-			let emul = $('<div/>', { class: (emulIndex == 0 ? 'item active' : 'item'), html: emulName } )
-			emul.appendTo( emulatorsMenu )
-		  } )
+		      $.each( emulators, (emulIndex, emulName) => {
+			      let emul = $('<div/>', { class: (emulIndex == 0 ? 'item active' : 'item'), html: emulName } )
+			      emul.appendTo( emulatorsMenu )
+		      } )
 
-		  while (gamesTitles.length > 0) {
+		      while (gamesTitles.length > 0) {
             gamesTitles.pop()
           }
 
-		  gamesList.empty()
+		      gamesList.empty()
 
-		  $.get( e.data, (gameData) => {
-			curData = gameData
-			curIndex = 0
-		    curCount = gameData.length
+		      $.get( e.data, (gameData) => {
+			      curData = gameData
+			      curIndex = 0
+		        curCount = gameData.length
 
-			$.each( gameData, (ii, ee) => {
-			  gamesTitles.push( { title: ee.title, id: ii } )
+			      $.each( gameData, (ii, ee) => {
+			        gamesTitles.push( { title: ee.title, id: ii } )
 
-			  let gameBtn = $('<a/>', { class: 'item', text: ee.title, ind: ii } )
-			    .click( () => {
-				  curIndex = ii
-				  showGame( gameData[ ii ] )
-				  $('html,body').animate( { scrollTop: 0 }, 100 )
-				} )
+			        let gameBtn = $('<a/>', { class: 'item', text: ee.title, ind: ii } )
+			          .click( () => {
+				          curIndex = ii
+				          showGame( gameData[ ii ] )
+				          $('html,body').animate( { scrollTop: 0 }, 100 )
+				        } )
 
-			  gameBtn.appendTo( gamesList )
-			} )
+			        gameBtn.appendTo( gamesList )
+			      } )
 
-			$('.ui.search').search( {
+			      $('.ui.search').search( {
               source: gamesTitles,
-			  searchFullText: false,
-			  cache: false,
-			  onSelect: (result, response) => {
-				curIndex = result.id
-				showGame( gameData[ result.id ] )
-			  }
+			        searchFullText: false,
+			        cache: false,
+			        onSelect: (result, response) => {
+				        curIndex = result.id
+				        showGame( gameData[ result.id ] )
+			        }
             } )
 
-			showGame( curData[ curIndex ] )
-		  } )
+			      showGame( curData[ curIndex ] )
+		      } )
 
-		  mainSegment.removeClass('loading')
-		} )
+		      mainSegment.removeClass('loading')
+		    } )
 
-	  btn.prepend( $('<img/>', { src: e.icon } ) )
-	  btn.appendTo( consolesMenu )
-	} )
+	    btn.prepend( $('<img/>', { src: e.icon } ) )
+	    btn.appendTo( consolesMenu )
+	  } )
 
     if (!needDownload) {
       $('#consoles-menu > button')[0].click()
