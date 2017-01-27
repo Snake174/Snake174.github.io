@@ -4,7 +4,8 @@
     "NES": ".nes",
     "SNES": ".sfc",
 	"Genesis": ".md",
-	"Nintendo64": ".n64"
+	"Nintendo64": ".n64",
+	"MasterSystem": ".sms"
   },
   "consoles": [
     {
@@ -21,6 +22,11 @@
       "data": "http://snake174.github.io/programs/consoles-games/data/Genesis.json",
 	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/genesis.png",
 	  "tag": "Genesis"
+    },
+	{
+      "data": "http://snake174.github.io/programs/consoles-games/data/MasterSystem.json",
+	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/master_system.png",
+	  "tag": "MasterSystem"
     },
 	{
       "data": "http://snake174.github.io/programs/consoles-games/data/Nintendo64.json",
