@@ -1,6 +1,6 @@
-$(function() {
+$( () => {
   const OS = require('os').type()
-  const VERSION = 3
+  const VERSION = 4
   var fs = require('fs')
   var path = require('path')
   var http = require('http')
@@ -246,51 +246,54 @@ $(function() {
   } )
 
   addToFavourites.click( () => {
-    tagList.empty()
+    if (addToFavourites.hasClass('atf')) {
+      tagList.empty()
 
-    $.each( config.tags, (tagIndex, tagName) => {
-      let tag = $('<div/>', { class: 'item', html: tagName } )
-      tag.appendTo( tagList )
-    } )
+      $.each( config.tags, (tagIndex, tagName) => {
+        let tag = $('<div/>', { class: 'item', html: tagName } )
+        tag.appendTo( tagList )
+      } )
 
-    $('.ui.basic.small.modal')
-      .modal( {
-        closable: false,
-        onApprove: () => {
-          let newTag = $('#new-tag').val().trim()
-          let existingTag = $('#existing-tag').html().trim()
-          let tag = (newTag === '' ? (existingTag === 'Select existing' ? 'none' : existingTag) : newTag)
+      $('.ui.basic.small.modal')
+        .modal( {
+          closable: false,
+          onApprove: () => {
+            let newTag = $('#new-tag').val().trim()
+            let existingTag = $('#existing-tag').html().trim()
+            let tag = (newTag === '' ? (existingTag === 'Select existing' ? 'none' : existingTag) : newTag)
 
-          if (config.tags.indexOf( tag ) < 0) {
-            config.tags.push( tag )
-          }
+            if (config.tags.indexOf( tag ) < 0) {
+              config.tags.push( tag )
+            }
 
-          let tagIndex = config.tags.indexOf( tag )
+            let tagIndex = config.tags.indexOf( tag )
 
-          if (config.consoles[ curConsole ] === undefined) {
-            config.consoles[ curConsole ] = { id: [], tag: [] }
-          }
+            if (config.consoles[ curConsole ] === undefined) {
+              config.consoles[ curConsole ] = { id: [], tag: [] }
+            }
 
-          if (addToFavourites.hasClass('atf')) {
             config.consoles[ curConsole ].id.push( curIndex )
             config.consoles[ curConsole ].tag.push( tagIndex )
             addToFavourites.removeClass('atf')
             addToFavourites.attr( 'data-tooltip', 'Remove from favourites' )
             addToFavouritesIcon.html('<i class="star icon"></i>')
-          } else {
-            let index = config.consoles[ curConsole ].id.indexOf( curIndex )
-            config.consoles[ curConsole ].id.splice( index, 1 )
-            config.consoles[ curConsole ].tag.splice( index, 1 )
-            addToFavourites.addClass('atf')
-            addToFavourites.attr( 'data-tooltip', 'Add to favourites' )
-            addToFavouritesIcon.html('<i class="empty star icon"></i>')
-          }
 
-          showFavourites()
-          fs.writeFileSync('./config.json', JSON.stringify( config, null, 2 ) )
-        }
-      } )
-      .modal('show')
+            showFavourites()
+            fs.writeFileSync('./config.json', JSON.stringify( config, null, 2 ) )
+          }
+        } )
+        .modal('show')
+    } else {
+      let index = config.consoles[ curConsole ].id.indexOf( curIndex )
+      config.consoles[ curConsole ].id.splice( index, 1 )
+      config.consoles[ curConsole ].tag.splice( index, 1 )
+      addToFavourites.addClass('atf')
+      addToFavourites.attr( 'data-tooltip', 'Add to favourites' )
+      addToFavouritesIcon.html('<i class="empty star icon"></i>')
+
+      showFavourites()
+      fs.writeFileSync('./config.json', JSON.stringify( config, null, 2 ) )
+    }
   } )
 
   $.get( 'http://snake174.github.io/programs/consoles-games/data/main.json', (data) => {
@@ -376,7 +379,7 @@ $(function() {
               cache: false,
               onSelect: (result, response) => {
                 curIndex = result.id
-                showGame( gameData[ result.id ] )
+                showGame( gameData[ curIndex ] )
               }
             } )
 
