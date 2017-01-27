@@ -14,12 +14,14 @@
   </head>
   <body>
     <div class="ui inverted basic segment" id="main">
-      <div class="ui grid">
+      <div class="ui grid" style="margin-bottom:100px;">
         <div class="row">
           <div class="sixteen wide column">
-            <div class="ui icon basic inverted buttons" id="consoles-menu"></div>
+            <div class="ui inverted top fixed menu" id="consoles-menu" style="padding:10px;"></div>
           </div>
         </div>
+      </div>
+      <div class="ui grid">
         <div class="row">
           <div class="six wide column">
             <div class="ui one column grid">
@@ -29,12 +31,11 @@
                     <input class="prompt" type="text" id="search-text" />
                     <i class="search icon"></i>
                   </div>
-                  <div class="results"></div>
                 </div>
               </div>
               <div class="column">
                 <div class="ui inverted segment" id="games-list-segment">
-                  <div class="ui divided link inverted list" id="games-list"></div>
+                  <div class="ui divided link inverted list" id="games-list" style="min-height:1000px;height:1000px;overflow:auto;"></div>
                 </div>
               </div>
             </div>
