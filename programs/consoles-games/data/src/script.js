@@ -1,6 +1,6 @@
 $( () => {
   const OS = require('os').type()
-  const VERSION = 4
+  const VERSION = 5
   var fs = require('fs')
   var path = require('path')
   var http = require('http')
@@ -254,7 +254,7 @@ $( () => {
         tag.appendTo( tagList )
       } )
 
-      $('.ui.basic.small.modal')
+      $('#favourites-form')
         .modal( {
           closable: false,
           onApprove: () => {
@@ -303,7 +303,7 @@ $( () => {
 
       download( 'http://snake174.github.io/programs/consoles-games/data/src/index.html', path.join( __dirname, 'index.html' ) ).then( () => {
         download( 'http://snake174.github.io/programs/consoles-games/data/src/script.js', path.join( __dirname, 'js', 'script.js' ) ).then( () => {
-          $('.ui.basic.modal').modal('show')
+          $('#update-message').modal('show')
         } )
       } )
     }
