@@ -1,6 +1,6 @@
 $(function() {
   const OS = require('os').type()
-  const VERSION = 2
+  const VERSION = 3
   var fs = require('fs')
   var path = require('path')
   var http = require('http')
@@ -9,7 +9,14 @@ $(function() {
   var unzip = require('unzip')
   var url = require('url')
   var config = require('./config.json')
-  // fs.writeFileSync('./config.json', JSON.stringify( config, null, 2 ) )
+
+  if (config.consoles === undefined) {
+    config.consoles = {}
+  }
+
+  if (config.tags === undefined) {
+    config.tags = []
+  }
 
   var consolesMenu = $('#consoles-menu')
   var emulatorsMenu = $('#emulators-menu')
@@ -17,17 +24,23 @@ $(function() {
   var mainSegment = $('#main')
   var gameDetail = $('#game-detail')
   var gameCountInfo = $('#game-count-info')
+  var addToFavourites = $('#add-to-favourites')
+  var addToFavouritesIcon = $('#add-to-favourites-icon')
+  var playGameBtn = $('#play-game')
+  var tagList = $('#tag-list')
   var gamesTitles = []
   var curIndex = 0
   var curCount = 0
   var curConsole = '';
-  var curData = null
+  var curData = {}
   var ext = null
   var curDownloads = 0
   var needDownload = false
+  var gameDataDownloads = 0
 
   $('.ui.dropdown').dropdown()
   $('.menu .item').tab()
+  $('.ui.accordion').accordion()
 
   try {
     fs.mkdirSync( path.join( __dirname, 'data', 'emulators', OS ) )
@@ -75,75 +88,209 @@ $(function() {
     } )
   }, 5 )
 
-  var playGame = (game) => {
-	  let emul = $('#emulators-menu > .item.active').text().trim()
+  var gamesDataQueue = async.queue( (task, cb) => {
+    $.get( task.URL, (gameData) => {
+      curData[ task.tag ] = gameData
+      cb()
+    } )
+  }, 5 )
 
-	  execFile( path.join( __dirname, 'data', 'emulators', OS, curConsole, emul, emul ), [game], (err, data) => {
+  var playGame = (game) => {
+    let emul = $('#emulators-menu > .item.active').text().trim()
+
+    execFile( path.join( __dirname, 'data', 'emulators', OS, curConsole, emul, emul ), [game], (err, data) => {
       if (err) {
         console.log( err )
       } else {
-		    console.log( data.toString() )
-	    }
+        console.log( data.toString() )
+      }
     } )
   }
 
   var showGame = (gameData) => {
-	  let images = ''
+    let images = ''
 
-	  if (gameData.images.length > 0) {
-	    images += '<p><div class="ui link cards">'
+    if (gameData.images.length > 0) {
+      images += '<p><div class="ui link cards">'
 
-	    for (let ind = 0, c = gameData.images.length; ind < c; ++ind) {
-	      images += '<div class="card"><div class="image"><img src="' + gameData.images[ ind ] + '" /></div></div>'
-	    }
+      for (let ind = 0, c = gameData.images.length; ind < c; ++ind) {
+        images += `<div class="card"><div class="image"><img src="${gameData.images[ ind ]}" /></div></div>`
+      }
 
-	    images += '</div></p>'
-	  }
+      images += '</div></p>'
+    }
 
-  	let html = '<h3>' + gameData.title + '</h3>'
-	    + '<p>' + gameData.description + '</p>'
-	    + images
+    let html = `<h3>${gameData.title}</h3><p>${gameData.description}</p>${images}`
 
-	  gameDetail.html( html )
-	  gameCountInfo.html( (curIndex + 1) + ' / ' + curCount )
+    gameDetail.html( html )
+    gameCountInfo.html( `${curIndex + 1} / ${curCount}` )
+
+    if (config.consoles[ curConsole ] === undefined || config.consoles[ curConsole ].id === undefined) {
+      addToFavourites.addClass('atf')
+      addToFavourites.attr( 'data-tooltip', 'Add to favourites' )
+      addToFavouritesIcon.html('<i class="empty star icon"></i>')
+    } else {
+      let index = config.consoles[ curConsole ].id.indexOf( curIndex )
+
+      if (index < 0) {
+        addToFavourites.addClass('atf')
+        addToFavourites.attr( 'data-tooltip', 'Add to favourites' )
+        addToFavouritesIcon.html('<i class="empty star icon"></i>')
+      } else {
+        addToFavourites.removeClass('atf')
+        addToFavourites.attr( 'data-tooltip', 'Remove from favourites' )
+        addToFavouritesIcon.html('<i class="star icon"></i>')
+      }
+    }
+  }
+
+  var showFavourites = () => {
+    if (curData[ curConsole ] === undefined) return
+
+    let html = ''
+    let info = {}
+
+    $.each( config.consoles, (consoleName, consoleObj) => {
+      let emulators = getDirectories( path.join( __dirname, 'data', 'emulators', OS, consoleName ) )
+      let emulItems = ''
+
+      $.each( emulators, (emulIndex, emulName) => {
+        emulItems += '<div class="' + (emulIndex == 0 ? 'item active' : 'item') + '">' + emulName + '</div>'
+      } )
+
+      for (let i = 0; i < consoleObj.id.length; ++i) {
+        let game = curData[ consoleName ][ consoleObj.id[i] ]
+        let imgSrc = (game.images.length > 0 ? game.images[0] : '')
+
+        if (info[ config.tags[ consoleObj.tag[i] ] ] === undefined) {
+          info[ config.tags[ consoleObj.tag[i] ] ] = ''
+        }
+
+        info[ config.tags[ consoleObj.tag[i] ] ] += [
+          '<div class="item">',
+          `<div class="ui small image"><img src="${imgSrc}" /></div>`,
+          '<div class="content">',
+          '<div class="ui inverted basic segment">',
+          `<div class="header"><h4>${game.title}</h4></div><br/>`,
+          '<div class="description"><p>',
+          game.description,
+          '</p></div>',
+          '<div class="extra">',
+          '<div class="ui basic inverted right floated buttons">',
+          '<div class="ui button">Play</div>',
+          '<div class="ui floating dropdown icon button">',
+          '<i class="dropdown icon"></i>',
+          '<div class="menu">',
+          emulItems,
+          '</div>',
+          '</div>',
+          '</div>',
+          '</div>',
+          '</div>',
+          '</div>',
+          '</div>'
+        ].join('')
+      }
+    } )
+
+    $.each( config.tags, (tagIndex, tagName) => {
+      html += [
+        `<div class="title"><i class="dropdown icon"></i> ${tagName}</div>`,
+        '<div class="content"><div class="ui divided items">',
+        info[ tagName ],
+        '</div></div>'
+      ].join('')
+    } )
+
+    $('#favourites').html( html )
+    $('.ui.dropdown').dropdown()
   }
 
   $('#prev').click( () => {
-  	if (curData === null) return
-	  --curIndex
-	  if (curIndex < 0) {
-	    curIndex = curCount - 1
-	  }
-	  showGame( curData[ curIndex ] )
+    if (curData[ curConsole ] === undefined) return
+    --curIndex
+    if (curIndex < 0) {
+      curIndex = curCount - 1
+    }
+    showGame( curData[ curConsole ][ curIndex ] )
   } )
 
   $('#next').click( () => {
-	  if (curData === null) return
-	  ++curIndex
-	  if (curIndex > curCount - 1) {
-	    curIndex = 0
-	  }
-	  showGame( curData[ curIndex ] )
+    if (curData[ curConsole ] === undefined) return
+    ++curIndex
+    if (curIndex > curCount - 1) {
+      curIndex = 0
+    }
+    showGame( curData[ curConsole ][ curIndex ] )
   } )
 
-  $('#play-game').click( () => {
-	  if (curData === null) return
+  playGameBtn.click( () => {
+    if (curData[ curConsole ] === undefined) return
 
-	  if (fs.existsSync( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )) {
-	    playGame( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )
+    playGameBtn.addClass('loading')
+
+    if (fs.existsSync( path.join( __dirname, 'data', 'games', curData[ curConsole ][ curIndex ].title + ext[ curConsole ] ) )) {
+      playGame( path.join( __dirname, 'data', 'games', curData[ curConsole ][ curIndex ].title + ext[ curConsole ] ) )
+      playGameBtn.removeClass('loading')
     } else {
-	    let fileName = path.join( __dirname, 'data', 'games', curData[ curIndex ].title + '.zip' )
+      let fileName = path.join( __dirname, 'data', 'games', curData[ curConsole ][ curIndex ].title + '.zip' )
 
-      download( curData[ curIndex ].download, fileName ).then( () => {
+      download( curData[ curConsole ][ curIndex ].download, fileName ).then( () => {
         fs.createReadStream( fileName ).pipe( unzip.Extract( { path: path.join( __dirname, 'data', 'games' ) } ) ).on( 'close', () => {
           fs.unlinkSync( fileName )
-          playGame( path.join( __dirname, 'data', 'games', curData[ curIndex ].title + ext[ curConsole ] ) )
+          playGame( path.join( __dirname, 'data', 'games', curData[ curConsole ][ curIndex ].title + ext[ curConsole ] ) )
+          playGameBtn.removeClass('loading')
         } )
       } )
-	  }
+    }
   } )
 
-  $('#add-to-favourites').click( () => {
+  addToFavourites.click( () => {
+    tagList.empty()
+
+    $.each( config.tags, (tagIndex, tagName) => {
+      let tag = $('<div/>', { class: 'item', html: tagName } )
+      tag.appendTo( tagList )
+    } )
+
+    $('.ui.basic.small.modal')
+      .modal( {
+        closable: false,
+        onApprove: () => {
+          let newTag = $('#new-tag').val().trim()
+          let existingTag = $('#existing-tag').html().trim()
+          let tag = (newTag === '' ? (existingTag === 'Select existing' ? 'none' : existingTag) : newTag)
+
+          if (config.tags.indexOf( tag ) < 0) {
+            config.tags.push( tag )
+          }
+
+          let tagIndex = config.tags.indexOf( tag )
+
+          if (config.consoles[ curConsole ] === undefined) {
+            config.consoles[ curConsole ] = { id: [], tag: [] }
+          }
+
+          if (addToFavourites.hasClass('atf')) {
+            config.consoles[ curConsole ].id.push( curIndex )
+            config.consoles[ curConsole ].tag.push( tagIndex )
+            addToFavourites.removeClass('atf')
+            addToFavourites.attr( 'data-tooltip', 'Remove from favourites' )
+            addToFavouritesIcon.html('<i class="star icon"></i>')
+          } else {
+            let index = config.consoles[ curConsole ].id.indexOf( curIndex )
+            config.consoles[ curConsole ].id.splice( index, 1 )
+            config.consoles[ curConsole ].tag.splice( index, 1 )
+            addToFavourites.addClass('atf')
+            addToFavourites.attr( 'data-tooltip', 'Add to favourites' )
+            addToFavouritesIcon.html('<i class="empty star icon"></i>')
+          }
+
+          showFavourites()
+          fs.writeFileSync('./config.json', JSON.stringify( config, null, 2 ) )
+        }
+      } )
+      .modal('show')
   } )
 
   $.get( 'http://snake174.github.io/programs/consoles-games/data/main.json', (data) => {
@@ -158,12 +305,21 @@ $(function() {
       } )
     }
 
-	  ext = data.ext
-    curDownloads = data.consoles.length
+    ext = data.ext
+    gameDataDownloads = data.consoles.length
 
     for (let i = 0; i < data.consoles.length; ++i) {
+      gamesDataQueue.push( { URL: data.consoles[i].data, tag: data.consoles[i].tag }, () => {
+        --gameDataDownloads
+
+        if (gameDataDownloads == 0) {
+          showFavourites()
+        }
+      } )
+
       if (!fs.existsSync( path.join( __dirname, 'data', 'emulators', OS, data.consoles[i].tag ) )) {
         needDownload = true
+        ++curDownloads
         let fileName = path.join( __dirname, 'data', 'emulators', OS, data.consoles[i].tag + '.zip' )
         let URL = 'http://snake174.github.io/programs/consoles-games/data/emulators/' + OS + '/' + data.consoles[i].tag + '.zip'
 
@@ -178,61 +334,61 @@ $(function() {
     }
 
     $.each( data.consoles, (i, e) => {
-	    let btn = $('<button/>', { 'class': 'ui button', 'data-tooltip': e.tag, 'data-position': 'bottom left' } )
+      let btn = $('<button/>', { 'class': 'ui button', 'data-tooltip': e.tag, 'data-position': 'bottom left' } )
         .click( () => {
-		      mainSegment.addClass('loading')
-		      curConsole = e.tag
-		      let emulators = getDirectories( path.join( __dirname, 'data', 'emulators', OS, curConsole ) )
-		      emulatorsMenu.empty()
+          mainSegment.addClass('loading')
+          curConsole = e.tag
+          let emulators = getDirectories( path.join( __dirname, 'data', 'emulators', OS, curConsole ) )
+          emulatorsMenu.empty()
 
-		      $.each( emulators, (emulIndex, emulName) => {
-			      let emul = $('<div/>', { class: (emulIndex == 0 ? 'item active' : 'item'), html: emulName } )
-			      emul.appendTo( emulatorsMenu )
-		      } )
+          $.each( emulators, (emulIndex, emulName) => {
+            let emul = $('<div/>', { class: (emulIndex == 0 ? 'item active' : 'item'), html: emulName } )
+            emul.appendTo( emulatorsMenu )
+          } )
 
-		      while (gamesTitles.length > 0) {
+          while (gamesTitles.length > 0) {
             gamesTitles.pop()
           }
 
-		      gamesList.empty()
+          gamesList.empty()
 
-		      $.get( e.data, (gameData) => {
-			      curData = gameData
-			      curIndex = 0
-		        curCount = gameData.length
+          $.get( e.data, (gameData) => {
+            curData[ curConsole ] = gameData
+            curIndex = 0
+            curCount = gameData.length
 
-			      $.each( gameData, (ii, ee) => {
-			        gamesTitles.push( { title: ee.title, id: ii } )
+            $.each( gameData, (ii, ee) => {
+              gamesTitles.push( { title: ee.title, id: ii } )
 
-			        let gameBtn = $('<a/>', { class: 'item', text: ee.title, ind: ii } )
-			          .click( () => {
-				          curIndex = ii
-				          showGame( gameData[ ii ] )
-				          $('html,body').animate( { scrollTop: 0 }, 100 )
-				        } )
+              let gameBtn = $('<a/>', { class: 'item', text: ee.title, ind: ii } )
+                .click( () => {
+                  curIndex = ii
+                  showGame( gameData[ ii ] )
+                  $('html,body').animate( { scrollTop: 0 }, 100 )
+                } )
 
-			        gameBtn.appendTo( gamesList )
-			      } )
-
-			      $('.ui.search').search( {
-              source: gamesTitles,
-			        searchFullText: false,
-			        cache: false,
-			        onSelect: (result, response) => {
-				        curIndex = result.id
-				        showGame( gameData[ result.id ] )
-			        }
+              gameBtn.appendTo( gamesList )
             } )
 
-			      showGame( curData[ curIndex ] )
-		      } )
+            $('.ui.search').search( {
+              source: gamesTitles,
+              searchFullText: false,
+              cache: false,
+              onSelect: (result, response) => {
+                curIndex = result.id
+                showGame( gameData[ result.id ] )
+              }
+            } )
 
-		      mainSegment.removeClass('loading')
-		    } )
+            showGame( curData[ curConsole ][ curIndex ] )
+          } )
 
-	    btn.prepend( $('<img/>', { src: e.icon } ) )
-	    btn.appendTo( consolesMenu )
-	  } )
+          mainSegment.removeClass('loading')
+        } )
+
+        btn.prepend( $('<img/>', { src: e.icon } ) )
+        btn.appendTo( consolesMenu )
+      } )
 
     if (!needDownload) {
       $('#consoles-menu > button')[0].click()
