@@ -1,6 +1,6 @@
 $( () => {
   const OS = require('os').type()
-  const VERSION = 5
+  const VERSION = 6
   var fs = require('fs')
   var path = require('path')
   var http = require('http')
@@ -177,10 +177,10 @@ $( () => {
           '</p></div>',
           '<div class="extra">',
           '<div class="ui basic inverted right floated buttons">',
-          '<div class="ui button">Play</div>',
+          `<div class="ui button play-favourite" cur-console="${consoleName}" game-id="${consoleObj.id[i]}">Play</div>`,
           '<div class="ui floating dropdown icon button">',
           '<i class="dropdown icon"></i>',
-          '<div class="menu">',
+          `<div class="menu" id="${consoleName}-${consoleObj.id[i]}">`,
           emulItems,
           '</div>',
           '</div>',
@@ -204,6 +204,35 @@ $( () => {
 
     $('#favourites').html( html )
     $('.ui.dropdown').dropdown()
+
+    $('.play-favourite').click( (e) => {
+      let self = $(e.toElement)
+      let cons = self.attr('cur-console')
+      let gameID = self.attr('game-id')
+      let emul = $(`#${cons}-${gameID} > .item.active`).text().trim()
+
+      playFavourite( cons, gameID, emul )
+    } )
+  }
+
+  var playFavourite = (cons, gameID, emul) => {
+    if (curData[ cons ] === undefined) return
+
+    let game = path.join( __dirname, 'data', 'games', `${curData[ cons ][ gameID ].title}${ext[ cons ]}` )
+    let emulator = path.join( __dirname, 'data', 'emulators', OS, cons, emul, emul )
+
+    if (fs.existsSync( game )) {
+      execFile( emulator, [game], (err, data) => {} )
+    } else {
+      let fileName = path.join( __dirname, 'data', 'games', curData[ cons ][ gameID ].title + '.zip' )
+
+      download( curData[ cons ][ gameID ].download, fileName ).then( () => {
+        fs.createReadStream( fileName ).pipe( unzip.Extract( { path: path.join( __dirname, 'data', 'games' ) } ) ).on( 'close', () => {
+          fs.unlinkSync( fileName )
+          execFile( emulator, [game], (err, data) => {} )
+        } )
+      } )
+    }
   }
 
   $('#prev').click( () => {
