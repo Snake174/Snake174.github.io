@@ -430,19 +430,26 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
         childList: true,
         subtree: true
       });*/
-      $('#tabs-links ul').append(
-        $('<li>').append(
-          $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
-        )
-      );
-      $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));
     } else {
-      /*$('#tabs-links ul').append(
+      $('#tabs-links').append(
         $('<li>').append(
           $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
         )
       );
-      $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));*/
+      $('#tabs-content').append($('<div id="apps" class="tab-pane fade in"><div id="appnextiframe"></div></div>'));
+      var Appnext = {
+        parent_url: window.location.origin,
+        android_id: 'd146e907-d475-4bc2-acf1-26750d19cb13',
+        ios_id: 'f3e91e0c-02bc-4724-a2f5-9d70bda1ab5d',
+        cnt: 3
+      }; 
+      (function () {
+        var _s = document.createElement('script');
+        _s.type = 'text/javascript';
+        _s.async = true;
+	      _s.src = 'https://appnext.hs.llnwd.net/tools/tags/widget/m.js'; 
+        (document.body) ? document.body.appendChild(_s) : document.head.appendChild(_s);
+      })();
     }
   });
 </script>
