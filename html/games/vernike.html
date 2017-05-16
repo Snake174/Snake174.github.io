@@ -352,7 +352,7 @@
 </p>
 </div>
 
-<div class="rw-ui-container"></div>
+<!--<div class="rw-ui-container"></div>-->
 
 <!-- SHARE BUTTONS -->
 <div id="share-widget" style="padding: 20px;">
@@ -415,42 +415,44 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.5/mobile-detect.min.js"></script>
 <script type="text/javascript">
-  var md = new MobileDetect(window.navigator.userAgent);
-  if (md.mobile() === null) {
-    /*var observer = new MutationObserver(function (mutations, me) {
-      if ($('#appnextiframe iframe').length > 0) {
-        $('#appnextiframe iframe')[0].css({
-          'width': `${window.innerWidth - 50}%`,
-          'margin': '0 auto'
-        });
-        me.disconnect();
-        return;
-      }
-    });
-    observer.observe(document, {
-      childList: true,
-      subtree: true
-    });*/
-    $('#tabs-links ul').append(
-      $('<li>').append(
-        $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
-      )
-    );
-    $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));
-  } else {
-    /*$('#tabs-links ul').append(
-      $('<li>').append(
-        $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
-      )
-    );
-    $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));*/
-  }
+  $(document).ready(function () {
+    var md = new MobileDetect(window.navigator.userAgent);
+    if (md.mobile() === null) {
+      /*var observer = new MutationObserver(function (mutations, me) {
+        if ($('#appnextiframe iframe').length > 0) {
+          $('#appnextiframe iframe')[0].css({
+            'width': `${window.innerWidth - 50}%`,
+            'margin': '0 auto'
+          });
+          me.disconnect();
+          return;
+        }
+      });
+      observer.observe(document, {
+        childList: true,
+        subtree: true
+      });*/
+      $('#tabs-links ul').append(
+        $('<li>').append(
+          $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
+        )
+      );
+      $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));
+    } else {
+      /*$('#tabs-links ul').append(
+        $('<li>').append(
+          $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
+        )
+      );
+      $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));*/
+    }
+  });
 </script>
 
 <script type="text/javascript">(function(d, t, e, m){
 
     // Async Rating-Widget initialization.
-    window.RW_Async_Init = function(){
+    /*window.RW_Async_Init = function(){
 
         RW.init({
             huid: "239451",
@@ -475,7 +477,7 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
     rw.id = id; rw.async = true; rw.type = "text/javascript";
     rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
     s.parentNode.insertBefore(rw, s);
-    }(document, new Date(), "script", "rating-widget.com/"));
+    }(document, new Date(), "script", "rating-widget.com/"));*/
 </script>
 
 </body>
