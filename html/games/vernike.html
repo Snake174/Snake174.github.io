@@ -100,6 +100,7 @@
   <li><a data-toggle="tab" href="#po">ПО</a></li>
   <li><a data-toggle="tab" href="#graphics">Графика</a></li>
   <li><a data-toggle="tab" href="#sound">Звук</a></li>
+  <li><a data-toggle="tab" href="#apps">Приложения</a></li>
 </ul>
 <div id="tabs-content" class="tab-content">
   <div id="peoples" class="tab-pane fade in active">
@@ -432,11 +433,6 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
         subtree: true
       });*/
     } else {
-      $('#tabs-links').append(
-        $('<li>').append(
-          $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения')
-        )
-      );
       var Appnext = {
         parent_url: window.location.origin,
         android_id: 'd146e907-d475-4bc2-acf1-26750d19cb13',
