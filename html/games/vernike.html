@@ -95,13 +95,13 @@
     </a>
   </div>
 </div>
-<ul class="nav nav-tabs">
+<ul id="tabs-links" class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#peoples">Участники</a></li>
   <li><a data-toggle="tab" href="#po">ПО</a></li>
   <li><a data-toggle="tab" href="#graphics">Графика</a></li>
   <li><a data-toggle="tab" href="#sound">Звук</a></li>
 </ul>
-<div class="tab-content">
+<div id="tabs-content" class="tab-content">
   <div id="peoples" class="tab-pane fade in active">
     <table class="table table-striped">
       <thead>
@@ -355,7 +355,7 @@
 <div class="rw-ui-container"></div>
 
 <!-- SHARE BUTTONS -->
-<div style="padding: 20px;">
+<div id="share-widget" style="padding: 20px;">
 <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
 <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
 </div>
@@ -412,6 +412,40 @@ VK.Widgets.Comments("vk_comments", {limit: 10, width: "400", attach: "*"});
 <script src="http://snake174.github.io/js/fb.js"></script>
 <!--<script src="http://snake174.github.io/js/carousel.js"></script>-->
 <script src="http://snake174.github.io/js/scroll-to-top.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.5/mobile-detect.min.js"></script>
+<script type="text/javascript">
+  var md = new MobileDetect(window.navigator.userAgent);
+  if (md.mobile() === null) {
+    /*var observer = new MutationObserver(function (mutations, me) {
+      if ($('#appnextiframe iframe').length > 0) {
+        $('#appnextiframe iframe')[0].css({
+          'width': `${window.innerWidth - 50}%`,
+          'margin': '0 auto'
+        });
+        me.disconnect();
+        return;
+      }
+    });
+    observer.observe(document, {
+      childList: true,
+      subtree: true
+    });*/
+    $('#tabs-links ul').append(
+      $('<li>').append(
+        $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения');
+      );
+    );
+    $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));
+  } else {
+    /*$('#tabs-links ul').append(
+      $('<li>').append(
+        $('<a>').attr('data-toggle', 'tab').attr('href', '#apps').append('Приложения');
+      );
+    );
+    $('#tabs-content').append($('<div id="apps" class="tab-pane fade in">TEST</div>'));*/
+  }
+</script>
 
 <script type="text/javascript">(function(d, t, e, m){
 
