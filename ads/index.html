@@ -57,7 +57,17 @@
     </style>
   </head>
   <body>
-    <script type="text/javascript" src="//go.onclasrv.com/apu.php?zoneid=1196785"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.5/mobile-detect.min.js"></script>
+    <script type="text/javascript">
+      var md = new MobileDetect(window.navigator.userAgent);
+      if (md.mobile() === null) {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = false;
+	      s.src = '//go.onclasrv.com/apu.php?zoneid=1196785';
+        (document.body) ? document.body.appendChild(s) : document.head.appendChild(s);
+      }
+    </script>
     <div class="pos-f-t">
       <div class="collapse" id="navbar-header">
         <div class="container bg-inverse p-a-1">
@@ -107,12 +117,12 @@
         mute: 'false',
         creative: 'managed',
         subid: ''
-      }; 
+      };
       (function () {
         var _s = document.createElement('script');
         _s.type = 'text/javascript';
         _s.async = true;
-	      _s.src = 'https://appnext.hs.llnwd.net/tools/tags/widget/m.js'; 
+	      _s.src = 'https://appnext.hs.llnwd.net/tools/tags/widget/m.js';
         (document.body) ? document.body.appendChild(_s) : document.head.appendChild(_s);
       })();
     </script>
