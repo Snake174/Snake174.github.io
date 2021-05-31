@@ -94,7 +94,7 @@ $(document).ready( function() {
               }
             ],
             'autotext': 'true',
-            'subject': 'http://snake174.github.io/ - Обратная связь',
+            'subject': '//snake174.github.io/ - Обратная связь',
             'html': body
           }
         }

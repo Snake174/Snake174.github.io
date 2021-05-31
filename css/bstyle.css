@@ -1,10 +1,10 @@
-/*@font-face{font-family:'Play';src:url('http://snake174.github.io/css/fonts/Play-Regular.eot');src:local('☺'), url('http://snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('http://snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('http://snake174.github.io/css/fonts/Play-Regular.svg') format('svg');font-weight:normal;font-style:normal;}*/
+/*@font-face{font-family:'Play';src:url('//snake174.github.io/css/fonts/Play-Regular.eot');src:local('☺'), url('//snake174.github.io/css/fonts/Play-Regular.woff') format('woff'), url('//snake174.github.io/css/fonts/Play-Regular.ttf') format('truetype'), url('//snake174.github.io/css/fonts/Play-Regular.svg') format('svg');font-weight:normal;font-style:normal;}*/
 @font-face {
   font-family: "Play";
-  src: url("http://snake174.github.io/css/fonts/Exo2Regular.eot");
-  src: url("http://snake174.github.io/css/fonts/Exo2Regular.eot?#iefix")format("embedded-opentype"),
-  url("http://snake174.github.io/css/fonts/Exo2Regular.woff") format("woff"),
-  url("http://snake174.github.io/css/fonts/Exo2Regular.ttf") format("truetype");
+  src: url("//snake174.github.io/css/fonts/Exo2Regular.eot");
+  src: url("//snake174.github.io/css/fonts/Exo2Regular.eot?#iefix")format("embedded-opentype"),
+  url("//snake174.github.io/css/fonts/Exo2Regular.woff") format("woff"),
+  url("//snake174.github.io/css/fonts/Exo2Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }

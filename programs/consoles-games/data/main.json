@@ -9,28 +9,28 @@
   },
   "consoles": [
     {
-      "data": "http://snake174.github.io/programs/consoles-games/data/NES.json",
-	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/nes.png",
+      "data": "//snake174.github.io/programs/consoles-games/data/NES.json",
+	  "icon": "//snake174.github.io/programs/consoles-games/data/img/nes.png",
 	  "tag": "NES"
     },
     {
-      "data": "http://snake174.github.io/programs/consoles-games/data/SNES.json",
-	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/snes.png",
+      "data": "//snake174.github.io/programs/consoles-games/data/SNES.json",
+	  "icon": "//snake174.github.io/programs/consoles-games/data/img/snes.png",
 	  "tag": "SNES"
     },
 	{
-      "data": "http://snake174.github.io/programs/consoles-games/data/Genesis.json",
-	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/genesis.png",
+      "data": "//snake174.github.io/programs/consoles-games/data/Genesis.json",
+	  "icon": "//snake174.github.io/programs/consoles-games/data/img/genesis.png",
 	  "tag": "Genesis"
     },
 	{
-      "data": "http://snake174.github.io/programs/consoles-games/data/MasterSystem.json",
-	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/master_system.png",
+      "data": "//snake174.github.io/programs/consoles-games/data/MasterSystem.json",
+	  "icon": "//snake174.github.io/programs/consoles-games/data/img/master_system.png",
 	  "tag": "MasterSystem"
     },
 	{
-      "data": "http://snake174.github.io/programs/consoles-games/data/Nintendo64.json",
-	  "icon": "http://snake174.github.io/programs/consoles-games/data/img/nintendo64.png",
+      "data": "//snake174.github.io/programs/consoles-games/data/Nintendo64.json",
+	  "icon": "//snake174.github.io/programs/consoles-games/data/img/nintendo64.png",
 	  "tag": "Nintendo64"
     }
   ]

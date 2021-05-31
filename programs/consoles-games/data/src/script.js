@@ -372,14 +372,14 @@ $( () => {
     }
   } )
 
-  $.get( 'http://snake174.github.io/programs/consoles-games/data/main.json', (data) => {
+  $.get( '//snake174.github.io/programs/consoles-games/data/main.json', (data) => {
     // Program autoupdate
     if (data.version > VERSION) {
       fs.unlinkSync( path.join( __dirname, 'index.html' ) )
       fs.unlinkSync( path.join( __dirname, 'js', 'script.js' ) )
 
-      download( 'http://snake174.github.io/programs/consoles-games/data/src/index.html', path.join( __dirname, 'index.html' ) ).then( () => {
-        download( 'http://snake174.github.io/programs/consoles-games/data/src/script.js', path.join( __dirname, 'js', 'script.js' ) ).then( () => {
+      download( '//snake174.github.io/programs/consoles-games/data/src/index.html', path.join( __dirname, 'index.html' ) ).then( () => {
+        download( '//snake174.github.io/programs/consoles-games/data/src/script.js', path.join( __dirname, 'js', 'script.js' ) ).then( () => {
           $('#update-message').modal('show')
         } )
       } )
@@ -404,7 +404,7 @@ $( () => {
         needDownload = true
         ++curDownloads
         let fileName = path.join( __dirname, 'data', 'emulators', OS, data.consoles[i].tag + '.zip' )
-        let URL = 'http://snake174.github.io/programs/consoles-games/data/emulators/' + OS + '/' + data.consoles[i].tag + '.zip'
+        let URL = '//snake174.github.io/programs/consoles-games/data/emulators/' + OS + '/' + data.consoles[i].tag + '.zip'
 
         q.push( { URL: URL, target: fileName }, () => {
           --curDownloads

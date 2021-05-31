@@ -1,37 +1,37 @@
 [
   {
     "title": "Программирование",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/coding.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/coding.png",
     "attr": "coding"
   },
   {
     "title": "Веб технологии",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/web.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/web.png",
     "attr": "web"
   },
   {
     "title": "Разработка",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/development.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/development.png",
     "attr": "development"
   },
   {
     "title": "Базы Данных",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/database.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/database.png",
     "attr": "database"
   },
   {
     "title": "Операционные системы",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/os.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/os.png",
     "attr": "os"
   },
   {
     "title": "Безопасность",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/security.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/security.png",
     "attr": "security"
   },
   {
     "title": "Теория",
-    "image": "http://snake174.github.io/html/other/BooksExplorer/img/categories/theory.png",
+    "image": "//snake174.github.io/html/other/BooksExplorer/img/categories/theory.png",
     "attr": "theory"
   }
 ]
